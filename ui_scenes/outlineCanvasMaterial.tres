@@ -1,0 +1,11 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://bqcafj54nrc7g"]
+
+[ext_resource type="Shader" path="res://object_scenes/items/key/key.gdshader" id="1_u48cb"]
+
+[resource]
+shader = ExtResource("1_u48cb")
+shader_parameter/color = Color(0, 0, 0, 1)
+shader_parameter/width = 2.0
+shader_parameter/pattern = 1
+shader_parameter/inside = true
+shader_parameter/add_margins = true

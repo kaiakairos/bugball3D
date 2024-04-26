@@ -1,0 +1,74 @@
+[gd_scene load_steps=10 format=3 uid="uid://dhhv0ft3tavfy"]
+
+[ext_resource type="Script" path="res://object_scenes/items/key/key.gd" id="1_3umgn"]
+[ext_resource type="Texture2D" uid="uid://ba4uws7u2cjbv" path="res://object_scenes/items/key/shadow.png" id="2_x75mi"]
+[ext_resource type="Texture2D" uid="uid://b60e61cwltiws" path="res://object_scenes/items/key/key1.png" id="3_18cai"]
+[ext_resource type="Shader" path="res://object_scenes/items/key/key.gdshader" id="3_avcke"]
+[ext_resource type="Texture2D" uid="uid://b376jrv8jinvb" path="res://object_scenes/items/key/key2.png" id="4_21yk4"]
+[ext_resource type="Texture2D" uid="uid://dv01x8hdss24j" path="res://object_scenes/items/key/key3.png" id="5_wiwyy"]
+[ext_resource type="Texture2D" uid="uid://doxeti5q20kgt" path="res://object_scenes/items/key/key5.png" id="7_w5vty"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4vame"]
+shader = ExtResource("3_avcke")
+shader_parameter/color = Color(0, 0, 0, 1)
+shader_parameter/width = 1.0
+shader_parameter/pattern = 2
+shader_parameter/inside = true
+shader_parameter/add_margins = true
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_736mw"]
+
+[node name="Key" type="Node2D"]
+script = ExtResource("1_3umgn")
+
+[node name="Key" type="Sprite2D" parent="."]
+texture = ExtResource("2_x75mi")
+
+[node name="keymodel" type="CanvasGroup" parent="."]
+material = SubResource("ShaderMaterial_4vame")
+scale = Vector2(2, 2)
+
+[node name="Key1" type="Sprite2D" parent="keymodel"]
+texture = ExtResource("3_18cai")
+
+[node name="Key2" type="Sprite2D" parent="keymodel"]
+texture = ExtResource("3_18cai")
+
+[node name="Key3" type="Sprite2D" parent="keymodel"]
+texture = ExtResource("4_21yk4")
+
+[node name="Key4" type="Sprite2D" parent="keymodel"]
+texture = ExtResource("4_21yk4")
+
+[node name="Key5" type="Sprite2D" parent="keymodel"]
+texture = ExtResource("3_18cai")
+
+[node name="Key6" type="Sprite2D" parent="keymodel"]
+texture = ExtResource("3_18cai")
+
+[node name="Key7" type="Sprite2D" parent="keymodel"]
+texture = ExtResource("4_21yk4")
+
+[node name="Key8" type="Sprite2D" parent="keymodel"]
+texture = ExtResource("5_wiwyy")
+
+[node name="Key9" type="Sprite2D" parent="keymodel"]
+texture = ExtResource("5_wiwyy")
+
+[node name="Key10" type="Sprite2D" parent="keymodel"]
+texture = ExtResource("5_wiwyy")
+
+[node name="Key11" type="Sprite2D" parent="keymodel"]
+texture = ExtResource("5_wiwyy")
+
+[node name="Key12" type="Sprite2D" parent="keymodel"]
+texture = ExtResource("7_w5vty")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_736mw")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

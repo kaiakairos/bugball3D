@@ -1,0 +1,106 @@
+[gd_scene load_steps=18 format=3 uid="uid://bujmrsxh8k58x"]
+
+[ext_resource type="Script" path="res://main_scenes/mainMenu/main_menu.gd" id="1_hw8g4"]
+[ext_resource type="PackedScene" uid="uid://bno8isqo481fp" path="res://main_scenes/mainMenu/menu_graphic.tscn" id="1_p8yr1"]
+[ext_resource type="Texture2D" uid="uid://bl80ak0n20tef" path="res://main_scenes/mainMenu/logo.png" id="2_pl7be"]
+[ext_resource type="FontFile" uid="uid://c0esfecfk2hon" path="res://alphabets/GrapeSoda.ttf" id="2_x70bn"]
+[ext_resource type="Material" uid="uid://dni0f72utkxpd" path="res://main_scenes/mainMenu/outlineMenu.tres" id="3_bnjcp"]
+[ext_resource type="PackedScene" uid="uid://bjfqebv7jrgw" path="res://main_scenes/mainMenu/words/play_world.tscn" id="4_2uvpa"]
+[ext_resource type="PackedScene" uid="uid://xae7y1uj6t7b" path="res://main_scenes/mainMenu/words/option.tscn" id="5_y6o5q"]
+[ext_resource type="PackedScene" uid="uid://bmstbokphhqcq" path="res://main_scenes/mainMenu/words/credits.tscn" id="6_n1y50"]
+[ext_resource type="Texture2D" uid="uid://b4pj6fxwahlt8" path="res://main_scenes/mainMenu/courseSelects/text.png" id="9_x8jye"]
+[ext_resource type="Texture2D" uid="uid://d8ffmgomnn23" path="res://ui_scenes/courseIcons/forest.png" id="10_n6bi1"]
+[ext_resource type="PackedScene" uid="uid://cxnhvxlqgrs73" path="res://ui_scenes/courseIcons/course_icon.tscn" id="10_oxygi"]
+[ext_resource type="Texture2D" uid="uid://c80mwv1t68yhs" path="res://ui_scenes/courseIcons/iceworld.png" id="11_ecv8t"]
+[ext_resource type="Texture2D" uid="uid://db71nn3eb80aa" path="res://ui_scenes/courseIcons/red.png" id="12_qcvc4"]
+[ext_resource type="Texture2D" uid="uid://bk55xt00g5h85" path="res://ui_scenes/courseIcons/difBorder.png" id="14_7e6oy"]
+[ext_resource type="Texture2D" uid="uid://bkvvtu3m0rsjm" path="res://ui_scenes/courseIcons/difSelect.png" id="15_2xe7m"]
+[ext_resource type="Material" uid="uid://b21jm8np24uvw" path="res://main_scenes/mainMenu/transition.tres" id="16_wnogl"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_mt1ax"]
+font = ExtResource("2_x70bn")
+font_size = 32
+outline_size = 15
+outline_color = Color(0, 0, 0, 1)
+
+[node name="MainMenu" type="Node2D"]
+script = ExtResource("1_hw8g4")
+
+[node name="versionLabel" type="Label" parent="."]
+offset_left = 9.0
+offset_top = 267.0
+offset_right = 55.0
+offset_bottom = 299.0
+text = "v0.1"
+label_settings = SubResource("LabelSettings_mt1ax")
+
+[node name="MenuGraphic" parent="." instance=ExtResource("1_p8yr1")]
+
+[node name="farticles" type="CanvasGroup" parent="."]
+material = ExtResource("3_bnjcp")
+
+[node name="MAINMENU" type="Node2D" parent="."]
+
+[node name="Logo" type="Sprite2D" parent="MAINMENU"]
+position = Vector2(343, 83)
+texture = ExtResource("2_pl7be")
+centered = false
+offset = Vector2(-195, -148)
+
+[node name="buttons" type="CanvasGroup" parent="MAINMENU"]
+material = ExtResource("3_bnjcp")
+
+[node name="playWorld" parent="MAINMENU/buttons" instance=ExtResource("4_2uvpa")]
+position = Vector2(420, 159)
+partPos = Vector2(25, 5)
+
+[node name="option" parent="MAINMENU/buttons" instance=ExtResource("5_y6o5q")]
+position = Vector2(395, 194)
+partPos = Vector2(43, 5)
+
+[node name="credit" parent="MAINMENU/buttons" instance=ExtResource("6_n1y50")]
+position = Vector2(383, 223)
+partPos = Vector2(50, 10)
+
+[node name="COURSESELECT" type="Node2D" parent="."]
+position = Vector2(0, 300)
+
+[node name="Text" type="Sprite2D" parent="COURSESELECT"]
+position = Vector2(252, 57)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("9_x8jye")
+
+[node name="Courses" type="Node2D" parent="COURSESELECT"]
+position = Vector2(250, 110)
+
+[node name="CourseIcon" parent="COURSESELECT/Courses" instance=ExtResource("10_oxygi")]
+image = ExtResource("10_n6bi1")
+easyLevels = Array[String](["\"res://main_scenes/levels/courseEasy/0.tscn\"", "\"res://main_scenes/levels/courseEasy/1.tscn\"", "\"res://main_scenes/levels/courseEasy/2.tscn\"", "\"res://main_scenes/levels/courseEasy/3.tscn\"", "\"res://main_scenes/levels/courseEasy/4.tscn\"", "\"res://main_scenes/levels/courseEasy/5.tscn\"", "\"res://main_scenes/levels/courseEasy/6.tscn\""])
+courseName = "forest"
+
+[node name="CourseIcon2" parent="COURSESELECT/Courses" instance=ExtResource("10_oxygi")]
+position = Vector2(0, 95)
+image = ExtResource("11_ecv8t")
+
+[node name="CourseIcon3" parent="COURSESELECT/Courses" instance=ExtResource("10_oxygi")]
+position = Vector2(0, 190)
+image = ExtResource("12_qcvc4")
+
+[node name="Difficulty" type="Node2D" parent="COURSESELECT"]
+position = Vector2(500, 0)
+
+[node name="DifBorder" type="Sprite2D" parent="COURSESELECT/Difficulty"]
+position = Vector2(258, 204)
+texture = ExtResource("14_7e6oy")
+
+[node name="DifSelect" type="Sprite2D" parent="COURSESELECT/Difficulty/DifBorder"]
+position = Vector2(-110, 0)
+texture = ExtResource("15_2xe7m")
+
+[node name="transition" type="ColorRect" parent="."]
+z_index = 220
+material = ExtResource("16_wnogl")
+offset_top = -100.0
+offset_right = 500.0
+offset_bottom = 400.0
+color = Color(0, 0, 0, 1)

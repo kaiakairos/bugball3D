@@ -1,0 +1,114 @@
+[gd_scene load_steps=11 format=3 uid="uid://083y3dx2midt"]
+
+[ext_resource type="Texture2D" uid="uid://ba4uws7u2cjbv" path="res://object_scenes/items/key/shadow.png" id="1_1b3u6"]
+[ext_resource type="Script" path="res://object_scenes/items/key/keyblast/key_spirit.gd" id="1_klhsg"]
+[ext_resource type="Texture2D" uid="uid://dab1d4q5ggovj" path="res://object_scenes/items/key/keySpirit.png" id="2_agec4"]
+[ext_resource type="Shader" path="res://object_scenes/items/key/key.gdshader" id="3_25iv3"]
+[ext_resource type="Texture2D" uid="uid://bvyw26rlg3ysb" path="res://object_scenes/items/key/beam.png" id="5_t8nlg"]
+[ext_resource type="Texture2D" uid="uid://wjdr3i5uffsc" path="res://object_scenes/items/key/bro.png" id="6_kqyw2"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_nvr3x"]
+shader = ExtResource("3_25iv3")
+shader_parameter/color = Color(0, 0, 0, 1)
+shader_parameter/width = 2.0
+shader_parameter/pattern = 1
+shader_parameter/inside = true
+shader_parameter/add_margins = true
+
+[sub_resource type="Curve" id="Curve_wsc63"]
+_data = [Vector2(0, 0), 0.635908, 8.15728, 0, 0, Vector2(1, 0), -2.6982, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_4sdm6"]
+_data = [Vector2(0, 0), 0.635908, 7.70542, 0, 0, Vector2(1, 0), -2.6982, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_u0ht7"]
+max_value = 4.2
+_data = [Vector2(0, 1.31443), 0.0, -0.273369, 0, 0, Vector2(1, 0), -3.13132, 0.0, 0, 0]
+point_count = 2
+
+[node name="keySpirit" type="CharacterBody2D"]
+z_index = 16
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("1_klhsg")
+
+[node name="Shadow" type="Sprite2D" parent="."]
+texture = ExtResource("1_1b3u6")
+
+[node name="KeySpirit" type="CanvasGroup" parent="."]
+material = SubResource("ShaderMaterial_nvr3x")
+
+[node name="sprite" type="Sprite2D" parent="KeySpirit"]
+texture = ExtResource("2_agec4")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="KeySpirit"]
+amount = 32
+lifetime = 0.5
+texture = ExtResource("5_t8nlg")
+emission_shape = 1
+emission_sphere_radius = 6.0
+direction = Vector2(0, 0)
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_max = 46.08
+angular_velocity_min = -720.0
+angular_velocity_max = 720.0
+radial_accel_max = 100.0
+scale_amount_min = 0.0
+scale_amount_curve = SubResource("Curve_wsc63")
+
+[node name="CPUParticles2D2" type="CPUParticles2D" parent="KeySpirit"]
+amount = 16
+lifetime = 0.25
+local_coords = true
+texture = ExtResource("6_kqyw2")
+emission_shape = 1
+emission_sphere_radius = 19.52
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 36.87
+initial_velocity_max = 64.52
+angular_velocity_min = -720.0
+angular_velocity_max = 720.0
+orbit_velocity_min = -1.0
+orbit_velocity_max = 1.0
+scale_amount_min = 0.0
+scale_amount_curve = SubResource("Curve_4sdm6")
+
+[node name="CPUParticles2D3" type="CPUParticles2D" parent="KeySpirit"]
+emitting = false
+amount = 16
+one_shot = true
+explosiveness = 1.0
+texture = ExtResource("6_kqyw2")
+emission_shape = 3
+emission_rect_extents = Vector2(32, 3)
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_max = 87.55
+angular_velocity_min = -720.0
+angular_velocity_max = 720.0
+radial_accel_min = -100.0
+radial_accel_max = -100.0
+angle_min = -720.0
+angle_max = 720.0
+scale_amount_curve = SubResource("Curve_u0ht7")
+
+[node name="CPUParticles2D4" type="CPUParticles2D" parent="KeySpirit"]
+emitting = false
+amount = 16
+one_shot = true
+explosiveness = 1.0
+texture = ExtResource("6_kqyw2")
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_max = 87.55
+angular_velocity_min = -720.0
+angular_velocity_max = 720.0
+radial_accel_min = -100.0
+radial_accel_max = -100.0
+angle_min = -720.0
+angle_max = 720.0
+scale_amount_curve = SubResource("Curve_u0ht7")

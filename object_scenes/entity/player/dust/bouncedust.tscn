@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://c41a6oq1waey7"]
+
+[ext_resource type="Texture2D" uid="uid://c7rr4gjqtj7nr" path="res://object_scenes/entity/player/dust/shape.png" id="1_tjun2"]
+[ext_resource type="Script" path="res://object_scenes/entity/player/dust/bouncedust.gd" id="2_2otti"]
+
+[sub_resource type="Curve" id="Curve_rxxkh"]
+_data = [Vector2(0, 0.994026), 0.0, 0.0, 0, 0, Vector2(1, 0), -3.22878, 0.0, 0, 0]
+point_count = 2
+
+[node name="BOUNCEDUST" type="CPUParticles2D"]
+rotation = -4.70742
+emitting = false
+amount = 16
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+texture = ExtResource("1_tjun2")
+emission_shape = 3
+emission_rect_extents = Vector2(4, 16)
+particle_flag_align_y = true
+spread = 37.33
+gravity = Vector2(0, 0)
+initial_velocity_min = 24.89
+initial_velocity_max = 95.53
+damping_min = 82.488
+damping_max = 100.0
+scale_amount_min = 0.3
+scale_amount_curve = SubResource("Curve_rxxkh")
+script = ExtResource("2_2otti")

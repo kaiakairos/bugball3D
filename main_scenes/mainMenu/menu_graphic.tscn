@@ -1,0 +1,145 @@
+[gd_scene load_steps=16 format=3 uid="uid://bno8isqo481fp"]
+
+[ext_resource type="Script" path="res://main_scenes/mainMenu/menu_graphic.gd" id="1_ca84g"]
+[ext_resource type="PackedScene" uid="uid://cqtpmctqdhfpl" path="res://object_scenes/entity/player/ball_3d.tscn" id="1_plinf"]
+[ext_resource type="Texture2D" uid="uid://df6aelqd7htaa" path="res://world_scenes/world_textures/fullGrass.png" id="2_y63db"]
+[ext_resource type="Texture2D" uid="uid://c0tdaqdtwvs4d" path="res://world_scenes/world_textures/fillG.png" id="3_y6pj8"]
+[ext_resource type="Texture2D" uid="uid://tbyc7pt578v3" path="res://world_scenes/world_textures/testDirt.png" id="5_vdn6f"]
+[ext_resource type="Texture2D" uid="uid://c466qecgphkjj" path="res://world_scenes/world_textures/BROWN.png" id="6_57a2g"]
+[ext_resource type="Texture2D" uid="uid://cw6hac8sdxtr5" path="res://world_scenes/world_textures/GREEN.png" id="7_eiilh"]
+[ext_resource type="Texture2D" uid="uid://ddv173uhgjv4j" path="res://main_scenes/mainMenu/shadow.png" id="8_1t4rb"]
+[ext_resource type="Texture2D" uid="uid://b0qlad4wpgle0" path="res://main_scenes/mainMenu/3dpart.png" id="9_uin7o"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f57lf"]
+cull_mode = 1
+shading_mode = 0
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_hspcb"]
+material = SubResource("StandardMaterial3D_f57lf")
+radius = 0.55
+height = 1.1
+
+[sub_resource type="Environment" id="Environment_tvqxi"]
+background_mode = 1
+background_color = Color(0.0117647, 0.117647, 0.172549, 1)
+ambient_light_source = 2
+ambient_light_color = Color(0.168627, 0.27451, 0.611765, 1)
+ambient_light_energy = 10.65
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3ue7v"]
+transparency = 1
+shading_mode = 0
+albedo_texture = ExtResource("9_uin7o")
+texture_filter = 0
+billboard_mode = 1
+billboard_keep_scale = true
+
+[sub_resource type="QuadMesh" id="QuadMesh_ta8r1"]
+material = SubResource("StandardMaterial3D_3ue7v")
+
+[sub_resource type="Curve" id="Curve_d78ux"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.994653, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[node name="MenuGraphic" type="Node3D"]
+script = ExtResource("1_ca84g")
+
+[node name="ball3d" parent="." instance=ExtResource("1_plinf")]
+
+[node name="floor" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, -0.64126, -10.24)
+pixel_size = 0.04
+transparent = false
+double_sided = false
+texture_filter = 0
+texture = ExtResource("2_y63db")
+
+[node name="Sprite3D2" type="Sprite3D" parent="floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.0708771)
+pixel_size = 0.04
+double_sided = false
+texture_filter = 0
+texture = ExtResource("3_y6pj8")
+
+[node name="floor2" type="Sprite3D" parent="floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.83125, 0, 2.3935)
+cast_shadow = 0
+modulate = Color(0.266667, 0.556863, 0.952941, 1)
+pixel_size = 0.04
+transparent = false
+texture_filter = 0
+texture = ExtResource("2_y63db")
+
+[node name="Sprite3D2" type="Sprite3D" parent="floor/floor2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.235)
+pixel_size = 0.04
+double_sided = false
+texture_filter = 0
+texture = ExtResource("3_y6pj8")
+
+[node name="Sprite3D" type="Sprite3D" parent="floor"]
+transform = Transform3D(7.21715e-14, -2.38227e-08, -1, -13.21, -2.38227e-08, -3.55271e-15, -5.77427e-07, 0.545, -4.37114e-08, 3.75214, -1.83329, 1.04818)
+pixel_size = 0.04
+transparent = false
+texture_filter = 0
+texture = ExtResource("5_vdn6f")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_hspcb")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.615662, 0.202623, -0.761515, 0, 0.966376, 0.257133, 0.788011, -0.158307, 0.594961, -1.343, 0.799, 2.092)
+current = true
+fov = 1.0
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_tvqxi")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(-1.80519e-06, 0.707107, -0.707107, 4.35811e-06, 0.707107, 0.707107, 141, -1.28028e-08, -3.09086e-08, 3.647, -0.523, -9)
+pixel_size = 0.0175
+transparent = false
+texture_filter = 0
+render_priority = -2
+texture = ExtResource("6_57a2g")
+
+[node name="Sprite3D2" type="Sprite3D" parent="."]
+transform = Transform3D(-1.80519e-06, 0.707107, -0.707107, 4.35811e-06, 0.707107, 0.707107, 141, -1.28028e-08, -3.09086e-08, 3.647, 1.76932, -9)
+pixel_size = 0.0175
+transparent = false
+no_depth_test = true
+texture_filter = 0
+texture = ExtResource("7_eiilh")
+
+[node name="Sprite3D3" type="Sprite3D" parent="."]
+transform = Transform3D(-3.42042e-06, -0.913709, -0.40637, -3.24847e-06, 0.40637, -0.913709, 141, -1.28028e-08, -3.09086e-08, 3.807, 1.814, -9)
+pixel_size = 0.0175
+transparent = false
+no_depth_test = true
+texture_filter = 0
+texture = ExtResource("7_eiilh")
+
+[node name="CAM" type="Node3D" parent="."]
+transform = Transform3D(0.615662, 0.202623, -0.761515, 0, 0.966376, 0.257133, 0.788011, -0.158307, 0.594961, -1.343, 1.03509, 2.30546)
+
+[node name="BASE" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 8.15855, 9, 1.4)
+
+[node name="shadow" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, -0.45, 0)
+pixel_size = 0.0125
+double_sided = false
+texture_filter = 0
+texture = ExtResource("8_1t4rb")
+
+[node name="CPUParticles3D" type="CPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0101242, -0.226875, -0.294654)
+amount = 6
+mesh = SubResource("QuadMesh_ta8r1")
+direction = Vector3(0, 0, -1)
+spread = 0.0
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 5.0
+initial_velocity_max = 5.0
+scale_amount_curve = SubResource("Curve_d78ux")

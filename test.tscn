@@ -1,0 +1,68 @@
+[gd_scene load_steps=8 format=3 uid="uid://gxhvv5qwvj2l"]
+
+[ext_resource type="PackedScene" uid="uid://bith1com1osw4" path="res://world_scenes/floor/cool_floor.tscn" id="1_du72g"]
+[ext_resource type="PackedScene" uid="uid://8dac38b54nn2" path="res://object_scenes/entity/player/player.tscn" id="1_foh4h"]
+[ext_resource type="PackedScene" uid="uid://b00oindmgrd6" path="res://world_scenes/hole/hole.tscn" id="4_cxty7"]
+[ext_resource type="PackedScene" uid="uid://dhhv0ft3tavfy" path="res://object_scenes/items/key/key.tscn" id="5_57qrb"]
+[ext_resource type="PackedScene" uid="uid://c62xj3l0gknum" path="res://object_scenes/items/door.png/door.tscn" id="6_hhnhw"]
+[ext_resource type="PackedScene" uid="uid://s2xavy6ulj3q" path="res://world_scenes/boost/boost_pad.tscn" id="7_5t0d6"]
+[ext_resource type="Texture2D" uid="uid://doi3exd1khlbq" path="res://ui_scenes/gay little tutorial/placeholder.png" id="7_8bh1b"]
+
+[node name="test" type="Node2D"]
+
+[node name="coolFloor" parent="." instance=ExtResource("1_du72g")]
+position = Vector2(58, 86)
+polygon = PackedVector2Array(-37, -4, -110, -41, -98, -86, -55, -119, 11, -114, 20, -62, 373, -62, 426, -21, 421, 157, 378, 202, 9, 201, -36, 154)
+
+[node name="Player" parent="." instance=ExtResource("1_foh4h")]
+position = Vector2(455, 248)
+cameraLimitX = Vector2(200, 250)
+cameraLimitY = Vector2(0, 150)
+
+[node name="HOLE2" parent="." instance=ExtResource("4_cxty7")]
+position = Vector2(29, 222)
+polygon = PackedVector2Array(38, 66, -7, 18, 275, 18, 329, 66)
+
+[node name="Key" parent="." node_paths=PackedStringArray("door") instance=ExtResource("5_57qrb")]
+position = Vector2(212, 177)
+door = NodePath("../door")
+
+[node name="door" parent="." instance=ExtResource("6_hhnhw")]
+position = Vector2(25, 84)
+length = 82
+angle = -0.785
+
+[node name="boostPad" parent="." instance=ExtResource("7_5t0d6")]
+position = Vector2(422, 168)
+texture_rotation = 1.571
+polygon = PackedVector2Array(-51, 4, -53, -39, 25, -126, 59, -99, 60, 57, 0, 28)
+angle = 1.571
+
+[node name="boostPad2" parent="." instance=ExtResource("7_5t0d6")]
+position = Vector2(191, 169)
+texture_rotation = 3.142
+polygon = PackedVector2Array(28, -66, -33, -140, 238, -141, 256, -127, 179, -41)
+angle = 3.142
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(5, 51)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(-55, -103, -75, -8, -19, 246, 13, 315, 540, 313, 566, 237, 62, 237, 17, 189, 16, 31, -56, -6, -46, -52, -2, -85, 64, -79, 73, -27, 426, -27, 479, 14, 474, 192, 427, 241, 547, 234, 574, -50, 117.305, -51.8087, 93, -51, 88, -93)
+
+[node name="coolFloor2" parent="." instance=ExtResource("1_du72g")]
+position = Vector2(188, -40)
+color = Color(0.596078, 0.596078, 0.596078, 1)
+polygon = PackedVector2Array(-119, 12, 123, -181, 675, -166, 729, 442, 180, 726, -398, 593, -570, 210, -563, -103, -255, -228, 394, -203, 437, 14, -119, 12, -185, 7, -228, 40, -239, 85, -167, 122, -166, 280, -121, 328, 248, 328, 291, 283, 296, 106, 243, 65, -110, 65)
+renderWalls = false
+camOffset = 0.1
+
+[node name="HOLE" parent="." instance=ExtResource("4_cxty7")]
+position = Vector2(-11, -1)
+polygon = PackedVector2Array(-8, 8, 25, -13, 54, -7, 54, 21, 26, 42, -10, 37)
+
+[node name="Placeholder" type="Sprite2D" parent="."]
+z_index = -2
+position = Vector2(34, 130)
+texture = ExtResource("7_8bh1b")
+centered = false

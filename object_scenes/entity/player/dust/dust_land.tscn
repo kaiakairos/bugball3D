@@ -1,0 +1,74 @@
+[gd_scene load_steps=11 format=3 uid="uid://bg16458ofl7iq"]
+
+[ext_resource type="Texture2D" uid="uid://cyg5km8k3wm3r" path="res://object_scenes/entity/player/dust/land.png" id="1_g0786"]
+[ext_resource type="Script" path="res://object_scenes/entity/player/dust/dust_land.gd" id="2_ls22i"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_drhbu"]
+atlas = ExtResource("1_g0786")
+region = Rect2(0, 0, 88, 88)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v3et2"]
+atlas = ExtResource("1_g0786")
+region = Rect2(88, 0, 88, 88)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wlh5h"]
+atlas = ExtResource("1_g0786")
+region = Rect2(176, 0, 88, 88)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s22vl"]
+atlas = ExtResource("1_g0786")
+region = Rect2(264, 0, 88, 88)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t11ew"]
+atlas = ExtResource("1_g0786")
+region = Rect2(352, 0, 88, 88)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mbmmm"]
+atlas = ExtResource("1_g0786")
+region = Rect2(440, 0, 88, 88)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d8u8s"]
+atlas = ExtResource("1_g0786")
+region = Rect2(528, 0, 88, 88)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ky6ou"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_drhbu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v3et2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wlh5h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s22vl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t11ew")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mbmmm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d8u8s")
+}, {
+"duration": 1.0,
+"texture": null
+}],
+"loop": false,
+"name": &"default",
+"speed": 24.0
+}]
+
+[node name="dustLand" type="AnimatedSprite2D"]
+z_index = -2
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_ky6ou")
+frame = 7
+frame_progress = 1.0
+script = ExtResource("2_ls22i")
+
+[connection signal="animation_finished" from="." to="." method="_on_animation_finished"]

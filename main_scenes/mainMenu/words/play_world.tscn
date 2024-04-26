@@ -1,0 +1,34 @@
+[gd_scene load_steps=3 format=3 uid="uid://bjfqebv7jrgw"]
+
+[ext_resource type="Script" path="res://main_scenes/mainMenu/words/play_world.gd" id="1_8wm1j"]
+[ext_resource type="Texture2D" uid="uid://mpq1uk2ohee4" path="res://main_scenes/mainMenu/playword.png" id="1_evf1t"]
+
+[node name="playWorld" type="Node2D"]
+modulate = Color(0.6, 0.588235, 0.654902, 1)
+script = ExtResource("1_8wm1j")
+
+[node name="p" type="Sprite2D" parent="."]
+texture = ExtResource("1_evf1t")
+centered = false
+hframes = 4
+
+[node name="l" type="Sprite2D" parent="."]
+position = Vector2(12, 0)
+texture = ExtResource("1_evf1t")
+centered = false
+hframes = 4
+frame = 1
+
+[node name="a" type="Sprite2D" parent="."]
+position = Vector2(24, 0)
+texture = ExtResource("1_evf1t")
+centered = false
+hframes = 4
+frame = 2
+
+[node name="y" type="Sprite2D" parent="."]
+position = Vector2(39, 0)
+texture = ExtResource("1_evf1t")
+centered = false
+hframes = 4
+frame = 3

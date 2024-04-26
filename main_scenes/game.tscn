@@ -1,0 +1,84 @@
+[gd_scene load_steps=7 format=3 uid="uid://thujt01appmd"]
+
+[ext_resource type="Script" path="res://main_scenes/game.gd" id="1_ot3mi"]
+[ext_resource type="Shader" path="res://main_scenes/game.gdshader" id="2_u2nxt"]
+[ext_resource type="Script" path="res://main_scenes/UI.gd" id="3_7oxq6"]
+[ext_resource type="FontFile" uid="uid://c0esfecfk2hon" path="res://alphabets/GrapeSoda.ttf" id="3_p1qcx"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ssbx2"]
+shader = ExtResource("2_u2nxt")
+shader_parameter/circle_size = 1.0
+shader_parameter/retard = Vector2(0.5, 0.5)
+
+[sub_resource type="LabelSettings" id="LabelSettings_jstgy"]
+font = ExtResource("3_p1qcx")
+font_size = 32
+outline_size = 15
+outline_color = Color(0, 0, 0, 1)
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_ot3mi")
+
+[node name="transition" type="ColorRect" parent="."]
+z_index = 220
+material = SubResource("ShaderMaterial_ssbx2")
+offset_top = -100.0
+offset_right = 500.0
+offset_bottom = 400.0
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect" type="ColorRect" parent="transition"]
+layout_mode = 0
+offset_left = -695.0
+offset_top = -151.0
+offset_bottom = 679.0
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect4" type="ColorRect" parent="transition"]
+layout_mode = 0
+offset_left = 500.0
+offset_top = -277.0
+offset_right = 1195.0
+offset_bottom = 775.0
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="transition"]
+layout_mode = 0
+offset_left = -695.0
+offset_top = -278.0
+offset_right = 1061.0
+offset_bottom = 100.0
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="transition"]
+layout_mode = 0
+offset_left = -693.0
+offset_top = 400.0
+offset_right = 1065.0
+offset_bottom = 778.0
+color = Color(0, 0, 0, 1)
+
+[node name="Container" type="Node2D" parent="."]
+
+[node name="UI" type="Node2D" parent="."]
+z_index = 400
+position = Vector2(250, 150)
+script = ExtResource("3_7oxq6")
+
+[node name="finalTime" type="Label" parent="UI"]
+visible = false
+offset_left = -222.0
+offset_top = -98.0
+offset_right = 28.0
+offset_bottom = -31.0
+text = "final time !
+press z to restart"
+label_settings = SubResource("LabelSettings_jstgy")
+
+[node name="Timer" type="Label" parent="UI"]
+offset_left = -239.0
+offset_top = -145.0
+offset_right = -139.0
+offset_bottom = -107.0
+text = "0 : 00.00"
+label_settings = SubResource("LabelSettings_jstgy")

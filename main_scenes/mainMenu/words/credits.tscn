@@ -1,0 +1,54 @@
+[gd_scene load_steps=3 format=3 uid="uid://bmstbokphhqcq"]
+
+[ext_resource type="Script" path="res://main_scenes/mainMenu/words/play_world.gd" id="1_k56ds"]
+[ext_resource type="Texture2D" uid="uid://dkge35uwf28wi" path="res://main_scenes/mainMenu/creditWord.png" id="2_p8h1m"]
+
+[node name="credit" type="Node2D"]
+script = ExtResource("1_k56ds")
+
+[node name="c" type="Sprite2D" parent="."]
+texture = ExtResource("2_p8h1m")
+centered = false
+hframes = 7
+
+[node name="c2" type="Sprite2D" parent="."]
+position = Vector2(14, 0)
+texture = ExtResource("2_p8h1m")
+centered = false
+hframes = 7
+frame = 1
+
+[node name="c3" type="Sprite2D" parent="."]
+position = Vector2(28, 0)
+texture = ExtResource("2_p8h1m")
+centered = false
+hframes = 7
+frame = 2
+
+[node name="c4" type="Sprite2D" parent="."]
+position = Vector2(43, 0)
+texture = ExtResource("2_p8h1m")
+centered = false
+hframes = 7
+frame = 3
+
+[node name="c5" type="Sprite2D" parent="."]
+position = Vector2(55, 0)
+texture = ExtResource("2_p8h1m")
+centered = false
+hframes = 7
+frame = 4
+
+[node name="c6" type="Sprite2D" parent="."]
+position = Vector2(65, 0)
+texture = ExtResource("2_p8h1m")
+centered = false
+hframes = 7
+frame = 5
+
+[node name="c7" type="Sprite2D" parent="."]
+position = Vector2(78, 0)
+texture = ExtResource("2_p8h1m")
+centered = false
+hframes = 7
+frame = 6

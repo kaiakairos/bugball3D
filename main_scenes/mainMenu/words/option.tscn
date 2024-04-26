@@ -1,0 +1,47 @@
+[gd_scene load_steps=3 format=3 uid="uid://xae7y1uj6t7b"]
+
+[ext_resource type="Script" path="res://main_scenes/mainMenu/words/play_world.gd" id="1_3h2dp"]
+[ext_resource type="Texture2D" uid="uid://dlslamcau3jcr" path="res://main_scenes/mainMenu/optionWord.png" id="2_o0tmm"]
+
+[node name="option" type="Node2D"]
+script = ExtResource("1_3h2dp")
+
+[node name="o" type="Sprite2D" parent="."]
+texture = ExtResource("2_o0tmm")
+centered = false
+hframes = 6
+
+[node name="o2" type="Sprite2D" parent="."]
+position = Vector2(15, 0)
+texture = ExtResource("2_o0tmm")
+centered = false
+hframes = 6
+frame = 1
+
+[node name="o3" type="Sprite2D" parent="."]
+position = Vector2(29, 0)
+texture = ExtResource("2_o0tmm")
+centered = false
+hframes = 6
+frame = 2
+
+[node name="o4" type="Sprite2D" parent="."]
+position = Vector2(39, 0)
+texture = ExtResource("2_o0tmm")
+centered = false
+hframes = 6
+frame = 3
+
+[node name="o5" type="Sprite2D" parent="."]
+position = Vector2(50, 0)
+texture = ExtResource("2_o0tmm")
+centered = false
+hframes = 6
+frame = 4
+
+[node name="o6" type="Sprite2D" parent="."]
+position = Vector2(65, 0)
+texture = ExtResource("2_o0tmm")
+centered = false
+hframes = 6
+frame = 5

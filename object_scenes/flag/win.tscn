@@ -1,0 +1,54 @@
+[gd_scene load_steps=7 format=3 uid="uid://d3fge1vcn4swp"]
+
+[ext_resource type="Script" path="res://object_scenes/flag/win.gd" id="1_o3r8f"]
+[ext_resource type="Shader" path="res://object_scenes/items/key/key.gdshader" id="2_swxdq"]
+[ext_resource type="Texture2D" uid="uid://cpeh758jlsrb5" path="res://object_scenes/flag/c.png" id="3_vdglf"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ceust"]
+shader = ExtResource("2_swxdq")
+shader_parameter/color = Color(0, 0, 0, 1)
+shader_parameter/width = 2.0
+shader_parameter/pattern = 1
+shader_parameter/inside = true
+shader_parameter/add_margins = true
+
+[sub_resource type="Curve" id="Curve_6jnpx"]
+max_value = 2.0
+_data = [Vector2(0, 0), 0.0, 32.2417, 0, 0, Vector2(0.0467706, 1.97821), 0.407725, 0.407725, 0, 0, Vector2(0.224944, 1.42246), 0.0, 0.0, 0, 0, Vector2(0.449889, 1.95641), 0.0, 0.0, 0, 0, Vector2(0.991091, 0), -7.90361, 0.0, 0, 0]
+point_count = 5
+
+[sub_resource type="Curve" id="Curve_t2x18"]
+min_value = -1.0
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[node name="WIN" type="Node2D"]
+script = ExtResource("1_o3r8f")
+
+[node name="CanvasGroup" type="CanvasGroup" parent="."]
+material = SubResource("ShaderMaterial_ceust")
+
+[node name="fuck" type="CPUParticles2D" parent="CanvasGroup"]
+emitting = false
+amount = 32
+one_shot = true
+explosiveness = 1.0
+texture = ExtResource("3_vdglf")
+emission_shape = 1
+emission_sphere_radius = 16.0
+direction = Vector2(0, -1)
+spread = 63.52
+gravity = Vector2(0, 0)
+initial_velocity_max = 186.72
+angular_velocity_min = -30.77
+angular_velocity_max = 36.92
+radial_accel_min = -100.0
+damping_min = 100.0
+damping_max = 100.0
+angle_min = -124.6
+angle_max = -59.5
+scale_amount_curve = SubResource("Curve_6jnpx")
+color = Color(0.788235, 0.341176, 0.556863, 1)
+hue_variation_min = -0.18
+hue_variation_max = 0.06
+hue_variation_curve = SubResource("Curve_t2x18")

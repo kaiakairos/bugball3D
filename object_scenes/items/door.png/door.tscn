@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://c62xj3l0gknum"]
+
+[ext_resource type="Script" path="res://object_scenes/items/door.png/door.gd" id="1_tmpds"]
+
+[node name="door" type="Node2D"]
+script = ExtResource("1_tmpds")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+z_index = 1
+color = Color(0, 0, 0, 1)
+
+[node name="walls" type="Node2D" parent="."]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
