@@ -9,8 +9,11 @@ var levels :Array[String] = [
 "res://main_scenes/levels/courseEasy/2.tscn",
 "res://main_scenes/levels/courseEasy/3.tscn",
 "res://main_scenes/levels/courseEasy/4.tscn",
+"res://main_scenes/levels/courseEasy/8.tscn",
 "res://main_scenes/levels/courseEasy/5.tscn",
+"res://main_scenes/levels/courseEasy/9.tscn",
 "res://main_scenes/levels/courseEasy/6.tscn",
+"res://main_scenes/levels/courseEasy/7.tscn",
 ]
 
 var current = 0

@@ -16,6 +16,7 @@ func _ready():
 	
 	ins.displayLeftOutline = true
 	ins.displayRightOutline = true
+	ins.shouldHaveCollision = false
 	
 	$walls.add_child(ins)
 	
@@ -25,6 +26,7 @@ func _ready():
 	
 	inss.displayLeftOutline = true
 	inss.displayRightOutline = true
+	inss.shouldHaveCollision = false
 	
 	$walls.add_child(inss)
 	

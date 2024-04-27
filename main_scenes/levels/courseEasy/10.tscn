@@ -1,0 +1,30 @@
+[gd_scene load_steps=6 format=3 uid="uid://bkynw84ae6uxu"]
+
+[ext_resource type="PackedScene" uid="uid://bith1com1osw4" path="res://world_scenes/floor/cool_floor.tscn" id="1_f6hm1"]
+[ext_resource type="PackedScene" uid="uid://8dac38b54nn2" path="res://object_scenes/entity/player/player.tscn" id="2_ylmje"]
+[ext_resource type="PackedScene" uid="uid://d3fge1vcn4swp" path="res://object_scenes/flag/win.tscn" id="3_3se3d"]
+[ext_resource type="PackedScene" uid="uid://c62xj3l0gknum" path="res://object_scenes/items/door.png/door.tscn" id="4_8pcpn"]
+[ext_resource type="PackedScene" uid="uid://dhhv0ft3tavfy" path="res://object_scenes/items/key/key.tscn" id="5_hfoli"]
+
+[node name="10" type="Node2D"]
+
+[node name="coolFloor" parent="." instance=ExtResource("1_f6hm1")]
+position = Vector2(80, 80)
+polygon = PackedVector2Array(0, -16, 24, -48, 72, -48, 96, -16, 96, 96, 104, 104, 232, 104, 232, 184, 72, 184, 0, 112)
+
+[node name="Player" parent="." instance=ExtResource("2_ylmje")]
+position = Vector2(128, 168)
+cameraLimitX = Vector2(250, 250)
+cameraLimitY = Vector2(150, 150)
+startingAngle = Vector2(0, 1)
+
+[node name="WIN" parent="." instance=ExtResource("3_3se3d")]
+position = Vector2(128, 72)
+
+[node name="door" parent="." instance=ExtResource("4_8pcpn")]
+position = Vector2(80, 120)
+length = 96
+
+[node name="Key" parent="." node_paths=PackedStringArray("door") instance=ExtResource("5_hfoli")]
+position = Vector2(288, 224)
+door = NodePath("../door")
