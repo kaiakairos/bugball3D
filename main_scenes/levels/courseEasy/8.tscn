@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://barm6h7e5tnec"]
+
+[ext_resource type="PackedScene" uid="uid://bith1com1osw4" path="res://world_scenes/floor/cool_floor.tscn" id="1_u5x2v"]
+[ext_resource type="PackedScene" uid="uid://8dac38b54nn2" path="res://object_scenes/entity/player/player.tscn" id="2_5g2of"]
+[ext_resource type="PackedScene" uid="uid://s2xavy6ulj3q" path="res://world_scenes/boost/boost_pad.tscn" id="3_byo1b"]
+[ext_resource type="PackedScene" uid="uid://d3fge1vcn4swp" path="res://object_scenes/flag/win.tscn" id="4_gry0j"]
+
+[node name="8" type="Node2D"]
+
+[node name="coolFloor" parent="." instance=ExtResource("1_u5x2v")]
+position = Vector2(16, 88)
+polygon = PackedVector2Array(0, 16, 16, 0, 1032, 0, 1056, 24, 1056, 112, 1032, 136, 16, 136, 0, 120)
+
+[node name="Player" parent="." instance=ExtResource("2_5g2of")]
+position = Vector2(48, 112)
+cameraLimitX = Vector2(230, 860)
+cameraLimitY = Vector2(160, 160)
+startingAngle = Vector2(1, 0)
+
+[node name="boostPad" parent="." instance=ExtResource("3_byo1b")]
+position = Vector2(224, 120)
+polygon = PackedVector2Array(-8, -24, 16, 8, 16, 64, -8, 96, 720, 96, 744, 48, 744, 24, 720, -24)
+
+[node name="WIN" parent="." instance=ExtResource("4_gry0j")]
+position = Vector2(1032, 184)

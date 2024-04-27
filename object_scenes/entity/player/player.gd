@@ -84,7 +84,7 @@ func _process(delta):
 		fallingMovement(delta)
 		return
 	
-	if $boostCast.is_colliding() and air <= 0.0 and rolling:
+	if $boostCast.is_colliding() and air <= 0.0:
 		var col = $boostCast.get_collider()
 		if col != null:
 			velocity += Vector2(20,0).rotated(-col.get_parent().angle)
@@ -115,6 +115,8 @@ func _process(delta):
 		return
 	
 	rolling = Input.is_action_pressed("roll")
+	if $boostCast.is_colliding():
+		rolling = true
 	getValues()
 	
 	

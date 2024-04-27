@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=3 uid="uid://df6cw2fun6blf"]
+
+[ext_resource type="PackedScene" uid="uid://bith1com1osw4" path="res://world_scenes/floor/cool_floor.tscn" id="1_xpgds"]
+[ext_resource type="PackedScene" uid="uid://8dac38b54nn2" path="res://object_scenes/entity/player/player.tscn" id="2_vg124"]
+[ext_resource type="PackedScene" uid="uid://d3fge1vcn4swp" path="res://object_scenes/flag/win.tscn" id="3_jcj6g"]
+[ext_resource type="PackedScene" uid="uid://s2xavy6ulj3q" path="res://world_scenes/boost/boost_pad.tscn" id="4_4jg10"]
+[ext_resource type="PackedScene" uid="uid://b00oindmgrd6" path="res://world_scenes/hole/hole.tscn" id="5_8c33d"]
+
+[node name="7" type="Node2D"]
+
+[node name="coolFloor" parent="." instance=ExtResource("1_xpgds")]
+position = Vector2(-1, 118)
+polygon = PackedVector2Array(49, 18, 65, 2, 697, 2, 785, 90, 785, 98, 697, 186, 1, 186, -79, 106, -79, 18, -63, 2, -15, 2, 1, 18, 1, 106, 169, 106, 145, 82, 65, 82, 49, 66)
+
+[node name="Player" parent="." instance=ExtResource("2_vg124")]
+position = Vector2(96, 160)
+cameraLimitX = Vector2(130.45, 575)
+cameraLimitY = Vector2(210, 210)
+startingAngle = Vector2(1, 0)
+
+[node name="WIN" parent="." instance=ExtResource("3_jcj6g")]
+position = Vector2(-40, 160)
+
+[node name="boostPad" parent="." instance=ExtResource("4_4jg10")]
+position = Vector2(264, 216)
+texture_rotation = 3.142
+polygon = PackedVector2Array(176, 8, 424, 8, 424, 40, 424, 56, 424, 88, 176, 88, 152, 72, 152, 24)
+angle = 3.142
+
+[node name="HOLE" parent="." instance=ExtResource("5_8c33d")]
+position = Vector2(96, 232)
+polygon = PackedVector2Array(304, -8, 304, 72, -96, 72, -136, 32, -96, -8)
+
+[node name="coolFloor2" parent="." instance=ExtResource("1_xpgds")]
+position = Vector2(0, 160)
+color = Color(0.266667, 0.556863, 0.952941, 1)
+polygon = PackedVector2Array(0, -24, -16, -40, -64, -40, -80, -24, -80, 64, -232, 64, -232, -216, 920, -216, 920, 384, -232, 384, -232, 64, -80, 64, 0, 144, 328, 144, 696, 144, 784, 56, 784, 48, 696, -40, 64, -40, 48, -24, 48, 24, 64, 40, 144, 40, 168, 64, 0, 64)
+renderWalls = false
+camOffset = 0.1
