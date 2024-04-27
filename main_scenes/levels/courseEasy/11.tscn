@@ -1,0 +1,43 @@
+[gd_scene load_steps=7 format=3 uid="uid://nqx4lja8saot"]
+
+[ext_resource type="PackedScene" uid="uid://bith1com1osw4" path="res://world_scenes/floor/cool_floor.tscn" id="1_30mju"]
+[ext_resource type="PackedScene" uid="uid://8dac38b54nn2" path="res://object_scenes/entity/player/player.tscn" id="2_b3uri"]
+[ext_resource type="PackedScene" uid="uid://c62xj3l0gknum" path="res://object_scenes/items/door.png/door.tscn" id="3_1k1mq"]
+[ext_resource type="PackedScene" uid="uid://b00oindmgrd6" path="res://world_scenes/hole/hole.tscn" id="4_1hdhv"]
+[ext_resource type="PackedScene" uid="uid://dhhv0ft3tavfy" path="res://object_scenes/items/key/key.tscn" id="5_vsc85"]
+[ext_resource type="PackedScene" uid="uid://d3fge1vcn4swp" path="res://object_scenes/flag/win.tscn" id="6_xbg1l"]
+
+[node name="11" type="Node2D"]
+
+[node name="coolFloor" parent="." instance=ExtResource("1_30mju")]
+position = Vector2(128, 152)
+polygon = PackedVector2Array(-64, -64, -104, -64, -128, -88, -128, -168, -104, -192, -24, -192, 0, -168, 0, -128, 256, -128, 320, -64, 320, 64, 256, 128, 0, 128, -64, 64)
+
+[node name="Player" parent="." instance=ExtResource("2_b3uri")]
+position = Vector2(352, 56)
+cameraLimitX = Vector2(224, 224)
+cameraLimitY = Vector2(90, 150)
+startingAngle = Vector2(-1, 0)
+
+[node name="door" parent="." instance=ExtResource("3_1k1mq")]
+position = Vector2(64, 88)
+length = 91
+angle = -0.785
+
+[node name="HOLE" parent="." instance=ExtResource("4_1hdhv")]
+position = Vector2(368, 104)
+polygon = PackedVector2Array(-240, 0, -224, -16, 80, -16, 80, 112, -224, 112, -240, 96)
+
+[node name="Key" parent="." node_paths=PackedStringArray("door") instance=ExtResource("5_vsc85")]
+position = Vector2(400, 152)
+door = NodePath("../door")
+
+[node name="WIN" parent="." instance=ExtResource("6_xbg1l")]
+position = Vector2(48, 8)
+
+[node name="coolFloor2" parent="." instance=ExtResource("1_30mju")]
+position = Vector2(176, -72)
+color = Color(0.266667, 0.556863, 0.952941, 1)
+polygon = PackedVector2Array(-320, -64, 336, -64, 336, 528, -48, 528, -48, 352, 208, 352, 272, 288, 272, 160, 208, 96, -48, 96, -48, 56, -72, 32, -152, 32, -176, 56, -176, 136, -152, 160, -112, 160, -112, 288, -48, 352, -48, 528, -320, 528)
+renderWalls = false
+camOffset = 0.1

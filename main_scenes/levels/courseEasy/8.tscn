@@ -23,3 +23,10 @@ polygon = PackedVector2Array(-8, -24, 16, 8, 16, 64, -8, 96, 720, 96, 744, 48, 7
 
 [node name="WIN" parent="." instance=ExtResource("4_gry0j")]
 position = Vector2(1032, 184)
+
+[node name="coolFloor2" parent="." instance=ExtResource("1_u5x2v")]
+position = Vector2(32, 8)
+color = Color(0.266667, 0.556863, 0.952941, 1)
+polygon = PackedVector2Array(-144, -120, 1296, -120, 1296, 392, 0, 392, 0, 216, 1016, 216, 1040, 192, 1040, 104, 1016, 80, 0, 80, -16, 96, -16, 200, 0, 216, 0, 392, -144, 392)
+renderWalls = false
+camOffset = 0.1

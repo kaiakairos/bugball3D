@@ -47,6 +47,8 @@ var canMove = false
 
 ## dusts
 
+var soundSubtract = 1.0
+
 #@onready var landDust = preload("res://object_scenes/entity/player/dust/dust_land.tscn")
 @onready var bounceDust = preload("res://object_scenes/entity/player/dust/bouncedust.tscn")
 
@@ -169,6 +171,18 @@ func rollingMovement(newDir,delta):
 	
 	if speed > 11000:
 		shouldDecelerate = true
+	
+	
+	if tick % 8 == 0:
+		
+		var vol = ((velocity.length() / 1000.0) * 42.0) - 24.0
+		vol = clamp(vol,-24,0.0)
+		var pitch = velocity.length() / 1000.0
+		pitch = clamp(pitch,0.01,2.5)
+		
+		Sound.playSound2D(global_position,"res://audio/speed.ogg",vol,pitch)
+		
+	
 
 func staticMovement(newDir,delta):
 	
@@ -223,7 +237,7 @@ func flipFeet():
 	$body/Feet.frame = int(!feetFlip)
 	$head/Feet.frame = int(feetFlip)
 	$tail/Feet.frame = int(feetFlip)
-	
+	Sound.playSound2D(global_position,"res://audio/footstep.ogg",4.0)
 	
 	feetFlip = !feetFlip
 
@@ -352,6 +366,8 @@ func checkIfHole():
 		
 		setZHeightFALL(0)
 		
+		Sound.playSound2D(global_position,"res://audio/fall.ogg",-4.0)
+		
 		await get_tree().create_timer(1.0).timeout
 		
 		if win:
@@ -391,6 +407,7 @@ func fallingMovement(delta):
 			if norm != Vector2.ZERO:
 				velocity = velocity.bounce(norm) * 0.99
 				Global.shakeCamera(velocity.length() / 300.0)
+				bounceSound()
 				move_and_slide()
 			
 		$holeCast.target_position = velocity.normalized() * rayLength
@@ -401,10 +418,8 @@ func fallingMovement(delta):
 func landed():
 	if falling:
 		return
-		
-	#var ins = landDust.instantiate()
-	#ins.position = position
-	#get_parent().add_child(ins)
+	
+	Sound.playSound2D(global_position,"res://audio/brush.ogg",-4.0)
 	$CanvasGroup/LAND.emitting = true
 
 func bounced(normal):
@@ -416,4 +431,24 @@ func bounced(normal):
 		ins.rotation = normal.angle()
 		ins.position = normal * -12
 		$CanvasGroup.add_child(ins)
+		bounceSound()
+	
+	if velocity.length() > 25:
+		Sound.playSound2D(global_position,"res://audio/brush.ogg",-4.0)
+		
 	Global.shakeCamera(velocity.length() / 300.0)
+	
+func bounceSound():
+	var pitch = 1.5 - (velocity.length() / 1000.0)
+	var keep = pitch
+	var vol = (velocity.length() / 75.0) - 5.0
+	
+	pitch = clamp(pitch,0.5,1.5)
+	vol = clamp(vol,-10,5)
+	
+	if falling:
+		vol += soundSubtract
+		soundSubtract -= 1.0
+	
+	Sound.playSound2D(global_position,"res://audio/bounce.ogg",vol,pitch)
+	

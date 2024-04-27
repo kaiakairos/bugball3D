@@ -21,7 +21,7 @@ func _process(delta):
 func catch():
 	var ins = faggot.instantiate()
 	ins.position = position
-	ins.velocity = Global.player.velocity
+	ins.velocity = Global.player.velocity * 0.75
 	ins.door = door
 	get_parent().add_child(ins)
 

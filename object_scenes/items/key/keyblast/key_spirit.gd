@@ -31,9 +31,9 @@ func _process(delta):
 	
 	$KeySpirit/CPUParticles2D4.position = position - prev
 	
-	multi *= 1.05
+	multi *= 1.2
 	
-	if dir.length() < 32:
+	if dir.length() < 48:
 		
 		global_position = door.get_global()
 		
