@@ -1,0 +1,44 @@
+[gd_scene load_steps=5 format=3 uid="uid://dt427drkvymdu"]
+
+[ext_resource type="PackedScene" uid="uid://bith1com1osw4" path="res://world_scenes/floor/cool_floor.tscn" id="1_1v4gx"]
+[ext_resource type="PackedScene" uid="uid://8dac38b54nn2" path="res://object_scenes/entity/player/player.tscn" id="2_nh2eb"]
+[ext_resource type="PackedScene" uid="uid://b00oindmgrd6" path="res://world_scenes/hole/hole.tscn" id="3_q7aar"]
+[ext_resource type="PackedScene" uid="uid://d3fge1vcn4swp" path="res://object_scenes/flag/win.tscn" id="4_g4ca5"]
+
+[node name="9" type="Node2D"]
+
+[node name="coolFloor" parent="." instance=ExtResource("1_1v4gx")]
+position = Vector2(64, 64)
+polygon = PackedVector2Array(-120, -144, 64, -144, 456, -144, 576, -104, 640, 0, 576, 112, 424, 160, -120, 160, -144, 136, -144, -32, -120, -56)
+
+[node name="Player" parent="." instance=ExtResource("2_nh2eb")]
+position = Vector2(-40, 184)
+cameraLimitX = Vector2(-8987, 89789)
+cameraLimitY = Vector2(-76575, 789789)
+startingAngle = Vector2(1, 0)
+
+[node name="HOLE" parent="." instance=ExtResource("3_q7aar")]
+position = Vector2(8, 32)
+polygon = PackedVector2Array(-64, -112, 120, -112, 120, 8, 72, 8, 72, 128, -16, 128, -64, 80, -64, -24)
+
+[node name="HOLE2" parent="." instance=ExtResource("3_q7aar")]
+position = Vector2(432, 16)
+polygon = PackedVector2Array(-192, 0, 56, 0, 56, -32, 96, -32, 112, -16, 112, 48, 96, 64, -192, 64)
+
+[node name="HOLE3" parent="." instance=ExtResource("3_q7aar")]
+position = Vector2(272, 40)
+polygon = PackedVector2Array(64, 80, 320, 80, 320, -96, 368, -80, 432, 24, 368, 136, 216, 184, 64, 184)
+
+[node name="coolFloor3" parent="." instance=ExtResource("1_1v4gx")]
+position = Vector2(120, 56)
+color = Color(0.403922, 0.403922, 0.403922, 0.623529)
+polygon = PackedVector2Array(40, -16, 96, -72, 368, -72, 368, -40, 120, -40, 120, 104, -40, 104, -40, -16)
+sepLayer = false
+swapWalls = true
+
+[node name="WIN" parent="." instance=ExtResource("4_g4ca5")]
+position = Vector2(168, -40)
+
+[node name="HOLE4" parent="." instance=ExtResource("3_q7aar")]
+position = Vector2(336, -80)
+polygon = PackedVector2Array(-80, 0, 80, 0, 80, 16, 24, 16, 24, 48, 80, 48, 80, 64, -80, 64)
