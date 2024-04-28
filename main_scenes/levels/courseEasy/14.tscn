@@ -1,0 +1,159 @@
+[gd_scene load_steps=8 format=3 uid="uid://xj61uu5o8nb1"]
+
+[ext_resource type="PackedScene" uid="uid://bith1com1osw4" path="res://world_scenes/floor/cool_floor.tscn" id="1_i04vc"]
+[ext_resource type="PackedScene" uid="uid://8dac38b54nn2" path="res://object_scenes/entity/player/player.tscn" id="2_g5m7y"]
+[ext_resource type="PackedScene" uid="uid://d3fge1vcn4swp" path="res://object_scenes/flag/win.tscn" id="3_cbgdy"]
+[ext_resource type="PackedScene" uid="uid://b00oindmgrd6" path="res://world_scenes/hole/hole.tscn" id="4_26qgh"]
+[ext_resource type="PackedScene" uid="uid://dhhv0ft3tavfy" path="res://object_scenes/items/key/key.tscn" id="5_3wni4"]
+[ext_resource type="PackedScene" uid="uid://c62xj3l0gknum" path="res://object_scenes/items/door.png/door.tscn" id="6_j73ol"]
+[ext_resource type="PackedScene" uid="uid://s2xavy6ulj3q" path="res://world_scenes/boost/boost_pad.tscn" id="7_h7q1i"]
+
+[node name="14" type="Node2D"]
+
+[node name="coolFloor" parent="." instance=ExtResource("1_i04vc")]
+position = Vector2(104, 8)
+polygon = PackedVector2Array(120, 160, 128, 120, 160, 128, 232, 128, 344, 144, 384, 184, 512, 184, 648, 208, 632, 144, 680, 104, 648, -32, 800, -16, 816, 96, 736, 104, 728, 208, 688, 208, 696, 248, 664, 280, 608, 304, 624, 424, 608, 440, 600, 512, 696, 520, 688, 664, 632, 664, 680, 704, 672, 760, 560, 800, 344, 800, 336, 664, 232, 648, 248, 744, 160, 792, 0, 808, 0, 697, 120, 624, 136, 552, 80, 520, 72, 504, 120, 504, 128, 456, 56, 408, 56, 304, 136, 280, 72, 240, 80, 144)
+
+[node name="coolFloor4" parent="." instance=ExtResource("1_i04vc")]
+position = Vector2(472, 608)
+color = Color(0.772549, 0.772549, 0.772549, 1)
+polygon = PackedVector2Array(0, 8, 40, 0, 64, 24, 56, 64, 0, 40)
+swapWalls = true
+
+[node name="coolFloor5" parent="." instance=ExtResource("1_i04vc")]
+position = Vector2(600, 720)
+color = Color(0.772549, 0.772549, 0.772549, 1)
+polygon = PackedVector2Array(0, 8, 152, -8, 144, 40, 56, 64, 0, 56)
+swapWalls = true
+
+[node name="coolFloor7" parent="." instance=ExtResource("1_i04vc")]
+position = Vector2(576, 360)
+color = Color(0.772549, 0.772549, 0.772549, 1)
+polygon = PackedVector2Array(0, 8, 8, 0, 56, 0, 64, 8, 64, 56, 56, 64, 8, 64, 0, 56)
+swapWalls = true
+
+[node name="coolFloor9" parent="." instance=ExtResource("1_i04vc")]
+position = Vector2(408, 472)
+color = Color(0.772549, 0.772549, 0.772549, 1)
+polygon = PackedVector2Array(8, -32, 136, -64, 128, 16, 72, 16, 56, 64, 0, 64)
+swapWalls = true
+
+[node name="coolFloor10" parent="." instance=ExtResource("1_i04vc")]
+position = Vector2(288, 392)
+color = Color(0.772549, 0.772549, 0.772549, 1)
+polygon = PackedVector2Array(24, 24, 56, 0, 64, 8, 64, 56, 56, 64, 8, 64, 0, 56)
+swapWalls = true
+
+[node name="coolFloor11" parent="." instance=ExtResource("1_i04vc")]
+position = Vector2(184, 312)
+color = Color(0.772549, 0.772549, 0.772549, 1)
+polygon = PackedVector2Array(0, 8, 8, 0, 56, 0, 64, 8, 64, 56, 56, 64, 8, 64, 0, 56)
+swapWalls = true
+
+[node name="coolFloor13" parent="." instance=ExtResource("1_i04vc")]
+position = Vector2(200, 176)
+color = Color(0.772549, 0.772549, 0.772549, 1)
+polygon = PackedVector2Array(0, 8, 8, 0, 56, 0, 64, 8, 64, 56, 56, 64, 8, 64, 0, 56)
+swapWalls = true
+
+[node name="coolFloor14" parent="." instance=ExtResource("1_i04vc")]
+position = Vector2(304, 256)
+color = Color(0.772549, 0.772549, 0.772549, 1)
+polygon = PackedVector2Array(0, 8, 8, 0, 56, 0, 64, 8, 88, 48, 8, 80, 0, 56)
+swapWalls = true
+
+[node name="coolFloor15" parent="." instance=ExtResource("1_i04vc")]
+position = Vector2(424, 320)
+color = Color(0.772549, 0.772549, 0.772549, 1)
+polygon = PackedVector2Array(0, 8, 8, 0, 56, 0, 64, 8, 64, 56, 56, 64, 8, 64, 0, 56)
+swapWalls = true
+
+[node name="coolFloor16" parent="." instance=ExtResource("1_i04vc")]
+position = Vector2(560, 512)
+color = Color(0.772549, 0.772549, 0.772549, 1)
+polygon = PackedVector2Array(0, 8, 8, 0, 56, 0, 64, 8, 64, 56, 56, 64, 8, 64, 0, 56)
+swapWalls = true
+
+[node name="coolFloor17" parent="." instance=ExtResource("1_i04vc")]
+position = Vector2(696, 592)
+color = Color(0.772549, 0.772549, 0.772549, 1)
+polygon = PackedVector2Array(0, 8, 8, 0, 56, 0, 64, 8, 64, 56, 56, 64, 8, 64, 0, 56)
+swapWalls = true
+
+[node name="coolFloor19" parent="." instance=ExtResource("1_i04vc")]
+position = Vector2(632, 224)
+color = Color(0.772549, 0.772549, 0.772549, 1)
+polygon = PackedVector2Array(0, 8, 8, 0, 56, 0, 64, 8, 64, 56, 56, 64, 8, 64, 0, 56)
+swapWalls = true
+
+[node name="coolFloor20" parent="." instance=ExtResource("1_i04vc")]
+position = Vector2(504, 200)
+color = Color(0.772549, 0.772549, 0.772549, 1)
+polygon = PackedVector2Array(0, 8, 8, 0, 56, 0, 64, 8, 64, 56, 56, 64, 8, 64, 0, 56)
+swapWalls = true
+
+[node name="coolFloor21" parent="." instance=ExtResource("1_i04vc")]
+position = Vector2(504, 200)
+color = Color(0.772549, 0.772549, 0.772549, 1)
+polygon = PackedVector2Array(0, 8, 8, 0, 56, 0, 64, 8, 64, 56, 56, 64, 8, 64, 0, 56)
+swapWalls = true
+
+[node name="coolFloor30" parent="." instance=ExtResource("1_i04vc")]
+position = Vector2(592, 616)
+color = Color(0.772549, 0.772549, 0.772549, 1)
+polygon = PackedVector2Array(0, 8, 8, 0, 56, 0, 64, 8, 64, 56, 56, 64, 8, 64, 0, 56)
+swapWalls = true
+
+[node name="coolFloor34" parent="." instance=ExtResource("1_i04vc")]
+position = Vector2(480, 712)
+color = Color(0.772549, 0.772549, 0.772549, 1)
+polygon = PackedVector2Array(8, 0, 64, 8, 64, 56, 0, 56)
+swapWalls = true
+
+[node name="coolFloor37" parent="." instance=ExtResource("1_i04vc")]
+position = Vector2(296, 152)
+color = Color(0.772549, 0.772549, 0.772549, 1)
+polygon = PackedVector2Array(0, 8, 56, 8, 136, 24, 176, 64, 0, 56)
+swapWalls = true
+
+[node name="Player" parent="." instance=ExtResource("2_g5m7y")]
+position = Vector2(168, 768)
+cameraLimitX = Vector2(-7808, 80878)
+cameraLimitY = Vector2(-78078, 6000)
+
+[node name="WIN" parent="." instance=ExtResource("3_cbgdy")]
+position = Vector2(840, 48)
+
+[node name="HOLE" parent="." instance=ExtResource("4_26qgh")]
+position = Vector2(312, 464)
+polygon = PackedVector2Array(0, 0, 88, -8, 88, 56, 78, 74, 88, 96, 112, 144, 24, 104, 0, 96, -72, 96, -128, 64, -136, 48, -88, 48, -80, 0)
+
+[node name="HOLE2" parent="." instance=ExtResource("4_26qgh")]
+position = Vector2(536, 496)
+polygon = PackedVector2Array(0, 0, 8, 24, 22.7354, 87.8531, 112, 88, 112, 112, 56, 112, 48, 272, 24, 264, 8, 120, -32, 96, -96, 112, -112, 64, -136, 48, -64, 48, -56, 0)
+
+[node name="HOLE3" parent="." instance=ExtResource("4_26qgh")]
+position = Vector2(408, 240)
+polygon = PackedVector2Array(-24, -16, 32, -16, 72, -8, 64, 24, 24, 48, -8, 48, -40, 8)
+
+[node name="HOLE4" parent="." instance=ExtResource("4_26qgh")]
+position = Vector2(528, 296)
+polygon = PackedVector2Array(-24, -16, 32, -16, 72, -8, 64, 24, 24, 48, -8, 48, -40, 8)
+
+[node name="HOLE5" parent="." instance=ExtResource("4_26qgh")]
+position = Vector2(360, 336)
+polygon = PackedVector2Array(-16, -8, 40, -32, 104, -40, 16, 8, -88, 72, -96, 32)
+
+[node name="Key" parent="." node_paths=PackedStringArray("door") instance=ExtResource("5_3wni4")]
+position = Vector2(192, 416)
+door = NodePath("../door")
+
+[node name="door" parent="." instance=ExtResource("6_j73ol")]
+position = Vector2(784, 120)
+length = 96
+
+[node name="boostPad" parent="." instance=ExtResource("7_h7q1i")]
+position = Vector2(624, 448)
+texture_rotation = 1.571
+polygon = PackedVector2Array(-72, -16, -80, 48, 8, 64, 24, 112, 56, 168, 64, 136, 160, 136, 176, 88, 72, 80, 72, -8, 96, -16, 88, -72, 24, -72, 26.1328, -10.2275)
+angle = 1.571
