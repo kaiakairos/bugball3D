@@ -12,14 +12,6 @@ texture = ExtResource("1_2lfe1")
 polygon = PackedVector2Array(0, 0, 96, 0, 96, 64, 0, 64)
 script = ExtResource("2_sp2x6")
 
-[node name="Line2D" type="Line2D" parent="."]
-closed = true
-width = 4.0
-default_color = Color(0, 0, 0, 1)
-joint_mode = 2
-begin_cap_mode = 2
-end_cap_mode = 2
-
 [node name="layer2" type="Polygon2D" parent="."]
 texture = ExtResource("4_04th6")
 texture_scale = Vector2(1.04, 1.04)
@@ -27,3 +19,18 @@ texture_scale = Vector2(1.04, 1.04)
 [node name="layer1" type="Polygon2D" parent="."]
 texture = ExtResource("3_ul0oi")
 texture_scale = Vector2(1.02, 1.02)
+
+[node name="Line2D" type="Line2D" parent="."]
+closed = true
+width = 4.0
+default_color = Color(0.00392157, 0.0509804, 0.0313726, 1)
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 16384
+collision_mask = 0
+monitoring = false
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]

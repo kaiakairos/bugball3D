@@ -350,6 +350,11 @@ func checkIfHole():
 			return
 		
 		var win = collider.get_parent().amWin
+		
+		if $islandCast.is_colliding() and !win:
+			jumpVelocity = 0.0
+			return
+		
 		if win:
 			collider.get_parent().get_parent().entered()
 			
