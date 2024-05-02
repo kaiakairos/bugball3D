@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://ylv32ggvnoy"]
+
+[ext_resource type="PackedScene" uid="uid://bith1com1osw4" path="res://world_scenes/floor/cool_floor.tscn" id="1_nddie"]
+[ext_resource type="PackedScene" uid="uid://8dac38b54nn2" path="res://object_scenes/entity/player/player.tscn" id="2_71pfq"]
+[ext_resource type="PackedScene" uid="uid://b00oindmgrd6" path="res://world_scenes/hole/hole.tscn" id="3_q0iwl"]
+[ext_resource type="PackedScene" uid="uid://d3fge1vcn4swp" path="res://object_scenes/flag/win.tscn" id="4_o001y"]
+
+[node name="m0" type="Node2D"]
+
+[node name="coolFloor" parent="." instance=ExtResource("1_nddie")]
+position = Vector2(64, 64)
+polygon = PackedVector2Array(0, 0, 64, 0, 64, 240, 80, 256, 304, 256, 320, 240, 320, 128, 312, 96, 320, 64, 352, 56, 384, 64, 392, 96, 384, 128, 384, 288, 352, 320, 32, 320, 0, 288)
+
+[node name="Player" parent="." instance=ExtResource("2_71pfq")]
+position = Vector2(96, 96)
+startingAngle = Vector2(0, 1)
+
+[node name="HOLE" parent="." instance=ExtResource("3_q0iwl")]
+position = Vector2(216, 320)
+polygon = PackedVector2Array(0, 0, 72, 0, 72, 64, 0, 64)
+
+[node name="HOLE2" parent="." instance=ExtResource("3_q0iwl")]
+position = Vector2(64, 232)
+polygon = PackedVector2Array(0, 0, 64, 0, 64, 64, 0, 64)
+
+[node name="HOLE3" parent="." instance=ExtResource("3_q0iwl")]
+position = Vector2(384, 216)
+polygon = PackedVector2Array(0, 0, 64, 0, 64, 72, 0, 72)
+
+[node name="WIN" parent="." instance=ExtResource("4_o001y")]
+position = Vector2(416, 160)

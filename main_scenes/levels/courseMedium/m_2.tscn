@@ -1,0 +1,103 @@
+[gd_scene load_steps=6 format=3 uid="uid://6sk1cii67xxw"]
+
+[ext_resource type="PackedScene" uid="uid://bith1com1osw4" path="res://world_scenes/floor/cool_floor.tscn" id="1_etwtg"]
+[ext_resource type="PackedScene" uid="uid://b00oindmgrd6" path="res://world_scenes/hole/hole.tscn" id="2_tykh4"]
+[ext_resource type="PackedScene" uid="uid://8dac38b54nn2" path="res://object_scenes/entity/player/player.tscn" id="3_vwjtp"]
+[ext_resource type="PackedScene" uid="uid://s2xavy6ulj3q" path="res://world_scenes/boost/boost_pad.tscn" id="4_2dy0l"]
+[ext_resource type="PackedScene" uid="uid://d3fge1vcn4swp" path="res://object_scenes/flag/win.tscn" id="5_ffgih"]
+
+[node name="m2" type="Node2D"]
+
+[node name="coolFloor" parent="." instance=ExtResource("1_etwtg")]
+position = Vector2(32, 32)
+polygon = PackedVector2Array(-32, -224, 480, -224, 568, -168, 568, -112, 544, -88, 544, 352, -32, 352)
+
+[node name="HOLE" parent="." instance=ExtResource("2_tykh4")]
+polygon = PackedVector2Array(0, -192, 512, -192, 512, -128, 336, -128, 336, -88, 512, -88, 512, -56, 576, -56, 576, 384, 144, 384, 144, 256, 248, 256, 248, 344, 472, 344, 472, 88, 80, 88, 80, -88, 264, -88, 264, -128, 40, -128, 40, 136, 424, 136, 424, 296, 304, 296, 304, 208, 80, 208, 80, 320, 0, 320)
+
+[node name="Player" parent="." instance=ExtResource("3_vwjtp")]
+position = Vector2(32, 352)
+cameraLimitX = Vector2(215, 400)
+cameraLimitY = Vector2(0, 260)
+startingAngle = Vector2(1, 0)
+
+[node name="boostPad" parent="." instance=ExtResource("4_2dy0l")]
+position = Vector2(280, 336)
+texture_rotation = -1.571
+polygon = PackedVector2Array(-32, 8, -16, -8, 176, -8, 192, 8)
+angle = -1.571
+
+[node name="boostPad2" parent="." instance=ExtResource("4_2dy0l")]
+position = Vector2(456, 264)
+polygon = PackedVector2Array(0, 64, 0, -160, 16, -176, 16, 80)
+
+[node name="boostPad3" parent="." instance=ExtResource("4_2dy0l")]
+position = Vector2(72, -80)
+polygon = PackedVector2Array(8, -8, -6, 6, -6, 154, 8, 168)
+
+[node name="boostPad6" parent="." instance=ExtResource("4_2dy0l")]
+position = Vector2(304, 208)
+polygon = PackedVector2Array(-16, 16, -16, 72, 0, 88, 0, 0)
+
+[node name="boostPad7" parent="." instance=ExtResource("4_2dy0l")]
+position = Vector2(80, 88)
+texture_rotation = 1.571
+polygon = PackedVector2Array(0, 0, 16, 16, 376, 16, 392, 0)
+angle = 1.571
+
+[node name="boostPad8" parent="." instance=ExtResource("4_2dy0l")]
+position = Vector2(80, 208)
+texture_rotation = 1.571
+polygon = PackedVector2Array(16, 16, 0, 0, 224, 0, 208, 16)
+angle = 1.571
+
+[node name="boostPad9" parent="." instance=ExtResource("4_2dy0l")]
+position = Vector2(304, 296)
+texture_rotation = 1.571
+polygon = PackedVector2Array(16, 16, 104, 16, 120, 0, 0, 0)
+angle = 1.571
+
+[node name="boostPad10" parent="." instance=ExtResource("4_2dy0l")]
+position = Vector2(80, 320)
+texture_rotation = 3.142
+polygon = PackedVector2Array(16, -16, 16, -96, 0, -112, 0, 0)
+angle = 3.142
+
+[node name="boostPad11" parent="." instance=ExtResource("4_2dy0l")]
+position = Vector2(248, 256)
+texture_rotation = 3.142
+polygon = PackedVector2Array(16, 16, 16, 72, 0, 88, 0, 0)
+angle = 3.142
+
+[node name="boostPad12" parent="." instance=ExtResource("4_2dy0l")]
+position = Vector2(424, 296)
+texture_rotation = 3.142
+polygon = PackedVector2Array(16, -16, 16, -144, 0, -160, 0, 0)
+angle = 3.142
+
+[node name="boostPad13" parent="." instance=ExtResource("4_2dy0l")]
+position = Vector2(40, 136)
+texture_rotation = -1.571
+polygon = PackedVector2Array(16, -16, 368, -16, 384, 0, 0, 0)
+angle = -1.571
+
+[node name="boostPad14" parent="." instance=ExtResource("4_2dy0l")]
+position = Vector2(40, 136)
+texture_rotation = 3.142
+polygon = PackedVector2Array(16, -16, 16, -248, 0, -264, 0, 0)
+angle = 3.142
+
+[node name="boostPad15" parent="." instance=ExtResource("4_2dy0l")]
+position = Vector2(40, -128)
+texture_rotation = 1.571
+polygon = PackedVector2Array(0, 0, 224, 0, 224, 16, 16, 16)
+angle = 1.571
+
+[node name="boostPad16" parent="." instance=ExtResource("4_2dy0l")]
+position = Vector2(336, -128)
+texture_rotation = -1.571
+polygon = PackedVector2Array(0, 40, 176, 40, 176, 0, 0, 0)
+angle = -1.571
+
+[node name="WIN" parent="." instance=ExtResource("5_ffgih")]
+position = Vector2(560, -96)

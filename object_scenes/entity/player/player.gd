@@ -52,6 +52,8 @@ var soundSubtract = 1.0
 #@onready var landDust = preload("res://object_scenes/entity/player/dust/dust_land.tscn")
 @onready var bounceDust = preload("res://object_scenes/entity/player/dust/bouncedust.tscn")
 
+var jumpBufferTicks = 0
+
 func _ready():
 	
 	
@@ -94,10 +96,16 @@ func _process(delta):
 	else:
 		$CanvasGroup/DASH.emitting = false
 	
-	if Input.is_action_just_pressed("jump") and air <= 0.0:
+	if Input.is_action_just_pressed("jump"):
+		jumpBufferTicks = 10
+	if	jumpBufferTicks > 0 and air <= 0.0:
 		air = 0.0
 		jumpVelocity = 10.0
 		velocity += dir.normalized() * 1000 * delta
+		jumpBufferTicks = 0
+	
+	if jumpBufferTicks > 0:
+		jumpBufferTicks -= 1
 	
 	jumpVelocity -= 40.0 * delta
 	var keep = air

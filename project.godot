@@ -25,6 +25,8 @@ Sound="*res://autoload/sound.gd"
 
 window/size/viewport_width=500
 window/size/viewport_height=300
+window/size/window_width_override=1000
+window/size/window_height_override=600
 window/stretch/mode="viewport"
 
 [editor]

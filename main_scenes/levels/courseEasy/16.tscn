@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://b1haqfd4snm84"]
+
+[ext_resource type="PackedScene" uid="uid://bith1com1osw4" path="res://world_scenes/floor/cool_floor.tscn" id="1_1cumi"]
+[ext_resource type="PackedScene" uid="uid://8dac38b54nn2" path="res://object_scenes/entity/player/player.tscn" id="2_akyse"]
+[ext_resource type="PackedScene" uid="uid://d3fge1vcn4swp" path="res://object_scenes/flag/win.tscn" id="3_y8yrp"]
+
+[node name="16" type="Node2D"]
+
+[node name="coolFloor" parent="." instance=ExtResource("1_1cumi")]
+position = Vector2(56, 48)
+polygon = PackedVector2Array(-24, -32, 96, -32, 96, 72, 584, 72, 584, 176, 72, 176, 72, 200, 584, 200, 584, 352, 0, 352, 0, 280, 488, 280, 488, 256, 0, 256, 0, 128, 504, 128, 504, 104, 48, 104, -24, 32)
+
+[node name="Player" parent="." instance=ExtResource("2_akyse")]
+position = Vector2(88, 344)
+cameraLimitX = Vector2(250, 450)
+cameraLimitY = Vector2(140, 300)
+
+[node name="WIN" parent="." instance=ExtResource("3_y8yrp")]
+position = Vector2(80, 64)
+
+[node name="coolFloor2" parent="." instance=ExtResource("1_1cumi")]
+position = Vector2(-64, 128)
+color = Color(0.266667, 0.556863, 0.952941, 1)
+polygon = PackedVector2Array(-64, -192, 920, -192, 704, -8, 216, -8, 216, -112, 96, -112, 96, -48, 168, 24, 624, 24, 624, 48, 120, 48, 120, 176, 608, 176, 608, 200, 120, 200, 120, 272, 704, 272, 704, 120.5, 192, 120, 192, 96, 704, 96, 704, -8, 920, -192, 920, 400, -64, 400)
+renderWalls = false
+camOffset = 0.1

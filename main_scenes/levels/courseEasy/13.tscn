@@ -10,7 +10,7 @@
 
 [node name="coolFloor" parent="." instance=ExtResource("1_bgdnj")]
 position = Vector2(176, 24)
-polygon = PackedVector2Array(-376, -744, 2408, -744, 2408, 120, 2160, 120, 2160, 296, 2408, 296, 2408, 1800, -376, 1800)
+polygon = PackedVector2Array(80, 656, 624, 656, 624, -104, 2408, -104, 2408, 120, 2160, 120, 2160, 296, 2408, 296, 2408, 544, 1192, 544, 1192, 1192, 80, 1192)
 
 [node name="Player" parent="." instance=ExtResource("2_y54n0")]
 position = Vector2(448, 832)
@@ -19,7 +19,7 @@ cameraLimitY = Vector2(-45645, 6365)
 
 [node name="HOLE" parent="." instance=ExtResource("3_17ovo")]
 position = Vector2(768, 1728)
-polygon = PackedVector2Array(-968, -2448, 1816, -2448, 1816, -1584, 1296, -1584, 1280, -1568, 1280, -1424, 1296, -1408, 1816, -1408, 1816, 96, -968, 96)
+polygon = PackedVector2Array(32, -1048, 32, -1808, 1816, -1808, 1816, -1584, 1296, -1584, 1280, -1568, 1280, -1424, 1296, -1408, 1816, -1408, 1816, -1160, 600, -1160, 600, -512, -512, -512, -512, -1048)
 
 [node name="coolFloor2" parent="." instance=ExtResource("1_bgdnj")]
 z_index = -3
@@ -45,21 +45,21 @@ island = true
 [node name="coolFloor5" parent="." instance=ExtResource("1_bgdnj")]
 z_index = -3
 position = Vector2(1232, 472)
-polygon = PackedVector2Array(-104, -96, -16, -96, -16, -128, 112, -128, 112, 48, 24, 48, 24, 104, -104, 104)
+polygon = PackedVector2Array(-104, -96, -16, -96, -16, -128, 112, -128, 112, 48, 24, 48, 24, 104, -104, 104, -104, -8, -232, -8, -232, -96)
 swapWalls = true
 island = true
 
 [node name="coolFloor6" parent="." instance=ExtResource("1_bgdnj")]
 z_index = -3
 position = Vector2(1232, 736)
-polygon = PackedVector2Array(-104, -96, 0, -96, 0, 80, -104, 80)
+polygon = PackedVector2Array(-104, -80, -88, -96, -16, -96, 0, -80, 0, 80, -104, 80)
 swapWalls = true
 island = true
 
 [node name="coolFloor7" parent="." instance=ExtResource("1_bgdnj")]
 z_index = -3
 position = Vector2(1344, 240)
-polygon = PackedVector2Array(-112, -96, 448, -96, 464, -80, 464, 64, 448, 80, -112, 80)
+polygon = PackedVector2Array(-112, -96, 384, -96, 464, -64, 464, 48, 384, 80, -112, 80)
 swapWalls = true
 island = true
 
@@ -78,14 +78,35 @@ polygon = PackedVector2Array(-80, -88, -16, -88, -16, 56, -80, 56, -56, 16, -56,
 swapWalls = true
 
 [node name="boostPad" parent="." instance=ExtResource("4_gqcdh")]
-position = Vector2(1512, 288)
-polygon = PackedVector2Array(-104, -8, -104, 32, 120, 32, 120, -8)
+position = Vector2(1576, 288)
+polygon = PackedVector2Array(-104, -128, -104, 16, 120, 16, 120, -128)
 
 [node name="boostPad2" parent="." instance=ExtResource("4_gqcdh")]
 position = Vector2(1216, 440)
 texture_rotation = 3.142
-polygon = PackedVector2Array(-88, -64, -88, 24, -8, 24, -8, -64)
+polygon = PackedVector2Array(-216, -64, -216, 24, -8, 24, -8, -64)
 angle = 3.142
 
 [node name="WIN" parent="." instance=ExtResource("5_n2mnp")]
 position = Vector2(2224, 228)
+
+[node name="coolFloor9" parent="." instance=ExtResource("1_bgdnj")]
+position = Vector2(1776, 872)
+color = Color(0.266667, 0.556863, 0.952941, 1)
+polygon = PackedVector2Array(-408, -304, 808, -304, 808, -552, 560, -552, 560, -728, 808, -728, 808, -952, 808, -1416, 1400, -1416, 1496, 1040, -2112, 1040, -2080, 344, -2096, -1440, 888, -1440, 808, -952, -976, -952, -976, -192, -1520, -192, -1520, 344, -408, 344)
+renderWalls = false
+camOffset = 0.1
+
+[node name="coolFloor11" parent="." instance=ExtResource("1_bgdnj")]
+position = Vector2(1160, 760)
+color = Color(0.266667, 0.556863, 0.952941, 1)
+polygon = PackedVector2Array(0, 56, 72, -16, 72, 56)
+renderWalls = false
+camOffset = 0.1
+
+[node name="coolFloor12" parent="." instance=ExtResource("1_bgdnj")]
+position = Vector2(2224, 184)
+color = Color(0.266667, 0.556863, 0.952941, 1)
+polygon = PackedVector2Array(32, 120, 56, 80, 56, 16, 32, -24, 96, -24, 96, 120)
+renderWalls = false
+camOffset = 0.1

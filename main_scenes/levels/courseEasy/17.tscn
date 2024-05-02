@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://c6cj7l20setlh"]
+
+[ext_resource type="PackedScene" uid="uid://bith1com1osw4" path="res://world_scenes/floor/cool_floor.tscn" id="1_i81iv"]
+[ext_resource type="PackedScene" uid="uid://8dac38b54nn2" path="res://object_scenes/entity/player/player.tscn" id="2_0pts0"]
+
+[node name="17" type="Node2D"]
+
+[node name="coolFloor" parent="." instance=ExtResource("1_i81iv")]
+position = Vector2(80, 104)
+polygon = PackedVector2Array(32, 16, 48, 16, 48, 32, 32, 32)
+
+[node name="Player" parent="." instance=ExtResource("2_0pts0")]
+position = Vector2(120, 128)

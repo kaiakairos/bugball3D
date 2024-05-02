@@ -9,11 +9,17 @@ var levels :Array[String] = [
 "res://main_scenes/levels/courseEasy/2.tscn",
 "res://main_scenes/levels/courseEasy/3.tscn",
 "res://main_scenes/levels/courseEasy/4.tscn",
+"res://main_scenes/levels/courseEasy/16.tscn",
 "res://main_scenes/levels/courseEasy/8.tscn",
 "res://main_scenes/levels/courseEasy/5.tscn",
+"res://main_scenes/levels/courseEasy/15.tscn",
 "res://main_scenes/levels/courseEasy/9.tscn",
 "res://main_scenes/levels/courseEasy/6.tscn",
+"res://main_scenes/levels/courseEasy/10.tscn",
 "res://main_scenes/levels/courseEasy/7.tscn",
+"res://main_scenes/levels/courseEasy/11.tscn",
+"res://main_scenes/levels/courseEasy/12.tscn",
+"res://main_scenes/levels/courseEasy/13.tscn",
 ]
 
 var current = 0
