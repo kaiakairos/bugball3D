@@ -1,0 +1,58 @@
+[gd_scene load_steps=7 format=3 uid="uid://htwjiyiamk5s"]
+
+[ext_resource type="PackedScene" uid="uid://bith1com1osw4" path="res://world_scenes/floor/cool_floor.tscn" id="1_hsmbr"]
+[ext_resource type="PackedScene" uid="uid://b00oindmgrd6" path="res://world_scenes/hole/hole.tscn" id="2_lf5xh"]
+[ext_resource type="PackedScene" uid="uid://8dac38b54nn2" path="res://object_scenes/entity/player/player.tscn" id="3_vpphc"]
+[ext_resource type="PackedScene" uid="uid://dhhv0ft3tavfy" path="res://object_scenes/items/key/key.tscn" id="4_3mfdp"]
+[ext_resource type="PackedScene" uid="uid://c62xj3l0gknum" path="res://object_scenes/items/door.png/door.tscn" id="5_qh7ag"]
+[ext_resource type="PackedScene" uid="uid://d3fge1vcn4swp" path="res://object_scenes/flag/win.tscn" id="6_5gm6o"]
+
+[node name="m3" type="Node2D"]
+
+[node name="coolFloor" parent="." instance=ExtResource("1_hsmbr")]
+position = Vector2(72, 168)
+polygon = PackedVector2Array(-80, -32, 88, -32, 88, 0, 152, 0, 168, -16, 168, -88, 16, -88, 16, -40, -80, -40, -80, -88, -24, -144, 416, -144, 440, -120, 440, -112, 416, -88, 328, -88, 328, 24, 296, 56, 264, 24, 264, -88, 232, -88, 232, 40, 208, 64, 88, 64, 88, 104, -80, 104)
+
+[node name="HOLE" parent="." instance=ExtResource("2_lf5xh")]
+position = Vector2(240, 168)
+polygon = PackedVector2Array(-16, 0, 0, -16, 64, -16, 64, 40, 40, 64, -16, 64)
+
+[node name="Player" parent="." instance=ExtResource("3_vpphc")]
+position = Vector2(64, 200)
+cameraLimitX = Vector2(200, 300)
+cameraLimitY = Vector2(150, 150)
+startingAngle = Vector2(1, 0)
+
+[node name="HOLE2" parent="." instance=ExtResource("2_lf5xh")]
+position = Vector2(336, 24)
+polygon = PackedVector2Array(0, 0, 64, 0, 64, 56, 0, 56)
+
+[node name="Key" parent="." node_paths=PackedStringArray("door") instance=ExtResource("4_3mfdp")]
+position = Vector2(368, 192)
+door = NodePath("../door")
+
+[node name="door" parent="." instance=ExtResource("5_qh7ag")]
+position = Vector2(400, 24)
+thick = 16
+length = 56
+angle = 1.571
+
+[node name="door2" parent="." instance=ExtResource("5_qh7ag")]
+position = Vector2(224, 24)
+thick = 16
+length = 56
+angle = 1.571
+
+[node name="Key2" parent="." node_paths=PackedStringArray("door") instance=ExtResource("4_3mfdp")]
+position = Vector2(498, 51)
+door = NodePath("../door2")
+
+[node name="WIN" parent="." instance=ExtResource("6_5gm6o")]
+position = Vector2(40, 88)
+
+[node name="coolFloor2" parent="." instance=ExtResource("1_hsmbr")]
+position = Vector2(96, 80)
+color = Color(0.266667, 0.556863, 0.952941, 1)
+polygon = PackedVector2Array(-8, 0, 144, 0, 144, 72, 128, 88, 64, 88, 64, 56, -104, 56, -104, 192, 64, 192, 64, 152, 184, 152, 208, 128, 208, 0, 240, 0, 240, 112, 272, 144, 304, 112, 448, 264, -256, 264, -256, -128, 448, -128, 448, 264, 304, 112, 304, 0, 392, 0, 416, -24, 416, -32, 392, -56, -48, -56, -104, 0, -104, 48, -8, 48)
+renderWalls = false
+camOffset = 0.1

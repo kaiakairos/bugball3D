@@ -8,8 +8,8 @@ func _ready():
 	var ins = hole.instantiate()
 	
 	var newpoly = PackedVector2Array()
-	for i in range(16):
-		newpoly.append( Vector2(radius,0).rotated((PI/8)*i) )
+	for i in range(8):
+		newpoly.append( Vector2(radius,0).rotated((PI/4)*i) )
 	ins.polygon = newpoly
 	ins.amWin = true
 	

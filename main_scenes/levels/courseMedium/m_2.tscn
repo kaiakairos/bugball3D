@@ -101,3 +101,10 @@ angle = -1.571
 
 [node name="WIN" parent="." instance=ExtResource("5_ffgih")]
 position = Vector2(560, -96)
+
+[node name="coolFloor2" parent="." instance=ExtResource("1_etwtg")]
+position = Vector2(-216, -208)
+color = Color(0.266667, 0.556863, 0.952941, 1)
+polygon = PackedVector2Array(-8, -152, 216, -152, 216, 592, 792, 592, 792, 152, 816, 128, 816, 72, 728, 16, 216, 16, 216, -152, 1048, -152, 1048, 800, -8, 800)
+renderWalls = false
+camOffset = 0.1

@@ -6,6 +6,8 @@ var gameController = null
 
 var shake = 0.0
 
+var usingController = false
+
 signal cameraCHANGED
 
 func getGlobalCameraPosition():
@@ -31,7 +33,31 @@ func shakeCamera(value):
 	shake = max(shake,value)
 
 func _process(delta):
+	
+	determineController()
+	
 	if is_instance_valid(camera):
 		camera.position.x += randf_range(-shake,shake)
 		camera.position.y += randf_range(-shake,shake)
 	shake = max(0.0,shake-0.1)
+
+func determineController():
+	var newDir = Vector2.ZERO
+	newDir.x = Input.get_action_raw_strength("move_right_joy") - Input.get_action_raw_strength("move_left_joy")
+	newDir.y = Input.get_action_raw_strength("move_down_joy") - Input.get_action_raw_strength("move_up_joy")
+	if newDir.length() > 0.5:
+		usingController = true
+		return
+	
+	if Input.is_action_just_pressed("move_down"):
+		usingController = false
+		return
+	if Input.is_action_just_pressed("move_up"):
+		usingController = false
+		return
+	if Input.is_action_just_pressed("move_left"):
+		usingController = false
+		return
+	if Input.is_action_just_pressed("move_right"):
+		usingController = false
+		return

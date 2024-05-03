@@ -131,8 +131,19 @@ func _process(delta):
 	
 	
 	var newDir = Vector2.ZERO
-	newDir.x = int(Input.is_action_pressed("move_right")) - int(Input.is_action_pressed("move_left"))
-	newDir.y = int(Input.is_action_pressed("move_down")) - int(Input.is_action_pressed("move_up"))
+	if Global.usingController:
+		newDir.x = Input.get_action_raw_strength("move_right_joy") - Input.get_action_raw_strength("move_left_joy")
+		newDir.y = Input.get_action_raw_strength("move_down_joy") - Input.get_action_raw_strength("move_up_joy")
+		
+		if newDir.length() < 0.5:
+			newDir = Vector2.ZERO
+		else:
+			newDir = newDir.normalized()
+		
+	else:
+		newDir.x = int(Input.is_action_pressed("move_right")) - int(Input.is_action_pressed("move_left"))
+		newDir.y = int(Input.is_action_pressed("move_down")) - int(Input.is_action_pressed("move_up"))
+		
 	
 	if !canMove:
 		newDir = Vector2.ZERO
