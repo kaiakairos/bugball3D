@@ -5,9 +5,7 @@ extends Polygon2D
 
 var COLORARRAY = PackedColorArray([ Color.BLACK,Color.BLACK,Color.WHITE,Color.WHITE  ])
 
-
 var COLORWIN = PackedColorArray([ Color(1.0,1.0,1.0,0.0),Color(1.0,1.0,1.0,0.0),Color.WHITE,Color.WHITE  ])
-
 var amWin = false
 
 func _ready():
@@ -31,11 +29,12 @@ func generateHole():
 		newWall.heightMultiplier = 0.0
 		if amWin:
 			newWall.colorarray = COLORWIN
+			newWall.wallTexture = load("res://object_scenes/flag/wall.png")
 		else:
 			newWall.colorarray = COLORARRAY
+			newWall.wallTexture = ballsTexture
 		
 		newWall.shouldHaveCollision = false
-		newWall.wallTexture = ballsTexture
 		
 		newWall.position = polygon[i]
 		if i == polygon.size()-1:

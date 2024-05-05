@@ -20,6 +20,7 @@ config/icon="res://icon.svg"
 
 Global="*res://autoload/global.gd"
 Sound="*res://autoload/sound.gd"
+Saving="*res://autoload/saving.gd"
 
 [display]
 

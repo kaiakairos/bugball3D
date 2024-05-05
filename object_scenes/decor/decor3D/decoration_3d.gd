@@ -18,6 +18,14 @@ var angle :int= 0
 var tick :int= 0;
 
 func _ready():
+	
+	if !Saving.getValue("showDecor"):
+		visible = false
+		set_process(false)
+		return
+	
+	
+	
 	if spriteSheet == null:
 		print_debug("no sprite dumbass")
 		queue_free()

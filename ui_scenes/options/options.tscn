@@ -1,0 +1,106 @@
+[gd_scene load_steps=8 format=3 uid="uid://bxdyrs6mbjpx6"]
+
+[ext_resource type="Script" path="res://ui_scenes/options/options.gd" id="1_24rgr"]
+[ext_resource type="Texture2D" uid="uid://dk3ccn101xbwa" path="res://ui_scenes/options/rect.png" id="1_bh6x5"]
+[ext_resource type="FontFile" uid="uid://c0esfecfk2hon" path="res://alphabets/GrapeSoda.ttf" id="2_cpgyq"]
+[ext_resource type="Texture2D" uid="uid://vaitm2ypwb4m" path="res://ui_scenes/options/progressBarBlack.png" id="4_m0c1a"]
+[ext_resource type="Texture2D" uid="uid://c6igsbiq8t6rb" path="res://ui_scenes/options/progressBarWhite.png" id="5_eg76l"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_kcufp"]
+font = ExtResource("2_cpgyq")
+font_size = 32
+
+[sub_resource type="LabelSettings" id="LabelSettings_cmggr"]
+font = ExtResource("2_cpgyq")
+
+[node name="Options" type="Node2D"]
+script = ExtResource("1_24rgr")
+
+[node name="scrollContain" type="Node2D" parent="."]
+position = Vector2(129, 0)
+
+[node name="NinePatchRect" type="NinePatchRect" parent="scrollContain"]
+offset_top = 12.0
+offset_right = 232.0
+offset_bottom = 289.0
+texture = ExtResource("1_bh6x5")
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+
+[node name="option" type="Label" parent="scrollContain"]
+offset_top = 17.0
+offset_right = 232.0
+offset_bottom = 62.0
+text = "options"
+label_settings = SubResource("LabelSettings_kcufp")
+horizontal_alignment = 1
+
+[node name="sfx volumelabel" type="Label" parent="scrollContain"]
+offset_top = 52.0
+offset_right = 232.0
+offset_bottom = 75.0
+text = "SFX volume"
+label_settings = SubResource("LabelSettings_cmggr")
+horizontal_alignment = 1
+
+[node name="sfxBar" type="TextureProgressBar" parent="scrollContain"]
+offset_left = 29.0
+offset_top = 77.0
+offset_right = 205.0
+offset_bottom = 101.0
+max_value = 2.0
+step = 0.01
+texture_under = ExtResource("4_m0c1a")
+texture_progress = ExtResource("5_eg76l")
+
+[node name="mus volumelabel" type="Label" parent="scrollContain"]
+offset_top = 112.0
+offset_right = 232.0
+offset_bottom = 135.0
+text = "music volume"
+label_settings = SubResource("LabelSettings_cmggr")
+horizontal_alignment = 1
+
+[node name="musBar" type="TextureProgressBar" parent="scrollContain"]
+offset_left = 29.0
+offset_top = 140.0
+offset_right = 205.0
+offset_bottom = 164.0
+max_value = 2.0
+step = 0.01
+texture_under = ExtResource("4_m0c1a")
+texture_progress = ExtResource("5_eg76l")
+
+[node name="fullscreen" type="Label" parent="scrollContain"]
+offset_left = 17.0
+offset_top = 177.0
+offset_right = 217.0
+offset_bottom = 200.0
+text = "fullscreen: DISABLED"
+label_settings = SubResource("LabelSettings_cmggr")
+
+[node name="rollMode" type="Label" parent="scrollContain"]
+offset_left = 17.0
+offset_top = 203.0
+offset_right = 217.0
+offset_bottom = 226.0
+text = "roll control mode: HOLD"
+label_settings = SubResource("LabelSettings_cmggr")
+
+[node name="showClouds" type="Label" parent="scrollContain"]
+offset_left = 17.0
+offset_top = 231.0
+offset_right = 217.0
+offset_bottom = 254.0
+text = "show clouds?: YES"
+label_settings = SubResource("LabelSettings_cmggr")
+
+[node name="showDecor" type="Label" parent="scrollContain"]
+offset_left = 17.0
+offset_top = 259.0
+offset_right = 217.0
+offset_bottom = 282.0
+text = "show decor?: YES"
+label_settings = SubResource("LabelSettings_cmggr")

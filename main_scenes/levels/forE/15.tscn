@@ -1,9 +1,15 @@
-[gd_scene load_steps=5 format=3 uid="uid://c8e6ls7auwgsq"]
+[gd_scene load_steps=11 format=3 uid="uid://c8e6ls7auwgsq"]
 
 [ext_resource type="PackedScene" uid="uid://bith1com1osw4" path="res://world_scenes/floor/cool_floor.tscn" id="1_5o7iu"]
 [ext_resource type="PackedScene" uid="uid://8dac38b54nn2" path="res://object_scenes/entity/player/player.tscn" id="2_k1gd1"]
 [ext_resource type="PackedScene" uid="uid://d3fge1vcn4swp" path="res://object_scenes/flag/win.tscn" id="3_xfa73"]
 [ext_resource type="PackedScene" uid="uid://b00oindmgrd6" path="res://world_scenes/hole/hole.tscn" id="4_6p80v"]
+[ext_resource type="PackedScene" uid="uid://cpagp2isol5d8" path="res://object_scenes/decor/clouds/clouds.tscn" id="5_1gdyx"]
+[ext_resource type="PackedScene" uid="uid://db0u0xfur78jy" path="res://object_scenes/decor/foiliage/tree.tscn" id="6_vuuq4"]
+[ext_resource type="PackedScene" uid="uid://oys8ghap4lj5" path="res://object_scenes/decor/foiliage/log.tscn" id="7_xs6wx"]
+[ext_resource type="PackedScene" uid="uid://djhlxyklc7ji2" path="res://object_scenes/decor/foiliage/flower.tscn" id="8_rxbsb"]
+[ext_resource type="PackedScene" uid="uid://ddw7ejrb8d5ff" path="res://object_scenes/decor/foiliage/mushroom_small.tscn" id="9_c318q"]
+[ext_resource type="PackedScene" uid="uid://chcfj4d2hjoup" path="res://object_scenes/decor/foiliage/mushroom_big.tscn" id="10_sd3sj"]
 
 [node name="15" type="Node2D"]
 
@@ -38,3 +44,81 @@ color = Color(0.266667, 0.556863, 0.952941, 1)
 polygon = PackedVector2Array(-112, -272, -160, -320, -160, -336, -176, -352, -336, -352, -352, -336, -352, -272, -336, -256, -192, -256, -176, -240, -176, 64, -208, 64, -208, 104, -144, 168, 0, 168, 0, 288, -576, 288, -576, -472, 216, -472, 216, 288, 0, 288, 0, 168, 0, 88, -24, 64, -112, 64)
 renderWalls = false
 camOffset = 0.1
+
+[node name="clouds" parent="." instance=ExtResource("5_1gdyx")]
+position = Vector2(-294, -253)
+
+[node name="tree" parent="." instance=ExtResource("6_vuuq4")]
+position = Vector2(134, 197)
+
+[node name="tree2" parent="." instance=ExtResource("6_vuuq4")]
+position = Vector2(338, 401)
+
+[node name="tree3" parent="." instance=ExtResource("6_vuuq4")]
+position = Vector2(283, 48)
+
+[node name="tree4" parent="." instance=ExtResource("6_vuuq4")]
+position = Vector2(138, 529)
+
+[node name="tree5" parent="." instance=ExtResource("6_vuuq4")]
+position = Vector2(46, 360)
+
+[node name="tree6" parent="." instance=ExtResource("6_vuuq4")]
+position = Vector2(456, 256)
+
+[node name="tree7" parent="." instance=ExtResource("6_vuuq4")]
+position = Vector2(-81, 44)
+
+[node name="tree8" parent="." instance=ExtResource("6_vuuq4")]
+position = Vector2(483, 460)
+
+[node name="log" parent="." instance=ExtResource("7_xs6wx")]
+position = Vector2(143, 405)
+
+[node name="log2" parent="." instance=ExtResource("7_xs6wx")]
+position = Vector2(437, 546)
+
+[node name="log3" parent="." instance=ExtResource("7_xs6wx")]
+position = Vector2(337, 140)
+
+[node name="flower" parent="." instance=ExtResource("8_rxbsb")]
+position = Vector2(59, 154)
+
+[node name="flower2" parent="." instance=ExtResource("8_rxbsb")]
+position = Vector2(156, 311)
+
+[node name="flower3" parent="." instance=ExtResource("8_rxbsb")]
+position = Vector2(348, 218)
+
+[node name="flower4" parent="." instance=ExtResource("8_rxbsb")]
+position = Vector2(39, 243)
+
+[node name="flower5" parent="." instance=ExtResource("8_rxbsb")]
+position = Vector2(454, 356)
+
+[node name="flower6" parent="." instance=ExtResource("8_rxbsb")]
+position = Vector2(57, 468)
+
+[node name="mushroomSmall" parent="." instance=ExtResource("9_c318q")]
+position = Vector2(193, 579)
+
+[node name="mushroomSmall2" parent="." instance=ExtResource("9_c318q")]
+position = Vector2(308, 296)
+
+[node name="mushroomSmall3" parent="." instance=ExtResource("9_c318q")]
+position = Vector2(433, 157)
+
+[node name="mushroomSmall4" parent="." instance=ExtResource("9_c318q")]
+position = Vector2(10, 100)
+
+[node name="mushroomSmall5" parent="." instance=ExtResource("9_c318q")]
+position = Vector2(116, -3)
+
+[node name="mushroomBig" parent="." instance=ExtResource("10_sd3sj")]
+position = Vector2(388, 77)
+
+[node name="mushroomBig2" parent="." instance=ExtResource("10_sd3sj")]
+position = Vector2(387, 342)
+
+[node name="mushroomBig3" parent="." instance=ExtResource("10_sd3sj")]
+position = Vector2(325, 581)

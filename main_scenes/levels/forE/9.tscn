@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://dt427drkvymdu"]
+[gd_scene load_steps=12 format=3 uid="uid://dt427drkvymdu"]
 
 [ext_resource type="PackedScene" uid="uid://bith1com1osw4" path="res://world_scenes/floor/cool_floor.tscn" id="1_1v4gx"]
 [ext_resource type="PackedScene" uid="uid://8dac38b54nn2" path="res://object_scenes/entity/player/player.tscn" id="2_nh2eb"]
@@ -6,6 +6,11 @@
 [ext_resource type="PackedScene" uid="uid://d3fge1vcn4swp" path="res://object_scenes/flag/win.tscn" id="4_g4ca5"]
 [ext_resource type="PackedScene" uid="uid://cpagp2isol5d8" path="res://object_scenes/decor/clouds/clouds.tscn" id="5_xcn6d"]
 [ext_resource type="PackedScene" uid="uid://db0u0xfur78jy" path="res://object_scenes/decor/foiliage/tree.tscn" id="6_ll3mq"]
+[ext_resource type="PackedScene" uid="uid://cga7ecey3m637" path="res://object_scenes/decor/foiliage/bush.tscn" id="6_r7xhv"]
+[ext_resource type="PackedScene" uid="uid://ddw7ejrb8d5ff" path="res://object_scenes/decor/foiliage/mushroom_small.tscn" id="8_k5ds6"]
+[ext_resource type="PackedScene" uid="uid://oys8ghap4lj5" path="res://object_scenes/decor/foiliage/log.tscn" id="9_mywug"]
+[ext_resource type="PackedScene" uid="uid://djhlxyklc7ji2" path="res://object_scenes/decor/foiliage/flower.tscn" id="10_vdo4n"]
+[ext_resource type="PackedScene" uid="uid://chcfj4d2hjoup" path="res://object_scenes/decor/foiliage/mushroom_big.tscn" id="11_xwsy6"]
 
 [node name="9" type="Node2D"]
 
@@ -62,8 +67,8 @@ camOffset = 0.1
 [node name="clouds" parent="." instance=ExtResource("5_xcn6d")]
 position = Vector2(-239, -459)
 
-[node name="tree" parent="." instance=ExtResource("6_ll3mq")]
-position = Vector2(191, 59)
+[node name="bush" parent="." instance=ExtResource("6_r7xhv")]
+position = Vector2(686, -57)
 
 [node name="tree2" parent="." instance=ExtResource("6_ll3mq")]
 position = Vector2(-77, -15)
@@ -73,3 +78,66 @@ position = Vector2(609, 215)
 
 [node name="tree4" parent="." instance=ExtResource("6_ll3mq")]
 position = Vector2(675, 15)
+
+[node name="tree5" parent="." instance=ExtResource("6_ll3mq")]
+position = Vector2(-101, 251)
+
+[node name="mushroomSmall" parent="." instance=ExtResource("8_k5ds6")]
+position = Vector2(642, -67)
+
+[node name="log" parent="." instance=ExtResource("9_mywug")]
+position = Vector2(132, 125)
+
+[node name="flower" parent="." instance=ExtResource("10_vdo4n")]
+position = Vector2(471, 5)
+
+[node name="flower2" parent="." instance=ExtResource("10_vdo4n")]
+position = Vector2(385, -4)
+
+[node name="flower3" parent="." instance=ExtResource("10_vdo4n")]
+position = Vector2(576, -85)
+
+[node name="flower4" parent="." instance=ExtResource("10_vdo4n")]
+position = Vector2(656, 86)
+
+[node name="flower5" parent="." instance=ExtResource("10_vdo4n")]
+position = Vector2(136, 93)
+
+[node name="flower6" parent="." instance=ExtResource("10_vdo4n")]
+position = Vector2(213, 236)
+
+[node name="flower7" parent="." instance=ExtResource("10_vdo4n")]
+position = Vector2(-97, 75)
+
+[node name="flower8" parent="." instance=ExtResource("10_vdo4n")]
+position = Vector2(221, 0)
+
+[node name="bush2" parent="." instance=ExtResource("6_r7xhv")]
+position = Vector2(209, 128)
+
+[node name="mushroomSmall2" parent="." instance=ExtResource("8_k5ds6")]
+position = Vector2(129, 238)
+
+[node name="mushroomSmall3" parent="." instance=ExtResource("8_k5ds6")]
+position = Vector2(-117, 182)
+
+[node name="mushroomSmall4" parent="." instance=ExtResource("8_k5ds6")]
+position = Vector2(-100, 127)
+
+[node name="mushroomSmall5" parent="." instance=ExtResource("8_k5ds6")]
+position = Vector2(102, 65)
+
+[node name="mushroomSmall6" parent="." instance=ExtResource("8_k5ds6")]
+position = Vector2(291, 245)
+
+[node name="mushroomSmall7" parent="." instance=ExtResource("8_k5ds6")]
+position = Vector2(111, -94)
+
+[node name="tree" parent="." instance=ExtResource("6_ll3mq")]
+position = Vector2(191, 59)
+
+[node name="log2" parent="." instance=ExtResource("9_mywug")]
+position = Vector2(693, 177)
+
+[node name="mushroomBig" parent="." instance=ExtResource("11_xwsy6")]
+position = Vector2(694, 124)
