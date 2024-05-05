@@ -124,7 +124,12 @@ func _process(delta):
 		offsetCamera()
 		return
 	
-	rolling = Input.is_action_pressed("roll")
+	if Saving.getValue("rollToggle"):
+		if Input.is_action_just_pressed("roll"):
+			rolling = !rolling
+	else:
+		rolling = Input.is_action_pressed("roll")
+	
 	if $boostCast.is_colliding():
 		rolling = true
 	getValues()
