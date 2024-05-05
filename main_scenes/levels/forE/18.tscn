@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://hq56m6gwe1ka"]
+
+[ext_resource type="PackedScene" uid="uid://bith1com1osw4" path="res://world_scenes/floor/cool_floor.tscn" id="1_drg3q"]
+[ext_resource type="PackedScene" uid="uid://8dac38b54nn2" path="res://object_scenes/entity/player/player.tscn" id="2_yb4iu"]
+[ext_resource type="PackedScene" uid="uid://b00oindmgrd6" path="res://world_scenes/hole/hole.tscn" id="3_vn2en"]
+[ext_resource type="PackedScene" uid="uid://d3fge1vcn4swp" path="res://object_scenes/flag/win.tscn" id="4_2m8mk"]
+
+[node name="18" type="Node2D"]
+
+[node name="coolFloor" parent="." instance=ExtResource("1_drg3q")]
+position = Vector2(32, 128)
+polygon = PackedVector2Array(0, -80, 776, -80, 864, 24, 776, 128, 0, 128)
+
+[node name="Player" parent="." instance=ExtResource("2_yb4iu")]
+position = Vector2(272, 152)
+cameraLimitX = Vector2(250, 750)
+cameraLimitY = Vector2(150, 150)
+startingAngle = Vector2(1, 0)
+
+[node name="HOLE" parent="." instance=ExtResource("3_vn2en")]
+position = Vector2(400, 48)
+polygon = PackedVector2Array(0, 0, 232, 0, 232, 208, 0, 208)
+
+[node name="WIN" parent="." instance=ExtResource("4_2m8mk")]
+position = Vector2(840, 152)
+
+[node name="coolFloor2" parent="." instance=ExtResource("1_drg3q")]
+position = Vector2(32, -16)
+color = Color(0.266667, 0.556863, 0.952941, 1)
+polygon = PackedVector2Array(-80, 0, 1032, 0, 1032, 344, -80, 344, 0, 272, 776, 272, 864, 168, 776, 64, 0, 64, 0, 272, -80, 344)
+renderWalls = false
+camOffset = 0.1

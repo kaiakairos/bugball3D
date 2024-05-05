@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://oys8ghap4lj5"]
+
+[ext_resource type="PackedScene" uid="uid://b3et5xp5dbrq8" path="res://object_scenes/decor/decor3D/decoration_3d.tscn" id="1_y6bv2"]
+[ext_resource type="Texture2D" uid="uid://cwmi00l5kipw1" path="res://object_scenes/decor/decor3D/log.png" id="2_yenjw"]
+
+[node name="log" type="Node2D"]
+
+[node name="decoration3D" parent="." instance=ExtResource("1_y6bv2")]
+spriteSheet = ExtResource("2_yenjw")
+images = 6
+randRotation = false
+wiggle = false

@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://db0u0xfur78jy"]
+
+[ext_resource type="PackedScene" uid="uid://b3et5xp5dbrq8" path="res://object_scenes/decor/decor3D/decoration_3d.tscn" id="1_2nq35"]
+[ext_resource type="Texture2D" uid="uid://4ys2w0part7v" path="res://object_scenes/decor/decor3D/tree.png" id="2_oahqc"]
+
+[node name="tree" type="Node2D"]
+
+[node name="decoration3D" parent="." instance=ExtResource("1_2nq35")]
+spriteSheet = ExtResource("2_oahqc")
+images = 3
+disBetweenLayers = 0.06
+baseLayer = 0.2
+wiggleAmount = 4.0

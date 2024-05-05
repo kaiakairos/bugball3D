@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://dt427drkvymdu"]
+[gd_scene load_steps=7 format=3 uid="uid://dt427drkvymdu"]
 
 [ext_resource type="PackedScene" uid="uid://bith1com1osw4" path="res://world_scenes/floor/cool_floor.tscn" id="1_1v4gx"]
 [ext_resource type="PackedScene" uid="uid://8dac38b54nn2" path="res://object_scenes/entity/player/player.tscn" id="2_nh2eb"]
 [ext_resource type="PackedScene" uid="uid://b00oindmgrd6" path="res://world_scenes/hole/hole.tscn" id="3_q7aar"]
 [ext_resource type="PackedScene" uid="uid://d3fge1vcn4swp" path="res://object_scenes/flag/win.tscn" id="4_g4ca5"]
+[ext_resource type="PackedScene" uid="uid://cpagp2isol5d8" path="res://object_scenes/decor/clouds/clouds.tscn" id="5_xcn6d"]
+[ext_resource type="PackedScene" uid="uid://db0u0xfur78jy" path="res://object_scenes/decor/foiliage/tree.tscn" id="6_ll3mq"]
 
 [node name="9" type="Node2D"]
 
@@ -56,3 +58,18 @@ color = Color(0.266667, 0.556863, 0.952941, 1)
 polygon = PackedVector2Array(-192, -56, 1016, -56, 1016, 264, 744, 264, 744, 160, 624, 120, 48, 120, 48, 208, 24, 232, 24, 400, 48, 424, 592, 424, 744, 376, 744, 264, 1016, 264, 1016, 552, -192, 552)
 renderWalls = false
 camOffset = 0.1
+
+[node name="clouds" parent="." instance=ExtResource("5_xcn6d")]
+position = Vector2(-239, -459)
+
+[node name="tree" parent="." instance=ExtResource("6_ll3mq")]
+position = Vector2(191, 59)
+
+[node name="tree2" parent="." instance=ExtResource("6_ll3mq")]
+position = Vector2(-77, -15)
+
+[node name="tree3" parent="." instance=ExtResource("6_ll3mq")]
+position = Vector2(609, 215)
+
+[node name="tree4" parent="." instance=ExtResource("6_ll3mq")]
+position = Vector2(675, 15)

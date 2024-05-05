@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://thujt01appmd"]
+[gd_scene load_steps=8 format=3 uid="uid://thujt01appmd"]
 
 [ext_resource type="Script" path="res://main_scenes/game.gd" id="1_ot3mi"]
 [ext_resource type="Shader" path="res://main_scenes/game.gdshader" id="2_u2nxt"]
 [ext_resource type="Script" path="res://main_scenes/UI.gd" id="3_7oxq6"]
 [ext_resource type="FontFile" uid="uid://c0esfecfk2hon" path="res://alphabets/GrapeSoda.ttf" id="3_p1qcx"]
+[ext_resource type="AudioStream" uid="uid://bkdno0ieb37gv" path="res://audio/testSong.ogg" id="5_bp1km"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ssbx2"]
 shader = ExtResource("2_u2nxt")
@@ -82,3 +83,9 @@ offset_right = -139.0
 offset_bottom = -107.0
 text = "0 : 00.00"
 label_settings = SubResource("LabelSettings_jstgy")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_bp1km")
+volume_db = -5.0
+autoplay = true
+bus = &"Music"

@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://ddw7ejrb8d5ff"]
+
+[ext_resource type="PackedScene" uid="uid://b3et5xp5dbrq8" path="res://object_scenes/decor/decor3D/decoration_3d.tscn" id="1_3o1pl"]
+[ext_resource type="Texture2D" uid="uid://cgvntqdg1puu0" path="res://object_scenes/decor/decor3D/mushroom.png" id="2_vytig"]
+
+[node name="mushroomSmall" type="Node2D"]
+
+[node name="decoration3D" parent="." instance=ExtResource("1_3o1pl")]
+spriteSheet = ExtResource("2_vytig")
+images = 7
+wiggleAmount = 0.1

@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://b3et5xp5dbrq8"]
+
+[ext_resource type="Script" path="res://object_scenes/decor/decor3D/decoration_3d.gd" id="1_lx02e"]
+[ext_resource type="Material" uid="uid://dl3mogo36dheg" path="res://object_scenes/decor/decor3D/decoration_3d_material.tres" id="2_da8ix"]
+
+[node name="decoration3D" type="Node2D"]
+script = ExtResource("1_lx02e")
+
+[node name="canvas" type="CanvasGroup" parent="."]
+material = ExtResource("2_da8ix")

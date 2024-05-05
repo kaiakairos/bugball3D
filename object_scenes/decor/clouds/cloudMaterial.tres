@@ -1,0 +1,7 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://diml8744twkk"]
+
+[ext_resource type="Shader" path="res://object_scenes/decor/clouds/clouds.gdshader" id="1_kkq4f"]
+
+[resource]
+shader = ExtResource("1_kkq4f")
+shader_parameter/color = Color(0.0196078, 0, 0.121569, 0.192157)

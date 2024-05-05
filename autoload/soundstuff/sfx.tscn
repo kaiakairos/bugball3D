@@ -5,6 +5,7 @@
 [node name="SFX" type="AudioStreamPlayer2D"]
 autoplay = true
 panning_strength = 0.5
+bus = &"Sound"
 script = ExtResource("1_ma5h0")
 
 [connection signal="finished" from="." to="." method="_on_finished"]

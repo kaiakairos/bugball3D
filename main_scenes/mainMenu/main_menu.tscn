@@ -11,11 +11,11 @@
 [ext_resource type="Texture2D" uid="uid://b4pj6fxwahlt8" path="res://main_scenes/mainMenu/courseSelects/text.png" id="9_x8jye"]
 [ext_resource type="Texture2D" uid="uid://d8ffmgomnn23" path="res://ui_scenes/courseIcons/forest.png" id="10_n6bi1"]
 [ext_resource type="PackedScene" uid="uid://cxnhvxlqgrs73" path="res://ui_scenes/courseIcons/course_icon.tscn" id="10_oxygi"]
-[ext_resource type="Texture2D" uid="uid://c80mwv1t68yhs" path="res://ui_scenes/courseIcons/iceworld.png" id="11_ecv8t"]
-[ext_resource type="Texture2D" uid="uid://db71nn3eb80aa" path="res://ui_scenes/courseIcons/red.png" id="12_qcvc4"]
+[ext_resource type="Texture2D" uid="uid://crav5a05mrmxc" path="res://ui_scenes/courseIcons/comingSoon.png" id="12_afjsb"]
 [ext_resource type="Texture2D" uid="uid://bk55xt00g5h85" path="res://ui_scenes/courseIcons/difBorder.png" id="14_7e6oy"]
 [ext_resource type="Texture2D" uid="uid://bkvvtu3m0rsjm" path="res://ui_scenes/courseIcons/difSelect.png" id="15_2xe7m"]
 [ext_resource type="Material" uid="uid://b21jm8np24uvw" path="res://main_scenes/mainMenu/transition.tres" id="16_wnogl"]
+[ext_resource type="AudioStream" uid="uid://bl4p7r8mbyovk" path="res://audio/headOverHeels.ogg" id="17_hu4jw"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_mt1ax"]
 font = ExtResource("2_x70bn")
@@ -75,16 +75,18 @@ position = Vector2(250, 110)
 
 [node name="CourseIcon" parent="COURSESELECT/Courses" instance=ExtResource("10_oxygi")]
 image = ExtResource("10_n6bi1")
-easyLevels = Array[String](["\"res://main_scenes/levels/courseEasy/0.tscn\"", "\"res://main_scenes/levels/courseEasy/1.tscn\"", "\"res://main_scenes/levels/courseEasy/2.tscn\"", "\"res://main_scenes/levels/courseEasy/3.tscn\"", "\"res://main_scenes/levels/courseEasy/4.tscn\"", "\"res://main_scenes/levels/courseEasy/5.tscn\"", "\"res://main_scenes/levels/courseEasy/6.tscn\""])
+easyLevels = Array[String](["res://main_scenes/levels/forE/0.tscn", "res://main_scenes/levels/forE/1.tscn", "res://main_scenes/levels/forE/2.tscn", "res://main_scenes/levels/forE/3.tscn", "res://main_scenes/levels/forE/18.tscn", "res://main_scenes/levels/forE/4.tscn", "res://main_scenes/levels/forE/19.tscn", "res://main_scenes/levels/forE/16.tscn", "res://main_scenes/levels/forE/8.tscn", "res://main_scenes/levels/forE/5.tscn", "res://main_scenes/levels/forE/15.tscn", "res://main_scenes/levels/forE/9.tscn", "res://main_scenes/levels/forE/6.tscn", "res://main_scenes/levels/forE/10.tscn", "res://main_scenes/levels/forE/7.tscn", "res://main_scenes/levels/forE/11.tscn", "res://main_scenes/levels/forE/12.tscn", "res://main_scenes/levels/forE/13.tscn"])
+mediumLevels = Array[String](["res://main_scenes/levels/forM/m_0.tscn", "res://main_scenes/levels/forM/m_1.tscn", "res://main_scenes/levels/forM/m_2.tscn", "res://main_scenes/levels/forM/m_3.tscn"])
+hardLevels = Array[String](["res://main_scenes/levels/forE/13.tscn"])
 courseName = "forest"
 
 [node name="CourseIcon2" parent="COURSESELECT/Courses" instance=ExtResource("10_oxygi")]
 position = Vector2(0, 95)
-image = ExtResource("11_ecv8t")
+image = ExtResource("12_afjsb")
 
 [node name="CourseIcon3" parent="COURSESELECT/Courses" instance=ExtResource("10_oxygi")]
 position = Vector2(0, 190)
-image = ExtResource("12_qcvc4")
+image = ExtResource("12_afjsb")
 
 [node name="Difficulty" type="Node2D" parent="COURSESELECT"]
 position = Vector2(500, 0)
@@ -104,3 +106,9 @@ offset_top = -100.0
 offset_right = 500.0
 offset_bottom = 400.0
 color = Color(0, 0, 0, 1)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("17_hu4jw")
+volume_db = -14.0
+autoplay = true
+bus = &"Music"

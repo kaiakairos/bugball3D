@@ -1,0 +1,14 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://dl3mogo36dheg"]
+
+[ext_resource type="Shader" path="res://object_scenes/decor/decor3D/decorOutline.gdshader" id="1_5fvjv"]
+[ext_resource type="Texture2D" uid="uid://dj07ujj3nd3mc" path="res://object_scenes/decor/clouds/cloudTexture.tres" id="2_bl2r6"]
+
+[resource]
+shader = ExtResource("1_5fvjv")
+shader_parameter/ncolor = Color(0.913725, 0.941176, 0.94902, 1)
+shader_parameter/color = Color(0.00392157, 0.0509804, 0.0313726, 1)
+shader_parameter/width = 2.0
+shader_parameter/pattern = 2
+shader_parameter/inside = false
+shader_parameter/add_margins = false
+shader_parameter/noise = ExtResource("2_bl2r6")

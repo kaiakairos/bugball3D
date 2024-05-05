@@ -130,10 +130,12 @@ func mainMenu(delta):
 	
 	buttons[menuOptionSelected].modulate = Color.WHITE
 	
-	if Input.is_action_just_pressed("move_down"):
+	if Input.is_action_just_pressed("move_down") or Input.is_action_just_pressed("move_down_joy"):
 		menuOptionSelected += 1
-	if Input.is_action_just_pressed("move_up"):
+		Sound.playSound2D(Vector2(250,150),"res://audio/footstep.ogg",5.0)
+	if Input.is_action_just_pressed("move_up") or Input.is_action_just_pressed("move_up_joy"):
 		menuOptionSelected -= 1
+		Sound.playSound2D(Vector2(250,150),"res://audio/footstep.ogg",5.0)
 	if menuOptionSelected < 0:
 		menuOptionSelected = 2
 	elif menuOptionSelected > 2:
@@ -141,7 +143,7 @@ func mainMenu(delta):
 	
 	buttons[menuOptionSelected].modulate = Color(0.6,0.588,0.655)
 	
-	if Input.is_action_just_pressed("roll"):
+	if Input.is_action_just_pressed("menuSelect"):
 		selectDusty(buttons[menuOptionSelected].partPos + buttons[menuOptionSelected].position)
 		SELECTIONMADE = true
 		await buttons[menuOptionSelected].bump()
@@ -157,18 +159,19 @@ func playMenu(delta):
 	if COURSECHOSEN:
 		return
 	
-	if Input.is_action_just_pressed("jump"):
+	if Input.is_action_just_pressed("menuBack"):
 		setMenuState(0)
 		return
 	
 	var oldCourse = courseSelect
-	if Input.is_action_just_pressed("move_down"):
+	if Input.is_action_just_pressed("move_down") or Input.is_action_just_pressed("move_down_joy"):
 		courseSelect += 1
-	if Input.is_action_just_pressed("move_up"):
+	if Input.is_action_just_pressed("move_up") or Input.is_action_just_pressed("move_up_joy"):
 		courseSelect -= 1
 	courseSelect = clamp(courseSelect,0,numberOfCourses-1)
 	var c = courseContainer.get_children()
 	if courseSelect != oldCourse:
+		Sound.playSound2D(Vector2(250,150),"res://audio/footstep.ogg",5.0)
 		c[oldCourse].hovering = false
 		c[courseSelect].hovering = true
 		
@@ -180,7 +183,12 @@ func playMenu(delta):
 	courseContainer.position.y = lerp(courseContainer.position.y,110+(courseSelect * -95.0),0.2)
 	$COURSESELECT/Text.position.y = courseContainer.position.y - 53
 	
-	if Input.is_action_just_pressed("roll"):
+	if Input.is_action_just_pressed("menuSelect"):
+		
+		if courseSelect > 0:
+			#Remove when there are more courses
+			return
+		
 		COURSECHOSEN = true
 		c[courseSelect].boing()
 		c[courseSelect].shine()
@@ -190,31 +198,43 @@ func playMenu(delta):
 		
 	
 func optionMenu(delta):
-	if Input.is_action_just_pressed("jump"):
+	if Input.is_action_just_pressed("menuBack"):
 		setMenuState(0)
 
 func creditMenu(delta):
-	if Input.is_action_just_pressed("jump"):
+	if Input.is_action_just_pressed("menuBack"):
 		setMenuState(0)
 
 func courseMenu(delta):
-	if Input.is_action_just_pressed("jump"):
+	if Input.is_action_just_pressed("menuBack"):
 		setMenuState(1)
 	
-	if Input.is_action_just_pressed("move_right"):
+	if Input.is_action_just_pressed("move_right") or Input.is_action_just_pressed("move_right_joy"):
 		difficulty += 1
 		difselect.position.x += 10
-	if Input.is_action_just_pressed("move_left"):
+		Sound.playSound2D(Vector2(250,150),"res://audio/footstep.ogg",5.0)
+	if Input.is_action_just_pressed("move_left") or Input.is_action_just_pressed("move_left_joy"):
 		difficulty -= 1
 		difselect.position.x -= 10
+		Sound.playSound2D(Vector2(250,150),"res://audio/footstep.ogg",5.0)
 	
 	difficulty = clamp(difficulty,0,2)
 	
 	difselect.position.x = lerp(difselect.position.x,(difficulty-1)*110.0,0.3)
 	
 	
-	if Input.is_action_just_pressed("roll"):
+	if Input.is_action_just_pressed("menuSelect"):
 		menuState = 99
+		
+		var course = courseContainer.get_children()[courseSelect]
+		match difficulty:
+			0:
+				Global.LVLHOLDER = course.easyLevels
+			1:
+				Global.LVLHOLDER = course.mediumLevels
+			2:
+				Global.LVLHOLDER = course.hardLevels
+		
 		ballOut()
 	
 func selectDusty(pos):

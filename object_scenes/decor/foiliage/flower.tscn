@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://djhlxyklc7ji2"]
+
+[ext_resource type="PackedScene" uid="uid://b3et5xp5dbrq8" path="res://object_scenes/decor/decor3D/decoration_3d.tscn" id="1_tpqv2"]
+[ext_resource type="Texture2D" uid="uid://c1u6fql0g77rh" path="res://object_scenes/decor/decor3D/flower.png" id="2_2nhlh"]
+
+[node name="flower" type="Node2D"]
+
+[node name="decoration3D" parent="." instance=ExtResource("1_tpqv2")]
+spriteSheet = ExtResource("2_2nhlh")
+images = 4
+wiggleAmount = 1.0

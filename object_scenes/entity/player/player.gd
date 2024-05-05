@@ -167,7 +167,7 @@ func rollingMovement(newDir,delta):
 		velocity.x = lerp(velocity.x,0.0,0.01)
 	if newDir.y == 0:
 		velocity.y = lerp(velocity.y,0.0,0.01)
-		
+	
 	ball.rotateByVelocity(velocity * 0.1,delta)
 	
 	tennaOneGlob = $head/Tenna.global_position

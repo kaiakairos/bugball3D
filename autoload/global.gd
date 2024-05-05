@@ -8,7 +8,11 @@ var shake = 0.0
 
 var usingController = false
 
+var LVLHOLDER = []
+
 signal cameraCHANGED
+
+var wiggleNoise = FastNoiseLite.new()
 
 func getGlobalCameraPosition():
 	if is_instance_valid(camera):

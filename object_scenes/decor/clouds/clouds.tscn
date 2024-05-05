@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://cpagp2isol5d8"]
+
+[ext_resource type="Material" uid="uid://diml8744twkk" path="res://object_scenes/decor/clouds/cloudMaterial.tres" id="1_vjoj0"]
+[ext_resource type="Texture2D" uid="uid://dj07ujj3nd3mc" path="res://object_scenes/decor/clouds/cloudTexture.tres" id="2_b5yrq"]
+[ext_resource type="Script" path="res://object_scenes/decor/clouds/clouds.gd" id="2_c2nyp"]
+
+[node name="clouds" type="Sprite2D"]
+z_index = 215
+texture_filter = 2
+texture_repeat = 2
+material = ExtResource("1_vjoj0")
+position = Vector2(-56, -71)
+texture = ExtResource("2_b5yrq")
+centered = false
+script = ExtResource("2_c2nyp")
