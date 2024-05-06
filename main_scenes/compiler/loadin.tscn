@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://2ubewsfhp56u"]
+
+[ext_resource type="Texture2D" uid="uid://vaitm2ypwb4m" path="res://ui_scenes/options/progressBarBlack.png" id="1_u2bhv"]
+[ext_resource type="Script" path="res://main_scenes/compiler/loadin.gd" id="1_w8h1u"]
+[ext_resource type="FontFile" uid="uid://c0esfecfk2hon" path="res://alphabets/GrapeSoda.ttf" id="2_j8r6l"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_awx82"]
+font = ExtResource("2_j8r6l")
+font_size = 32
+
+[node name="loadin" type="Node2D"]
+script = ExtResource("1_w8h1u")
+
+[node name="ProgressBarBlack" type="Sprite2D" parent="."]
+position = Vector2(246, 153)
+scale = Vector2(3.52841, 16.5833)
+texture = ExtResource("1_u2bhv")
+
+[node name="text" type="Label" parent="."]
+modulate = Color(1, 1, 1, 0.223529)
+offset_right = 500.0
+offset_bottom = 300.0
+text = "click to focus window"
+label_settings = SubResource("LabelSettings_awx82")
+horizontal_alignment = 1
+vertical_alignment = 1

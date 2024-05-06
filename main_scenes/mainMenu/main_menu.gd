@@ -258,5 +258,4 @@ func ballOut():
 	var tween = get_tree().create_tween()
 	tween.tween_property(self,"circ",0.0,1.0).set_trans(Tween.TRANS_BOUNCE).set_ease(Tween.EASE_OUT)
 	await tween.finished
-	RenderingServer.set_default_clear_color(Color.BLACK)
 	get_tree().change_scene_to_file("res://main_scenes/game.tscn")
