@@ -69,6 +69,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.83125, 0, 2.3935)
 cast_shadow = 0
 pixel_size = 0.04
 transparent = false
+double_sided = false
 texture_filter = 0
 texture = ExtResource("5_n016a")
 

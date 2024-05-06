@@ -381,7 +381,7 @@ func checkIfHole():
 		
 		if win:
 			collider.get_parent().get_parent().entered()
-			
+			Sound.playSound2D(global_position,"res://audio/partyHorn.ogg",-10.0)
 			if is_instance_valid(Global.gameController):
 				Global.gameController.pauseTimer()
 			
@@ -395,7 +395,7 @@ func checkIfHole():
 		
 		setZHeightFALL(0)
 		
-		Sound.playSound2D(global_position,"res://audio/fall.ogg",-4.0)
+		Sound.playSound2D(global_position,"res://audio/fall.ogg",0.0)
 		
 		await get_tree().create_timer(1.0).timeout
 		
