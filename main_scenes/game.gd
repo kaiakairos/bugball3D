@@ -20,9 +20,11 @@ func _ready():
 	Global.gameController = self
 	
 	levels = Global.LVLHOLDER
-	print(levels)
 	loadLevel(0)
 	Global.connect("cameraCHANGED",placeTransition)
+	
+	await get_tree().create_timer(0.05).timeout
+	$UI.visible = true
 
 func reloadLevel():
 	if loading:

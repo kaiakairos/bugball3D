@@ -62,6 +62,7 @@ color = Color(0, 0, 0, 1)
 [node name="Container" type="Node2D" parent="."]
 
 [node name="UI" type="Node2D" parent="."]
+visible = false
 z_index = 400
 position = Vector2(250, 150)
 script = ExtResource("3_7oxq6")

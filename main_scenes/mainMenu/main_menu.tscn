@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://bujmrsxh8k58x"]
+[gd_scene load_steps=19 format=3 uid="uid://bujmrsxh8k58x"]
 
 [ext_resource type="Script" path="res://main_scenes/mainMenu/main_menu.gd" id="1_hw8g4"]
 [ext_resource type="PackedScene" uid="uid://bno8isqo481fp" path="res://main_scenes/mainMenu/menu_graphic.tscn" id="1_p8yr1"]
@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://crav5a05mrmxc" path="res://ui_scenes/courseIcons/comingSoon.png" id="12_afjsb"]
 [ext_resource type="Texture2D" uid="uid://bk55xt00g5h85" path="res://ui_scenes/courseIcons/difBorder.png" id="14_7e6oy"]
 [ext_resource type="Texture2D" uid="uid://bkvvtu3m0rsjm" path="res://ui_scenes/courseIcons/difSelect.png" id="15_2xe7m"]
+[ext_resource type="PackedScene" uid="uid://bxdyrs6mbjpx6" path="res://ui_scenes/options/options.tscn" id="15_oevmx"]
 [ext_resource type="Material" uid="uid://b21jm8np24uvw" path="res://main_scenes/mainMenu/transition.tres" id="16_wnogl"]
 [ext_resource type="AudioStream" uid="uid://bl4p7r8mbyovk" path="res://audio/headOverHeels.ogg" id="17_hu4jw"]
 
@@ -31,7 +32,7 @@ offset_left = 9.0
 offset_top = 267.0
 offset_right = 55.0
 offset_bottom = 299.0
-text = "v0.1"
+text = "v0.2"
 label_settings = SubResource("LabelSettings_mt1ax")
 
 [node name="MenuGraphic" parent="." instance=ExtResource("1_p8yr1")]
@@ -77,7 +78,6 @@ position = Vector2(250, 110)
 image = ExtResource("10_n6bi1")
 easyLevels = Array[String](["res://main_scenes/levels/forE/0.tscn", "res://main_scenes/levels/forE/1.tscn", "res://main_scenes/levels/forE/2.tscn", "res://main_scenes/levels/forE/3.tscn", "res://main_scenes/levels/forE/18.tscn", "res://main_scenes/levels/forE/4.tscn", "res://main_scenes/levels/forE/19.tscn", "res://main_scenes/levels/forE/16.tscn", "res://main_scenes/levels/forE/8.tscn", "res://main_scenes/levels/forE/5.tscn", "res://main_scenes/levels/forE/15.tscn", "res://main_scenes/levels/forE/9.tscn", "res://main_scenes/levels/forE/6.tscn", "res://main_scenes/levels/forE/10.tscn", "res://main_scenes/levels/forE/7.tscn", "res://main_scenes/levels/forE/11.tscn", "res://main_scenes/levels/forE/12.tscn", "res://main_scenes/levels/forE/13.tscn"])
 mediumLevels = Array[String](["res://main_scenes/levels/forM/m_0.tscn", "res://main_scenes/levels/forM/m_1.tscn", "res://main_scenes/levels/forM/m_2.tscn", "res://main_scenes/levels/forM/m_3.tscn"])
-hardLevels = Array[String](["res://main_scenes/levels/forE/13.tscn"])
 courseName = "forest"
 
 [node name="CourseIcon2" parent="COURSESELECT/Courses" instance=ExtResource("10_oxygi")]
@@ -98,6 +98,9 @@ texture = ExtResource("14_7e6oy")
 [node name="DifSelect" type="Sprite2D" parent="COURSESELECT/Difficulty/DifBorder"]
 position = Vector2(-110, 0)
 texture = ExtResource("15_2xe7m")
+
+[node name="Options" parent="." instance=ExtResource("15_oevmx")]
+position = Vector2(0, 300)
 
 [node name="transition" type="ColorRect" parent="."]
 z_index = 220

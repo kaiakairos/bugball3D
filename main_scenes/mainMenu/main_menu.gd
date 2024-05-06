@@ -64,6 +64,12 @@ func setMenuState(newState):
 				var tween = get_tree().create_tween()
 				tween.tween_property(COURSEFOLDER,"position:x",-500,0.75).set_trans(Tween.TRANS_ELASTIC).set_ease(Tween.EASE_OUT)
 				tweenHolder.append(tween)
+		2:
+			var tween = get_tree().create_tween()
+			tween.tween_property($Options,"position:y",300,0.8).set_trans(Tween.TRANS_QUINT).set_ease(Tween.EASE_OUT)
+			tweenHolder.append(tween)
+			$Options.set_process(false)
+			Saving.write_save()
 			
 	match newState:
 		0:
@@ -91,6 +97,11 @@ func setMenuState(newState):
 				tweenHolder.append(tween)
 		2:
 			menuGraphic.menuState = 1
+			var tween = get_tree().create_tween()
+			tween.tween_property($Options,"position:y",0,0.8).set_trans(Tween.TRANS_QUINT).set_ease(Tween.EASE_OUT)
+			tweenHolder.append(tween)
+			$Options.set_process(true)
+			$Options.displayValues()
 		3:
 			menuGraphic.menuState = 1
 		4:

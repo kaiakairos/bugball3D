@@ -1,16 +1,23 @@
-[gd_scene load_steps=3 format=3 uid="uid://c4n8udq5wlslk"]
+[gd_scene load_steps=4 format=3 uid="uid://c4n8udq5wlslk"]
 
 [ext_resource type="PackedScene" uid="uid://bith1com1osw4" path="res://world_scenes/floor/cool_floor.tscn" id="1_fkflr"]
 [ext_resource type="PackedScene" uid="uid://8dac38b54nn2" path="res://object_scenes/entity/player/player.tscn" id="2_ie0fd"]
+[ext_resource type="PackedScene" uid="uid://cpagp2isol5d8" path="res://object_scenes/decor/clouds/clouds.tscn" id="3_6fcf7"]
 
 [node name="previewLevel" type="Node2D"]
 
 [node name="coolFloor" parent="." instance=ExtResource("1_fkflr")]
 position = Vector2(-32, 88)
-polygon = PackedVector2Array(-43, -107, 1501, -107, 1501, 237, -43, 237)
+polygon = PackedVector2Array(-312, -416, 1560, -408, 1488, 512, -312, 472)
 
 [node name="Player" parent="." instance=ExtResource("2_ie0fd")]
 position = Vector2(152, 152)
 cameraLimitX = Vector2(-435346, 64654)
 cameraLimitY = Vector2(-54645, 45645)
 startingAngle = Vector2(1, 0)
+
+[node name="clouds" parent="." instance=ExtResource("3_6fcf7")]
+position = Vector2(-392, -375)
+
+[node name="clouds2" parent="." instance=ExtResource("3_6fcf7")]
+position = Vector2(632, -375)

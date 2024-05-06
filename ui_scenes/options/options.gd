@@ -15,6 +15,7 @@ var slideWait = 0
 
 func _ready():
 	displayValues()
+	set_process(false)
 
 func _process(delta):
 	match state:
@@ -59,11 +60,11 @@ func setSelectedLabel(id):
 func sfxSlider():
 	if Input.is_action_just_pressed("move_left") or Input.is_action_just_pressed("move_left_joy"):
 		slideWait = 0
-		changeSound(-0.05)
+		changeSound(-0.025)
 	
 	if Input.is_action_just_pressed("move_right") or Input.is_action_just_pressed("move_right_joy"):
 		slideWait = 0
-		changeSound(0.05)
+		changeSound(0.025)
 	
 	if Input.is_action_pressed("move_right") or Input.is_action_pressed("move_right_joy"):
 		slideWait += 1
@@ -84,11 +85,11 @@ func changeSound(amount):
 func musSlider():
 	if Input.is_action_just_pressed("move_left") or Input.is_action_just_pressed("move_left_joy"):
 		slideWait = 0
-		changeMusic(-0.05)
+		changeMusic(-0.025)
 	
 	if Input.is_action_just_pressed("move_right") or Input.is_action_just_pressed("move_right_joy"):
 		slideWait = 0
-		changeMusic(0.05)
+		changeMusic(0.025)
 	
 	if Input.is_action_pressed("move_right") or Input.is_action_pressed("move_right_joy"):
 		slideWait += 1
@@ -111,13 +112,19 @@ func fullscreenToggle(label):
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
 		
 		label.text = "fullscreen: DISABLED"
+	elif DisplayServer.window_get_mode() == DisplayServer.WINDOW_MODE_FULLSCREEN:
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
 		
+		label.text = "fullscreen: DISABLED"
+	elif DisplayServer.window_get_mode() == DisplayServer.WINDOW_MODE_MAXIMIZED:
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
+		
+		label.text = "fullscreen: DISABLED"
 	else:
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN)
 			
 		label.text = "fullscreen: ENABLED"
 	
-	Saving.write_save()
 	
 func rollModeToggle(label):
 	if Saving.getValue("rollToggle"):
@@ -145,7 +152,10 @@ func displayValues():
 	
 	if DisplayServer.window_get_mode() == DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN:
 		$scrollContain/fullscreen.text = "fullscreen: ENABLED"
-		
+	elif DisplayServer.window_get_mode() == DisplayServer.WINDOW_MODE_FULLSCREEN:
+		$scrollContain/fullscreen.text = "fullscreen: ENABLED"
+	elif DisplayServer.window_get_mode() == DisplayServer.WINDOW_MODE_MAXIMIZED:
+		$scrollContain/fullscreen.text = "fullscreen: ENABLED"
 	else:
 		$scrollContain/fullscreen.text = "fullscreen: DISABLED"
 	
