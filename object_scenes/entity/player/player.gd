@@ -9,6 +9,8 @@ extends CharacterBody2D
 
 @onready var camera = $Camera2D
 
+@onready var skid = preload("res://object_scenes/entity/skid/skid_mark.tscn")
+
 var bounceAmount = 0.81
 
 var dir := Vector2.UP
@@ -99,6 +101,8 @@ func _process(delta):
 	if Input.is_action_just_pressed("jump"):
 		jumpBufferTicks = 10
 	if	jumpBufferTicks > 0 and air <= 0.0:
+		# Jump code
+		Sound.playSound2D(global_position,"res://audio/jump.ogg",0.0)
 		air = 0.0
 		jumpVelocity = 10.0
 		velocity += dir.normalized() * 1000 * delta
@@ -124,6 +128,8 @@ func _process(delta):
 		offsetCamera()
 		return
 	
+	var curRol = rolling
+	
 	if Saving.getValue("rollToggle"):
 		if Input.is_action_just_pressed("roll"):
 			rolling = !rolling
@@ -134,7 +140,17 @@ func _process(delta):
 		rolling = true
 	getValues()
 	
-	
+	if curRol != rolling and !rolling:
+		if velocity.length() > 500.0:
+			var vol = (velocity.length() - 500) / 2000.0
+			vol = clamp(vol,0.0,1.0)
+			Sound.playSound2D(global_position,"res://audio/tire.ogg",linear_to_db(vol),randf_range(0.6,0.8))
+			
+			var i = skid.instantiate()
+			i.global_position = global_position
+			i.z_index = z_index - 1
+			get_parent().add_child(i)
+			
 	var newDir = Vector2.ZERO
 	if Global.usingController:
 		newDir.x = Input.get_action_raw_strength("move_right_joy") - Input.get_action_raw_strength("move_left_joy")

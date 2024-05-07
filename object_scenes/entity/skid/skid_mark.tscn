@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://b6nx65hgm3kyt"]
+
+[ext_resource type="Script" path="res://object_scenes/entity/skid/skid_mark.gd" id="1_ufyrw"]
+
+[sub_resource type="Gradient" id="Gradient_hbrrq"]
+offsets = PackedFloat32Array(0, 0.287129, 0.663366, 1)
+colors = PackedColorArray(0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0)
+
+[node name="skidMark" type="Node2D"]
+script = ExtResource("1_ufyrw")
+
+[node name="Line2D" type="Line2D" parent="."]
+position = Vector2(-17, 0)
+width = 3.0
+default_color = Color(0, 0, 0, 1)
+gradient = SubResource("Gradient_hbrrq")
+begin_cap_mode = 2
+end_cap_mode = 2
+round_precision = 4
+
+[node name="Line2D2" type="Line2D" parent="."]
+position = Vector2(17, 0)
+width = 3.0
+gradient = SubResource("Gradient_hbrrq")
+begin_cap_mode = 2
+end_cap_mode = 2
+round_precision = 4
