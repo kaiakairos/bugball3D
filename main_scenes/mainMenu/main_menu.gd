@@ -143,10 +143,10 @@ func mainMenu(delta):
 	
 	if Input.is_action_just_pressed("move_down") or Input.is_action_just_pressed("move_down_joy"):
 		menuOptionSelected += 1
-		Sound.playSound2D(Vector2(250,150),"res://audio/footstep.ogg",5.0)
+		Sound.playSound2D(Vector2(250,150),"res://audio/menuSelect.ogg",5.0)
 	if Input.is_action_just_pressed("move_up") or Input.is_action_just_pressed("move_up_joy"):
 		menuOptionSelected -= 1
-		Sound.playSound2D(Vector2(250,150),"res://audio/footstep.ogg",5.0)
+		Sound.playSound2D(Vector2(250,150),"res://audio/menuSelect.ogg",5.0)
 	if menuOptionSelected < 0:
 		menuOptionSelected = 2
 	elif menuOptionSelected > 2:
@@ -182,7 +182,7 @@ func playMenu(delta):
 	courseSelect = clamp(courseSelect,0,numberOfCourses-1)
 	var c = courseContainer.get_children()
 	if courseSelect != oldCourse:
-		Sound.playSound2D(Vector2(250,150),"res://audio/footstep.ogg",5.0)
+		Sound.playSound2D(Vector2(250,150),"res://audio/menuSelect.ogg",5.0)
 		c[oldCourse].hovering = false
 		c[courseSelect].hovering = true
 		
@@ -199,6 +199,8 @@ func playMenu(delta):
 		if courseSelect > 0:
 			#Remove when there are more courses
 			return
+		
+		Sound.playSound2D(Vector2(250,150),"res://audio/menuSelection.ogg",5.0)
 		
 		COURSECHOSEN = true
 		c[courseSelect].boing()
@@ -223,11 +225,11 @@ func courseMenu(delta):
 	if Input.is_action_just_pressed("move_right") or Input.is_action_just_pressed("move_right_joy"):
 		difficulty += 1
 		difselect.position.x += 10
-		Sound.playSound2D(Vector2(250,150),"res://audio/footstep.ogg",5.0)
+		Sound.playSound2D(Vector2(250,150),"res://audio/menuSelect.ogg",5.0)
 	if Input.is_action_just_pressed("move_left") or Input.is_action_just_pressed("move_left_joy"):
 		difficulty -= 1
 		difselect.position.x -= 10
-		Sound.playSound2D(Vector2(250,150),"res://audio/footstep.ogg",5.0)
+		Sound.playSound2D(Vector2(250,150),"res://audio/menuSelect.ogg",5.0)
 	
 	difficulty = clamp(difficulty,0,2)
 	
