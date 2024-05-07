@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://bujmrsxh8k58x"]
+[gd_scene load_steps=22 format=3 uid="uid://bujmrsxh8k58x"]
 
 [ext_resource type="Script" path="res://main_scenes/mainMenu/main_menu.gd" id="1_hw8g4"]
 [ext_resource type="PackedScene" uid="uid://bno8isqo481fp" path="res://main_scenes/mainMenu/menu_graphic.tscn" id="1_p8yr1"]
@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://crav5a05mrmxc" path="res://ui_scenes/courseIcons/comingSoon.png" id="12_afjsb"]
 [ext_resource type="Texture2D" uid="uid://bk55xt00g5h85" path="res://ui_scenes/courseIcons/difBorder.png" id="14_7e6oy"]
 [ext_resource type="Texture2D" uid="uid://bkvvtu3m0rsjm" path="res://ui_scenes/courseIcons/difSelect.png" id="15_2xe7m"]
+[ext_resource type="Texture2D" uid="uid://c7rr4gjqtj7nr" path="res://object_scenes/entity/player/dust/shape.png" id="15_4u8oe"]
 [ext_resource type="PackedScene" uid="uid://bxdyrs6mbjpx6" path="res://ui_scenes/options/options.tscn" id="15_oevmx"]
 [ext_resource type="Material" uid="uid://b21jm8np24uvw" path="res://main_scenes/mainMenu/transition.tres" id="16_wnogl"]
 [ext_resource type="AudioStream" uid="uid://bl4p7r8mbyovk" path="res://audio/headOverHeels.ogg" id="17_hu4jw"]
@@ -23,6 +24,15 @@ font = ExtResource("2_x70bn")
 font_size = 32
 outline_size = 15
 outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Curve" id="Curve_k2lpd"]
+max_value = 5.0
+_data = [Vector2(0, 2.1978), 0.0, 0.0, 0, 0, Vector2(0.982609, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_kiupg"]
+offsets = PackedFloat32Array(0, 0.336634, 0.663366, 0.950495)
+colors = PackedColorArray(1, 0.672, 0.18, 1, 1, 0.405, 0.15, 1, 1, 0.266667, 0.14902, 1, 0.68, 0.374, 0.374, 1)
 
 [node name="MainMenu" type="Node2D"]
 script = ExtResource("1_hw8g4")
@@ -92,12 +102,31 @@ image = ExtResource("12_afjsb")
 position = Vector2(500, 0)
 
 [node name="DifBorder" type="Sprite2D" parent="COURSESELECT/Difficulty"]
+clip_children = 2
 position = Vector2(258, 204)
 texture = ExtResource("14_7e6oy")
 
 [node name="DifSelect" type="Sprite2D" parent="COURSESELECT/Difficulty/DifBorder"]
+z_index = 1
 position = Vector2(-110, 0)
 texture = ExtResource("15_2xe7m")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="COURSESELECT/Difficulty/DifBorder"]
+position = Vector2(0, 33)
+amount = 256
+texture = ExtResource("15_4u8oe")
+emission_shape = 3
+emission_rect_extents = Vector2(150, 1)
+direction = Vector2(0, -1)
+spread = 0.0
+gravity = Vector2(0, -60)
+initial_velocity_max = 16.15
+orbit_velocity_min = -0.1
+orbit_velocity_max = 0.1
+angle_min = -5.0
+angle_max = 5.0
+scale_amount_curve = SubResource("Curve_k2lpd")
+color_ramp = SubResource("Gradient_kiupg")
 
 [node name="Options" parent="." instance=ExtResource("15_oevmx")]
 position = Vector2(0, 300)
