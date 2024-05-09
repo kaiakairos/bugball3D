@@ -1,9 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://thujt01appmd"]
+[gd_scene load_steps=12 format=3 uid="uid://thujt01appmd"]
 
 [ext_resource type="Script" path="res://main_scenes/game.gd" id="1_ot3mi"]
 [ext_resource type="Shader" path="res://main_scenes/game.gdshader" id="2_u2nxt"]
 [ext_resource type="Script" path="res://main_scenes/UI.gd" id="3_7oxq6"]
 [ext_resource type="FontFile" uid="uid://c0esfecfk2hon" path="res://alphabets/GrapeSoda.ttf" id="3_p1qcx"]
+[ext_resource type="Texture2D" uid="uid://isaukf61kjyw" path="res://ui_scenes/pause menu/overlay.png" id="4_68pxi"]
+[ext_resource type="PackedScene" uid="uid://bxdyrs6mbjpx6" path="res://ui_scenes/options/options.tscn" id="4_hbtpk"]
 [ext_resource type="AudioStream" uid="uid://bkdno0ieb37gv" path="res://audio/testSong.ogg" id="5_bp1km"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ssbx2"]
@@ -17,7 +19,20 @@ font_size = 32
 outline_size = 15
 outline_color = Color(0, 0, 0, 1)
 
+[sub_resource type="LabelSettings" id="LabelSettings_c3ac2"]
+font = ExtResource("3_p1qcx")
+font_size = 64
+outline_size = 26
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_w28nu"]
+font = ExtResource("3_p1qcx")
+font_size = 32
+outline_size = 13
+outline_color = Color(0, 0, 0, 1)
+
 [node name="Game" type="Node2D"]
+process_mode = 3
 script = ExtResource("1_ot3mi")
 
 [node name="transition" type="ColorRect" parent="."]
@@ -60,9 +75,9 @@ offset_bottom = 778.0
 color = Color(0, 0, 0, 1)
 
 [node name="Container" type="Node2D" parent="."]
+process_mode = 1
 
 [node name="UI" type="Node2D" parent="."]
-visible = false
 z_index = 400
 position = Vector2(250, 150)
 script = ExtResource("3_7oxq6")
@@ -80,10 +95,62 @@ label_settings = SubResource("LabelSettings_jstgy")
 [node name="Timer" type="Label" parent="UI"]
 offset_left = -239.0
 offset_top = -145.0
-offset_right = -139.0
+offset_right = -137.0
 offset_bottom = -107.0
 text = "0 : 00.00"
 label_settings = SubResource("LabelSettings_jstgy")
+
+[node name="Paused" type="Node2D" parent="UI"]
+visible = false
+
+[node name="Overlay" type="Sprite2D" parent="UI/Paused"]
+modulate = Color(1, 1, 1, 0.729412)
+texture = ExtResource("4_68pxi")
+
+[node name="PAUSED" type="Label" parent="UI/Paused"]
+offset_left = -250.0
+offset_top = -141.0
+offset_right = 250.0
+offset_bottom = -67.0
+text = "PAUSED"
+label_settings = SubResource("LabelSettings_c3ac2")
+horizontal_alignment = 1
+
+[node name="Options" parent="UI/Paused" instance=ExtResource("4_hbtpk")]
+visible = false
+position = Vector2(-120, -150)
+
+[node name="unpause" type="Label" parent="UI/Paused"]
+offset_left = -230.0
+offset_top = -65.0
+offset_right = 138.0
+offset_bottom = -17.0
+text = "back to game"
+label_settings = SubResource("LabelSettings_w28nu")
+
+[node name="restart" type="Label" parent="UI/Paused"]
+offset_left = -230.0
+offset_top = -31.0
+offset_right = 138.0
+offset_bottom = 17.0
+text = "restart course"
+label_settings = SubResource("LabelSettings_w28nu")
+
+[node name="option" type="Label" parent="UI/Paused"]
+offset_left = -230.0
+offset_top = 7.0
+offset_right = 138.0
+offset_bottom = 55.0
+text = "options"
+label_settings = SubResource("LabelSettings_w28nu")
+
+[node name="exit" type="Label" parent="UI/Paused"]
+offset_left = -230.0
+offset_top = 46.0
+offset_right = 138.0
+offset_bottom = 94.0
+text = "exit to menu"
+label_settings = SubResource("LabelSettings_w28nu")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_bp1km")

@@ -62,6 +62,7 @@ offset = Vector2(-195, -148)
 material = ExtResource("3_bnjcp")
 
 [node name="playWorld" parent="MAINMENU/buttons" instance=ExtResource("4_2uvpa")]
+modulate = Color(0.6, 0.588235, 0.654902, 1)
 position = Vector2(420, 159)
 partPos = Vector2(25, 5)
 
@@ -111,7 +112,7 @@ z_index = 1
 position = Vector2(-110, 0)
 texture = ExtResource("15_2xe7m")
 
-[node name="CPUParticles2D" type="CPUParticles2D" parent="COURSESELECT/Difficulty/DifBorder"]
+[node name="FlameParticle" type="CPUParticles2D" parent="COURSESELECT/Difficulty/DifBorder"]
 position = Vector2(0, 33)
 amount = 256
 texture = ExtResource("15_4u8oe")

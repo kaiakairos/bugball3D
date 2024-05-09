@@ -24,7 +24,8 @@ func _ready():
 		set_process(false)
 		return
 	
-	
+	Global.connect("disableDecor",disable)
+	Global.connect("enableDecor",enable)
 	
 	if spriteSheet == null:
 		print_debug("no sprite dumbass")
@@ -34,6 +35,8 @@ func _ready():
 	
 	createLayers()
 	z_index = 219
+	
+	
 	
 func createLayers():
 	for i in range(images):
@@ -58,3 +61,11 @@ func _process(delta):
 			layer.position.y += Global.wiggleNoise.get_noise_1d((tick*0.2) + 4000 + g.y) * mul
 		
 		i += 1
+
+func disable():
+	visible = false
+	set_process(false)
+
+func enable():
+	visible = true
+	set_process(true)

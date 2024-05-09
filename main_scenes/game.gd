@@ -16,6 +16,8 @@ var timing = false
 
 var GRRRAAHHHHHHHH = true
 
+var pauseSelected = 0 # Unpause, Restart, Options, Exit
+
 func _ready():
 	Global.gameController = self
 	
@@ -101,7 +103,7 @@ func pauseTimer():
 
 func _process(delta):
 	
-	if timing:
+	if timing and !get_tree().paused:
 		time += delta
 		var value = time - (int(time/60.0)*60)
 		var string = str( value )
@@ -120,6 +122,47 @@ func _process(delta):
 		if Input.is_action_just_pressed("roll"):
 			get_tree().reload_current_scene()
 	
+	if Input.is_action_just_pressed("pause"):
+		if get_tree().paused:
+			unpauseGame()
+			$UI/Paused/Options.set_process(false)
+			$UI/Paused/Options.visible = false
+			$UI/Paused/PAUSED.visible = true
+		else:
+			pauseGame()
+	
+	if Input.is_action_just_pressed("menuBack") and get_tree().paused and !$UI/Paused/Options.visible:
+		unpauseGame()
+	
+	
+	if get_tree().paused:
+		if !$UI/Paused/Options.visible:
+			if Input.is_action_just_pressed("move_down") or Input.is_action_just_pressed("move_down_joy"):
+				pauseSelected += 1
+			if Input.is_action_just_pressed("move_up") or Input.is_action_just_pressed("move_up_joy"):
+				pauseSelected -= 1
+			pauseSelected = clamp(pauseSelected,0,3)
+			selectItem(pauseSelected)
+			if Input.is_action_just_pressed("menuSelect"):
+				match pauseSelected:
+					0:
+						unpauseGame()
+					1:
+						unpauseGame()
+						get_tree().reload_current_scene()
+					2:
+						$UI/Paused/Options.set_process(true)
+						$UI/Paused/Options.visible = true
+						$UI/Paused/PAUSED.visible = false
+					3:
+						unpauseGame()
+						get_tree().change_scene_to_file("res://main_scenes/mainMenu/main_menu.tscn")
+		else:
+			if Input.is_action_just_pressed("menuBack"):
+				$UI/Paused/Options.set_process(false)
+				$UI/Paused/Options.visible = false
+				$UI/Paused/PAUSED.visible = true
+		
 func placeTransition():
 	if !is_instance_valid(Global.player):
 		$transition.material.set_shader_parameter("retard",Vector2(0.5,0.5))
@@ -129,3 +172,21 @@ func placeTransition():
 	gay= gay / Vector2(500,500)
 	$transition.material.set_shader_parameter("retard",gay)
 	$transition.global_position = Global.camera.global_position - Vector2(250,250)
+
+
+func pauseGame():
+	get_tree().paused = true
+	pauseSelected = 0
+	selectItem(0)
+	$UI/Paused.visible = true
+
+func unpauseGame():
+	get_tree().paused = false
+	$UI/Paused.visible = false
+
+func selectItem(id):
+	var a = [ $UI/Paused/unpause , $UI/Paused/restart , $UI/Paused/option ,$UI/Paused/exit  ]
+	for i in range(4):
+		a[i].modulate = Color.WHITE
+		if i == id:
+			a[i].modulate = Color(0.6,0.588,0.655)

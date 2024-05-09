@@ -132,7 +132,7 @@ func _process(delta):
 
 func mainMenu(delta):
 	
-	$MAINMENU/Logo.rotation = sin(tick*0.1) * 0.06
+	$MAINMENU/Logo.rotation = sin(tick*6.0*delta) * 0.06
 	
 	if SELECTIONMADE:
 		return

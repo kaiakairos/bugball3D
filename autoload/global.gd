@@ -14,6 +14,24 @@ signal cameraCHANGED
 
 var wiggleNoise = FastNoiseLite.new()
 
+signal disableCloud
+signal enableCloud
+
+signal disableDecor
+signal enableDecor
+
+func cloudTog(yes):
+	if yes:
+		emit_signal("enableCloud")
+	else:
+		emit_signal("disableCloud")
+
+func decorTog(yes):
+	if yes:
+		emit_signal("enableDecor")
+	else:
+		emit_signal("disableDecor")
+
 func getGlobalCameraPosition():
 	if is_instance_valid(camera):
 		return camera.global_position

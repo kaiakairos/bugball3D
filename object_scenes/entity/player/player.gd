@@ -123,7 +123,7 @@ func _process(delta):
 	if air > 0.0:
 		jumpMovement(delta)
 		rolling = true
-		getValues()
+		getValues(delta)
 		vpSprite.modulate.a = 1.0
 		offsetCamera()
 		return
@@ -138,7 +138,7 @@ func _process(delta):
 	
 	if $boostCast.is_colliding():
 		rolling = true
-	getValues()
+	getValues(delta)
 	
 	if curRol != rolling and !rolling:
 		if velocity.length() > 500.0:
@@ -183,11 +183,13 @@ func _process(delta):
 	
 func rollingMovement(newDir,delta):
 	
-	velocity += newDir * delta * 500
+	var point1del = 1 - pow(2,   (  -delta / 3.8168 )  )
+	
+	velocity += newDir * delta * 500 # * 10 #FUN MODE DONT TOUCH UNTIL READY
 	if newDir.x == 0:
-		velocity.x = lerp(velocity.x,0.0,0.01)
+		velocity.x = lerp(velocity.x,0.0,point1del)
 	if newDir.y == 0:
-		velocity.y = lerp(velocity.y,0.0,0.01)
+		velocity.y = lerp(velocity.y,0.0,point1del)
 	
 	ball.rotateByVelocity(velocity * 0.1,delta)
 	
@@ -205,7 +207,7 @@ func rollingMovement(newDir,delta):
 		previousTurnArray.append( dir.normalized() )
 		previousTurnArray.remove_at(0)
 	
-	setBodyPositions(true)
+	setBodyPositions(true,delta)
 	
 	speed = velocity.length() / delta
 	
@@ -226,12 +228,13 @@ func rollingMovement(newDir,delta):
 
 func staticMovement(newDir,delta):
 	
+	var point1del = 1 - pow(2,   (  -delta / 0.36409 )  )
 	
 	if newDir != Vector2.ZERO:
 		dir = dir.slerp(newDir, 1 - pow( 2 , ( -delta / turnSpeed ) )  )
 		
-		speed = max(lerp(speed,10000,0.1),10000)
-		velocity = dir.normalized() * speed * delta
+		speed = max(lerp(speed,10000, point1del ),10000)
+		velocity = dir.normalized() * speed * 0.0166
 		
 		tennaOneGlob = $head/Tenna.global_position
 		tennaTwoGlob = $head/Tenna2.global_position
@@ -243,7 +246,7 @@ func staticMovement(newDir,delta):
 		previousTurnArray.append( dir.normalized() )
 		previousTurnArray.remove_at(0)
 		
-		setBodyPositions(true)
+		setBodyPositions(true,delta)
 		
 		if tick % 5 == 0:
 			flipFeet()
@@ -255,23 +258,24 @@ func staticMovement(newDir,delta):
 	else:
 		
 		if shouldDecelerate:
-			speed = lerp(speed,0,0.1)
+			speed = lerp(speed,0,point1del)
 			if speed <= 100:
 				shouldDecelerate = false
 		else:
 			speed = 0
 			shouldDecelerate = false
-		velocity = dir.normalized() * speed * delta
+		velocity = dir.normalized() * speed * 0.0166
 		
 		move_and_slide()
 		
 	
-		setBodyPositions(velocity.length() > 1.0)
+		setBodyPositions(velocity.length() > 1.0,delta)
 		
 		$head/Tenna.rotation = lerp_angle( $head/Tenna.rotation, 0.0 , 0.05 )
 		$head/Tenna2.rotation = lerp_angle( $head/Tenna2.rotation, 0.0 , 0.05 )
 	
 	ball.setRotationBase(dir)
+	print(velocity.length())
 	
 func flipFeet():
 	$body/Feet.frame = int(!feetFlip)
@@ -281,30 +285,39 @@ func flipFeet():
 	
 	feetFlip = !feetFlip
 
-func getValues():
+func getValues(delta):
 	if rolling:
+		
+		var point2delta = 1 - pow(2,   (  -delta / 0.17197 )  )
+		
 		bodySeperation = lerp(bodySeperation,0.01,0.8)
-		$head.scale = lerp($head.scale,Vector2.ZERO,0.2)
-		$body.scale = lerp($body.scale,Vector2.ZERO,0.2)
-		$tail.scale = lerp($tail.scale,Vector2.ZERO,0.2)
-		turnSpeed = lerp(turnSpeed,2.0,0.2)
+		$head.scale = lerp($head.scale,Vector2.ZERO,point2delta)
+		$body.scale = lerp($body.scale,Vector2.ZERO,point2delta)
+		$tail.scale = lerp($tail.scale,Vector2.ZERO,point2delta)
+		turnSpeed = lerp(turnSpeed,2.0,point2delta)
 		bodyOutline.width = lerp(bodyOutline.width,17.5,0.4)
 		
 		vpSprite.scale = Vector2(0.35,0.35)
 		vpSprite.modulate.a = 1.0
 		
 	else:
-		bodySeperation = lerp(bodySeperation,6.0,0.2)
-		$head.scale = lerp($head.scale,Vector2(1,1),0.2)
-		$body.scale = lerp($body.scale,Vector2(1,1),0.2)
-		$tail.scale = lerp($tail.scale,Vector2(1,1),0.2)
-		turnSpeed = lerp(turnSpeed,0.15,0.1)
-		bodyOutline.width = lerp(bodyOutline.width,14.0,0.2)
+		
+		var point2delta = 1 - pow(2,   (  -delta / 0.17197 )  )
+		
+		bodySeperation = lerp(bodySeperation,6.0,point2delta)
+		$head.scale = lerp($head.scale,Vector2(1,1),point2delta)
+		$body.scale = lerp($body.scale,Vector2(1,1),point2delta)
+		$tail.scale = lerp($tail.scale,Vector2(1,1),point2delta)
+		turnSpeed = lerp(turnSpeed,0.15, 1 - pow(2,   (  -delta / 0.36409 )  )   )
+		bodyOutline.width = lerp(bodyOutline.width,14.0,point2delta)
 		
 		vpSprite.scale = lerp(vpSprite.scale,Vector2(0.1,0.1),0.3)
 		vpSprite.modulate.a = lerp(vpSprite.modulate.a,0.0,0.8)
 
-func setBodyPositions(moving):
+func setBodyPositions(moving,delta):
+	
+	var point2delta = 1 - pow(2,   (  -delta / 0.17197 )  )
+	
 	$tail.position = $body.position + (previousTurnArray[0] * -bodySeperation )
 	$body.position = (previousTurnArray[ bodyLag / 2 ] * -bodySeperation )
 	
@@ -312,10 +325,10 @@ func setBodyPositions(moving):
 		$head.rotation = dir.rotated((PI/2)).angle()
 		
 		var tennaOneDifference =  ($head/Tenna.global_position - tennaOneGlob).rotated( (PI/2) )
-		$head/Tenna.global_rotation = lerp_angle( $head/Tenna.global_rotation, tennaOneDifference.angle() , 0.2 )
+		$head/Tenna.global_rotation = lerp_angle( $head/Tenna.global_rotation, tennaOneDifference.angle() , point2delta )
 		$head/Tenna.rotation = clamp($head/Tenna.rotation,-(PI/6),(PI/6))
 		var tennaTwoDifference =  ($head/Tenna2.global_position - tennaTwoGlob).rotated( (PI/2) )
-		$head/Tenna2.global_rotation = lerp_angle( $head/Tenna2.global_rotation, tennaTwoDifference.angle() , 0.2 )
+		$head/Tenna2.global_rotation = lerp_angle( $head/Tenna2.global_rotation, tennaTwoDifference.angle() , point2delta )
 		$head/Tenna2.rotation = clamp($head/Tenna2.rotation,-(PI/6),(PI/6))
 		
 		
@@ -347,7 +360,7 @@ func jumpMovement(delta):
 		previousTurnArray.append( dir.normalized() )
 		previousTurnArray.remove_at(0)
 	
-	setBodyPositions(true)
+	setBodyPositions(true,delta)
 	
 	speed = velocity.length() / delta
 	
@@ -431,7 +444,7 @@ func fallingMovement(delta):
 	
 	jumpMovement(delta)
 	rolling = true
-	getValues()
+	getValues(delta)
 	offsetCamera()
 	
 	var scalen = setZHeightFALL(delta)

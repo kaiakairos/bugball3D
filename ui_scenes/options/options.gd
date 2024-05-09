@@ -33,9 +33,11 @@ func _process(delta):
 				rollModeToggle(curLabel)
 			4:
 				Saving.setValue("showClouds",!Saving.getValue("showClouds"))
+				Global.cloudTog(Saving.getValue("showClouds"))
 				showCloudToggle(curLabel)
 			5:
 				Saving.setValue("showDecor",!Saving.getValue("showDecor"))
+				Global.decorTog(Saving.getValue("showDecor"))
 				showDecorToggle(curLabel)
 	
 	if Input.is_action_just_pressed("move_down") or Input.is_action_just_pressed("move_down_joy"):
