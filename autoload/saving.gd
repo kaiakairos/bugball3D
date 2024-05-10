@@ -3,24 +3,6 @@ extends Node
 var key = "kaiakairos_bugball"
 
 var defaultData = {
-	## Course High Scores
-	#Forest
-	"course1_EasyPB":null,
-	"course1_MeedPB":null,
-	"course1_HardPB":null,
-	#
-	"course2_EasyPB":null,
-	"course2_MeedPB":null,
-	"course2_HardPB":null,
-	#
-	"course3_EasyPB":null,
-	"course3_MeedPB":null,
-	"course3_HardPB":null,
-	#
-	"course4_EasyPB":null,
-	"course4_MeedPB":null,
-	"course4_HardPB":null,
-	
 	#Options
 	"rollToggle":false,
 	"musicVol":1.0,
@@ -107,5 +89,5 @@ func setValue(s,value):
 	if data.has(s):
 		data[s] = value
 	else:
-		printerr("Attepted to write line '" + str(s) + "' to save data, but line doesn't exist!")
-		return null
+		printerr("Attepted to write line '" + str(s) + "' to save data, but line doesn't exist!\nI wrote it anyways though!")
+		data[s] = value

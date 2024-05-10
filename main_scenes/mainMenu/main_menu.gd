@@ -243,10 +243,13 @@ func courseMenu(delta):
 		match difficulty:
 			0:
 				Global.LVLHOLDER = course.easyLevels
+				Global.levelSaveCode = course.saveCodeE
 			1:
 				Global.LVLHOLDER = course.mediumLevels
+				Global.levelSaveCode = course.saveCodeM
 			2:
 				Global.LVLHOLDER = course.hardLevels
+				Global.levelSaveCode = course.saveCodeH
 		
 		ballOut()
 	

@@ -9,6 +9,7 @@ var shake = 0.0
 var usingController = false
 
 var LVLHOLDER = []
+var levelSaveCode:String=""
 
 signal cameraCHANGED
 

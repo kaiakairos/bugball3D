@@ -10,7 +10,9 @@ extends Node2D
 
 @export var courseName :String = "bleh"
 
-
+@export var saveCodeE :String = ""
+@export var saveCodeM :String = ""
+@export var saveCodeH :String = ""
 
 var boingtween :Tween = null
 var shinetween :Tween = null

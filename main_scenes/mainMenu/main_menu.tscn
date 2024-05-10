@@ -62,7 +62,6 @@ offset = Vector2(-195, -148)
 material = ExtResource("3_bnjcp")
 
 [node name="playWorld" parent="MAINMENU/buttons" instance=ExtResource("4_2uvpa")]
-modulate = Color(0.6, 0.588235, 0.654902, 1)
 position = Vector2(420, 159)
 partPos = Vector2(25, 5)
 
@@ -89,7 +88,11 @@ position = Vector2(250, 110)
 image = ExtResource("10_n6bi1")
 easyLevels = Array[String](["res://main_scenes/levels/forE/0.tscn", "res://main_scenes/levels/forE/1.tscn", "res://main_scenes/levels/forE/2.tscn", "res://main_scenes/levels/forE/3.tscn", "res://main_scenes/levels/forE/18.tscn", "res://main_scenes/levels/forE/4.tscn", "res://main_scenes/levels/forE/19.tscn", "res://main_scenes/levels/forE/16.tscn", "res://main_scenes/levels/forE/8.tscn", "res://main_scenes/levels/forE/5.tscn", "res://main_scenes/levels/forE/15.tscn", "res://main_scenes/levels/forE/9.tscn", "res://main_scenes/levels/forE/6.tscn", "res://main_scenes/levels/forE/10.tscn", "res://main_scenes/levels/forE/7.tscn", "res://main_scenes/levels/forE/11.tscn", "res://main_scenes/levels/forE/12.tscn", "res://main_scenes/levels/forE/13.tscn"])
 mediumLevels = Array[String](["res://main_scenes/levels/forM/m_0.tscn", "res://main_scenes/levels/forM/m_1.tscn", "res://main_scenes/levels/forM/m_2.tscn", "res://main_scenes/levels/forM/m_3.tscn"])
+hardLevels = Array[String](["res://main_scenes/levels/forE/18.tscn"])
 courseName = "forest"
+saveCodeE = "course1_EasyPB"
+saveCodeM = "course1_MeedPB"
+saveCodeH = "course1_HardPB"
 
 [node name="CourseIcon2" parent="COURSESELECT/Courses" instance=ExtResource("10_oxygi")]
 position = Vector2(0, 95)

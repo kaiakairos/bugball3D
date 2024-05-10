@@ -18,6 +18,8 @@ var GRRRAAHHHHHHHH = true
 
 var pauseSelected = 0 # Unpause, Restart, Options, Exit
 
+var deaths :int= 0
+
 func _ready():
 	Global.gameController = self
 	
@@ -31,6 +33,7 @@ func _ready():
 func reloadLevel():
 	if loading:
 		return
+	deaths += 1
 	loadLevel(current)
 
 func nextLevel():
@@ -64,7 +67,7 @@ func loadLevel(id):
 	if id < 0 or id >= levels.size():
 		print_debug("Level load failed, level array does not have id " + str(id))
 		await get_tree().create_timer(1.0).timeout
-		$UI/finalTime.visible = true
+		$courseComplete.postScores( deaths, time )
 		return
 	
 	

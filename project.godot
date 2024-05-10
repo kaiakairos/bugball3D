@@ -13,6 +13,7 @@ config_version=5
 config/name="bugShaker"
 run/main_scene="res://main_scenes/compiler/loadin.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
+run/max_fps=60
 config/icon="res://icon.svg"
 
 [autoload]
@@ -44,6 +45,10 @@ folder_colors={
 "res://ui_scenes/": "teal",
 "res://world_scenes/": "purple"
 }
+
+[gui]
+
+theme/custom_font="res://alphabets/GrapeSoda.ttf"
 
 [importer_defaults]
 
