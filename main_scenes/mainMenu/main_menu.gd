@@ -244,12 +244,15 @@ func courseMenu(delta):
 			0:
 				Global.LVLHOLDER = course.easyLevels
 				Global.levelSaveCode = course.saveCodeE
+				Global.levelRANKHolder = course.rankLimitE
 			1:
 				Global.LVLHOLDER = course.mediumLevels
 				Global.levelSaveCode = course.saveCodeM
+				Global.levelRANKHolder = course.rankLimitM
 			2:
 				Global.LVLHOLDER = course.hardLevels
 				Global.levelSaveCode = course.saveCodeH
+				Global.levelRANKHolder = course.rankLimitH
 		
 		ballOut()
 	

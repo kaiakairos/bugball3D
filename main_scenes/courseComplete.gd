@@ -26,10 +26,19 @@ func postScores( deaths, time ):
 	
 	Saving.write_save()
 	
-	$Wipe.visible = true
+	# calculate RANK
+	$Grades.frame = 5
+	if Global.levelRANKHolder.size() < 5:
+		printerr("EPIC FAIL: you need five values in the level rank holder! ")
+	else:
+		for score in range(5):
+			if time <= Global.levelRANKHolder[score]:
+				$Grades.frame = score
+				break
+	
 	$Background.visible = true
 	$courseComplete.visible = true
-	await get_tree().create_timer(0.25).timeout
+	await get_tree().create_timer(2.0).timeout
 	
 	var tween = get_tree().create_tween()
 	tween.set_parallel()

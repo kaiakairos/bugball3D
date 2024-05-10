@@ -93,6 +93,7 @@ courseName = "forest"
 saveCodeE = "course1_EasyPB"
 saveCodeM = "course1_MeedPB"
 saveCodeH = "course1_HardPB"
+rankLimitH = Array[float]([2.5, 3.5, 5.0, 7.0, 10.0])
 
 [node name="CourseIcon2" parent="COURSESELECT/Courses" instance=ExtResource("10_oxygi")]
 position = Vector2(0, 95)

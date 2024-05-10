@@ -10,6 +10,7 @@ var usingController = false
 
 var LVLHOLDER = []
 var levelSaveCode:String=""
+var levelRANKHolder = []
 
 signal cameraCHANGED
 

@@ -65,8 +65,12 @@ func loadLevel(id):
 		i.queue_free()
 	
 	if id < 0 or id >= levels.size():
-		print_debug("Level load failed, level array does not have id " + str(id))
-		await get_tree().create_timer(1.0).timeout
+		# end course
+		print_debug("Ran out of levels! Going to course completion.")
+		var tweenEnd = get_tree().create_tween()
+		tweenEnd.tween_property(self,"circ",1.0,1.0).set_trans(Tween.TRANS_QUART).set_ease(Tween.EASE_IN)
+		GRRRAAHHHHHHHH = true
+		$transition.z_index = 4096
 		$courseComplete.postScores( deaths, time )
 		return
 	
@@ -169,6 +173,7 @@ func _process(delta):
 func placeTransition():
 	if !is_instance_valid(Global.player):
 		$transition.material.set_shader_parameter("retard",Vector2(0.5,0.5))
+		$transition.position = Vector2(0,-100)
 		return
 	var gay = Global.player.get_global_transform_with_canvas().origin - Vector2(0,-100)
 	

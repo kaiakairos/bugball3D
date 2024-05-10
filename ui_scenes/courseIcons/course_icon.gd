@@ -14,6 +14,13 @@ extends Node2D
 @export var saveCodeM :String = ""
 @export var saveCodeH :String = ""
 
+## needs 5 minimums : S,A,B,C,D
+@export var rankLimitE :Array[float] = []
+## needs 5 minimums : S,A,B,C,D
+@export var rankLimitM :Array[float] = []
+## needs 5 minimums : S,A,B,C,D
+@export var rankLimitH :Array[float] = []
+
 var boingtween :Tween = null
 var shinetween :Tween = null
 var hovering = false
