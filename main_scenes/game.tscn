@@ -6,7 +6,7 @@
 [ext_resource type="FontFile" uid="uid://c0esfecfk2hon" path="res://alphabets/GrapeSoda.ttf" id="3_p1qcx"]
 [ext_resource type="Texture2D" uid="uid://isaukf61kjyw" path="res://ui_scenes/pause menu/overlay.png" id="4_68pxi"]
 [ext_resource type="PackedScene" uid="uid://bxdyrs6mbjpx6" path="res://ui_scenes/options/options.tscn" id="4_hbtpk"]
-[ext_resource type="AudioStream" uid="uid://bkdno0ieb37gv" path="res://audio/testSong.ogg" id="5_bp1km"]
+[ext_resource type="AudioStream" uid="uid://bg126u3fhpisu" path="res://audio/rollout.ogg" id="7_fp624"]
 [ext_resource type="Script" path="res://main_scenes/courseComplete.gd" id="8_sc8f0"]
 [ext_resource type="Texture2D" uid="uid://ddl2lcnped2yc" path="res://ui_scenes/courseComplete/background.png" id="9_4j8fc"]
 [ext_resource type="Shader" path="res://main_scenes/backgroundScroll.gdshader" id="9_e1goq"]
@@ -168,8 +168,8 @@ text = "exit to menu"
 label_settings = SubResource("LabelSettings_w28nu")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("5_bp1km")
-volume_db = -5.0
+stream = ExtResource("7_fp624")
+volume_db = 6.0
 autoplay = true
 bus = &"Music"
 

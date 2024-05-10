@@ -200,7 +200,7 @@ func playMenu(delta):
 			#Remove when there are more courses
 			return
 		
-		Sound.playSound2D(Vector2(250,150),"res://audio/menuSelection.ogg",5.0)
+		#Sound.playSound2D(Vector2(250,150),"res://audio/menuSelection.ogg",5.0)
 		
 		COURSECHOSEN = true
 		c[courseSelect].boing()
