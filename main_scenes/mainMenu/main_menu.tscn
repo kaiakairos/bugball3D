@@ -251,28 +251,28 @@ vertical_alignment = 1
 position = Vector2(162, 265)
 
 [node name="ModifierToggle" parent="COURSESELECT/Difficulty/Modifiers" instance=ExtResource("21_fxuyc")]
-modName = "roll accel"
-desc = "rolls BUG FAST"
+modName = "MOD_NAME_ROLL"
+desc = "MOD_DESC_ROLL"
 modId = "Roll"
 
 [node name="ModifierToggle2" parent="COURSESELECT/Difficulty/Modifiers" instance=ExtResource("21_fxuyc")]
 position = Vector2(64, 0)
-modName = "mirror"
-desc = "mirrored"
+modName = "MOD_NAME_MIRROR"
+desc = "MOD_DESC_MIRROR"
 frame = 1
 modId = "Mirrored"
 
 [node name="ModifierToggle3" parent="COURSESELECT/Difficulty/Modifiers" instance=ExtResource("21_fxuyc")]
 position = Vector2(128, 0)
-modName = "fuse"
-desc = "bomb... explode"
+modName = "MOD_NAME_FUSE"
+desc = "MOD_DESC_FUSE"
 frame = 2
 modId = "Fuse"
 
 [node name="ModifierToggle4" parent="COURSESELECT/Difficulty/Modifiers" instance=ExtResource("21_fxuyc")]
 position = Vector2(196, 0)
-modName = "BOUNCE"
-desc = "bounce big 2.0x"
+modName = "MOD_NAME_BOUNCE"
+desc = "MOD_DESC_BOUNCE"
 frame = 3
 modId = "Bounce"
 
@@ -281,7 +281,7 @@ visible = false
 offset_top = 16.0
 offset_right = 500.0
 offset_bottom = 110.0
-text = "modifier name"
+text = "MOD_NAME_ROLL"
 label_settings = SubResource("LabelSettings_pyx72")
 horizontal_alignment = 1
 
@@ -290,8 +290,21 @@ visible = false
 offset_left = 47.0
 offset_top = 69.0
 offset_right = 459.0
-offset_bottom = 173.0
-text = "modifier description"
+offset_bottom = 170.0
+text = "MOD_DESC_ROLL"
+label_settings = SubResource("LabelSettings_nhg1w")
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="modWarn" type="Label" parent="COURSESELECT/Difficulty"]
+visible = false
+modulate = Color(0.917647, 0.121569, 0.121569, 1)
+z_index = 2
+offset_left = 47.0
+offset_top = 127.0
+offset_right = 459.0
+offset_bottom = 178.0
+text = "MOD_WARN"
 label_settings = SubResource("LabelSettings_nhg1w")
 horizontal_alignment = 1
 autowrap_mode = 2

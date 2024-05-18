@@ -36,6 +36,10 @@ func isPlayerDisqualified():
 		return true
 	if doubleBounce:
 		return true
+	if fuse:
+		return true
+	if mirrored:
+		return true
 	
 	return false
 

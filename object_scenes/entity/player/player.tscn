@@ -316,6 +316,12 @@ hit_from_inside = true
 collide_with_areas = true
 collide_with_bodies = false
 
+[node name="Echo" type="Sprite2D" parent="holeCast"]
+z_index = 220
+position = Vector2(0, -1)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_8pq45")
+
 [node name="boostCast" type="RayCast2D" parent="."]
 target_position = Vector2(0, 1)
 collision_mask = 64

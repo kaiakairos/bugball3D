@@ -346,6 +346,7 @@ func modifierMenu(delta):
 	
 	if Input.is_action_just_pressed("menuSelect"):
 		mods[modSelected].press()
+		$COURSESELECT/Difficulty/modWarn.visible = Global.isPlayerDisqualified()
 
 func selectDusty(pos):
 	var ins = selectDust.instantiate()

@@ -76,7 +76,7 @@ func _ready():
 	if Global.mirrored:
 		camera.zoom = Vector2(1,-1)
 	if Global.doubleBounce:
-		bounceAmount = 2.0
+		bounceAmount = 1.2
 	
 	await get_tree().create_timer(0.5).timeout
 	$Camera2D/cover.visible = false
@@ -205,7 +205,10 @@ func rollingMovement(newDir,delta):
 	
 	
 	if !falling:
-		$holeCast.position = lerp($holeCast.position,velocity.normalized() * -6,0.1)
+		var target = velocity * -0.02
+		if target.length() < 6:
+			target = velocity.normalized() * -6
+		$holeCast.position = lerp($holeCast.position,target,0.1)
 	
 	
 	var slowDownDelta = 1 - pow(2,   (  -delta / 3.8168 )  )
@@ -373,7 +376,7 @@ func jumpMovement(delta):
 	
 	
 	if !falling:
-		$holeCast.position = velocity.normalized() * 6
+		$holeCast.position = velocity.normalized() * 10
 	
 	tennaOneGlob = $head/Tenna.global_position
 	tennaTwoGlob = $head/Tenna2.global_position

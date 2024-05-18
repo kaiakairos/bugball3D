@@ -13,7 +13,7 @@ PAUSE_BACK,back to game,reanudar,voltar,retour,戻る,zurück
 PAUSE_RESTART,restart course,jugar otra vez,tente novamente,recommencez,リトライ,fang nochmal an
 PAUSE_EXIT,exit to menu,volver al menú principal,retornar ao menu principal,retourner au menu principal,メインメニューに戻る,zurück zum hauptmenü
 NEW_RECORD,NEW RECORD!!,¡¡nuevo record!!,novo recorde!!,nouvel enregistrement!!,新記録!!,neue bestzeit!
-COURSE_COMPLETE,course complete!!,¡¡nivel completo!!,¡¡nivel completado!!,cours terminé !,レベル完了!!,level abgeschlossen!
+COURSE_COMPLETE,course complete!!,¡¡nivel completo!!,¡¡nivel completado!!,cours terminé !,レベル完了!,level abgeschlossen!
 COURSE_RETRY,replay course,jugar otra vez,jogar novamente,rejouer,再プレイ,noch einmal spielen
 COURSE_EXIT,back to menu,volver al menú principal,retornar ao menu principal,retourner au menu principal,メインメニューに戻る,zurück zum hauptmenü
 COURSE_TIME,time,tiempo,tempo,temps,タイム,zeit
@@ -39,3 +39,15 @@ OPTION_LANG,language,idioma,idioma,langue,言語,sprache
 EASY,easy,fácil,fácil,facile,易しい,einfach
 MEDIUM,medium,intermedio,médio,moyen,普通,mittel
 HARD,hard,difícil,difícil,difficile,難しい,schwer
+MOD_NAME_ROLL,overdrive,,,,オーバードライブ,enorme geschwindigkeit
+MOD_NAME_MIRROR,mirror world,,,,鏡,spiegel
+MOD_NAME_FUSE,fuse,,,,信管,"
+der zünder"
+MOD_NAME_BOUNCE,rubber world,,,,ゴム世界,gummiwelt
+MOD_DESC_ROLL,10x multiplier on rolling acceleration,,,,10倍の乗数 ロール加速,"
+10-facher rollbeschleunigungsmultiplikator"
+MOD_DESC_MIRROR,flips all levels upside-down,,,,レベルをミラーリングする直立,"
+stellt alle ebenen auf den kopf"
+MOD_DESC_FUSE,you will explode after a few seconds,,,,昆虫数秒後に爆発する,der pillenkäfer wird nach ein paar sekunden explodieren
+MOD_DESC_BOUNCE,gain velocity on bounce rather than lose it,,,,バウンド時の速度を上げる,"gewinnen sie beim abprallen an geschwindigkeit, anstatt sie zu verlieren"
+MOD_WARN,note: having modifiers enabled will disqualify you from saving your scores or participating in leaderboards,nota: tener modificadores habilitados lo descalificará para guardar sus puntajes o participar en tablas de clasificación,"observação: se os modificadores estiverem ativados, você não poderá salvar suas pontuações nem participar das tabelas de classificação",remarque : l'activation des modificateurs vous empêchera de sauvegarder vos scores ou de participer aux classements.,注: 修飾子を有効にすると、スコアを保存したり、リーダーボードに参加したりできなくなります。,"hinweis: wenn modifikatoren aktiviert sind, können sie ihre ergebnisse nicht speichern oder an bestenlisten teilnehmen"
