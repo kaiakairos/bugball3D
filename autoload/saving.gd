@@ -89,7 +89,7 @@ func getValue(s):
 	if data.has(s):
 		return data[s]
 	else:
-		printerr("Attepted to read line '" + str(s) + "' from save data, but line doesn't exist!")
+		#printerr("Attepted to read line '" + str(s) + "' from save data, but line doesn't exist!")
 		return null
 
 func setValue(s,value):

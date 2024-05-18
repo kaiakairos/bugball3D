@@ -120,6 +120,7 @@ func setMenuState(newState):
 			menuGraphic.huge(false)
 			var c = courseContainer.get_children()
 			#c[0].hovering = false
+			$COURSESELECT/Difficulty/courseName.text = tr(c[courseSelect].courseName)
 	
 	menuState = newState
 	
@@ -225,7 +226,7 @@ func playMenu(delta):
 	$COURSESELECT/Text.position.y = courseContainer.position.y - 87
 	
 	if Input.is_action_just_pressed("menuSelect"):
-		
+		difficulty = -1
 		if courseSelect > 0:
 			#Remove when there are more courses
 			#For coming soon courses
@@ -267,7 +268,7 @@ func creditMenu(delta):
 func courseMenu(delta):
 	if Input.is_action_just_pressed("menuBack"):
 		setMenuState(1)
-	
+	var prevDif = difficulty
 	if Input.is_action_just_pressed("move_right") or Input.is_action_just_pressed("move_right_joy"):
 		difficulty += 1
 		difselect.position.x += 10
@@ -281,18 +282,59 @@ func courseMenu(delta):
 		$COURSESELECT/Difficulty/DifBorder/FlameParticle.emitting = false
 	
 	difficulty = clamp(difficulty,0,2)
-	
 	difselect.position.x = lerp(difselect.position.x,(difficulty-1)*110.0,0.3)
-	match difficulty:
-		0:
-			$COURSESELECT/Difficulty/DifBorder/dif.text = tr("EASY")
-		1:
-			$COURSESELECT/Difficulty/DifBorder/dif.text = tr("MEDIUM")
-		2:
-			$COURSESELECT/Difficulty/DifBorder/dif.text = tr("HARD")
+	if prevDif != difficulty:
+		var c = courseContainer.get_children()
+		match difficulty:
+			0:
+				$COURSESELECT/Difficulty/DifBorder/dif.text = tr("EASY")
+				var pb = Saving.getValue(c[courseSelect].saveCodeE)
+				if pb == null:
+					$COURSESELECT/Difficulty/courseName/score.text = "PB: ----"
+				else:
+					var value = pb - (int(pb/60.0)*60)
+					var string = str( value )
+					if value < 10.0:
+						string = "0" + string
+						
+					string = string.left(5)
+					$COURSESELECT/Difficulty/courseName/score.text = "PB" + ": " + str( int(pb/60.0) ) + ":" + string
+				
+				
+			1:
+				$COURSESELECT/Difficulty/DifBorder/dif.text = tr("MEDIUM")
+				var pb = Saving.getValue(c[courseSelect].saveCodeM)
+				if pb == null:
+					$COURSESELECT/Difficulty/courseName/score.text = "PB: ----"
+				else:
+					var value = pb - (int(pb/60.0)*60)
+					var string = str( value )
+					if value < 10.0:
+						string = "0" + string
+						
+					string = string.left(5)
+					$COURSESELECT/Difficulty/courseName/score.text = "PB" + ": " + str( int(pb/60.0) ) + ":" + string
+				
+			2:
+				$COURSESELECT/Difficulty/DifBorder/dif.text = tr("HARD")
+				var pb = Saving.getValue(c[courseSelect].saveCodeH)
+				if pb == null:
+					$COURSESELECT/Difficulty/courseName/score.text = "PB: ----"
+				else:
+					var value = pb - (int(pb/60.0)*60)
+					var string = str( value )
+					if value < 10.0:
+						string = "0" + string
+						
+					string = string.left(5)
+					$COURSESELECT/Difficulty/courseName/score.text = "PB" + ": " + str( int(pb/60.0) ) + ":" + string
+				
 	
 	if Input.is_action_just_pressed("move_down") or Input.is_action_just_pressed("move_down_joy"):
 		lookinAtModifiers = true
+		$COURSESELECT/Difficulty/modName.visible = true
+		$COURSESELECT/Difficulty/modDesc.visible = true
+		$COURSESELECT/Difficulty/courseName.visible = false
 		return
 	
 	
@@ -317,9 +359,6 @@ func courseMenu(delta):
 		ballOut()
 
 func modifierMenu(delta):
-	if Input.is_action_just_pressed("menuBack"):
-		setMenuState(1)
-	
 	var mods :Array = $COURSESELECT/Difficulty/Modifiers.get_children()
 	
 	if Input.is_action_just_pressed("move_right") or Input.is_action_just_pressed("move_right_joy"):
@@ -334,14 +373,15 @@ func modifierMenu(delta):
 	# shit code my beloved
 	$COURSESELECT/Difficulty/modName.text = tr(mods[modSelected].modName)
 	$COURSESELECT/Difficulty/modDesc.text = tr(mods[modSelected].desc)
-	$COURSESELECT/Difficulty/modName.visible = true
-	$COURSESELECT/Difficulty/modDesc.visible = true
 	
-	if Input.is_action_just_pressed("move_up") or Input.is_action_just_pressed("move_up_joy"):
+	if Input.is_action_just_pressed("move_up") or Input.is_action_just_pressed("move_up_joy") or Input.is_action_just_pressed("menuBack"):
 		lookinAtModifiers = false
 		mods[modSelected].looking = false
 		$COURSESELECT/Difficulty/modName.visible = false
 		$COURSESELECT/Difficulty/modDesc.visible = false
+		$COURSESELECT/Difficulty/courseName.visible = true
+		if Input.is_action_just_pressed("menuBack"):
+			setMenuState(1)
 		return
 	
 	if Input.is_action_just_pressed("menuSelect"):

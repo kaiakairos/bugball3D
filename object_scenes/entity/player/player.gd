@@ -206,8 +206,8 @@ func rollingMovement(newDir,delta):
 	
 	if !falling:
 		var target = velocity * -0.02
-		if target.length() < 6:
-			target = velocity.normalized() * -6
+		if target.length() < 8:
+			target = velocity.normalized() * -8
 		$holeCast.position = lerp($holeCast.position,target,0.1)
 	
 	
@@ -376,7 +376,7 @@ func jumpMovement(delta):
 	
 	
 	if !falling:
-		$holeCast.position = velocity.normalized() * 10
+		$holeCast.position = velocity.normalized() * 12
 	
 	tennaOneGlob = $head/Tenna.global_position
 	tennaTwoGlob = $head/Tenna2.global_position

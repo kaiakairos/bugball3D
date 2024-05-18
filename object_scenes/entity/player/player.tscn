@@ -317,6 +317,7 @@ collide_with_areas = true
 collide_with_bodies = false
 
 [node name="Echo" type="Sprite2D" parent="holeCast"]
+visible = false
 z_index = 220
 position = Vector2(0, -1)
 scale = Vector2(0.25, 0.25)

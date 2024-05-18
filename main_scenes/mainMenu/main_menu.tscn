@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://bujmrsxh8k58x"]
+[gd_scene load_steps=34 format=3 uid="uid://bujmrsxh8k58x"]
 
 [ext_resource type="Script" path="res://main_scenes/mainMenu/main_menu.gd" id="1_hw8g4"]
 [ext_resource type="PackedScene" uid="uid://bno8isqo481fp" path="res://main_scenes/mainMenu/menu_graphic.tscn" id="1_p8yr1"]
@@ -60,6 +60,14 @@ shadow_offset = Vector2(2, 2)
 
 [sub_resource type="LabelSettings" id="LabelSettings_pyx72"]
 font_size = 48
+outline_size = 23
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 26
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(1.9, 3.54)
+
+[sub_resource type="LabelSettings" id="LabelSettings_te0ba"]
+font_size = 32
 outline_size = 23
 outline_color = Color(0, 0, 0, 1)
 shadow_size = 26
@@ -275,6 +283,22 @@ modName = "MOD_NAME_BOUNCE"
 desc = "MOD_DESC_BOUNCE"
 frame = 3
 modId = "Bounce"
+
+[node name="courseName" type="Label" parent="COURSESELECT/Difficulty"]
+offset_top = 16.0
+offset_right = 500.0
+offset_bottom = 110.0
+text = "COURSE_NAME"
+label_settings = SubResource("LabelSettings_pyx72")
+horizontal_alignment = 1
+
+[node name="score" type="Label" parent="COURSESELECT/Difficulty/courseName"]
+offset_top = 59.0
+offset_right = 500.0
+offset_bottom = 150.0
+text = "PB: ----"
+label_settings = SubResource("LabelSettings_te0ba")
+horizontal_alignment = 1
 
 [node name="modName" type="Label" parent="COURSESELECT/Difficulty"]
 visible = false

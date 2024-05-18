@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://bwxpkdjlqm5et"]
+
+[ext_resource type="PackedScene" uid="uid://bith1com1osw4" path="res://world_scenes/floor/cool_floor.tscn" id="1_w5hi8"]
+
+[node name="H2" type="Node2D"]
+
+[node name="coolFloor" parent="." instance=ExtResource("1_w5hi8")]
+position = Vector2(64, 16)
+polygon = PackedVector2Array(0, -288, 64, -288, 64, 352, 0, 288)
