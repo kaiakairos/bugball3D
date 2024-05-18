@@ -21,6 +21,8 @@ var unrendered = true
 
 func _ready():
 	
+	delete()
+	
 	$VisibleOnScreenNotifier2D.visible = true
 	
 	Global.connect("disableDecor",disable)
@@ -89,3 +91,7 @@ func _on_visible_on_screen_notifier_2d_screen_exited():
 	if !visible:
 		return
 	set_process(false)
+
+func delete():
+	for spr in $canvas.get_children():
+		spr.queue_free()
