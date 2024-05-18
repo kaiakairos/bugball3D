@@ -1,0 +1,7 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://dmpxp8ka6i1dr"]
+
+[ext_resource type="Shader" path="res://main_scenes/backgroundScroll.gdshader" id="1_t17ck"]
+
+[resource]
+shader = ExtResource("1_t17ck")
+shader_parameter/color = Color(0, 0, 0, 0)

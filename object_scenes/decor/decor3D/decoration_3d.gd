@@ -15,18 +15,24 @@ extends Node2D
 
 var angle :int= 0
 
-var tick :int= 0;
+var tick :int= 0
+
+var unrendered = true
 
 func _ready():
+	
+	$VisibleOnScreenNotifier2D.visible = true
+	
+	Global.connect("disableDecor",disable)
+	Global.connect("enableDecor",enable)
 	
 	if !Saving.getValue("showDecor"):
 		visible = false
 		set_process(false)
 		return
-	
-	Global.connect("disableDecor",disable)
-	Global.connect("enableDecor",enable)
-	
+	render()
+
+func render():
 	if spriteSheet == null:
 		print_debug("no sprite dumbass")
 		queue_free()
@@ -36,7 +42,7 @@ func _ready():
 	createLayers()
 	z_index = 219
 	
-	
+	unrendered = false
 	
 func createLayers():
 	for i in range(images):
@@ -69,3 +75,17 @@ func disable():
 func enable():
 	visible = true
 	set_process(true)
+	
+	if unrendered:
+		render()
+
+
+func _on_visible_on_screen_notifier_2d_screen_entered():
+	if !visible:
+		return
+	set_process(true)
+
+func _on_visible_on_screen_notifier_2d_screen_exited():
+	if !visible:
+		return
+	set_process(false)

@@ -163,6 +163,10 @@ pause={
 ]
 }
 
+[internationalization]
+
+locale/translations=PackedStringArray("res://alphabets/translations/BugBall3D Localization.de.translation", "res://alphabets/translations/BugBall3D Localization.en.translation", "res://alphabets/translations/BugBall3D Localization.es.translation", "res://alphabets/translations/BugBall3D Localization.fr.translation", "res://alphabets/translations/BugBall3D Localization.jp.translation", "res://alphabets/translations/BugBall3D Localization.pt.translation")
+
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0

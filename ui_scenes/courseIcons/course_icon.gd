@@ -30,7 +30,10 @@ func _ready():
 		icon.texture = image
 	else:
 		print_debug("failure, no image")
-
+	
+	$icon/Label.text = tr(courseName)
+	Global.connect("changeLanguage",swapLanguage)
+	
 func _process(delta):
 	if hovering:
 		icon.modulate = lerp(icon.modulate,Color.WHITE,0.2)
@@ -38,6 +41,10 @@ func _process(delta):
 	else:
 		icon.modulate = lerp(icon.modulate,Color(0.2,0.2,0.2),0.2)
 		icon.scale = lerp(icon.scale,Vector2(0.8,0.8),0.2)
+	
+
+func swapLanguage():
+	$icon/Label.text = tr(courseName)
 
 func shine():
 	

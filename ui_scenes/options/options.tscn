@@ -1,10 +1,17 @@
-[gd_scene load_steps=8 format=3 uid="uid://bxdyrs6mbjpx6"]
+[gd_scene load_steps=15 format=3 uid="uid://bxdyrs6mbjpx6"]
 
 [ext_resource type="Script" path="res://ui_scenes/options/options.gd" id="1_24rgr"]
 [ext_resource type="Texture2D" uid="uid://dk3ccn101xbwa" path="res://ui_scenes/options/rect.png" id="1_bh6x5"]
 [ext_resource type="FontFile" uid="uid://c0esfecfk2hon" path="res://alphabets/GrapeSoda.ttf" id="2_cpgyq"]
 [ext_resource type="Texture2D" uid="uid://vaitm2ypwb4m" path="res://ui_scenes/options/progressBarBlack.png" id="4_m0c1a"]
 [ext_resource type="Texture2D" uid="uid://c6igsbiq8t6rb" path="res://ui_scenes/options/progressBarWhite.png" id="5_eg76l"]
+[ext_resource type="Material" uid="uid://dl3mogo36dheg" path="res://object_scenes/decor/decor3D/decoration_3d_material.tres" id="6_il2gr"]
+[ext_resource type="Texture2D" uid="uid://cicssetkursht" path="res://ui_scenes/options/flags/en.png" id="6_wl67o"]
+[ext_resource type="Texture2D" uid="uid://dn3lj80hkf3pe" path="res://ui_scenes/options/flags/es.png" id="7_yqn2q"]
+[ext_resource type="Texture2D" uid="uid://d4mf41ipdvaqj" path="res://ui_scenes/options/flags/fr.png" id="8_81pf6"]
+[ext_resource type="Texture2D" uid="uid://ywxb5x8gt0ai" path="res://ui_scenes/options/flags/pt.png" id="9_1fj8t"]
+[ext_resource type="Texture2D" uid="uid://bt5t0o1ckqjg7" path="res://ui_scenes/options/flags/de.png" id="10_08nly"]
+[ext_resource type="Texture2D" uid="uid://cwlmrgf1buxm5" path="res://ui_scenes/options/flags/jp.png" id="11_h3awb"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_kcufp"]
 font = ExtResource("2_cpgyq")
@@ -19,10 +26,10 @@ script = ExtResource("1_24rgr")
 [node name="scrollContain" type="Node2D" parent="."]
 position = Vector2(129, 0)
 
-[node name="NinePatchRect" type="NinePatchRect" parent="scrollContain"]
+[node name="patch" type="NinePatchRect" parent="scrollContain"]
 offset_top = 12.0
 offset_right = 232.0
-offset_bottom = 289.0
+offset_bottom = 568.0
 texture = ExtResource("1_bh6x5")
 patch_margin_left = 8
 patch_margin_top = 8
@@ -33,7 +40,7 @@ patch_margin_bottom = 8
 offset_top = 17.0
 offset_right = 232.0
 offset_bottom = 62.0
-text = "options"
+text = "OPTIONS"
 label_settings = SubResource("LabelSettings_kcufp")
 horizontal_alignment = 1
 
@@ -41,7 +48,7 @@ horizontal_alignment = 1
 offset_top = 52.0
 offset_right = 232.0
 offset_bottom = 75.0
-text = "SFX volume"
+text = "OPTION_SFX"
 label_settings = SubResource("LabelSettings_cmggr")
 horizontal_alignment = 1
 
@@ -59,7 +66,7 @@ texture_progress = ExtResource("5_eg76l")
 offset_top = 112.0
 offset_right = 232.0
 offset_bottom = 135.0
-text = "music volume"
+text = "OPTION_MUSIC"
 label_settings = SubResource("LabelSettings_cmggr")
 horizontal_alignment = 1
 
@@ -104,3 +111,42 @@ offset_right = 217.0
 offset_bottom = 282.0
 text = "show decor?: YES"
 label_settings = SubResource("LabelSettings_cmggr")
+
+[node name="hold" type="Node2D" parent="scrollContain"]
+
+[node name="LANGUAGE" type="Label" parent="scrollContain/hold"]
+offset_left = 1.0
+offset_top = 287.0
+offset_right = 233.0
+offset_bottom = 332.0
+text = "OPTION_LANG"
+label_settings = SubResource("LabelSettings_kcufp")
+horizontal_alignment = 1
+
+[node name="Flags" type="CanvasGroup" parent="scrollContain"]
+material = ExtResource("6_il2gr")
+position = Vector2(-129, 0)
+
+[node name="en" type="Sprite2D" parent="scrollContain/Flags"]
+position = Vector2(191, 366)
+texture = ExtResource("6_wl67o")
+
+[node name="es" type="Sprite2D" parent="scrollContain/Flags"]
+position = Vector2(300, 366)
+texture = ExtResource("7_yqn2q")
+
+[node name="pt" type="Sprite2D" parent="scrollContain/Flags"]
+position = Vector2(190, 440)
+texture = ExtResource("9_1fj8t")
+
+[node name="fr" type="Sprite2D" parent="scrollContain/Flags"]
+position = Vector2(300, 440)
+texture = ExtResource("8_81pf6")
+
+[node name="jp" type="Sprite2D" parent="scrollContain/Flags"]
+position = Vector2(190, 517)
+texture = ExtResource("11_h3awb")
+
+[node name="de" type="Sprite2D" parent="scrollContain/Flags"]
+position = Vector2(300, 518)
+texture = ExtResource("10_08nly")

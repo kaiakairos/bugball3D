@@ -1,8 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://b1haqfd4snm84"]
+[gd_scene load_steps=12 format=3 uid="uid://b1haqfd4snm84"]
 
 [ext_resource type="PackedScene" uid="uid://bith1com1osw4" path="res://world_scenes/floor/cool_floor.tscn" id="1_1cumi"]
 [ext_resource type="PackedScene" uid="uid://8dac38b54nn2" path="res://object_scenes/entity/player/player.tscn" id="2_akyse"]
 [ext_resource type="PackedScene" uid="uid://d3fge1vcn4swp" path="res://object_scenes/flag/win.tscn" id="3_y8yrp"]
+[ext_resource type="PackedScene" uid="uid://b00oindmgrd6" path="res://world_scenes/hole/hole.tscn" id="4_4p0ff"]
 [ext_resource type="PackedScene" uid="uid://cpagp2isol5d8" path="res://object_scenes/decor/clouds/clouds.tscn" id="4_rowsl"]
 [ext_resource type="PackedScene" uid="uid://oys8ghap4lj5" path="res://object_scenes/decor/foiliage/log.tscn" id="5_2kip5"]
 [ext_resource type="PackedScene" uid="uid://db0u0xfur78jy" path="res://object_scenes/decor/foiliage/tree.tscn" id="6_75v4w"]
@@ -28,9 +29,17 @@ position = Vector2(80, 64)
 [node name="coolFloor2" parent="." instance=ExtResource("1_1cumi")]
 position = Vector2(-64, 128)
 color = Color(0.266667, 0.556863, 0.952941, 1)
-polygon = PackedVector2Array(-64, -192, 920, -192, 704, -8, 216, -8, 216, -112, 96, -112, 96, -48, 168, 24, 624, 24, 624, 48, 120, 48, 120, 176, 608, 176, 608, 200, 120, 200, 120, 272, 704, 272, 704, 120.5, 192, 120, 192, 96, 704, 96, 704, -8, 920, -192, 920, 400, -64, 400)
+polygon = PackedVector2Array(-64, -192, 920, -192, 704, -8, 216, -8, 216, -112, 96, -112, 96, -48, 168, 24, 624, 24, 624, 48, 120, 48, 120, 176, 608, 176, 608, 200, 120, 200, 120, 272, 704, 272, 704, 120, 192, 120, 192, 96, 704, 96, 704, -8, 920, -192, 920, 400, -64, 400)
 renderWalls = false
 camOffset = 0.1
+
+[node name="HOLE" parent="." instance=ExtResource("4_4p0ff")]
+position = Vector2(296, 176)
+polygon = PackedVector2Array(-8, 0, 120, 0, 120, 48, -8, 48)
+
+[node name="HOLE2" parent="." instance=ExtResource("4_4p0ff")]
+position = Vector2(296, 248)
+polygon = PackedVector2Array(-8, 0, 120, 0, 120, 56, -8, 56)
 
 [node name="clouds" parent="." instance=ExtResource("4_rowsl")]
 position = Vector2(-155, -254)

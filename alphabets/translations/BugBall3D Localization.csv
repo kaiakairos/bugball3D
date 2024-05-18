@@ -1,0 +1,41 @@
+https://docs.google.com/spreadsheets/d/17f0dQawb-s_Fd7DHgmVvJoEGDMH_yoSd8EYigrb0zmM/edit#gid=296134756,en,es,pt,fr,jp,de
+OPTIONS,options,opciones,opções,options,設定,optionen
+QUIT,quit,cerrar,sair,quitter,終了する,beenden
+PLAY,play,jugar,jogar,jouer,プレイ,spielen
+SKINS,skins,atuendo,roupa,tenue,コスチューム,outfit
+CREDITS,credits,créditos,créditos,remerciements,クレジット,credits
+CREDIT_PROGRAM,programmer,programador,programador,programmeur,プログラマー,programmierer
+CREDIT_ARTIST,artist,artista,artista,artiste,アーティスト,künstler
+CREDIT_MUSIC,musician,músico,músico,musicien,演奏,musiker
+SPECIAL_THANKS,special thanks,agradecimientos,agradecimentos,remerciements,謝辞,besonderer dank
+PAUSED,PAUSED,PAUSADO,PAUSADO,EN PAUSE,ポーズ中,PAUSIERT
+PAUSE_BACK,back to game,reanudar,voltar,retour,戻る,zurück
+PAUSE_RESTART,restart course,jugar otra vez,tente novamente,recommencez,リトライ,fang nochmal an
+PAUSE_EXIT,exit to menu,volver al menú principal,retornar ao menu principal,retourner au menu principal,メインメニューに戻る,zurück zum hauptmenü
+NEW_RECORD,NEW RECORD!!,¡¡nuevo record!!,novo recorde!!,nouvel enregistrement!!,新記録!!,neue bestzeit!
+COURSE_COMPLETE,course complete!!,¡¡nivel completo!!,¡¡nivel completado!!,cours terminé !,レベル完了!!,level abgeschlossen!
+COURSE_RETRY,replay course,jugar otra vez,jogar novamente,rejouer,再プレイ,noch einmal spielen
+COURSE_EXIT,back to menu,volver al menú principal,retornar ao menu principal,retourner au menu principal,メインメニューに戻る,zurück zum hauptmenü
+COURSE_TIME,time,tiempo,tempo,temps,タイム,zeit
+COURSE_DEATHS,deaths,muertes,mortes,morts,デス,tode
+OPTION_FULLSCREEN,fullscreen:,pantalla completa:,tela cheia:,plein écran:,フルスクリーン:,vollbild:
+OPTION_ROLL_CONTROL,roll control mode:,controle de rodar:,controle de rolar:,contrôle du roulis,ロールコントロール:,rollkontrolle:
+OPTION_ROLL_HOLD,HOLD,SOSTENER,SEGURAR,TENIR,保つ,HALTEN
+OPTION_ROLL_TOGGLE,TOGGLE,PALANCA,ALTERNAR,INTERRUPTEUR,トグル,UMSCHALTEN
+OPTION_SHOW_CLOUDS,show clouds?:,¿mostrar nubes?:,¿mostrar nuvens?,montrer des nuages​​?:,雲を表示?:,wolken zeigen?:
+OPTION_SHOW_DECOR,show decor?:,¿mostrar decoración?:,¿mostrar decoração?,montrer la décoration?:,ショーの装飾?:,dekoration zeigen?
+YES,YES,SÍ,SIM,OUI,はい,JA
+NO,NO,NO,NÃO,NON,いいえ,NEIN
+DISABLED,DISABLED,SÍ,SIM,OUI,はい,JA
+ENABLED,ENABLED,NO,NÃO,NON,いいえ,NEIN
+OPTION_SFX,sound volume,volumen de los efectos de sonido,volume dos efeitos sonoros,volume des effets sonores,SE音量,soundeffektlautstärke
+OPTION_MUSIC,music volume,volumen de la música,volume da música,volume de la musique,BGM音量,musiklautstärke
+COURSE_SELECT,course select,nivel seleccionado,,,レベルの選択,
+C_FOREST,forest,bosque,floresta,forêt,森,wald
+C_COMINGSOON,coming soon,muy pronto,chegando en breve,à venir,近日公開,demnächst
+SHADER_COMPILE,compiling shaders,compilando sombreadores,compilando shaders,compilation de shaders,シェーダのコンパイル,kompilieren von shader
+WINDOW_FOCUS,click to focus window,haga clic para enfocar la ventana,clique para dar foco à janela,cliquez pour donner le focus à la fenêtre,クリックしてウィンドウにフォーカスを移動します,"klicken sie, um den fokus auf das fenster zu richten"
+OPTION_LANG,language,idioma,idioma,langue,言語,sprache
+EASY,easy,fácil,fácil,facile,易しい,einfach
+MEDIUM,medium,intermedio,médio,moyen,普通,mittel
+HARD,hard,difícil,difícil,difficile,難しい,schwer

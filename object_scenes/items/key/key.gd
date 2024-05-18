@@ -6,6 +6,9 @@ var tick = 0
 
 @onready var faggot = preload("res://object_scenes/items/key/keyblast/key_spirit.tscn")
 
+func _ready():
+	set_process(false)
+
 func _process(delta):
 	var cam = to_local(Global.getGlobalCameraPosition())
 	
@@ -29,3 +32,11 @@ func catch():
 func _on_area_2d_body_entered(body):
 	catch()
 	queue_free()
+
+
+func _on_visible_on_screen_notifier_2d_screen_entered():
+	set_process(true)
+
+
+func _on_visible_on_screen_notifier_2d_screen_exited():
+	set_process(false)

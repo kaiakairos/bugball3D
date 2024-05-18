@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://thujt01appmd"]
+[gd_scene load_steps=20 format=3 uid="uid://thujt01appmd"]
 
 [ext_resource type="Script" path="res://main_scenes/game.gd" id="1_ot3mi"]
 [ext_resource type="Shader" path="res://main_scenes/game.gdshader" id="2_u2nxt"]
@@ -6,10 +6,10 @@
 [ext_resource type="FontFile" uid="uid://c0esfecfk2hon" path="res://alphabets/GrapeSoda.ttf" id="3_p1qcx"]
 [ext_resource type="Texture2D" uid="uid://isaukf61kjyw" path="res://ui_scenes/pause menu/overlay.png" id="4_68pxi"]
 [ext_resource type="PackedScene" uid="uid://bxdyrs6mbjpx6" path="res://ui_scenes/options/options.tscn" id="4_hbtpk"]
-[ext_resource type="AudioStream" uid="uid://bg126u3fhpisu" path="res://audio/rollout.ogg" id="7_fp624"]
+[ext_resource type="AudioStream" uid="uid://byqreacel7w0x" path="res://audio/rollout.ogg" id="7_fp624"]
 [ext_resource type="Script" path="res://main_scenes/courseComplete.gd" id="8_sc8f0"]
+[ext_resource type="Material" uid="uid://dmpxp8ka6i1dr" path="res://main_scenes/courseCompleteBackground.tres" id="9_3bxeh"]
 [ext_resource type="Texture2D" uid="uid://ddl2lcnped2yc" path="res://ui_scenes/courseComplete/background.png" id="9_4j8fc"]
-[ext_resource type="Shader" path="res://main_scenes/backgroundScroll.gdshader" id="9_e1goq"]
 [ext_resource type="Texture2D" uid="uid://b72tqi1thccal" path="res://ui_scenes/courseComplete/wipe.png" id="11_12wlp"]
 [ext_resource type="Texture2D" uid="uid://bn44aeqnl7t2b" path="res://ui_scenes/courseComplete/grades.png" id="11_pxowu"]
 
@@ -23,6 +23,9 @@ font = ExtResource("3_p1qcx")
 font_size = 32
 outline_size = 15
 outline_color = Color(0, 0, 0, 1)
+shadow_size = 15
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(2, 2)
 
 [sub_resource type="LabelSettings" id="LabelSettings_c3ac2"]
 font = ExtResource("3_p1qcx")
@@ -35,14 +38,27 @@ font = ExtResource("3_p1qcx")
 font_size = 32
 outline_size = 13
 outline_color = Color(0, 0, 0, 1)
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_2s0v5"]
-shader = ExtResource("9_e1goq")
-shader_parameter/color = Color(0, 0, 0, 0)
+shadow_size = 16
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(4, 4)
 
 [sub_resource type="LabelSettings" id="LabelSettings_bmhjs"]
 font = ExtResource("3_p1qcx")
 font_size = 32
+
+[sub_resource type="LabelSettings" id="LabelSettings_c6q0b"]
+outline_size = 7
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 8
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(1.125, 1.815)
+
+[sub_resource type="LabelSettings" id="LabelSettings_81ek7"]
+outline_size = 7
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 7
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(1.305, 2.3)
 
 [node name="Game" type="Node2D"]
 process_mode = 3
@@ -122,6 +138,16 @@ z_index = 2550
 modulate = Color(1, 1, 1, 0.729412)
 texture = ExtResource("4_68pxi")
 
+[node name="levelsLeft" type="Label" parent="UI/Paused"]
+modulate = Color(0.513726, 0.513726, 0.513726, 1)
+offset_left = -250.0
+offset_top = -83.0
+offset_right = 250.0
+offset_bottom = -31.0
+text = "( 12 / 14 )"
+label_settings = SubResource("LabelSettings_jstgy")
+horizontal_alignment = 1
+
 [node name="PAUSED" type="Label" parent="UI/Paused"]
 offset_left = -250.0
 offset_top = -141.0
@@ -131,41 +157,41 @@ text = "PAUSED"
 label_settings = SubResource("LabelSettings_c3ac2")
 horizontal_alignment = 1
 
-[node name="Options" parent="UI/Paused" instance=ExtResource("4_hbtpk")]
-visible = false
-position = Vector2(-120, -150)
-
 [node name="unpause" type="Label" parent="UI/Paused"]
 offset_left = -230.0
-offset_top = -65.0
+offset_top = -44.0
 offset_right = 138.0
-offset_bottom = -17.0
-text = "back to game"
+offset_bottom = 4.0
+text = "PAUSE_BACK"
 label_settings = SubResource("LabelSettings_w28nu")
 
 [node name="restart" type="Label" parent="UI/Paused"]
 offset_left = -230.0
-offset_top = -31.0
+offset_top = -10.0
 offset_right = 138.0
-offset_bottom = 17.0
-text = "restart course"
+offset_bottom = 38.0
+text = "PAUSE_RESTART"
 label_settings = SubResource("LabelSettings_w28nu")
 
 [node name="option" type="Label" parent="UI/Paused"]
 offset_left = -230.0
-offset_top = 7.0
+offset_top = 28.0
 offset_right = 138.0
-offset_bottom = 55.0
-text = "options"
+offset_bottom = 76.0
+text = "OPTIONS"
 label_settings = SubResource("LabelSettings_w28nu")
 
 [node name="exit" type="Label" parent="UI/Paused"]
 offset_left = -230.0
-offset_top = 46.0
+offset_top = 67.0
 offset_right = 138.0
-offset_bottom = 94.0
-text = "exit to menu"
+offset_bottom = 115.0
+text = "PAUSE_EXIT"
 label_settings = SubResource("LabelSettings_w28nu")
+
+[node name="Options" parent="UI/Paused" instance=ExtResource("4_hbtpk")]
+visible = false
+position = Vector2(-120, -150)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_fp624")
@@ -174,13 +200,14 @@ autoplay = true
 bus = &"Music"
 
 [node name="courseComplete" type="Node2D" parent="."]
+process_mode = 1
 z_index = 1430
 script = ExtResource("8_sc8f0")
 
 [node name="Background" type="Sprite2D" parent="courseComplete"]
 visible = false
 texture_repeat = 2
-material = SubResource("ShaderMaterial_2s0v5")
+material = ExtResource("9_3bxeh")
 position = Vector2(-59, -41)
 rotation = -0.261799
 texture = ExtResource("9_4j8fc")
@@ -206,7 +233,7 @@ offset_top = 132.0
 offset_right = 496.0
 offset_bottom = 387.0
 bbcode_enabled = true
-text = "[center][wave amp=50.0 freq=-5.0 connected=1][font_size=40] course complete!! [/font_size] [/wave]"
+text = "[center][wave amp=50.0 freq=-5.0 connected=1][font_size=40]course complete!!"
 scroll_active = false
 
 [node name="score" type="Label" parent="courseComplete"]
@@ -231,14 +258,14 @@ horizontal_alignment = 1
 
 [node name="newrecord" type="RichTextLabel" parent="courseComplete"]
 visible = false
-offset_left = 287.0
-offset_top = 221.0
-offset_right = 497.0
-offset_bottom = 336.0
+offset_left = 178.0
+offset_top = 251.0
+offset_right = 464.0
+offset_bottom = 353.0
 bbcode_enabled = true
-text = "[wave amp=80.0 freq=-10.0 connected=1][font_size=32][rainbow freq=0.4 sat=1.0 val=1.0] 
-NEW RECORD!!"
+text = "[wave amp=80.0 freq=-10.0 connected=1][font_size=32][right][rainbow freq=0.4 sat=1.0 val=1.0]NEW RECORD!!"
 scroll_active = false
+autowrap_mode = 2
 
 [node name="select" type="Node2D" parent="courseComplete"]
 visible = false
@@ -247,10 +274,12 @@ position = Vector2(21, 239)
 [node name="retry" type="Label" parent="courseComplete/select"]
 offset_right = 191.0
 offset_bottom = 45.0
-text = "retry"
+text = "COURSE_RETRY"
+label_settings = SubResource("LabelSettings_c6q0b")
 
 [node name="menu" type="Label" parent="courseComplete/select"]
-offset_top = 23.41
+offset_top = 23.0
 offset_right = 153.0
-offset_bottom = 58.41
-text = "back to menu"
+offset_bottom = 58.0
+text = "COURSE_EXIT"
+label_settings = SubResource("LabelSettings_81ek7")

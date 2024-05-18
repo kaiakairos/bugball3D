@@ -1,8 +1,15 @@
 extends Node2D
 
+var selectingRetry = true
+
 func _ready():
 	set_process(false)
-
+	
+	$select/retry.modulate = Color(0.6,0.588,0.655)
+	
+	$courseComplete.text = "[center][wave amp=50.0 freq=-5.0 connected=1][font_size=40]" + tr("COURSE_COMPLETE")
+	$newrecord.text = "[right][wave amp=80.0 freq=-10.0 connected=1][font_size=32][rainbow freq=0.4 sat=1.0 val=1.0]" + tr("NEW_RECORD")
+	
 func postScores( deaths, time ):
 	
 	var value = time - (int(time/60.0)*60)
@@ -12,7 +19,7 @@ func postScores( deaths, time ):
 		
 	string = string.left(5)
 
-	$score.text = "time: " + str( int(time/60.0) ) + ":" + string
+	$score.text = tr("COURSE_TIME") + ": " + str( int(time/60.0) ) + ":" + string
 	
 	var record = false
 	# Calculate high score
@@ -50,7 +57,7 @@ func postScores( deaths, time ):
 	
 	$score.visible = true
 	await get_tree().create_timer(0.5).timeout
-	$score.text = "time: " + str( int(time/60.0) ) + ":" + string +"\ndeaths: " + str(deaths)
+	$score.text = tr("COURSE_TIME") + ": " + str( int(time/60.0) ) + ":" + string +"\n" +tr("COURSE_DEATHS")+ ": " + str(deaths)
 	await get_tree().create_timer(0.5).timeout
 	$Grades.visible = true
 	
@@ -73,5 +80,31 @@ func postScores( deaths, time ):
 	$select.visible = true
 	set_process(true)
 	
-
-
+func _process(delta):
+	
+	$select/retry.position.y = lerp($select/retry.position.y,0.0,0.2  )
+	$select/menu.position.y = lerp($select/menu.position.y,23.0,0.2  )
+	
+	
+	if Input.is_action_just_pressed("move_down") or Input.is_action_just_pressed("move_down_joy"):
+		flip(1)
+	elif Input.is_action_just_pressed("move_up") or Input.is_action_just_pressed("move_up_joy"):
+		flip(-1)
+	
+	if Input.is_action_just_pressed("menuSelect"):
+		if selectingRetry:
+			get_tree().reload_current_scene()
+		else:
+			get_tree().change_scene_to_file("res://main_scenes/mainMenu/main_menu.tscn")
+	
+	
+func flip(nudge):
+	selectingRetry = !selectingRetry
+	if selectingRetry:
+		$select/retry.modulate = Color(0.6,0.588,0.655)
+		$select/menu.modulate = Color.WHITE
+		$select/retry.position.y += 2 * nudge
+	else:
+		$select/retry.modulate = Color.WHITE
+		$select/menu.modulate = Color(0.6,0.588,0.655)
+		$select/menu.position.y += 2 * nudge

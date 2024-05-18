@@ -16,7 +16,7 @@
 
 [node name="coolFloor" parent="." instance=ExtResource("1_1v4gx")]
 position = Vector2(64, 64)
-polygon = PackedVector2Array(-120, -144, 64, -144, 456, -144, 576, -104, 576, 112, 424, 160, -120, 160, -144, 136, -144, -32, -120, -56)
+polygon = PackedVector2Array(-120, -144, 64, -144, 456, -144, 552, -112, 552, 120, 424, 160, -120, 160, -144, 136, -144, -32, -120, -56)
 
 [node name="Player" parent="." instance=ExtResource("2_nh2eb")]
 position = Vector2(-40, 184)
@@ -34,7 +34,7 @@ polygon = PackedVector2Array(-192, 0, 56, 0, 56, -32, 96, -32, 112, -16, 112, 48
 
 [node name="HOLE3" parent="." instance=ExtResource("3_q7aar")]
 position = Vector2(272, 40)
-polygon = PackedVector2Array(64, 80, 320, 80, 320, -96, 368, -80, 368, 136, 216, 184, 64, 184)
+polygon = PackedVector2Array(88, 96, 320, 96, 320, -96, 344, -88, 344, 144, 216, 184, 64, 184, 64, 120)
 
 [node name="coolFloor3" parent="." instance=ExtResource("1_1v4gx")]
 position = Vector2(120, 56)
@@ -48,7 +48,7 @@ position = Vector2(168, -40)
 
 [node name="HOLE4" parent="." instance=ExtResource("3_q7aar")]
 position = Vector2(336, -80)
-polygon = PackedVector2Array(-80, 0, 80, 0, 24, 16, 24, 48, 80, 64, -80, 64)
+polygon = PackedVector2Array(-80, 0, 48, 0, 24, 16, 24, 48, 48, 64, -80, 64)
 
 [node name="coolFloor2" parent="." instance=ExtResource("1_1v4gx")]
 position = Vector2(80, 40)
@@ -60,7 +60,7 @@ camOffset = 0.1
 [node name="coolFloor4" parent="." instance=ExtResource("1_1v4gx")]
 position = Vector2(-104, -200)
 color = Color(0.266667, 0.556863, 0.952941, 1)
-polygon = PackedVector2Array(-192, -56, 1016, -56, 1016, 264, 744, 264, 744, 160, 624, 120, 48, 120, 48, 208, 24, 232, 24, 400, 48, 424, 592, 424, 744, 376, 744, 264, 1016, 264, 1016, 552, -192, 552)
+polygon = PackedVector2Array(-192, -56, 1016, -56, 1016, 264, 720, 264, 720, 152, 624, 120, 48, 120, 48, 208, 24, 232, 24, 400, 48, 424, 592, 424, 720, 384, 720, 264, 1016, 264, 1016, 552, -192, 552)
 renderWalls = false
 camOffset = 0.1
 

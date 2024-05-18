@@ -175,6 +175,7 @@ func _process(delta):
 		staticMovement(newDir,delta)
 	
 	
+	
 	$CanvasGroup/dust.emitting = rolling and velocity.length() > 100
 	$CanvasGroup/dust.scale_amount_max = min(velocity.length() / 300.0,1.5)
 	
@@ -183,24 +184,35 @@ func _process(delta):
 	
 func rollingMovement(newDir,delta):
 	
+	
+	if !falling:
+		$holeCast.position = lerp($holeCast.position,velocity.normalized() * -6,0.1)
+	
+	
 	var slowDownDelta = 1 - pow(2,   (  -delta / 3.8168 )  )
 	
 	velocity += newDir * delta * 500 # * 10 #FUN MODE DONT TOUCH UNTIL READY
-	if newDir.x == 0:
-		velocity.x = lerp(velocity.x,0.0,slowDownDelta)
-	if newDir.y == 0:
-		velocity.y = lerp(velocity.y,0.0,slowDownDelta)
+	
+	if !$boostCast.is_colliding():
+		if newDir.x == 0:
+			velocity.x = lerp(velocity.x,0.0,slowDownDelta)
+		if newDir.y == 0:
+			velocity.y = lerp(velocity.y,0.0,slowDownDelta)
 	
 	ball.rotateByVelocity(velocity * 0.1,delta)
 	
 	tennaOneGlob = $head/Tenna.global_position
 	tennaTwoGlob = $head/Tenna2.global_position
 	
+	if $sandCast.is_colliding():
+		velocity = lerp(velocity,Vector2.ZERO,0.5)
+	
 	var collision = move_and_collide(velocity * delta)
 	if collision:
 		velocity = velocity.bounce(collision.get_normal())
 		bounced(collision.get_normal())
-		velocity *= bounceAmount
+		if !$boostCast.is_colliding():
+			velocity *= bounceAmount
 	
 	if velocity != Vector2.ZERO:
 		dir = velocity.normalized()
@@ -227,6 +239,10 @@ func rollingMovement(newDir,delta):
 	
 
 func staticMovement(newDir,delta):
+	
+	
+	if !falling:
+		$holeCast.position = Vector2.ZERO
 	
 	if newDir != Vector2.ZERO:
 		dir = dir.slerp(newDir, 1 - pow( 2 , ( -delta / turnSpeed ) )  )
@@ -273,7 +289,6 @@ func staticMovement(newDir,delta):
 		$head/Tenna2.rotation = lerp_angle( $head/Tenna2.rotation, 0.0 , 0.05 )
 	
 	ball.setRotationBase(dir)
-	print(velocity.length())
 	
 func flipFeet():
 	$body/Feet.frame = int(!feetFlip)
@@ -337,6 +352,10 @@ func setBodyPositions(moving):
 
 func jumpMovement(delta):
 	
+	
+	if !falling:
+		$holeCast.position = velocity.normalized() * 6
+	
 	tennaOneGlob = $head/Tenna.global_position
 	tennaTwoGlob = $head/Tenna2.global_position
 	
@@ -372,9 +391,17 @@ func offsetCamera():
 	
 	var c = camera.global_position
 	
+	var balls =  velocity * 0.1
+	
+	if balls.length() < 20:
+		balls = Vector2.ZERO
+	elif balls.length() > 128:
+		balls = balls.normalized() * 128
+	$cameraOffset.position = lerp($cameraOffset.position,balls,0.4)
+	
 	var lerpSpeed = 0.2
-	camera.global_position.x = lerp(camera.global_position.x,clamp(global_position.x, cameraLimitX.x, cameraLimitX.y),lerpSpeed)
-	camera.global_position.y = lerp(camera.global_position.y,clamp(global_position.y, cameraLimitY.x, cameraLimitY.y),lerpSpeed)
+	camera.global_position.x = lerp(camera.global_position.x,clamp($cameraOffset.global_position.x, cameraLimitX.x, cameraLimitX.y),lerpSpeed)
+	camera.global_position.y = lerp(camera.global_position.y,clamp($cameraOffset.global_position.y, cameraLimitY.x, cameraLimitY.y),lerpSpeed)
 	
 	if c != camera.global_position:
 		Global.emit_signal("cameraCHANGED")
@@ -382,8 +409,8 @@ func offsetCamera():
 func snapCameraStart():
 	var c = camera.global_position
 	
-	camera.global_position.x = clamp(global_position.x, cameraLimitX.x, cameraLimitX.y)
-	camera.global_position.y = clamp(global_position.y, cameraLimitY.x, cameraLimitY.y)
+	camera.global_position.x = clamp($cameraOffset.global_position.x, cameraLimitX.x, cameraLimitX.y)
+	camera.global_position.y = clamp($cameraOffset.global_position.y, cameraLimitY.x, cameraLimitY.y)
 	
 	if c != camera.global_position:
 		Global.emit_signal("cameraCHANGED")

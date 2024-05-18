@@ -47,6 +47,8 @@ func isLevelLoaded():
 
 func loadLevel(id):
 	
+	$UI/Paused/levelsLeft.text = "( " + str(current+1) + " / " + str(levels.size()) + " )" 
+	
 	var open = isLevelLoaded()
 	
 	timing = false
@@ -67,6 +69,7 @@ func loadLevel(id):
 	if id < 0 or id >= levels.size():
 		# end course
 		print_debug("Ran out of levels! Going to course completion.")
+		$UI/Paused/levelsLeft.text = ""
 		var tweenEnd = get_tree().create_tween()
 		tweenEnd.tween_property(self,"circ",1.0,1.0).set_trans(Tween.TRANS_QUART).set_ease(Tween.EASE_IN)
 		GRRRAAHHHHHHHH = true
@@ -78,6 +81,7 @@ func loadLevel(id):
 	
 	var ins = load(levels[id]).instantiate()
 	container.add_child(ins)
+	print(levels[id])
 	
 	await get_tree().create_timer(0.5).timeout
 	
@@ -144,12 +148,16 @@ func _process(delta):
 	
 	if get_tree().paused:
 		if !$UI/Paused/Options.visible:
+			resetPauseIconPositions()
+			var nudge = 0
 			if Input.is_action_just_pressed("move_down") or Input.is_action_just_pressed("move_down_joy"):
 				pauseSelected += 1
+				nudge += 1
 			if Input.is_action_just_pressed("move_up") or Input.is_action_just_pressed("move_up_joy"):
 				pauseSelected -= 1
+				nudge -= 1
 			pauseSelected = clamp(pauseSelected,0,3)
-			selectItem(pauseSelected)
+			selectItem(pauseSelected,nudge)
 			if Input.is_action_just_pressed("menuSelect"):
 				match pauseSelected:
 					0:
@@ -185,16 +193,23 @@ func placeTransition():
 func pauseGame():
 	get_tree().paused = true
 	pauseSelected = 0
-	selectItem(0)
+	selectItem(0,0)
 	$UI/Paused.visible = true
 
 func unpauseGame():
 	get_tree().paused = false
 	$UI/Paused.visible = false
+	$UI/Paused/Options.disable()
 
-func selectItem(id):
+func selectItem(id,nudge):
 	var a = [ $UI/Paused/unpause , $UI/Paused/restart , $UI/Paused/option ,$UI/Paused/exit  ]
 	for i in range(4):
 		a[i].modulate = Color.WHITE
 		if i == id:
 			a[i].modulate = Color(0.6,0.588,0.655)
+			a[i].position.y += 10*nudge
+
+func resetPauseIconPositions():
+	var a = [ $UI/Paused/unpause , $UI/Paused/restart , $UI/Paused/option ,$UI/Paused/exit  ]
+	for i in range(4):
+		a[i].position.y = lerp(a[i].position.y, -44.0 + (40.0*i),0.2 )

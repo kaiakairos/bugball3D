@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://bno8isqo481fp"]
+[gd_scene load_steps=27 format=3 uid="uid://bno8isqo481fp"]
 
 [ext_resource type="Script" path="res://main_scenes/mainMenu/menu_graphic.gd" id="1_ca84g"]
 [ext_resource type="PackedScene" uid="uid://cqtpmctqdhfpl" path="res://object_scenes/entity/player/ball_3d.tscn" id="1_plinf"]
@@ -11,6 +11,11 @@
 [ext_resource type="Texture2D" uid="uid://cw6hac8sdxtr5" path="res://world_scenes/world_textures/GREEN.png" id="7_eiilh"]
 [ext_resource type="Texture2D" uid="uid://ddv173uhgjv4j" path="res://main_scenes/mainMenu/shadow.png" id="8_1t4rb"]
 [ext_resource type="Texture2D" uid="uid://b0qlad4wpgle0" path="res://main_scenes/mainMenu/3dpart.png" id="9_uin7o"]
+[ext_resource type="Texture2D" uid="uid://bbj7k44dun63v" path="res://main_scenes/mainMenu/sky.png" id="12_s4dpl"]
+[ext_resource type="Texture2D" uid="uid://dj07ujj3nd3mc" path="res://object_scenes/decor/clouds/cloudTexture.tres" id="13_2okvf"]
+[ext_resource type="Shader" path="res://main_scenes/mainMenu/menuCloud.gdshader" id="13_lys6f"]
+[ext_resource type="Shader" path="res://main_scenes/mainMenu/menuCloudFast.gdshader" id="15_48srf"]
+[ext_resource type="Texture2D" uid="uid://ctai72l4je307" path="res://main_scenes/mainMenu/flower.png" id="16_tj8xh"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f57lf"]
 cull_mode = 1
@@ -43,6 +48,27 @@ material = SubResource("StandardMaterial3D_3ue7v")
 [sub_resource type="Curve" id="Curve_d78ux"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.994653, 0), 0.0, 0.0, 0, 0]
 point_count = 2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lvpa6"]
+cull_mode = 1
+shading_mode = 0
+albedo_texture = ExtResource("12_s4dpl")
+texture_filter = 0
+
+[sub_resource type="SphereMesh" id="SphereMesh_s7ajj"]
+material = SubResource("StandardMaterial3D_lvpa6")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8i64n"]
+render_priority = 0
+shader = ExtResource("13_lys6f")
+shader_parameter/color = Color(0.729412, 0.776471, 0.901961, 1)
+shader_parameter/t = ExtResource("13_2okvf")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_cwp5n"]
+render_priority = 0
+shader = ExtResource("15_48srf")
+shader_parameter/color = Color(0.729412, 0.776471, 0.901961, 1)
+shader_parameter/t = ExtResource("13_2okvf")
 
 [node name="MenuGraphic" type="Node3D"]
 script = ExtResource("1_ca84g")
@@ -145,3 +171,118 @@ gravity = Vector3(0, 0, 0)
 initial_velocity_min = 5.0
 initial_velocity_max = 5.0
 scale_amount_curve = SubResource("Curve_d78ux")
+
+[node name="sky" type="MeshInstance3D" parent="."]
+transform = Transform3D(-1.93783e-06, -44.3323, 120.078, 128, -5.59506e-06, -3.04623e-14, 5.24876e-06, 120.078, 44.3323, 0, 0, 0)
+mesh = SubResource("SphereMesh_s7ajj")
+
+[node name="texture" type="Sprite3D" parent="."]
+transform = Transform3D(2, 0, 0, 0, -8.74228e-08, 2, 0, -2, -8.74228e-08, 8.43225, 3.12081, 1.20656)
+material_override = SubResource("ShaderMaterial_8i64n")
+texture = ExtResource("13_2okvf")
+
+[node name="texture2" type="Sprite3D" parent="."]
+transform = Transform3D(2, 0, 0, 0, -8.74228e-08, 2, 0, -2, -8.74228e-08, -6.40485, -0.528698, -5.21068)
+material_override = SubResource("ShaderMaterial_cwp5n")
+texture = ExtResource("13_2okvf")
+
+[node name="flowers" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.715, 0)
+
+[node name="f" type="Sprite3D" parent="flowers"]
+transform = Transform3D(-4.37114e-08, -1, -4.37114e-08, 0, -4.37114e-08, 1, -1, 4.37114e-08, 1.91069e-15, 5.64575, 1.814, 14.8683)
+pixel_size = 0.1
+double_sided = false
+texture_filter = 0
+texture = ExtResource("16_tj8xh")
+
+[node name="f2" type="Sprite3D" parent="flowers"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 8.52158, 1.814, 16.4789)
+pixel_size = 0.1
+double_sided = false
+texture_filter = 0
+texture = ExtResource("16_tj8xh")
+
+[node name="f3" type="Sprite3D" parent="flowers"]
+transform = Transform3D(-1, 8.74228e-08, 3.82137e-15, 0, -4.37114e-08, 1, 8.74228e-08, 1, 4.37114e-08, 11.238, 1.814, 11.5984)
+pixel_size = 0.1
+double_sided = false
+texture_filter = 0
+texture = ExtResource("16_tj8xh")
+
+[node name="f4" type="Sprite3D" parent="flowers"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 11.9805, 1.814, 18.9094)
+pixel_size = 0.1
+double_sided = false
+texture_filter = 0
+texture = ExtResource("16_tj8xh")
+
+[node name="f5" type="Sprite3D" parent="flowers"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 6.35204, 1.814, 20.9402)
+pixel_size = 0.1
+double_sided = false
+texture_filter = 0
+texture = ExtResource("16_tj8xh")
+
+[node name="f6" type="Sprite3D" parent="flowers"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 6.30237, 1.814, 9.67805)
+pixel_size = 0.1
+double_sided = false
+texture_filter = 0
+texture = ExtResource("16_tj8xh")
+
+[node name="f7" type="Sprite3D" parent="flowers"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 11.8811, 1.814, 6.81988)
+pixel_size = 0.1
+double_sided = false
+texture_filter = 0
+texture = ExtResource("16_tj8xh")
+
+[node name="f8" type="Sprite3D" parent="flowers"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 5.76693, 1.814, 4.53734)
+pixel_size = 0.1
+double_sided = false
+texture_filter = 0
+texture = ExtResource("16_tj8xh")
+
+[node name="f9" type="Sprite3D" parent="flowers"]
+transform = Transform3D(-4.37114e-08, -1, -4.37114e-08, 0, -4.37114e-08, 1, -1, 4.37114e-08, 1.91069e-15, 8.96248, 1.814, 0.322936)
+pixel_size = 0.1
+double_sided = false
+texture_filter = 0
+texture = ExtResource("16_tj8xh")
+
+[node name="f10" type="Sprite3D" parent="flowers"]
+transform = Transform3D(-4.37114e-08, -1, -4.37114e-08, 0, -4.37114e-08, 1, -1, 4.37114e-08, 1.91069e-15, 8.76676, 1.814, 7.81659)
+pixel_size = 0.1
+double_sided = false
+texture_filter = 0
+texture = ExtResource("16_tj8xh")
+
+[node name="f11" type="Sprite3D" parent="flowers"]
+transform = Transform3D(-4.37114e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1, 4.37114e-08, 1.91069e-15, 12.567, 1.814, 1.22104)
+pixel_size = 0.1
+double_sided = false
+texture_filter = 0
+texture = ExtResource("16_tj8xh")
+
+[node name="f12" type="Sprite3D" parent="flowers"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 6.42775, 1.814, -2.78586)
+pixel_size = 0.1
+double_sided = false
+texture_filter = 0
+texture = ExtResource("16_tj8xh")
+
+[node name="f13" type="Sprite3D" parent="flowers"]
+transform = Transform3D(-4.37114e-08, -1, -4.37114e-08, 0, -4.37114e-08, 1, -1, 4.37114e-08, 1.91069e-15, 11.0663, 1.814, 22.9677)
+pixel_size = 0.1
+double_sided = false
+texture_filter = 0
+texture = ExtResource("16_tj8xh")
+
+[node name="f14" type="Sprite3D" parent="flowers"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 10.9357, 1.814, -4.69066)
+pixel_size = 0.1
+double_sided = false
+texture_filter = 0
+texture = ExtResource("16_tj8xh")

@@ -9,6 +9,7 @@ var defaultData = {
 	"sfxVol":1.0,
 	"showDecor":true,
 	"showClouds":true,
+	"lang":"en",
 }
 
 var data = {}
@@ -22,7 +23,13 @@ func _ready():
 		data = defaultData.duplicate(true)
 	else:
 		data = newData.duplicate(true)
-		
+	
+	var lang = getValue("lang")
+	if lang == null:
+		setValue("lang","en") # sets language to english
+	else:
+		TranslationServer.set_locale(lang)
+	
 	AudioServer.set_bus_volume_db(sound, linear_to_db( data["sfxVol"] ) )
 	AudioServer.set_bus_volume_db(music, linear_to_db( data["musicVol"] ) )
 

@@ -22,6 +22,12 @@ signal enableCloud
 signal disableDecor
 signal enableDecor
 
+signal changeLanguage
+
+func setLanguage(lang):
+	TranslationServer.set_locale(lang)
+	emit_signal("changeLanguage")
+
 func cloudTog(yes):
 	if yes:
 		emit_signal("enableCloud")

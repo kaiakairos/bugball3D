@@ -55,6 +55,8 @@ func openDoor():
 	$StaticBody2D/CollisionPolygon2D.disabled = true
 	await tween.finished
 	
+	if get_tree() == null:
+		return
 	var tween2 = get_tree().create_tween()
 	tween2.tween_property(self,"modulate:a",0.2,0.1)
 	

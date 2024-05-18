@@ -173,6 +173,7 @@ round_precision = 11
 top_level = true
 
 [node name="cover" type="ColorRect" parent="Camera2D"]
+visible = false
 z_index = 398
 offset_left = -962.0
 offset_top = -679.0
@@ -194,9 +195,18 @@ hit_from_inside = true
 collide_with_areas = true
 collide_with_bodies = false
 
+[node name="sandCast" type="RayCast2D" parent="."]
+target_position = Vector2(0, 1)
+collision_mask = 8192
+hit_from_inside = true
+collide_with_areas = true
+collide_with_bodies = false
+
 [node name="islandCast" type="RayCast2D" parent="."]
 target_position = Vector2(0, 1)
 collision_mask = 16384
 hit_from_inside = true
 collide_with_areas = true
 collide_with_bodies = false
+
+[node name="cameraOffset" type="Node2D" parent="."]

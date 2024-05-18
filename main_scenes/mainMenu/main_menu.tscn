@@ -1,28 +1,43 @@
-[gd_scene load_steps=22 format=3 uid="uid://bujmrsxh8k58x"]
+[gd_scene load_steps=30 format=3 uid="uid://bujmrsxh8k58x"]
 
 [ext_resource type="Script" path="res://main_scenes/mainMenu/main_menu.gd" id="1_hw8g4"]
 [ext_resource type="PackedScene" uid="uid://bno8isqo481fp" path="res://main_scenes/mainMenu/menu_graphic.tscn" id="1_p8yr1"]
 [ext_resource type="Texture2D" uid="uid://bl80ak0n20tef" path="res://main_scenes/mainMenu/logo.png" id="2_pl7be"]
 [ext_resource type="FontFile" uid="uid://c0esfecfk2hon" path="res://alphabets/GrapeSoda.ttf" id="2_x70bn"]
-[ext_resource type="Material" uid="uid://dni0f72utkxpd" path="res://main_scenes/mainMenu/outlineMenu.tres" id="3_bnjcp"]
-[ext_resource type="PackedScene" uid="uid://bjfqebv7jrgw" path="res://main_scenes/mainMenu/words/play_world.tscn" id="4_2uvpa"]
-[ext_resource type="PackedScene" uid="uid://xae7y1uj6t7b" path="res://main_scenes/mainMenu/words/option.tscn" id="5_y6o5q"]
-[ext_resource type="PackedScene" uid="uid://bmstbokphhqcq" path="res://main_scenes/mainMenu/words/credits.tscn" id="6_n1y50"]
-[ext_resource type="Texture2D" uid="uid://b4pj6fxwahlt8" path="res://main_scenes/mainMenu/courseSelects/text.png" id="9_x8jye"]
 [ext_resource type="Texture2D" uid="uid://d8ffmgomnn23" path="res://ui_scenes/courseIcons/forest.png" id="10_n6bi1"]
 [ext_resource type="PackedScene" uid="uid://cxnhvxlqgrs73" path="res://ui_scenes/courseIcons/course_icon.tscn" id="10_oxygi"]
 [ext_resource type="Texture2D" uid="uid://crav5a05mrmxc" path="res://ui_scenes/courseIcons/comingSoon.png" id="12_afjsb"]
 [ext_resource type="Texture2D" uid="uid://bk55xt00g5h85" path="res://ui_scenes/courseIcons/difBorder.png" id="14_7e6oy"]
+[ext_resource type="Texture2D" uid="uid://71dt2g1n0grh" path="res://ui_scenes/credits/kaiaIcon.png" id="14_s6l66"]
 [ext_resource type="Texture2D" uid="uid://bkvvtu3m0rsjm" path="res://ui_scenes/courseIcons/difSelect.png" id="15_2xe7m"]
 [ext_resource type="Texture2D" uid="uid://c7rr4gjqtj7nr" path="res://object_scenes/entity/player/dust/shape.png" id="15_4u8oe"]
+[ext_resource type="Texture2D" uid="uid://dfh2te5s74adx" path="res://ui_scenes/credits/sageIcon.png" id="15_n8tp4"]
 [ext_resource type="PackedScene" uid="uid://bxdyrs6mbjpx6" path="res://ui_scenes/options/options.tscn" id="15_oevmx"]
+[ext_resource type="Texture2D" uid="uid://cycc02w5p35aa" path="res://ui_scenes/credits/lemmy.png" id="16_rw80l"]
 [ext_resource type="Material" uid="uid://b21jm8np24uvw" path="res://main_scenes/mainMenu/transition.tres" id="16_wnogl"]
+[ext_resource type="Texture2D" uid="uid://b5dvyiw4ogkyw" path="res://ui_scenes/credits/ike.png" id="17_0tw1x"]
+[ext_resource type="Texture2D" uid="uid://cbjoc7vqqvo0e" path="res://ui_scenes/credits/tom.png" id="18_fofuy"]
 [ext_resource type="AudioStream" uid="uid://blyx821hhn4a7" path="res://audio/brawl.ogg" id="18_sp7n6"]
+[ext_resource type="Texture2D" uid="uid://klmv7tulcgf1" path="res://ui_scenes/credits/will.png" id="19_h51tr"]
+[ext_resource type="Texture2D" uid="uid://cmydmfrcwef0i" path="res://ui_scenes/courseIcons/borderagain.png" id="21_d0jkp"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_mt1ax"]
 font = ExtResource("2_x70bn")
 font_size = 32
 outline_size = 15
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_gmjxa"]
+font_size = 32
+outline_size = 16
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 16
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(2.96, 3.795)
+
+[sub_resource type="LabelSettings" id="LabelSettings_6vij2"]
+font_size = 64
+outline_size = 24
 outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="Curve" id="Curve_k2lpd"]
@@ -31,8 +46,40 @@ _data = [Vector2(0, 2.1978), 0.0, 0.0, 0, 0, Vector2(0.982609, 0), 0.0, 0.0, 0, 
 point_count = 2
 
 [sub_resource type="Gradient" id="Gradient_kiupg"]
-offsets = PackedFloat32Array(0, 0.336634, 0.663366, 0.950495)
-colors = PackedColorArray(1, 0.672, 0.18, 1, 1, 0.405, 0.15, 1, 1, 0.266667, 0.14902, 1, 0.68, 0.374, 0.374, 1)
+offsets = PackedFloat32Array(0, 0.336634, 0.663366, 1)
+colors = PackedColorArray(1, 0.6885, 0.11, 1, 1, 0.5, 0, 1, 1, 0, 0, 1, 0, 0.113725, 0.113725, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_2c8hp"]
+font_size = 32
+outline_size = 16
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 16
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(2, 2)
+
+[sub_resource type="LabelSettings" id="LabelSettings_me3hw"]
+font_size = 64
+outline_size = 26
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 26
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(4, 4)
+
+[sub_resource type="LabelSettings" id="LabelSettings_bxqa8"]
+font_size = 32
+outline_size = 13
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 13
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(4, 4)
+
+[sub_resource type="LabelSettings" id="LabelSettings_d3bb2"]
+font_size = 48
+outline_size = 26
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 26
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(4, 4)
 
 [node name="MainMenu" type="Node2D"]
 script = ExtResource("1_hw8g4")
@@ -42,44 +89,74 @@ offset_left = 9.0
 offset_top = 267.0
 offset_right = 55.0
 offset_bottom = 299.0
-text = "v0.3"
+text = "v0.4 - demo"
 label_settings = SubResource("LabelSettings_mt1ax")
 
 [node name="MenuGraphic" parent="." instance=ExtResource("1_p8yr1")]
 
-[node name="farticles" type="CanvasGroup" parent="."]
-material = ExtResource("3_bnjcp")
-
 [node name="MAINMENU" type="Node2D" parent="."]
 
 [node name="Logo" type="Sprite2D" parent="MAINMENU"]
-position = Vector2(343, 83)
+position = Vector2(335, 75)
 texture = ExtResource("2_pl7be")
 centered = false
 offset = Vector2(-195, -148)
 
-[node name="buttons" type="CanvasGroup" parent="MAINMENU"]
-material = ExtResource("3_bnjcp")
+[node name="play" type="Label" parent="MAINMENU"]
+offset_left = 183.0
+offset_top = 133.0
+offset_right = 483.0
+offset_bottom = 188.0
+text = "PLAY"
+label_settings = SubResource("LabelSettings_gmjxa")
+horizontal_alignment = 2
 
-[node name="playWorld" parent="MAINMENU/buttons" instance=ExtResource("4_2uvpa")]
-position = Vector2(420, 159)
-partPos = Vector2(25, 5)
+[node name="skins" type="Label" parent="MAINMENU"]
+offset_left = 183.0
+offset_top = 165.0
+offset_right = 483.0
+offset_bottom = 220.0
+text = "SKINS"
+label_settings = SubResource("LabelSettings_gmjxa")
+horizontal_alignment = 2
 
-[node name="option" parent="MAINMENU/buttons" instance=ExtResource("5_y6o5q")]
-position = Vector2(395, 194)
-partPos = Vector2(43, 5)
+[node name="option" type="Label" parent="MAINMENU"]
+offset_left = 183.0
+offset_top = 195.0
+offset_right = 483.0
+offset_bottom = 250.0
+text = "OPTIONS"
+label_settings = SubResource("LabelSettings_gmjxa")
+horizontal_alignment = 2
 
-[node name="credit" parent="MAINMENU/buttons" instance=ExtResource("6_n1y50")]
-position = Vector2(383, 223)
-partPos = Vector2(50, 10)
+[node name="credits" type="Label" parent="MAINMENU"]
+offset_left = 183.0
+offset_top = 227.0
+offset_right = 483.0
+offset_bottom = 282.0
+text = "CREDITS"
+label_settings = SubResource("LabelSettings_gmjxa")
+horizontal_alignment = 2
+
+[node name="quit" type="Label" parent="MAINMENU"]
+offset_left = 183.0
+offset_top = 257.0
+offset_right = 483.0
+offset_bottom = 312.0
+text = "QUIT"
+label_settings = SubResource("LabelSettings_gmjxa")
+horizontal_alignment = 2
 
 [node name="COURSESELECT" type="Node2D" parent="."]
 position = Vector2(0, 300)
 
-[node name="Text" type="Sprite2D" parent="COURSESELECT"]
-position = Vector2(252, 57)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("9_x8jye")
+[node name="Text" type="Label" parent="COURSESELECT"]
+offset_top = 5.0
+offset_right = 500.0
+offset_bottom = 91.0
+text = "COURSE_SELECT"
+label_settings = SubResource("LabelSettings_6vij2")
+horizontal_alignment = 1
 
 [node name="Courses" type="Node2D" parent="COURSESELECT"]
 position = Vector2(250, 110)
@@ -87,25 +164,33 @@ position = Vector2(250, 110)
 [node name="CourseIcon" parent="COURSESELECT/Courses" instance=ExtResource("10_oxygi")]
 image = ExtResource("10_n6bi1")
 easyLevels = Array[String](["res://main_scenes/levels/forE/0.tscn", "res://main_scenes/levels/forE/1.tscn", "res://main_scenes/levels/forE/2.tscn", "res://main_scenes/levels/forE/3.tscn", "res://main_scenes/levels/forE/18.tscn", "res://main_scenes/levels/forE/4.tscn", "res://main_scenes/levels/forE/19.tscn", "res://main_scenes/levels/forE/16.tscn", "res://main_scenes/levels/forE/8.tscn", "res://main_scenes/levels/forE/5.tscn", "res://main_scenes/levels/forE/15.tscn", "res://main_scenes/levels/forE/9.tscn", "res://main_scenes/levels/forE/6.tscn", "res://main_scenes/levels/forE/10.tscn", "res://main_scenes/levels/forE/7.tscn", "res://main_scenes/levels/forE/11.tscn", "res://main_scenes/levels/forE/12.tscn", "res://main_scenes/levels/forE/13.tscn"])
-mediumLevels = Array[String](["res://main_scenes/levels/forM/m_0.tscn", "res://main_scenes/levels/forM/m_1.tscn", "res://main_scenes/levels/forM/m_2.tscn", "res://main_scenes/levels/forM/m_3.tscn"])
+mediumLevels = Array[String](["res://main_scenes/levels/forM/m_10.tscn", "res://main_scenes/levels/forM/m_9.tscn", "res://main_scenes/levels/forM/m_0.tscn", "res://main_scenes/levels/forM/m_1.tscn", "res://main_scenes/levels/forM/m_2.tscn", "res://main_scenes/levels/forM/m_7.tscn", "res://main_scenes/levels/forM/m_3.tscn", "res://main_scenes/levels/forM/m_5.tscn", "res://main_scenes/levels/forM/m_8.tscn", "res://main_scenes/levels/forM/m_13.tscn", "res://main_scenes/levels/forM/m_12.tscn", "res://main_scenes/levels/forM/m_6.tscn", "res://main_scenes/levels/forM/m_11.tscn", "res://main_scenes/levels/forM/m_4.tscn"])
 hardLevels = Array[String](["res://main_scenes/levels/forE/18.tscn"])
-courseName = "forest"
+courseName = "C_FOREST"
 saveCodeE = "course1_EasyPB"
 saveCodeM = "course1_MeedPB"
 saveCodeH = "course1_HardPB"
-rankLimitE = Array[float]([65.0, 80.0, 120.0, 300.0, 600.0])
+rankLimitE = Array[float]([65.0, 100.0, 180.0, 300.0, 600.0])
+rankLimitM = Array[float]([120.0, 200.0, 350.0, 600.0, 1000.0])
 rankLimitH = Array[float]([2.5, 3.5, 5.0, 7.0, 10.0])
 
 [node name="CourseIcon2" parent="COURSESELECT/Courses" instance=ExtResource("10_oxygi")]
 position = Vector2(0, 95)
 image = ExtResource("12_afjsb")
+courseName = "C_COMINGSOON"
 
 [node name="CourseIcon3" parent="COURSESELECT/Courses" instance=ExtResource("10_oxygi")]
 position = Vector2(0, 190)
 image = ExtResource("12_afjsb")
+courseName = "C_COMINGSOON"
 
 [node name="Difficulty" type="Node2D" parent="COURSESELECT"]
 position = Vector2(500, 0)
+
+[node name="border overlay" type="Sprite2D" parent="COURSESELECT/Difficulty"]
+z_index = 1
+position = Vector2(258, 204)
+texture = ExtResource("21_d0jkp")
 
 [node name="DifBorder" type="Sprite2D" parent="COURSESELECT/Difficulty"]
 clip_children = 2
@@ -135,8 +220,118 @@ angle_max = 5.0
 scale_amount_curve = SubResource("Curve_k2lpd")
 color_ramp = SubResource("Gradient_kiupg")
 
+[node name="dif" type="Label" parent="COURSESELECT/Difficulty/DifBorder"]
+z_index = 2
+offset_left = -148.0
+offset_top = -32.0
+offset_right = 148.0
+offset_bottom = 26.0
+text = "EASY"
+label_settings = SubResource("LabelSettings_2c8hp")
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="Options" parent="." instance=ExtResource("15_oevmx")]
 position = Vector2(0, 300)
+
+[node name="Credits" type="Node2D" parent="."]
+position = Vector2(0, 300)
+
+[node name="kaia" type="Node2D" parent="Credits"]
+
+[node name="icon" type="Sprite2D" parent="Credits/kaia"]
+position = Vector2(398, 83)
+texture = ExtResource("14_s6l66")
+
+[node name="name" type="Label" parent="Credits/kaia"]
+offset_left = 17.0
+offset_top = 9.0
+offset_right = 285.0
+offset_bottom = 73.0
+text = "kaiakairos"
+label_settings = SubResource("LabelSettings_me3hw")
+
+[node name="credits" type="Label" parent="Credits/kaia"]
+offset_left = 21.0
+offset_top = 77.0
+offset_right = 289.0
+offset_bottom = 118.0
+text = "CREDIT_PROGRAM"
+label_settings = SubResource("LabelSettings_bxqa8")
+horizontal_alignment = 2
+
+[node name="fart" type="Label" parent="Credits/kaia"]
+offset_left = 21.0
+offset_top = 116.0
+offset_right = 289.0
+offset_bottom = 154.0
+text = "CREDIT_ARTIST"
+label_settings = SubResource("LabelSettings_bxqa8")
+horizontal_alignment = 2
+
+[node name="sage" type="Node2D" parent="Credits"]
+position = Vector2(-1, 151)
+
+[node name="icon" type="Sprite2D" parent="Credits/sage"]
+position = Vector2(109, 70)
+texture = ExtResource("15_n8tp4")
+
+[node name="name" type="Label" parent="Credits/sage"]
+offset_left = 227.0
+offset_top = 15.0
+offset_right = 555.0
+offset_bottom = 79.0
+text = "StaggerNight"
+label_settings = SubResource("LabelSettings_d3bb2")
+
+[node name="credits" type="Label" parent="Credits/sage"]
+offset_left = 227.0
+offset_top = 77.0
+offset_right = 495.0
+offset_bottom = 144.0
+text = "CREDIT_MUSIC"
+label_settings = SubResource("LabelSettings_bxqa8")
+
+[node name="special" type="Node2D" parent="Credits"]
+position = Vector2(0, 300)
+
+[node name="name" type="Label" parent="Credits/special"]
+offset_top = 15.0
+offset_right = 500.0
+offset_bottom = 79.0
+text = "SPECIAL_THANKS"
+label_settings = SubResource("LabelSettings_d3bb2")
+horizontal_alignment = 1
+
+[node name="credits" type="Label" parent="Credits/special"]
+offset_top = 95.0
+offset_right = 410.0
+offset_bottom = 267.0
+text = "Lemmy
+
+Awful Ike
+
+Tom Fulp
+
+Will"
+label_settings = SubResource("LabelSettings_bxqa8")
+horizontal_alignment = 1
+
+[node name="Lemmy" type="Sprite2D" parent="Credits/special"]
+position = Vector2(323, 110)
+texture = ExtResource("16_rw80l")
+
+[node name="Ike" type="Sprite2D" parent="Credits/special"]
+position = Vector2(329, 181)
+texture = ExtResource("17_0tw1x")
+
+[node name="Tom" type="Sprite2D" parent="Credits/special"]
+position = Vector2(328, 251)
+texture = ExtResource("18_fofuy")
+
+[node name="Will" type="Sprite2D" parent="Credits/special"]
+position = Vector2(327, 320)
+texture = ExtResource("19_h51tr")
 
 [node name="transition" type="ColorRect" parent="."]
 z_index = 220
@@ -151,3 +346,7 @@ stream = ExtResource("18_sp7n6")
 volume_db = -5.0
 autoplay = true
 bus = &"Music"
+
+[node name="Borderagain" type="Sprite2D" parent="."]
+position = Vector2(758, 504)
+texture = ExtResource("21_d0jkp")

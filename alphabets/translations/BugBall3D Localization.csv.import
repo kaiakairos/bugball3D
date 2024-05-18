@@ -1,0 +1,17 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://8oxum834v1qa"
+
+[deps]
+
+files=["res://alphabets/translations/BugBall3D Localization.en.translation", "res://alphabets/translations/BugBall3D Localization.es.translation", "res://alphabets/translations/BugBall3D Localization.pt.translation", "res://alphabets/translations/BugBall3D Localization.fr.translation", "res://alphabets/translations/BugBall3D Localization.jp.translation", "res://alphabets/translations/BugBall3D Localization.de.translation"]
+
+source_file="res://alphabets/translations/BugBall3D Localization.csv"
+dest_files=["res://alphabets/translations/BugBall3D Localization.en.translation", "res://alphabets/translations/BugBall3D Localization.es.translation", "res://alphabets/translations/BugBall3D Localization.pt.translation", "res://alphabets/translations/BugBall3D Localization.fr.translation", "res://alphabets/translations/BugBall3D Localization.jp.translation", "res://alphabets/translations/BugBall3D Localization.de.translation"]
+
+[params]
+
+compress=true
+delimiter=0

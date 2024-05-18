@@ -17,9 +17,9 @@ var swappin = false
 
 #main menu nodes
 @onready var MAINFOLDER = $MAINMENU
-@onready var playButton = $MAINMENU/buttons/playWorld
-@onready var optionButton = $MAINMENU/buttons/option
-@onready var creditButton = $MAINMENU/buttons/credit
+@onready var playButton = $MAINMENU/play
+@onready var optionButton = $MAINMENU/option
+@onready var creditButton = $MAINMENU/credits
 var menuOptionSelected = 0
 @onready var selectDust = preload("res://object_scenes/entity/player/dust/selectDust.tscn")
 var SELECTIONMADE = false
@@ -69,8 +69,13 @@ func setMenuState(newState):
 			tween.tween_property($Options,"position:y",300,0.8).set_trans(Tween.TRANS_QUINT).set_ease(Tween.EASE_OUT)
 			tweenHolder.append(tween)
 			$Options.set_process(false)
+			$Options.disable()
 			Saving.write_save()
-			
+		3:
+			var tween = get_tree().create_tween()
+			tween.tween_property($Credits,"position:y",300,0.8).set_trans(Tween.TRANS_QUINT).set_ease(Tween.EASE_OUT)
+			tweenHolder.append(tween)
+			$Credits.set_process(false)
 	match newState:
 		0:
 			$versionLabel.visible = true
@@ -104,6 +109,10 @@ func setMenuState(newState):
 			$Options.displayValues()
 		3:
 			menuGraphic.menuState = 1
+			var tween = get_tree().create_tween()
+			tween.tween_property($Credits,"position:y",0,0.6).set_trans(Tween.TRANS_QUINT).set_ease(Tween.EASE_OUT)
+			tweenHolder.append(tween)
+			$Credits.set_process(true)
 		4:
 			menuGraphic.huge(false)
 			var c = courseContainer.get_children()
@@ -137,29 +146,44 @@ func mainMenu(delta):
 	if SELECTIONMADE:
 		return
 	
-	var buttons = [playButton,optionButton,creditButton]
+	var buttons = [playButton,$MAINMENU/skins,optionButton,creditButton,$MAINMENU/quit]
 	
 	buttons[menuOptionSelected].modulate = Color.WHITE
+	lerpMenuButtons()
+	
+	var nudge = 0
 	
 	if Input.is_action_just_pressed("move_down") or Input.is_action_just_pressed("move_down_joy"):
 		menuOptionSelected += 1
+		nudge += 1
 		Sound.playSound2D(Vector2(250,150),"res://audio/menuSelect.ogg",5.0)
 	if Input.is_action_just_pressed("move_up") or Input.is_action_just_pressed("move_up_joy"):
 		menuOptionSelected -= 1
+		nudge -= 1
 		Sound.playSound2D(Vector2(250,150),"res://audio/menuSelect.ogg",5.0)
 	if menuOptionSelected < 0:
-		menuOptionSelected = 2
-	elif menuOptionSelected > 2:
+		menuOptionSelected = 4
+	elif menuOptionSelected > 4:
 		menuOptionSelected = 0
 	
 	buttons[menuOptionSelected].modulate = Color(0.6,0.588,0.655)
+	buttons[menuOptionSelected].position.y += 10 * nudge
 	
 	if Input.is_action_just_pressed("menuSelect"):
-		selectDusty(buttons[menuOptionSelected].partPos + buttons[menuOptionSelected].position)
+		#selectDusty(buttons[menuOptionSelected].position)
 		SELECTIONMADE = true
-		await buttons[menuOptionSelected].bump()
-		
-		setMenuState(menuOptionSelected + 1)
+		#await buttons[menuOptionSelected].bump()
+		match menuOptionSelected:
+			0:
+				setMenuState(1)
+			1:
+				pass
+			2:
+				setMenuState(2)
+			3:
+				setMenuState(3)
+			4:
+				get_tree().quit()
 		
 		SELECTIONMADE = false
 	
@@ -192,12 +216,14 @@ func playMenu(delta):
 		
 	
 	courseContainer.position.y = lerp(courseContainer.position.y,110+(courseSelect * -95.0),0.2)
-	$COURSESELECT/Text.position.y = courseContainer.position.y - 53
+	$COURSESELECT/Text.position.y = courseContainer.position.y - 87
 	
 	if Input.is_action_just_pressed("menuSelect"):
 		
 		if courseSelect > 0:
 			#Remove when there are more courses
+			#For coming soon courses
+			OS.shell_open("https://store.steampowered.com/app/2976450")
 			return
 		
 		#Sound.playSound2D(Vector2(250,150),"res://audio/menuSelection.ogg",5.0)
@@ -217,7 +243,21 @@ func optionMenu(delta):
 func creditMenu(delta):
 	if Input.is_action_just_pressed("menuBack"):
 		setMenuState(0)
-
+		return
+	
+	var moveSpeed = 240
+	if Input.is_action_pressed("move_down") or Input.is_action_pressed("move_down_joy"):
+		$Credits.position.y += -moveSpeed * delta
+		if $Credits.position.y == clamp($Credits.position.y,-376,0):
+			menuGraphic.move(-1.0 * delta)
+	if Input.is_action_pressed("move_up") or Input.is_action_pressed("move_up_joy"):
+		$Credits.position.y += moveSpeed * delta
+		if $Credits.position.y == clamp($Credits.position.y,-376,0):
+			menuGraphic.move(1.0 * delta)
+	
+	
+	$Credits.position.y = clamp($Credits.position.y,-376,0)
+	
 func courseMenu(delta):
 	if Input.is_action_just_pressed("menuBack"):
 		setMenuState(1)
@@ -226,15 +266,24 @@ func courseMenu(delta):
 		difficulty += 1
 		difselect.position.x += 10
 		Sound.playSound2D(Vector2(250,150),"res://audio/menuSelect.ogg",5.0)
+		if difficulty == 2:
+			$COURSESELECT/Difficulty/DifBorder/FlameParticle.emitting = true
 	if Input.is_action_just_pressed("move_left") or Input.is_action_just_pressed("move_left_joy"):
 		difficulty -= 1
 		difselect.position.x -= 10
 		Sound.playSound2D(Vector2(250,150),"res://audio/menuSelect.ogg",5.0)
+		$COURSESELECT/Difficulty/DifBorder/FlameParticle.emitting = false
 	
 	difficulty = clamp(difficulty,0,2)
 	
 	difselect.position.x = lerp(difselect.position.x,(difficulty-1)*110.0,0.3)
-	
+	match difficulty:
+		0:
+			$COURSESELECT/Difficulty/DifBorder/dif.text = tr("EASY")
+		1:
+			$COURSESELECT/Difficulty/DifBorder/dif.text = tr("MEDIUM")
+		2:
+			$COURSESELECT/Difficulty/DifBorder/dif.text = tr("HARD")
 	
 	if Input.is_action_just_pressed("menuSelect"):
 		menuState = 99
@@ -267,3 +316,11 @@ func ballOut():
 	tween.tween_property(self,"circ",0.0,1.0).set_trans(Tween.TRANS_BOUNCE).set_ease(Tween.EASE_OUT)
 	await tween.finished
 	get_tree().change_scene_to_file("res://main_scenes/game.tscn")
+
+func lerpMenuButtons():
+	var lerpAmount = 0.2
+	playButton.position.y = lerp(playButton.position.y,133.0,lerpAmount)
+	optionButton.position.y = lerp(optionButton.position.y,195.0,lerpAmount)
+	creditButton.position.y = lerp(creditButton.position.y,227.0,lerpAmount)
+	$MAINMENU/skins.position.y = lerp($MAINMENU/skins.position.y,165.0,lerpAmount)
+	$MAINMENU/quit.position.y = lerp($MAINMENU/quit.position.y,257.0,lerpAmount)
