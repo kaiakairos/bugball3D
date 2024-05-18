@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://bujmrsxh8k58x"]
+[gd_scene load_steps=33 format=3 uid="uid://bujmrsxh8k58x"]
 
 [ext_resource type="Script" path="res://main_scenes/mainMenu/main_menu.gd" id="1_hw8g4"]
 [ext_resource type="PackedScene" uid="uid://bno8isqo481fp" path="res://main_scenes/mainMenu/menu_graphic.tscn" id="1_p8yr1"]
@@ -20,6 +20,7 @@
 [ext_resource type="AudioStream" uid="uid://blyx821hhn4a7" path="res://audio/brawl.ogg" id="18_sp7n6"]
 [ext_resource type="Texture2D" uid="uid://klmv7tulcgf1" path="res://ui_scenes/credits/will.png" id="19_h51tr"]
 [ext_resource type="Texture2D" uid="uid://cmydmfrcwef0i" path="res://ui_scenes/courseIcons/borderagain.png" id="21_d0jkp"]
+[ext_resource type="PackedScene" uid="uid://dta8c86acsn38" path="res://ui_scenes/modifiers/modifier_toggle.tscn" id="21_fxuyc"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_mt1ax"]
 font = ExtResource("2_x70bn")
@@ -56,6 +57,21 @@ outline_color = Color(0, 0, 0, 1)
 shadow_size = 16
 shadow_color = Color(0, 0, 0, 1)
 shadow_offset = Vector2(2, 2)
+
+[sub_resource type="LabelSettings" id="LabelSettings_pyx72"]
+font_size = 48
+outline_size = 23
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 26
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(1.9, 3.54)
+
+[sub_resource type="LabelSettings" id="LabelSettings_nhg1w"]
+outline_size = 10
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 10
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(2, 2.5)
 
 [sub_resource type="LabelSettings" id="LabelSettings_me3hw"]
 font_size = 64
@@ -230,6 +246,55 @@ text = "EASY"
 label_settings = SubResource("LabelSettings_2c8hp")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Modifiers" type="Node2D" parent="COURSESELECT/Difficulty"]
+position = Vector2(162, 265)
+
+[node name="ModifierToggle" parent="COURSESELECT/Difficulty/Modifiers" instance=ExtResource("21_fxuyc")]
+modName = "roll accel"
+desc = "rolls BUG FAST"
+modId = "Roll"
+
+[node name="ModifierToggle2" parent="COURSESELECT/Difficulty/Modifiers" instance=ExtResource("21_fxuyc")]
+position = Vector2(64, 0)
+modName = "mirror"
+desc = "mirrored"
+frame = 1
+modId = "Mirrored"
+
+[node name="ModifierToggle3" parent="COURSESELECT/Difficulty/Modifiers" instance=ExtResource("21_fxuyc")]
+position = Vector2(128, 0)
+modName = "fuse"
+desc = "bomb... explode"
+frame = 2
+modId = "Fuse"
+
+[node name="ModifierToggle4" parent="COURSESELECT/Difficulty/Modifiers" instance=ExtResource("21_fxuyc")]
+position = Vector2(196, 0)
+modName = "BOUNCE"
+desc = "bounce big 2.0x"
+frame = 3
+modId = "Bounce"
+
+[node name="modName" type="Label" parent="COURSESELECT/Difficulty"]
+visible = false
+offset_top = 16.0
+offset_right = 500.0
+offset_bottom = 110.0
+text = "modifier name"
+label_settings = SubResource("LabelSettings_pyx72")
+horizontal_alignment = 1
+
+[node name="modDesc" type="Label" parent="COURSESELECT/Difficulty"]
+visible = false
+offset_left = 47.0
+offset_top = 69.0
+offset_right = 459.0
+offset_bottom = 173.0
+text = "modifier description"
+label_settings = SubResource("LabelSettings_nhg1w")
+horizontal_alignment = 1
+autowrap_mode = 2
 
 [node name="Options" parent="." instance=ExtResource("15_oevmx")]
 position = Vector2(0, 300)

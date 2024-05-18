@@ -27,6 +27,10 @@ func _ready():
 	loadLevel(0)
 	Global.connect("cameraCHANGED",placeTransition)
 	
+	if Global.mirrored:
+		$UI.scale = Vector2(1,-1)
+		$transition.scale = Vector2(1,-1)
+	
 	await get_tree().create_timer(0.05).timeout
 	$UI.visible = true
 
@@ -183,7 +187,9 @@ func placeTransition():
 		$transition.material.set_shader_parameter("retard",Vector2(0.5,0.5))
 		$transition.position = Vector2(0,-100)
 		return
-	var gay = Global.player.get_global_transform_with_canvas().origin - Vector2(0,-100)
+	var o = Global.player.get_global_transform_with_canvas().origin
+	var gay = o - Vector2(0,-100)
+	
 	
 	gay= gay / Vector2(500,500)
 	$transition.material.set_shader_parameter("retard",gay)

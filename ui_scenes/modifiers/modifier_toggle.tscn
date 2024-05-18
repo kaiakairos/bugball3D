@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://dta8c86acsn38"]
+
+[ext_resource type="Script" path="res://ui_scenes/modifiers/modifier_toggle.gd" id="1_j8nwb"]
+[ext_resource type="Texture2D" uid="uid://cn5esgrmy482y" path="res://ui_scenes/modifiers/base.png" id="2_5o40h"]
+
+[node name="ModifierToggle" type="Node2D"]
+script = ExtResource("1_j8nwb")
+
+[node name="Base" type="Sprite2D" parent="."]
+texture = ExtResource("2_5o40h")
+hframes = 2
+vframes = 8

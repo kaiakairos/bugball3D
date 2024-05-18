@@ -33,7 +33,8 @@ var COURSECHOSEN = false
 #fuck
 var difficulty = 0 # 0 = easy, 1 = med, 2 = hard
 @onready var difselect = $COURSESELECT/Difficulty/DifBorder/DifSelect
-
+var lookinAtModifiers = false
+var modSelected = 0
 
 var tweenHolder = []
 
@@ -76,6 +77,8 @@ func setMenuState(newState):
 			tween.tween_property($Credits,"position:y",300,0.8).set_trans(Tween.TRANS_QUINT).set_ease(Tween.EASE_OUT)
 			tweenHolder.append(tween)
 			$Credits.set_process(false)
+		4:
+			lookinAtModifiers = false
 	match newState:
 		0:
 			$versionLabel.visible = true
@@ -137,7 +140,10 @@ func _process(delta):
 		3:
 			creditMenu(delta)
 		4:
-			courseMenu(delta)
+			if lookinAtModifiers:
+				modifierMenu(delta)
+			else:
+				courseMenu(delta)
 
 func mainMenu(delta):
 	
@@ -285,6 +291,11 @@ func courseMenu(delta):
 		2:
 			$COURSESELECT/Difficulty/DifBorder/dif.text = tr("HARD")
 	
+	if Input.is_action_just_pressed("move_down") or Input.is_action_just_pressed("move_down_joy"):
+		lookinAtModifiers = true
+		return
+	
+	
 	if Input.is_action_just_pressed("menuSelect"):
 		menuState = 99
 		
@@ -304,7 +315,38 @@ func courseMenu(delta):
 				Global.levelRANKHolder = course.rankLimitH
 		
 		ballOut()
+
+func modifierMenu(delta):
+	if Input.is_action_just_pressed("menuBack"):
+		setMenuState(1)
 	
+	var mods :Array = $COURSESELECT/Difficulty/Modifiers.get_children()
+	
+	if Input.is_action_just_pressed("move_right") or Input.is_action_just_pressed("move_right_joy"):
+		modSelected += 1
+	if Input.is_action_just_pressed("move_left") or Input.is_action_just_pressed("move_left_joy"):
+		modSelected -= 1
+	modSelected = clamp(modSelected,0,mods.size()-1)
+	
+	for m in range(mods.size()):
+		mods[m].looking = m == modSelected
+	
+	# shit code my beloved
+	$COURSESELECT/Difficulty/modName.text = tr(mods[modSelected].modName)
+	$COURSESELECT/Difficulty/modDesc.text = tr(mods[modSelected].desc)
+	$COURSESELECT/Difficulty/modName.visible = true
+	$COURSESELECT/Difficulty/modDesc.visible = true
+	
+	if Input.is_action_just_pressed("move_up") or Input.is_action_just_pressed("move_up_joy"):
+		lookinAtModifiers = false
+		mods[modSelected].looking = false
+		$COURSESELECT/Difficulty/modName.visible = false
+		$COURSESELECT/Difficulty/modDesc.visible = false
+		return
+	
+	if Input.is_action_just_pressed("menuSelect"):
+		mods[modSelected].press()
+
 func selectDusty(pos):
 	var ins = selectDust.instantiate()
 	ins.position = pos

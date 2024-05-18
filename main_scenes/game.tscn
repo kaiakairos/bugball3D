@@ -70,6 +70,7 @@ material = SubResource("ShaderMaterial_ssbx2")
 offset_top = -100.0
 offset_right = 500.0
 offset_bottom = 400.0
+pivot_offset = Vector2(250, 250)
 color = Color(0, 0, 0, 1)
 
 [node name="ColorRect" type="ColorRect" parent="transition"]

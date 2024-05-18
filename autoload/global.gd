@@ -24,6 +24,55 @@ signal enableDecor
 
 signal changeLanguage
 
+################ MODIFIERS ##########################
+var tenRollSpeed = false
+var mirrored = false
+var fuse = false
+var doubleBounce = false
+
+func isPlayerDisqualified():
+	
+	if tenRollSpeed:
+		return true
+	if doubleBounce:
+		return true
+	
+	return false
+
+#togglers
+func toggleRoll():
+	tenRollSpeed = !tenRollSpeed
+	return tenRollSpeed
+
+func toggleMirrored():
+	mirrored = !mirrored
+	return mirrored
+
+func toggleFuse():
+	fuse = !fuse
+	return fuse
+
+func toggleBounce():
+	doubleBounce = !doubleBounce
+	return doubleBounce
+
+# getters
+func getRoll():
+	return tenRollSpeed
+
+func getMirrored():
+	return mirrored
+
+func getFuse():
+	return fuse
+
+func getBounce():
+	return doubleBounce
+
+######################################################
+
+
+
 func setLanguage(lang):
 	TranslationServer.set_locale(lang)
 	emit_signal("changeLanguage")
@@ -60,6 +109,7 @@ func nextLevel():
 	gameController.nextLevel()
 
 func shakeCamera(value):
+	value = min(value,40)
 	shake = max(shake,value)
 
 func _process(delta):

@@ -73,10 +73,16 @@ func _ready():
 	Global.camera = camera
 	Global.player = self
 	
+	if Global.mirrored:
+		camera.zoom = Vector2(1,-1)
+	if Global.doubleBounce:
+		bounceAmount = 2.0
+	
 	await get_tree().create_timer(0.5).timeout
 	$Camera2D/cover.visible = false
 	if Global.gameController == null:
 		canMove = true
+	
 	
 func _physics_process(delta):
 	tick += 1
@@ -160,11 +166,15 @@ func _process(delta):
 			newDir = Vector2.ZERO
 		else:
 			newDir = newDir.normalized()
+			
+		
 		
 	else:
 		newDir.x = int(Input.is_action_pressed("move_right")) - int(Input.is_action_pressed("move_left"))
 		newDir.y = int(Input.is_action_pressed("move_down")) - int(Input.is_action_pressed("move_up"))
-		
+	
+	if Global.mirrored:
+		newDir *= Vector2(1,-1)
 	
 	if !canMove:
 		newDir = Vector2.ZERO
@@ -182,6 +192,15 @@ func _process(delta):
 	offsetCamera()
 	checkIfHole()
 	
+	if Global.fuse and canMove:
+		modulate.r += 0.0025
+		if modulate.r >= 2.15:
+			Global.reloadLevel()
+			canMove = false
+			$explode.play("default")
+			$explode.visible = true
+			Sound.playSound2D(global_position,"res://audio/explode.ogg",2.0)
+			
 func rollingMovement(newDir,delta):
 	
 	
@@ -191,7 +210,7 @@ func rollingMovement(newDir,delta):
 	
 	var slowDownDelta = 1 - pow(2,   (  -delta / 3.8168 )  )
 	
-	velocity += newDir * delta * 500 # * 10 #FUN MODE DONT TOUCH UNTIL READY
+	velocity += newDir * delta * 500  * ((9 * int(Global.tenRollSpeed))+1 )
 	
 	if !$boostCast.is_colliding():
 		if newDir.x == 0:
@@ -363,7 +382,7 @@ func jumpMovement(delta):
 	if collision:
 		velocity = velocity.bounce(collision.get_normal())
 		bounced(collision.get_normal())
-		velocity *= bounceAmount
+		#velocity *= bounceAmount
 	
 	ball.rotateByVelocity(velocity * 0.05,delta)
 	
@@ -416,6 +435,10 @@ func snapCameraStart():
 		Global.emit_signal("cameraCHANGED")
 
 func checkIfHole():
+	
+	if !canMove:
+		return
+	
 	if $holeCast.is_colliding():
 		
 		var collider = $holeCast.get_collider()
@@ -530,3 +553,17 @@ func bounceSound():
 	
 	Sound.playSound2D(global_position,"res://audio/bounce.ogg",vol,pitch)
 	
+
+
+func _on_explode_animation_finished():
+	$explode.visible = false
+
+
+func _on_explode_frame_changed():
+	if $explode.frame >= 5:
+		$head.visible = false
+		$body.visible = false
+		$tail.visible = false
+		$BallCenter.visible = false
+		$BodyOutline.visible = false
+		$BodyLine.visible = false
