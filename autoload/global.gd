@@ -16,6 +16,8 @@ signal cameraCHANGED
 
 var wiggleNoise = FastNoiseLite.new()
 
+var clearSaveTick = 0
+
 signal disableCloud
 signal enableCloud
 
@@ -23,6 +25,8 @@ signal disableDecor
 signal enableDecor
 
 signal changeLanguage
+
+var isFinalLevel = false
 
 ################ MODIFIERS ##########################
 var tenRollSpeed = false
@@ -124,6 +128,15 @@ func _process(delta):
 		camera.position.x += randf_range(-shake,shake)
 		camera.position.y += randf_range(-shake,shake)
 	shake = max(0.0,shake-0.1)
+	
+	if Input.is_action_pressed("clearSave"):
+		clearSaveTick += 1
+		if clearSaveTick > 300:
+			Saving.clearSave()
+			#get_tree().change_scene_to_file("res://main_scenes/compiler/loadin.tscn")
+			get_tree().quit()
+	else:
+		clearSaveTick = 0
 	
 func determineController():
 	var newDir = Vector2.ZERO

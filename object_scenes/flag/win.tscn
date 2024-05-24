@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://d3fge1vcn4swp"]
+[gd_scene load_steps=10 format=3 uid="uid://d3fge1vcn4swp"]
 
 [ext_resource type="Script" path="res://object_scenes/flag/win.gd" id="1_o3r8f"]
 [ext_resource type="Shader" path="res://object_scenes/items/key/key.gdshader" id="2_swxdq"]
 [ext_resource type="Texture2D" uid="uid://cpeh758jlsrb5" path="res://object_scenes/flag/c.png" id="3_vdglf"]
+[ext_resource type="Texture2D" uid="uid://cmlrlu2yaa32u" path="res://object_scenes/flag/confetti1.png" id="4_05523"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ceust"]
 shader = ExtResource("2_swxdq")
@@ -22,10 +23,21 @@ min_value = -1.0
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
 point_count = 2
 
+[sub_resource type="Curve" id="Curve_5w5iv"]
+max_value = 3.0
+_data = [Vector2(0.00869565, 0.0439558), 0.0, 11.9152, 0, 0, Vector2(0.0956522, 2.01099), 9.38775, 9.38775, 0, 0, Vector2(0.373913, 3), 0.388842, 0.388842, 0, 0, Vector2(0.773913, 2.27473), -5.63265, -5.63265, 0, 0, Vector2(1, 0), -8.28449, 0.0, 0, 0]
+point_count = 5
+
+[sub_resource type="Curve" id="Curve_jgpa3"]
+min_value = -1.0
+_data = [Vector2(0, -0.956044), 0.0, 0.0, 0, 0, Vector2(0.221739, 0.824176), 0.0, 0.0, 0, 0, Vector2(0.46087, 0.714286), 0.0, 0.0, 0, 0, Vector2(0.791304, 0.846154), 0.0, 0.0, 0, 0, Vector2(1, -1), 0.0, 0.0, 0, 0]
+point_count = 5
+
 [node name="WIN" type="Node2D"]
 script = ExtResource("1_o3r8f")
 
 [node name="CanvasGroup" type="CanvasGroup" parent="."]
+z_index = 32
 material = SubResource("ShaderMaterial_ceust")
 
 [node name="fuck" type="CPUParticles2D" parent="CanvasGroup"]
@@ -52,3 +64,28 @@ color = Color(0.788235, 0.341176, 0.556863, 1)
 hue_variation_min = -0.18
 hue_variation_max = 0.06
 hue_variation_curve = SubResource("Curve_t2x18")
+
+[node name="alexyiik" type="CPUParticles2D" parent="CanvasGroup"]
+emitting = false
+amount = 16
+texture = ExtResource("4_05523")
+emission_shape = 1
+emission_sphere_radius = 32.0
+direction = Vector2(0, -1)
+spread = 0.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 56.0
+initial_velocity_max = 132.65
+angular_velocity_min = -720.0
+angular_velocity_max = 720.0
+orbit_velocity_min = -0.1
+orbit_velocity_max = 0.1
+tangential_accel_min = -100.0
+tangential_accel_max = 100.0
+angle_min = -720.0
+angle_max = 720.0
+scale_amount_curve = SubResource("Curve_5w5iv")
+color = Color(0.419608, 1, 1, 1)
+hue_variation_min = -1.0
+hue_variation_max = 1.0
+hue_variation_curve = SubResource("Curve_jgpa3")

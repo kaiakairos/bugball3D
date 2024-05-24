@@ -3,6 +3,7 @@ extends Node
 var key = "kaiakairos_bugball"
 
 var defaultData = {
+	"skinID":0,
 	#Options
 	"rollToggle":false,
 	"musicVol":1.0,
@@ -56,7 +57,7 @@ func write_save():
 		file.store_line(JSON.stringify(data))
 		file.close()
 
-func clearSave(inMenu):
+func clearSave():
 	
 	if OS.has_feature('web'):
 		var JSONstr = JavaScriptBridge.eval("window.localStorage.getItem('" + key + "');")
@@ -92,9 +93,16 @@ func getValue(s):
 		#printerr("Attepted to read line '" + str(s) + "' from save data, but line doesn't exist!")
 		return null
 
+func hasKey(s):
+	if data.has(s):
+		return true
+	return false
+
 func setValue(s,value):
 	if data.has(s):
 		data[s] = value
+		return true
 	else:
 		printerr("Attepted to write line '" + str(s) + "' to save data, but line doesn't exist!\nI wrote it anyways though!")
 		data[s] = value
+		return false

@@ -35,3 +35,4 @@ func press():
 	tween = get_tree().create_tween()
 	tween.tween_property(sp,"scale",Vector2(1,1),1.0).set_trans(Tween.TRANS_ELASTIC).set_ease(Tween.EASE_OUT)
 	sp.frame_coords.x = int(Global.call("toggle"+modId))
+	Sound.playSound2D(Vector2(250,150),"res://audio/jump.ogg",0.0)

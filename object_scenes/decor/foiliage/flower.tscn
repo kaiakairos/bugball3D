@@ -9,3 +9,4 @@
 spriteSheet = ExtResource("2_2nhlh")
 images = 4
 wiggleAmount = 1.0
+visibleSize = Vector2(16, 16)

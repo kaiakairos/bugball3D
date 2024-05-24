@@ -10,3 +10,4 @@ spriteSheet = ExtResource("2_yenjw")
 images = 6
 randRotation = false
 wiggle = false
+visibleSize = Vector2(96, 32)

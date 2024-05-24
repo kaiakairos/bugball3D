@@ -19,7 +19,7 @@ polygon = PackedVector2Array(8, 24, 32, 0, 376, 0, 408, -8, 440, 0, 448, 32, 440
 
 [node name="HOLE" parent="." instance=ExtResource("2_g2cjf")]
 position = Vector2(88, 24)
-polygon = PackedVector2Array(-32, 0, 312, 0, 304, 32, 312, 64, 344, 72, 376, 64, 376, 88, 352, 112, 184, 112, 216, 144, 280, 144, 312, 176, 312, 256, -32, 256, -56, 232, -56, 168, 24, 168, 24, 104, -56, 104, -56, 24)
+polygon = PackedVector2Array(-32, 0, 312, 0, 308, 16, 232, 16, 232, 64, 312, 64, 344, 72, 376, 64, 376, 88, 352, 112, 184, 112, 216, 144, 280, 144, 312, 176, 312, 256, -32, 256, -56, 232, -56, 168, 24, 168, 24, 104, -56, 104, -56, 24)
 
 [node name="Player" parent="." instance=ExtResource("3_fn0tf")]
 position = Vector2(435, 240)
@@ -30,7 +30,7 @@ startingAngle = Vector2(-1, 0)
 [node name="island" parent="." instance=ExtResource("1_hkb1f")]
 z_index = -3
 position = Vector2(296, 216)
-polygon = PackedVector2Array(0, -8, 48, -8, 48, 40, 0, 40)
+polygon = PackedVector2Array(0, -8, 64, -8, 64, 40, 0, 40)
 renderWalls = false
 island = true
 
@@ -44,7 +44,7 @@ island = true
 [node name="island3" parent="." instance=ExtResource("1_hkb1f")]
 z_index = -3
 position = Vector2(96, 224)
-polygon = PackedVector2Array(0, -8, 48, -8, 48, 40, 0, 40)
+polygon = PackedVector2Array(-16, -8, 64, -8, 64, 40, -16, 40)
 renderWalls = false
 island = true
 
@@ -62,16 +62,9 @@ polygon = PackedVector2Array(0, -8, 48, -8, 48, 40, 0, 40)
 renderWalls = false
 island = true
 
-[node name="island8" parent="." instance=ExtResource("1_hkb1f")]
-z_index = -3
-position = Vector2(320, 48)
-polygon = PackedVector2Array(0, -8, 48, -8, 48, 40, 0, 40)
-renderWalls = false
-island = true
-
 [node name="sand" parent="." instance=ExtResource("4_e3vro")]
 position = Vector2(296, 208)
-polygon = PackedVector2Array(48, 0, 48, 48, 0, 48, 0, 0)
+polygon = PackedVector2Array(64, 0, 64, 48, 0, 48, 0, 0)
 
 [node name="sand2" parent="." instance=ExtResource("4_e3vro")]
 position = Vector2(200, 216)
@@ -80,7 +73,7 @@ polygon = PackedVector2Array(48, 0, 48, 48, 0, 48, 0, 0)
 
 [node name="sand3" parent="." instance=ExtResource("4_e3vro")]
 position = Vector2(96, 216)
-polygon = PackedVector2Array(48, 0, 48, 48, 0, 48, 0, 0)
+polygon = PackedVector2Array(64, 0, 64, 48, -16, 48, -16, 0)
 
 [node name="sand4" parent="." instance=ExtResource("4_e3vro")]
 position = Vector2(64, 136)
@@ -99,7 +92,7 @@ polygon = PackedVector2Array(48, 0, 48, 48, 0, 48, 0, 0)
 [node name="sand8" parent="." instance=ExtResource("4_e3vro")]
 position = Vector2(320, 40)
 texture_offset = Vector2(-79.575, 33.895)
-polygon = PackedVector2Array(48, 0, 48, 48, 0, 48, 0, 0)
+polygon = PackedVector2Array(72, 0, 80, 48, 0, 48, 0, 0)
 
 [node name="WIN" parent="." instance=ExtResource("5_fj4js")]
 position = Vector2(432, 56)

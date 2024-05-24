@@ -97,3 +97,4 @@ position = Vector2(-427, -311)
 
 [node name="clouds2" parent="." instance=ExtResource("10_7ae76")]
 position = Vector2(597, -311)
+active = false

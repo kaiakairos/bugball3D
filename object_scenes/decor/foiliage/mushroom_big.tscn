@@ -10,3 +10,4 @@ spriteSheet = ExtResource("2_j2mp6")
 images = 6
 disBetweenLayers = 0.04
 wiggleAmount = 0.3
+visibleSize = Vector2(32, 32)

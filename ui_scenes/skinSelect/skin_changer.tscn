@@ -1,0 +1,53 @@
+[gd_scene load_steps=5 format=3 uid="uid://bxspursbi4a75"]
+
+[ext_resource type="Script" path="res://ui_scenes/skinSelect/skin_changer.gd" id="1_aa7mg"]
+[ext_resource type="Texture2D" uid="uid://ti0se1ngsd4t" path="res://ui_scenes/skinSelect/arrow.png" id="2_7icu5"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_6adsv"]
+font_size = 64
+outline_size = 12
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 12
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(2.61, 2.885)
+
+[sub_resource type="LabelSettings" id="LabelSettings_5ptue"]
+font_size = 32
+font_color = Color(0.529412, 0.529412, 0.529412, 1)
+outline_size = 8
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 6
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(2.61, 2.885)
+
+[node name="skinChanger" type="Node2D"]
+script = ExtResource("1_aa7mg")
+
+[node name="text" type="Label" parent="."]
+offset_left = -790.0
+offset_right = -9.0
+offset_bottom = 64.0
+text = "default"
+label_settings = SubResource("LabelSettings_6adsv")
+horizontal_alignment = 2
+
+[node name="toUnlock" type="Label" parent="."]
+offset_left = -274.0
+offset_top = 94.0
+offset_right = -8.0
+offset_bottom = 261.0
+text = "unlock description"
+label_settings = SubResource("LabelSettings_5ptue")
+horizontal_alignment = 2
+autowrap_mode = 2
+
+[node name="arrowUp" type="Sprite2D" parent="."]
+position = Vector2(-27, -24)
+texture = ExtResource("2_7icu5")
+centered = false
+
+[node name="arrowDown" type="Sprite2D" parent="."]
+position = Vector2(-8, 85)
+rotation = 3.14159
+texture = ExtResource("2_7icu5")
+centered = false

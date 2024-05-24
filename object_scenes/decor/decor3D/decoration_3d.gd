@@ -13,6 +13,8 @@ extends Node2D
 @export var wiggle :bool = true
 @export var wiggleAmount :float = 2.0
 
+@export var visibleSize = Vector2(64,64)
+
 var angle :int= 0
 
 var tick :int= 0
@@ -23,6 +25,7 @@ func _ready():
 	
 	delete()
 	
+	$VisibleOnScreenNotifier2D.rect = Rect2(visibleSize*-0.5,visibleSize)
 	$VisibleOnScreenNotifier2D.visible = true
 	
 	Global.connect("disableDecor",disable)

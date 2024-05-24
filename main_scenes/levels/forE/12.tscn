@@ -47,6 +47,7 @@ position = Vector2(94, -520)
 
 [node name="clouds2" parent="." instance=ExtResource("7_1k55t")]
 position = Vector2(-930, -520)
+active = false
 
 [node name="tree" parent="." instance=ExtResource("8_1fllq")]
 position = Vector2(-3, 236)

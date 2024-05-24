@@ -119,15 +119,18 @@ camOffset = 0.1
 
 [node name="clouds" parent="." instance=ExtResource("6_dbroc")]
 position = Vector2(1692, -421)
+active = false
 
 [node name="clouds2" parent="." instance=ExtResource("6_dbroc")]
 position = Vector2(668, -421)
+active = false
 
 [node name="clouds3" parent="." instance=ExtResource("6_dbroc")]
 position = Vector2(668, 603)
 
 [node name="clouds4" parent="." instance=ExtResource("6_dbroc")]
 position = Vector2(-356, 603)
+active = false
 
 [node name="tree10" parent="." instance=ExtResource("7_h62si")]
 position = Vector2(1485, 625)

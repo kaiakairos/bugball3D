@@ -11,3 +11,4 @@ images = 3
 disBetweenLayers = 0.06
 baseLayer = 0.2
 wiggleAmount = 4.0
+visibleSize = Vector2(96, 96)

@@ -2,6 +2,7 @@ extends Node2D
 
 
 @onready var container = $Container
+@onready var courseCompleteMusic = $courseCompleteSong
 
 var levels :Array[String] = []
 
@@ -20,8 +21,15 @@ var pauseSelected = 0 # Unpause, Restart, Options, Exit
 
 var deaths :int= 0
 
+var timeBeforeLevelLoad = 0.0
+var cheatMode = false
+# setting this to TRUE will subtract time from the timer if you die
+# it is intended to test S rank perfect time stuff without going through the hassle
+# of actually attempting perfect runs over and over
+
 func _ready():
 	Global.gameController = self
+	Global.isFinalLevel = false
 	
 	levels = Global.LVLHOLDER
 	loadLevel(0)
@@ -38,12 +46,16 @@ func reloadLevel():
 	if loading:
 		return
 	deaths += 1
+	if cheatMode:
+		time = timeBeforeLevelLoad
 	loadLevel(current)
 
 func nextLevel():
 	if loading:
 		return
 	current += 1
+	Global.isFinalLevel = current >= levels.size() - 1
+	timeBeforeLevelLoad = time
 	loadLevel(current)
 
 func isLevelLoaded():
@@ -157,22 +169,27 @@ func _process(delta):
 			if Input.is_action_just_pressed("move_down") or Input.is_action_just_pressed("move_down_joy"):
 				pauseSelected += 1
 				nudge += 1
+				Sound.playSound2D(Vector2(250,150),"res://audio/menuDown.ogg",5.0)
 			if Input.is_action_just_pressed("move_up") or Input.is_action_just_pressed("move_up_joy"):
 				pauseSelected -= 1
 				nudge -= 1
+				Sound.playSound2D(Vector2(250,150),"res://audio/menuUp.ogg",5.0)
 			pauseSelected = clamp(pauseSelected,0,3)
 			selectItem(pauseSelected,nudge)
 			if Input.is_action_just_pressed("menuSelect"):
 				match pauseSelected:
 					0:
 						unpauseGame()
+						Sound.playSound2D(Vector2(250,150),"res://audio/menuBack.ogg",5.0)
 					1:
 						unpauseGame()
 						get_tree().reload_current_scene()
+						Sound.playSound2D(Vector2(250,150),"res://audio/menuSelect.ogg",5.0)
 					2:
 						$UI/Paused/Options.set_process(true)
 						$UI/Paused/Options.visible = true
 						$UI/Paused/PAUSED.visible = false
+						Sound.playSound2D(Vector2(250,150),"res://audio/menuSelect.ogg",5.0)
 					3:
 						unpauseGame()
 						get_tree().change_scene_to_file("res://main_scenes/mainMenu/main_menu.tscn")
@@ -219,3 +236,6 @@ func resetPauseIconPositions():
 	var a = [ $UI/Paused/unpause , $UI/Paused/restart , $UI/Paused/option ,$UI/Paused/exit  ]
 	for i in range(4):
 		a[i].position.y = lerp(a[i].position.y, -44.0 + (40.0*i),0.2 )
+
+func endMusic():
+	$music.stop()

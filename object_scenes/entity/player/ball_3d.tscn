@@ -4,6 +4,7 @@
 [ext_resource type="Script" path="res://object_scenes/entity/player/ball_3d.gd" id="1_v77kj"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3taht"]
+transparency = 4
 shading_mode = 0
 albedo_texture = ExtResource("1_meine")
 texture_filter = 0

@@ -67,6 +67,7 @@ position = Vector2(-16, -360)
 
 [node name="clouds2" parent="." instance=ExtResource("6_tkd6c")]
 position = Vector2(-16, 664)
+active = false
 
 [node name="coolFloor2" parent="." instance=ExtResource("2_5pfs7")]
 position = Vector2(-416, 496)

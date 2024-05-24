@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://thujt01appmd"]
+[gd_scene load_steps=21 format=3 uid="uid://thujt01appmd"]
 
 [ext_resource type="Script" path="res://main_scenes/game.gd" id="1_ot3mi"]
 [ext_resource type="Shader" path="res://main_scenes/game.gdshader" id="2_u2nxt"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://isaukf61kjyw" path="res://ui_scenes/pause menu/overlay.png" id="4_68pxi"]
 [ext_resource type="PackedScene" uid="uid://bxdyrs6mbjpx6" path="res://ui_scenes/options/options.tscn" id="4_hbtpk"]
 [ext_resource type="AudioStream" uid="uid://byqreacel7w0x" path="res://audio/rollout.ogg" id="7_fp624"]
+[ext_resource type="AudioStream" uid="uid://38xvwg3mfxcw" path="res://audio/endscreen_song.ogg" id="8_cl4rj"]
 [ext_resource type="Script" path="res://main_scenes/courseComplete.gd" id="8_sc8f0"]
 [ext_resource type="Material" uid="uid://dmpxp8ka6i1dr" path="res://main_scenes/courseCompleteBackground.tres" id="9_3bxeh"]
 [ext_resource type="Texture2D" uid="uid://ddl2lcnped2yc" path="res://ui_scenes/courseComplete/background.png" id="9_4j8fc"]
@@ -194,10 +195,15 @@ label_settings = SubResource("LabelSettings_w28nu")
 visible = false
 position = Vector2(-120, -150)
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_fp624")
-volume_db = 6.0
+volume_db = -1.0
 autoplay = true
+bus = &"Music"
+
+[node name="courseCompleteSong" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_cl4rj")
+volume_db = -1.0
 bus = &"Music"
 
 [node name="courseComplete" type="Node2D" parent="."]

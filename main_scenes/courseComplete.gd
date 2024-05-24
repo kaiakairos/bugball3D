@@ -12,6 +12,25 @@ func _ready():
 	
 func postScores( deaths, time ):
 	
+	var disqualify = Global.isPlayerDisqualified()
+	
+	if !disqualify:
+		match Global.levelSaveCode:
+			"course1_EasyPB":
+				Ngio.request("ScoreBoard.postScore", {"id": 13739, "value": time*1000})
+				SkinHandler.UNLOCKSKIN(1)
+			"course1_MeedPB":
+				Ngio.request("ScoreBoard.postScore", {"id": 13740, "value": time*1000})
+				SkinHandler.UNLOCKSKIN(2)
+			"course1_HardPB":
+				Ngio.request("ScoreBoard.postScore", {"id": 13741, "value": time*1000})
+				SkinHandler.UNLOCKSKIN(3)
+	
+	if Global.mirrored:
+		SkinHandler.UNLOCKSKIN(6)
+	if Global.tenRollSpeed:
+		SkinHandler.UNLOCKSKIN(7)
+	
 	var value = time - (int(time/60.0)*60)
 	var string = str( value )
 	if value < 10.0:
@@ -22,26 +41,41 @@ func postScores( deaths, time ):
 	$score.text = tr("COURSE_TIME") + ": " + str( int(time/60.0) ) + ":" + string
 	
 	var record = false
-	# Calculate high score
-	var prev = Saving.getValue(Global.levelSaveCode)
-	if prev == null:
-		record = true
-		Saving.setValue(Global.levelSaveCode,time)
-	elif time < prev:
-		record = true
-		Saving.setValue(Global.levelSaveCode,time)
+	if !disqualify:
+		# Calculate high score
+		var prev = Saving.getValue(Global.levelSaveCode)
+		if prev == null:
+			record = true
+			Saving.setValue(Global.levelSaveCode,time)
+		elif time < prev:
+			record = true
+			Saving.setValue(Global.levelSaveCode,time)
+		
+		Saving.write_save()
 	
-	Saving.write_save()
+		# calculate RANK
+		$Grades.frame = 5
+		if Global.levelRANKHolder.size() < 5:
+			printerr("EPIC FAIL: you need five values in the level rank holder! ")
+		else:
+			for score in range(5):
+				if time <= Global.levelRANKHolder[score]:
+					$Grades.frame = score
+					break
 	
-	# calculate RANK
-	$Grades.frame = 5
-	if Global.levelRANKHolder.size() < 5:
-		printerr("EPIC FAIL: you need five values in the level rank holder! ")
-	else:
-		for score in range(5):
-			if time <= Global.levelRANKHolder[score]:
-				$Grades.frame = score
-				break
+	if !disqualify:
+		if $Grades.frame == 0:
+			SkinHandler.UNLOCKSKIN(4)
+			# check for all S rank
+			var e = Saving.getValue("course1_EasyPB")
+			var m = Saving.getValue("course1_MeedPB")
+			var h = Saving.getValue("course1_HardPB")
+			# this is gonna have to be hard coded for now
+			if e == null or m == null or h == null:
+				pass
+			else: ## BE SURE TO SET THESE CORRECTLY!!
+				if e <= 750.0 and m <= 1100.0 and h <= 1000.0:
+					SkinHandler.UNLOCKSKIN(5)
 	
 	$Background.visible = true
 	$courseComplete.visible = true
@@ -55,30 +89,40 @@ func postScores( deaths, time ):
 	
 	await get_tree().create_timer(0.75).timeout
 	
-	$score.visible = true
+	
+	## SHOW TIME
+	$score.visible = true 
 	await get_tree().create_timer(0.5).timeout
+	
+	## SHOW DEATHS
 	$score.text = tr("COURSE_TIME") + ": " + str( int(time/60.0) ) + ":" + string +"\n" +tr("COURSE_DEATHS")+ ": " + str(deaths)
 	await get_tree().create_timer(0.5).timeout
-	$Grades.visible = true
 	
-	await get_tree().create_timer(0.5).timeout
 	
-	var bestTime = Saving.getValue(Global.levelSaveCode)
-	var bvalue = bestTime - (int(bestTime/60.0)*60)
-	var bstring = str( bvalue )
-	if bvalue < 10.0:
-		bstring = "0" + bstring
+	if !disqualify:
+		## SHOW GRADE
+		$Grades.visible = true
+	
+		#insert grade sound
 		
-	bstring = bstring.left(5)
+		await get_tree().create_timer(1.0).timeout
+		var bestTime = Saving.getValue(Global.levelSaveCode)
+		var bvalue = bestTime - (int(bestTime/60.0)*60)
+		var bstring = str( bvalue )
+		if bvalue < 10.0:
+			bstring = "0" + bstring
+			
+		bstring = bstring.left(5)
+		
+		$pb.text = "PB: " + str( int(bestTime/60.0) ) + ":" + bstring
+		$pb.visible = true
+		if record:
+			$newrecord.visible = true
+		
 	
-	$pb.text = "PB: " + str( int(bestTime/60.0) ) + ":" + bstring
-	$pb.visible = true
-	if record:
-		$newrecord.visible = true
-	
-	await get_tree().create_timer(0.5).timeout
 	$select.visible = true
 	set_process(true)
+	get_parent().courseCompleteMusic.playing = true
 	
 func _process(delta):
 	

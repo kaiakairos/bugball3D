@@ -31,6 +31,7 @@ func catch():
 
 func _on_area_2d_body_entered(body):
 	catch()
+	Sound.playSound2D(Vector2(250,150),"res://audio/getKey.ogg",0.0)
 	queue_free()
 
 

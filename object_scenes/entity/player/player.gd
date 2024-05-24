@@ -37,6 +37,8 @@ var air = 0.0
 
 var worldHeight = 0.0
 
+var rollToggle = false
+
 @export var cameraLimitX = Vector2(250,250)
 @export var cameraLimitY = Vector2(150,150)
 @export var startingAngle = Vector2(0,-1)
@@ -53,11 +55,14 @@ var soundSubtract = 1.0
 
 #@onready var landDust = preload("res://object_scenes/entity/player/dust/dust_land.tscn")
 @onready var bounceDust = preload("res://object_scenes/entity/player/dust/bouncedust.tscn")
+var bounceSoundFile = "res://audio/bounce.ogg"
 
 var jumpBufferTicks = 0
 
 func _ready():
 	
+	SkinHandler.connect("skinChanged",changeSkin)
+	changeSkin()
 	
 	dir = startingAngle.normalized()
 	#$head/Tenna.rotation = startingAngle.angle()
@@ -138,7 +143,8 @@ func _process(delta):
 	
 	if Saving.getValue("rollToggle"):
 		if Input.is_action_just_pressed("roll"):
-			rolling = !rolling
+			rollToggle = !rollToggle
+		rolling = rollToggle
 	else:
 		rolling = Input.is_action_pressed("roll")
 	
@@ -233,6 +239,7 @@ func rollingMovement(newDir,delta):
 	if collision:
 		velocity = velocity.bounce(collision.get_normal())
 		bounced(collision.get_normal())
+		$holeCast.position = velocity.normalized() * -6
 		if !$boostCast.is_colliding():
 			velocity *= bounceAmount
 	
@@ -400,6 +407,11 @@ func jumpMovement(delta):
 	
 	if speed > 11000:
 		shouldDecelerate = true
+	
+	#for roll toggle
+	if Saving.getValue("rollToggle"):
+		if Input.is_action_just_pressed("roll"):
+			rollToggle = !rollToggle
 
 func setZHeight(delta):
 	var s = max(0.0,1.0 + air*0.03)
@@ -472,7 +484,7 @@ func checkIfHole():
 		
 		Sound.playSound2D(global_position,"res://audio/fall.ogg",0.0)
 		
-		await get_tree().create_timer(1.0).timeout
+		await get_tree().create_timer(0.5).timeout
 		
 		if win:
 			Global.nextLevel()
@@ -552,9 +564,9 @@ func bounceSound():
 	
 	if falling:
 		vol += soundSubtract
-		soundSubtract -= 1.0
+		soundSubtract -= 4.0
 	
-	Sound.playSound2D(global_position,"res://audio/bounce.ogg",vol,pitch)
+	Sound.playSound2D(global_position,bounceSoundFile,vol,pitch)
 	
 
 
@@ -570,3 +582,21 @@ func _on_explode_frame_changed():
 		$BallCenter.visible = false
 		$BodyOutline.visible = false
 		$BodyLine.visible = false
+
+func changeSkin():
+	$BodyLine.texture = SkinHandler.currentWormTexture
+	match int(Saving.getValue("skinID")):
+		
+		3:
+			bounceSoundFile = "res://audio/beachball.ogg"
+		4:
+			bounceSoundFile = "res://audio/dodgeball.ogg"
+		5:
+			bounceSoundFile = "res://audio/poolBall.ogg"
+		6:
+			$BallCenter/viewportSprite/bro.texture = load("res://object_scenes/entity/player/skins/glassOutline.png")
+			$BallCenter/viewportSprite/bro.default_color = Color.WHITE
+			#$BodyOutline.texture = load("res://object_scenes/entity/player/skins/glassOutline.png")
+			$BodyOutline.default_color = Color(1.0,1.0,1.0,0.2)
+		8:
+			bounceSoundFile = "res://audio/basketball.ogg"

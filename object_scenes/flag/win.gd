@@ -5,6 +5,8 @@ extends Node2D
 
 func _ready():
 	
+	$CanvasGroup/alexyiik.emitting = Global.isFinalLevel
+	
 	var ins = hole.instantiate()
 	
 	var newpoly = PackedVector2Array()
@@ -17,3 +19,6 @@ func _ready():
 
 func entered():
 	$CanvasGroup/fuck.emitting = true
+	if Global.isFinalLevel:
+		Global.gameController.endMusic()
+		Sound.playSound2D(global_position,"res://audio/whistle.ogg",-2.0)

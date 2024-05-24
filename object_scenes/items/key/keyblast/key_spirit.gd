@@ -8,6 +8,7 @@ var BALLS = false
 
 func _ready():
 	if !is_instance_valid(door):
+		print("error, door isn't valid")
 		queue_free()
 	$KeySpirit/CPUParticles2D4.emitting = true
 	
@@ -33,7 +34,9 @@ func _process(delta):
 	
 	multi *= 1.2
 	
-	if dir.length() < 48:
+	print(dir.length())
+	
+	if dir.length() < 48 or dir.length() > 2000:
 		
 		global_position = door.get_global()
 		
@@ -48,6 +51,8 @@ func _process(delta):
 		$KeySpirit/CPUParticles2D3.emitting = true
 		
 		Global.shakeCamera(3.0)
+		
+		Sound.playSound2D(Vector2(250,150),"res://audio/bounceReverb.ogg",-5.0,1.45)
 		
 		await get_tree().create_timer(1.0).timeout
 		queue_free()
