@@ -169,27 +169,27 @@ func _process(delta):
 			if Input.is_action_just_pressed("move_down") or Input.is_action_just_pressed("move_down_joy"):
 				pauseSelected += 1
 				nudge += 1
-				Sound.playSound2D(Vector2(250,150),"res://audio/menuDown.ogg",5.0)
+				Sound.playSound2D(Vector2(250,150),"res://audio/menuDown.ogg",3.5)
 			if Input.is_action_just_pressed("move_up") or Input.is_action_just_pressed("move_up_joy"):
 				pauseSelected -= 1
 				nudge -= 1
-				Sound.playSound2D(Vector2(250,150),"res://audio/menuUp.ogg",5.0)
+				Sound.playSound2D(Vector2(250,150),"res://audio/menuUp.ogg",3.5)
 			pauseSelected = clamp(pauseSelected,0,3)
 			selectItem(pauseSelected,nudge)
 			if Input.is_action_just_pressed("menuSelect"):
 				match pauseSelected:
 					0:
 						unpauseGame()
-						Sound.playSound2D(Vector2(250,150),"res://audio/menuBack.ogg",5.0)
+						Sound.playSound2D(Vector2(250,150),"res://audio/menuBack.ogg",3.5)
 					1:
 						unpauseGame()
 						get_tree().reload_current_scene()
-						Sound.playSound2D(Vector2(250,150),"res://audio/menuSelect.ogg",5.0)
+						Sound.playSound2D(Vector2(250,150),"res://audio/menuSelect.ogg",3.5)
 					2:
 						$UI/Paused/Options.set_process(true)
 						$UI/Paused/Options.visible = true
 						$UI/Paused/PAUSED.visible = false
-						Sound.playSound2D(Vector2(250,150),"res://audio/menuSelect.ogg",5.0)
+						Sound.playSound2D(Vector2(250,150),"res://audio/menuSelect.ogg",3.5)
 					3:
 						unpauseGame()
 						get_tree().change_scene_to_file("res://main_scenes/mainMenu/main_menu.tscn")

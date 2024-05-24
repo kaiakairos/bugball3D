@@ -46,6 +46,9 @@ shadow_offset = Vector2(4, 4)
 [sub_resource type="LabelSettings" id="LabelSettings_bmhjs"]
 font = ExtResource("3_p1qcx")
 font_size = 32
+font_color = Color(0.992157, 1, 1, 1)
+outline_size = 16
+outline_color = Color(0.0196078, 0.0196078, 0.0196078, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_c6q0b"]
 outline_size = 7
@@ -197,13 +200,13 @@ position = Vector2(-120, -150)
 
 [node name="music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_fp624")
-volume_db = -1.0
+volume_db = -2.0
 autoplay = true
 bus = &"Music"
 
 [node name="courseCompleteSong" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_cl4rj")
-volume_db = -1.0
+volume_db = -6.0
 bus = &"Music"
 
 [node name="courseComplete" type="Node2D" parent="."]

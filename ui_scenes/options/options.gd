@@ -33,7 +33,7 @@ func _process(delta):
 			musSlider()
 	
 	if Input.is_action_just_pressed("menuSelect"):
-		Sound.playSound2D(Vector2(250,150),"res://audio/menuSelect.ogg",5.0)
+		Sound.playSound2D(Vector2(250,150),"res://audio/menuSelect.ogg",3.0)
 		match state:
 			2:
 				fullscreenToggle(curLabel)
@@ -52,10 +52,10 @@ func _process(delta):
 			selectFlag(selectedFlag)
 	if Input.is_action_just_pressed("move_down") or Input.is_action_just_pressed("move_down_joy"):
 		state += 1 + int(state >= minimumFlagState)
-		Sound.playSound2D(Vector2(250,150),"res://audio/menuDown.ogg",5.0)
+		Sound.playSound2D(Vector2(250,150),"res://audio/menuDown.ogg",3.0)
 		
 	if Input.is_action_just_pressed("move_up") or Input.is_action_just_pressed("move_up_joy"):
-		Sound.playSound2D(Vector2(250,150),"res://audio/menuUp.ogg",5.0)
+		Sound.playSound2D(Vector2(250,150),"res://audio/menuUp.ogg",3.0)
 		if state == minimumFlagState:
 			state -= 1
 		else:
@@ -63,11 +63,11 @@ func _process(delta):
 	if state >= minimumFlagState:
 		if Input.is_action_just_pressed("move_right") or Input.is_action_just_pressed("move_right_joy"):
 			state += 1
-			Sound.playSound2D(Vector2(250,150),"res://audio/menuUp.ogg",5.0)
+			Sound.playSound2D(Vector2(250,150),"res://audio/menuUp.ogg",3.0)
 		
 		if Input.is_action_just_pressed("move_left") or Input.is_action_just_pressed("move_left_joy"):
 			state -= 1
-			Sound.playSound2D(Vector2(250,150),"res://audio/menuDown.ogg",5.0)
+			Sound.playSound2D(Vector2(250,150),"res://audio/menuDown.ogg",3.0)
 	
 	state = clamp(state,0,totalStates-1)
 	
@@ -98,23 +98,23 @@ func sfxSlider():
 	if Input.is_action_just_pressed("move_left") or Input.is_action_just_pressed("move_left_joy"):
 		slideWait = 0
 		changeSound(-0.025)
-		Sound.playSound2D(Vector2(250,150),"res://audio/menuDown.ogg",5.0)
+		Sound.playSound2D(Vector2(250,150),"res://audio/menuDown.ogg",3.0)
 	
 	if Input.is_action_just_pressed("move_right") or Input.is_action_just_pressed("move_right_joy"):
 		slideWait = 0
 		changeSound(0.025)
-		Sound.playSound2D(Vector2(250,150),"res://audio/menuUp.ogg",5.0)
+		Sound.playSound2D(Vector2(250,150),"res://audio/menuUp.ogg",3.0)
 	
 	if Input.is_action_pressed("move_right") or Input.is_action_pressed("move_right_joy"):
 		slideWait += 1
 		if slideWait > 20:
 			changeSound(0.025)
-			Sound.playSound2D(Vector2(250,150),"res://audio/menuUp.ogg",5.0)
+			Sound.playSound2D(Vector2(250,150),"res://audio/menuUp.ogg",3.0)
 	if Input.is_action_pressed("move_left") or Input.is_action_pressed("move_left_joy"):
 		slideWait += 1
 		if slideWait > 20:
 			changeSound(-0.025)
-			Sound.playSound2D(Vector2(250,150),"res://audio/menuDown.ogg",5.0)
+			Sound.playSound2D(Vector2(250,150),"res://audio/menuDown.ogg",3.0)
 	
 func changeSound(amount):
 	var newAudio = $scrollContain/sfxBar.value + amount
@@ -127,23 +127,23 @@ func musSlider():
 	if Input.is_action_just_pressed("move_left") or Input.is_action_just_pressed("move_left_joy"):
 		slideWait = 0
 		changeMusic(-0.025)
-		Sound.playSound2D(Vector2(250,150),"res://audio/menuDown.ogg",5.0)
+		Sound.playSound2D(Vector2(250,150),"res://audio/menuDown.ogg",3.0)
 	
 	if Input.is_action_just_pressed("move_right") or Input.is_action_just_pressed("move_right_joy"):
 		slideWait = 0
 		changeMusic(0.025)
-		Sound.playSound2D(Vector2(250,150),"res://audio/menuUp.ogg",5.0)
+		Sound.playSound2D(Vector2(250,150),"res://audio/menuUp.ogg",3.0)
 	
 	if Input.is_action_pressed("move_right") or Input.is_action_pressed("move_right_joy"):
 		slideWait += 1
 		if slideWait > 20:
 			changeMusic(0.025)
-			Sound.playSound2D(Vector2(250,150),"res://audio/menuUp.ogg",5.0)
+			Sound.playSound2D(Vector2(250,150),"res://audio/menuUp.ogg",3.0)
 	if Input.is_action_pressed("move_left") or Input.is_action_pressed("move_left_joy"):
 		slideWait += 1
 		if slideWait > 20:
 			changeMusic(-0.025)
-			Sound.playSound2D(Vector2(250,150),"res://audio/menuDown.ogg",5.0)
+			Sound.playSound2D(Vector2(250,150),"res://audio/menuDown.ogg",3.0)
 
 func changeMusic(amount):
 	var newAudio = $scrollContain/musBar.value + amount

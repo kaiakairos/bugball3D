@@ -113,7 +113,7 @@ func _process(delta):
 		jumpBufferTicks = 10
 	if	jumpBufferTicks > 0 and air <= 0.0:
 		# Jump code
-		Sound.playSound2D(global_position,"res://audio/jump.ogg",0.0)
+		Sound.playSound2D(global_position,"res://audio/jump.ogg",-2.0)
 		air = 0.0
 		jumpVelocity = 10.0
 		velocity += dir.normalized() * 1000 * delta
@@ -259,9 +259,9 @@ func rollingMovement(newDir,delta):
 	if tick % 8 == 0:
 		
 		var vol = ((velocity.length() / 1000.0) * 42.0) - 24.0
-		vol = clamp(vol,-24,0.0)
+		vol = clamp(vol,-24,-5.0)
 		var pitch = velocity.length() / 1000.0
-		pitch = clamp(pitch,0.01,2.5)
+		pitch = clamp(pitch,0.01,2.0)
 		
 		Sound.playSound2D(global_position,"res://audio/speed.ogg",vol,pitch)
 		
@@ -482,7 +482,7 @@ func checkIfHole():
 		
 		setZHeightFALL(0)
 		
-		Sound.playSound2D(global_position,"res://audio/fall.ogg",0.0)
+		Sound.playSound2D(global_position,"res://audio/fall.ogg",-3.0)
 		
 		await get_tree().create_timer(0.5).timeout
 		
@@ -550,7 +550,7 @@ func bounced(normal):
 		bounceSound()
 	
 	if velocity.length() > 25:
-		Sound.playSound2D(global_position,"res://audio/brush.ogg",-4.0)
+		Sound.playSound2D(global_position,"res://audio/brush.ogg",-6.0)
 		
 	Global.shakeCamera(velocity.length() / 300.0)
 	
@@ -560,7 +560,7 @@ func bounceSound():
 	var vol = (velocity.length() / 75.0) - 5.0
 	
 	pitch = clamp(pitch,0.5,1.5)
-	vol = clamp(vol,-10,5)
+	vol = clamp(vol,-10,-2)
 	
 	if falling:
 		vol += soundSubtract

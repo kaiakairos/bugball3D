@@ -2,6 +2,10 @@ extends Node2D
 
 var selectingRetry = true
 
+
+var songBeat :float= 0.0
+var tick :int= 0
+
 func _ready():
 	set_process(false)
 	
@@ -104,6 +108,7 @@ func postScores( deaths, time ):
 		$Grades.visible = true
 	
 		#insert grade sound
+		#hold for impact
 		
 		await get_tree().create_timer(1.0).timeout
 		var bestTime = Saving.getValue(Global.levelSaveCode)
@@ -126,9 +131,20 @@ func postScores( deaths, time ):
 	
 func _process(delta):
 	
+	tick += 1
+	songBeat += delta
+	if songBeat >= 0.727272:
+		# on beat
+		songBeat -= 0.727272
+		$Grades.scale = Vector2(0.95,0.95)
+		$select/menu.position.y += 3
+		$select/retry.position.y += 2
+	
 	$select/retry.position.y = lerp($select/retry.position.y,0.0,0.2  )
 	$select/menu.position.y = lerp($select/menu.position.y,23.0,0.2  )
-	
+	$Grades.scale = lerp($Grades.scale,Vector2(1.0,1.0),0.2)
+	$Grades.position.y = sin(tick*0.01) + 127
+	$Grades.position.x = (sin(tick*0.005) * 2.0) + 372
 	
 	if Input.is_action_just_pressed("move_down") or Input.is_action_just_pressed("move_down_joy"):
 		flip(1)
