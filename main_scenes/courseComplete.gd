@@ -128,6 +128,7 @@ func postScores( deaths, time ):
 	$select.visible = true
 	set_process(true)
 	get_parent().courseCompleteMusic.playing = true
+	beat()
 	
 func _process(delta):
 	
@@ -136,9 +137,7 @@ func _process(delta):
 	if songBeat >= 0.727272:
 		# on beat
 		songBeat -= 0.727272
-		$Grades.scale = Vector2(0.95,0.95)
-		$select/menu.position.y += 3
-		$select/retry.position.y += 2
+		beat()
 	
 	$select/retry.position.y = lerp($select/retry.position.y,0.0,0.2  )
 	$select/menu.position.y = lerp($select/menu.position.y,23.0,0.2  )
@@ -168,3 +167,8 @@ func flip(nudge):
 		$select/retry.modulate = Color.WHITE
 		$select/menu.modulate = Color(0.6,0.588,0.655)
 		$select/menu.position.y += 2 * nudge
+
+func beat():
+	$Grades.scale = Vector2(0.95,0.95)
+	$select/menu.position.y += 3
+	$select/retry.position.y += 2
