@@ -59,6 +59,8 @@ var bounceSoundFile = "res://audio/bounce.ogg"
 
 var jumpBufferTicks = 0
 
+var holeCoyoteTick = 0
+
 func _ready():
 	
 	SkinHandler.connect("skinChanged",changeSkin)
@@ -114,6 +116,7 @@ func _process(delta):
 	if	jumpBufferTicks > 0 and air <= 0.0:
 		# Jump code
 		Sound.playSound2D(global_position,"res://audio/jump.ogg",-2.0)
+		holeCoyoteTick = 99
 		air = 0.0
 		jumpVelocity = 10.0
 		velocity += dir.normalized() * 1000 * delta
@@ -462,9 +465,16 @@ func checkIfHole():
 		
 		var win = collider.get_parent().amWin
 		
+		
 		if $islandCast.is_colliding() and !win:
 			jumpVelocity = 0.0
 			return
+		
+		if !win:
+			holeCoyoteTick += 1
+			if holeCoyoteTick <= 3:
+				return
+		
 		
 		if win:
 			collider.get_parent().get_parent().entered()
@@ -492,7 +502,8 @@ func checkIfHole():
 			Global.reloadLevel()
 		
 		return
-	
+	else:
+		holeCoyoteTick = 0
 	jumpVelocity = 0.0
 
 func fallingMovement(delta):

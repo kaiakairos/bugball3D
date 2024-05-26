@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://2ubewsfhp56u"]
+[gd_scene load_steps=6 format=3 uid="uid://2ubewsfhp56u"]
 
 [ext_resource type="Texture2D" uid="uid://vaitm2ypwb4m" path="res://ui_scenes/options/progressBarBlack.png" id="1_u2bhv"]
 [ext_resource type="Script" path="res://main_scenes/compiler/loadin.gd" id="1_w8h1u"]
 [ext_resource type="FontFile" uid="uid://c0esfecfk2hon" path="res://alphabets/GrapeSoda.ttf" id="2_j8r6l"]
+[ext_resource type="Texture2D" uid="uid://c4oe7n7jx6fvx" path="res://ui_scenes/gay little tutorial/loadControl.png" id="4_5a0hm"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_awx82"]
 font = ExtResource("2_j8r6l")
@@ -24,3 +25,7 @@ text = "WINDOW_FOCUS"
 label_settings = SubResource("LabelSettings_awx82")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="LoadControl" type="Sprite2D" parent="."]
+position = Vector2(248, 92)
+texture = ExtResource("4_5a0hm")

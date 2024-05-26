@@ -39,6 +39,16 @@ var modSelected = 0
 
 var tweenHolder = []
 
+var menuVol = 3.0
+
+#for da beat
+var songTime = 0.0
+var beat = false
+
+func _ready():
+	for i in $musicLayers.get_children():
+		i.play()
+
 func setMenuState(newState):
 	
 	for t in tweenHolder:
@@ -142,8 +152,15 @@ func setMenuState(newState):
 func _process(delta):
 	tick += 1
 	
+	songTime += delta
+	if songTime > 0.6:
+		onBeat()
+		songTime -= 0.6
+		beat = !beat
+	
 	$transition.material.set_shader_parameter("circle_size",circ)
 	
+	musicFade(menuState)
 	match menuState:
 		0:
 			mainMenu(delta)
@@ -165,7 +182,7 @@ func _process(delta):
 		
 func mainMenu(delta):
 	
-	$MAINMENU/Logo.rotation = sin(tick*6.0*delta) * 0.06
+	$MAINMENU/Logo.rotation = sin((tick*PI)/36.0) * 0.06
 	
 	if SELECTIONMADE:
 		return
@@ -180,11 +197,11 @@ func mainMenu(delta):
 	if Input.is_action_just_pressed("move_down") or Input.is_action_just_pressed("move_down_joy"):
 		menuOptionSelected += 1
 		nudge += 1
-		Sound.playSound2D(Vector2(250,150),"res://audio/menuDown.ogg",5.0)
+		Sound.playSound2D(Vector2(250,150),"res://audio/menuDown.ogg",menuVol)
 	if Input.is_action_just_pressed("move_up") or Input.is_action_just_pressed("move_up_joy"):
 		menuOptionSelected -= 1
 		nudge -= 1
-		Sound.playSound2D(Vector2(250,150),"res://audio/menuUp.ogg",5.0)
+		Sound.playSound2D(Vector2(250,150),"res://audio/menuUp.ogg",menuVol)
 	if menuOptionSelected < 0:
 		menuOptionSelected = 4
 	elif menuOptionSelected > 4:
@@ -194,7 +211,7 @@ func mainMenu(delta):
 	buttons[menuOptionSelected].position.y += 10 * nudge
 	
 	if Input.is_action_just_pressed("menuSelect"):
-		Sound.playSound2D(Vector2(250,150),"res://audio/menuSelect.ogg",5.0)
+		Sound.playSound2D(Vector2(250,150),"res://audio/menuSelect.ogg",menuVol)
 		#selectDusty(buttons[menuOptionSelected].position)
 		SELECTIONMADE = true
 		#await buttons[menuOptionSelected].bump()
@@ -208,7 +225,8 @@ func mainMenu(delta):
 			3:
 				setMenuState(3) # CREDITS
 			4:
-				get_tree().quit() # QUIT
+				if !OS.has_feature('web'):
+					get_tree().quit() # QUIT
 		
 		SELECTIONMADE = false
 	
@@ -221,7 +239,7 @@ func playMenu(delta):
 	
 	if Input.is_action_just_pressed("menuBack"):
 		setMenuState(0)
-		Sound.playSound2D(Vector2(250,150),"res://audio/menuBack.ogg",5.0)
+		Sound.playSound2D(Vector2(250,150),"res://audio/menuBack.ogg",menuVol)
 		return
 	
 	var oldCourse = courseSelect
@@ -232,7 +250,7 @@ func playMenu(delta):
 	courseSelect = clamp(courseSelect,0,numberOfCourses-1)
 	var c = courseContainer.get_children()
 	if courseSelect != oldCourse:
-		Sound.playSound2D(Vector2(250,150),"res://audio/menuDown.ogg",5.0)
+		Sound.playSound2D(Vector2(250,150),"res://audio/menuDown.ogg",menuVol)
 		c[oldCourse].hovering = false
 		c[courseSelect].hovering = true
 		
@@ -246,14 +264,14 @@ func playMenu(delta):
 	
 	if Input.is_action_just_pressed("menuSelect"):
 		difficulty = -1
-		Sound.playSound2D(Vector2(250,150),"res://audio/menuSelect.ogg",5.0)
+		Sound.playSound2D(Vector2(250,150),"res://audio/menuSelect.ogg",menuVol)
 		if courseSelect > 0:
 			#Remove when there are more courses
 			#For coming soon courses
 			OS.shell_open("https://store.steampowered.com/app/2976450")
 			return
 		
-		#Sound.playSound2D(Vector2(250,150),"res://audio/menuSelection.ogg",5.0)
+		#Sound.playSound2D(Vector2(250,150),"res://audio/menuSelection.ogg",menuVol)
 		
 		COURSECHOSEN = true
 		c[courseSelect].boing()
@@ -265,12 +283,12 @@ func playMenu(delta):
 	
 func optionMenu(delta):
 	if Input.is_action_just_pressed("menuBack"):
-		Sound.playSound2D(Vector2(250,150),"res://audio/menuBack.ogg",5.0)
+		Sound.playSound2D(Vector2(250,150),"res://audio/menuBack.ogg",menuVol)
 		setMenuState(0)
 
 func creditMenu(delta):
 	if Input.is_action_just_pressed("menuBack"):
-		Sound.playSound2D(Vector2(250,150),"res://audio/menuBack.ogg",5.0)
+		Sound.playSound2D(Vector2(250,150),"res://audio/menuBack.ogg",menuVol)
 		setMenuState(0)
 		return
 	
@@ -290,19 +308,19 @@ func creditMenu(delta):
 func courseMenu(delta):
 	if Input.is_action_just_pressed("menuBack"):
 		setMenuState(1)
-		Sound.playSound2D(Vector2(250,150),"res://audio/menuBack.ogg",5.0)
+		Sound.playSound2D(Vector2(250,150),"res://audio/menuBack.ogg",menuVol)
 	
 	var prevDif = difficulty
 	if Input.is_action_just_pressed("move_right") or Input.is_action_just_pressed("move_right_joy"):
 		difficulty += 1
 		difselect.position.x += 10
-		Sound.playSound2D(Vector2(250,150),"res://audio/menuUp.ogg",5.0)
+		Sound.playSound2D(Vector2(250,150),"res://audio/menuUp.ogg",menuVol)
 		if difficulty == 2:
 			$COURSESELECT/Difficulty/DifBorder/FlameParticle.emitting = true
 	if Input.is_action_just_pressed("move_left") or Input.is_action_just_pressed("move_left_joy"):
 		difficulty -= 1
 		difselect.position.x -= 10
-		Sound.playSound2D(Vector2(250,150),"res://audio/menuDown.ogg",5.0)
+		Sound.playSound2D(Vector2(250,150),"res://audio/menuDown.ogg",menuVol)
 		$COURSESELECT/Difficulty/DifBorder/FlameParticle.emitting = false
 	
 	difficulty = clamp(difficulty,0,2)
@@ -360,13 +378,13 @@ func courseMenu(delta):
 		$COURSESELECT/Difficulty/modDesc.visible = true
 		$COURSESELECT/Difficulty/courseName.visible = false
 		$COURSESELECT/Difficulty/courseName/timetobeat.visible = false
-		Sound.playSound2D(Vector2(250,150),"res://audio/menuDown.ogg",5.0)
+		Sound.playSound2D(Vector2(250,150),"res://audio/menuDown.ogg",menuVol)
 		return
 	
 	
 	if Input.is_action_just_pressed("menuSelect"):
 		menuState = 99
-		Sound.playSound2D(Vector2(250,150),"res://audio/menuSelect.ogg",5.0)
+		Sound.playSound2D(Vector2(250,150),"res://audio/menuSelect.ogg",menuVol)
 		
 		var course = courseContainer.get_children()[courseSelect]
 		match difficulty:
@@ -390,10 +408,10 @@ func modifierMenu(delta):
 	
 	if Input.is_action_just_pressed("move_right") or Input.is_action_just_pressed("move_right_joy"):
 		modSelected += 1
-		Sound.playSound2D(Vector2(250,150),"res://audio/menuUp.ogg",5.0)
+		Sound.playSound2D(Vector2(250,150),"res://audio/menuUp.ogg",menuVol)
 	if Input.is_action_just_pressed("move_left") or Input.is_action_just_pressed("move_left_joy"):
 		modSelected -= 1
-		Sound.playSound2D(Vector2(250,150),"res://audio/menuDown.ogg",5.0)
+		Sound.playSound2D(Vector2(250,150),"res://audio/menuDown.ogg",menuVol)
 	modSelected = clamp(modSelected,0,mods.size()-1)
 	
 	for m in range(mods.size()):
@@ -478,14 +496,27 @@ func setTimeToBeat(rankArray,time):
 	
 	var bb = "[outline_size=12][outline_color=BLACK][center][font_size=24]"
 	var displayTime = str( int(nextRank/60.0) ) + ":" + string
-	$COURSESELECT/Difficulty/courseName/timetobeat.text=  bb + "time to beat" + ": " + displayTime
+	$COURSESELECT/Difficulty/courseName/timetobeat.text=  bb + tr("TIME_TO_BEAT") + ": " + displayTime
 	
 func skinMenu(delta):
 	if Input.is_action_just_pressed("menuBack"):
 		setMenuState(0)
-		Sound.playSound2D(Vector2(250,150),"res://audio/menuBack.ogg",5.0)
+		Sound.playSound2D(Vector2(250,150),"res://audio/menuBack.ogg",menuVol)
 		return
 	if Input.is_action_just_pressed("menuSelect"):
 		setMenuState(0)
-		Sound.playSound2D(Vector2(250,150),"res://audio/menuBack.ogg",5.0)
+		Sound.playSound2D(Vector2(250,150),"res://audio/menuBack.ogg",menuVol)
 		return
+
+func musicFade(id):
+	var layers = $musicLayers.get_children()
+	for l in range(layers.size()):
+		var currentDB = db_to_linear(layers[l].volume_db)
+		layers[l].volume_db = linear_to_db(lerp( currentDB, float(l == id) , 0.2 ))
+
+func onBeat():
+	if beat:
+		menuGraphic.bop()
+	match menuState:
+		0:
+			pass

@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://bujmrsxh8k58x"]
+[gd_scene load_steps=43 format=3 uid="uid://bujmrsxh8k58x"]
 
 [ext_resource type="Script" path="res://main_scenes/mainMenu/main_menu.gd" id="1_hw8g4"]
 [ext_resource type="PackedScene" uid="uid://bno8isqo481fp" path="res://main_scenes/mainMenu/menu_graphic.tscn" id="1_p8yr1"]
@@ -20,17 +20,26 @@
 [ext_resource type="Material" uid="uid://b21jm8np24uvw" path="res://main_scenes/mainMenu/transition.tres" id="16_wnogl"]
 [ext_resource type="Texture2D" uid="uid://b5dvyiw4ogkyw" path="res://ui_scenes/credits/ike.png" id="17_0tw1x"]
 [ext_resource type="Texture2D" uid="uid://cbjoc7vqqvo0e" path="res://ui_scenes/credits/tom.png" id="18_fofuy"]
-[ext_resource type="AudioStream" uid="uid://blyx821hhn4a7" path="res://audio/brawl.ogg" id="18_sp7n6"]
 [ext_resource type="Texture2D" uid="uid://klmv7tulcgf1" path="res://ui_scenes/credits/will.png" id="19_h51tr"]
 [ext_resource type="Texture2D" uid="uid://cmydmfrcwef0i" path="res://ui_scenes/courseIcons/borderagain.png" id="21_d0jkp"]
 [ext_resource type="PackedScene" uid="uid://dta8c86acsn38" path="res://ui_scenes/modifiers/modifier_toggle.tscn" id="21_fxuyc"]
 [ext_resource type="PackedScene" uid="uid://bxspursbi4a75" path="res://ui_scenes/skinSelect/skin_changer.tscn" id="22_7ovmx"]
+[ext_resource type="AudioStream" uid="uid://dvsmyhjcfgbp7" path="res://audio/menuSongs/mainmenubase.ogg" id="25_yt84r"]
+[ext_resource type="AudioStream" uid="uid://4ipski6wf6je" path="res://audio/menuSongs/mainmenuplay.ogg" id="26_avb3m"]
+[ext_resource type="AudioStream" uid="uid://bsbg6fa06n0uo" path="res://audio/menuSongs/mainmenuoptions.ogg" id="27_54oho"]
+[ext_resource type="AudioStream" uid="uid://c7rvpuo7rcj4l" path="res://audio/menuSongs/mainmenucredits.ogg" id="28_viutd"]
+[ext_resource type="AudioStream" uid="uid://dnpwg1anflb8w" path="res://audio/menuSongs/mainmenudifselect.ogg" id="29_nigjm"]
+[ext_resource type="AudioStream" uid="uid://diuyaqtavbdqu" path="res://audio/menuSongs/mainmenuskins.ogg" id="30_um587"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_mt1ax"]
 font = ExtResource("2_x70bn")
 font_size = 32
 outline_size = 15
 outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_aj7ky"]
+font = ExtResource("2_x70bn")
+font_color = Color(0, 0, 0, 0.435294)
 
 [sub_resource type="LabelSettings" id="LabelSettings_gmjxa"]
 font_size = 32
@@ -109,8 +118,16 @@ offset_left = 9.0
 offset_top = 267.0
 offset_right = 55.0
 offset_bottom = 299.0
-text = "v0.6 - demo"
+text = "v0.7 - demo"
 label_settings = SubResource("LabelSettings_mt1ax")
+
+[node name="wishlist" type="Label" parent="versionLabel"]
+offset_left = 153.0
+offset_top = 13.0
+offset_right = 383.0
+offset_bottom = 45.0
+text = "wishlist on steam!"
+label_settings = SubResource("LabelSettings_aj7ky")
 
 [node name="MenuGraphic" parent="." instance=ExtResource("1_p8yr1")]
 
@@ -465,8 +482,34 @@ offset_right = 500.0
 offset_bottom = 400.0
 color = Color(0, 0, 0, 1)
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("18_sp7n6")
-volume_db = -5.0
-autoplay = true
+[node name="musicLayers" type="Node2D" parent="."]
+
+[node name="musBase" type="AudioStreamPlayer" parent="musicLayers"]
+stream = ExtResource("25_yt84r")
+volume_db = -80.0
+bus = &"Music"
+
+[node name="musPlay" type="AudioStreamPlayer" parent="musicLayers"]
+stream = ExtResource("26_avb3m")
+volume_db = -80.0
+bus = &"Music"
+
+[node name="musOption" type="AudioStreamPlayer" parent="musicLayers"]
+stream = ExtResource("27_54oho")
+volume_db = -80.0
+bus = &"Music"
+
+[node name="musCredit" type="AudioStreamPlayer" parent="musicLayers"]
+stream = ExtResource("28_viutd")
+volume_db = -80.0
+bus = &"Music"
+
+[node name="musDif" type="AudioStreamPlayer" parent="musicLayers"]
+stream = ExtResource("29_nigjm")
+volume_db = -80.0
+bus = &"Music"
+
+[node name="musSkin" type="AudioStreamPlayer" parent="musicLayers"]
+stream = ExtResource("30_um587")
+volume_db = -80.0
 bus = &"Music"

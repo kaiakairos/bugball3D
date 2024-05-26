@@ -34,8 +34,6 @@ func _process(delta):
 	
 	multi *= 1.2
 	
-	print(dir.length())
-	
 	if dir.length() < 48 or dir.length() > 2000:
 		
 		global_position = door.get_global()

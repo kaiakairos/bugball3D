@@ -11,6 +11,7 @@ var cloudTarget = 1.207
 
 func _process(delta):
 	$texture.position.z = lerp( $texture.position.z , cloudTarget , 0.2 )
+	$flowers.position.y = lerp($flowers.position.y, 0.715, 0.2)
 	match menuState:
 		0:
 			$ball3d.rotate_x(rollSpeed*delta)
@@ -48,3 +49,7 @@ func move(amount):
 	floor.position.z += amount
 	$flowers.position.z += amount
 	cloudTarget += amount
+
+func bop():
+	$flowers.position.y = 0.9
+	camera.fov -= 1.0
