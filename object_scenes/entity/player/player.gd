@@ -140,7 +140,10 @@ func _process(delta):
 		getValues()
 		vpSprite.modulate.a = 1.0
 		offsetCamera()
+		$secondaryHoleCast.position = $holeCast.position * -1
 		return
+	else:
+		$secondaryHoleCast.position =lerp($secondaryHoleCast.position,$holeCast.position,0.1)
 	
 	var curRol = rolling
 	
@@ -459,6 +462,10 @@ func checkIfHole():
 	
 	if $holeCast.is_colliding():
 		
+		
+		if !$secondaryHoleCast.is_colliding():
+			return
+		
 		var collider = $holeCast.get_collider()
 		if !is_instance_valid(collider):
 			return
@@ -472,7 +479,7 @@ func checkIfHole():
 		
 		if !win:
 			holeCoyoteTick += 1
-			if holeCoyoteTick <= 3:
+			if holeCoyoteTick <= 5:
 				return
 		
 		

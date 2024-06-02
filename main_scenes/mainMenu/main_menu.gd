@@ -147,7 +147,7 @@ func setMenuState(newState):
 	
 	menuState = newState
 	
-	print("changed state to: " + str(newState) )
+	#print("changed state to: " + str(newState) )
 	
 func _process(delta):
 	tick += 1

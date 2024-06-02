@@ -32,7 +32,7 @@ polygon = PackedVector2Array(8, 24, 72, 24, 72, 72, 8, 72)
 
 [node name="HOLE2" parent="." instance=ExtResource("4_6p80v")]
 position = Vector2(200, 256)
-polygon = PackedVector2Array(8, 24, 72, 24, 72, 80, 8, 80)
+polygon = PackedVector2Array(8, 32, 72, 32, 72, 72, 8, 72)
 
 [node name="HOLE3" parent="." instance=ExtResource("4_6p80v")]
 position = Vector2(200, 352)

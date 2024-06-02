@@ -44,7 +44,7 @@ island = true
 [node name="coolFloor4" parent="." instance=ExtResource("1_bgdnj")]
 z_index = -3
 position = Vector2(992, 736)
-polygon = PackedVector2Array(-104, -8, 32, -8, 40, 8, 40, 64, 32, 80, -104, 80)
+polygon = PackedVector2Array(-104, -8, 56, -8, 64, 8, 64, 64, 56, 80, -104, 80)
 swapWalls = true
 island = true
 

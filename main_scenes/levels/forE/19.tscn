@@ -20,7 +20,7 @@ polygon = PackedVector2Array(-30, -378, 66, -378, 66, -26, 90, -2, 290, -2, 314,
 
 [node name="HOLE" parent="." instance=ExtResource("2_7ft1b")]
 position = Vector2(376, 24)
-polygon = PackedVector2Array(0, -56, 48, -40, 96, -56, 96, 208, -24, 208, 0, 184)
+polygon = PackedVector2Array(0, -56, 48, -40, 96, -56, 96, 184, 0, 184)
 
 [node name="WIN" parent="." instance=ExtResource("3_bd4bm")]
 position = Vector2(424, -96)

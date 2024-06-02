@@ -79,14 +79,14 @@ func postScores( deaths, time ):
 			if e == null or m == null or h == null:
 				pass
 			else: ## BE SURE TO SET THESE CORRECTLY!!
-				if e <= 75.0 and m <= 110.0 and h <= 125.0:
+				if e <= 75.0 and m <= 110.0 and h <= 150.0:
 					SkinHandler.UNLOCKSKIN(5)
 	
 	Sound.playSound2D(Vector2(250,150),"res://audio/score_sound.ogg",0.0)
 	$Background.visible = true
 	$courseComplete.visible = true
 	await get_tree().create_timer(1.5).timeout
-	print("fuick")
+	
 	
 	var tween = get_tree().create_tween()
 	tween.set_parallel()

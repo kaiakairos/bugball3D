@@ -97,7 +97,6 @@ func loadLevel(id):
 	
 	var ins = load(levels[id]).instantiate()
 	container.add_child(ins)
-	print(levels[id])
 	
 	await get_tree().create_timer(0.5).timeout
 	

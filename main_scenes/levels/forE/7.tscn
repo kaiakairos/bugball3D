@@ -36,7 +36,7 @@ angle = 3.142
 
 [node name="HOLE" parent="." instance=ExtResource("5_8c33d")]
 position = Vector2(96, 232)
-polygon = PackedVector2Array(304, -8, 304, 72, -96, 72, -136, 32, -96, -8)
+polygon = PackedVector2Array(288, -8, 288, 72, -96, 72, -136, 32, -96, -8)
 
 [node name="coolFloor2" parent="." instance=ExtResource("1_xpgds")]
 position = Vector2(0, 160)
