@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://thujt01appmd"]
+[gd_scene load_steps=25 format=3 uid="uid://thujt01appmd"]
 
 [ext_resource type="Script" path="res://main_scenes/game.gd" id="1_ot3mi"]
 [ext_resource type="Shader" path="res://main_scenes/game.gdshader" id="2_u2nxt"]
@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://ddl2lcnped2yc" path="res://ui_scenes/courseComplete/background.png" id="9_4j8fc"]
 [ext_resource type="Texture2D" uid="uid://b72tqi1thccal" path="res://ui_scenes/courseComplete/wipe.png" id="11_12wlp"]
 [ext_resource type="Texture2D" uid="uid://bn44aeqnl7t2b" path="res://ui_scenes/courseComplete/grades.png" id="11_pxowu"]
+[ext_resource type="Texture2D" uid="uid://b4t1namdfq8dt" path="res://ui_scenes/courseComplete/shine.png" id="14_5tvbq"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ssbx2"]
 shader = ExtResource("2_u2nxt")
@@ -49,6 +50,130 @@ font_size = 32
 font_color = Color(0.992157, 1, 1, 1)
 outline_size = 16
 outline_color = Color(0.0196078, 0.0196078, 0.0196078, 1)
+
+[sub_resource type="Animation" id="Animation_btxmb"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Grades:scale:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Grades:scale:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_wi22k"]
+resource_name = "gradeDrop"
+length = 1.5
+step = 0.01
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Grades:scale:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0),
+"points": PackedFloat32Array(5, -0.25, 0, 0.58, 0.0455089, 1, -0.06, -1.85726, 0.03, 0.0912275, 1.10584, -0.02, -0.0573083, 0.03, -0.171925, 1, -0.03, -0.0900861, 0.25, 0),
+"times": PackedFloat32Array(0, 0.56, 0.6, 0.65)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Grades:scale:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0),
+"points": PackedFloat32Array(5, -0.25, 0, 0.58, -0.0691075, 1, -0.06, -1.91457, 0.02, 0.0376918, 1.11436, -0.0195497, -0.0340741, 0.0165569, -0.0425926, 0.986581, -0.0338934, -0.127778, 0.25, 0),
+"times": PackedFloat32Array(0, 0.56, 0.59955, 0.65)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Grades:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(-4.12356, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.56)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Grades:modulate:r")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.59, 0.0596759, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.56)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Grades:modulate:g")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.59, 0.0596759, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.56)
+}
+tracks/5/type = "bezier"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Grades:modulate:b")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.56, -0.054941, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.56)
+}
+tracks/6/type = "bezier"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Grades:modulate:a")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.05, -0.054941, 1, -0.04, 0, 0.15, -0.0573084),
+"times": PackedFloat32Array(0, 0.2)
+}
+tracks/7/type = "bezier"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Grades/Shine:position:x")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(-407.494, -0.25, 0, 0.13, 114.027, 402.891, -0.16, 4.17723, 0.25, 0),
+"times": PackedFloat32Array(0.58, 1.18)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_h5pbl"]
+_data = {
+"RESET": SubResource("Animation_btxmb"),
+"gradeDrop": SubResource("Animation_wi22k")
+}
 
 [sub_resource type="LabelSettings" id="LabelSettings_c6q0b"]
 outline_size = 7
@@ -231,10 +356,16 @@ texture = ExtResource("11_12wlp")
 centered = false
 
 [node name="Grades" type="Sprite2D" parent="courseComplete"]
-visible = false
+modulate = Color(0, 0, 0, 0)
+clip_children = 2
 position = Vector2(372, 127)
+rotation = -4.12356
 texture = ExtResource("11_pxowu")
 hframes = 7
+
+[node name="Shine" type="Sprite2D" parent="courseComplete/Grades"]
+position = Vector2(-407.494, 0)
+texture = ExtResource("14_5tvbq")
 
 [node name="courseComplete" type="RichTextLabel" parent="courseComplete"]
 visible = false
@@ -250,10 +381,18 @@ scroll_active = false
 visible = false
 offset_left = 13.0
 offset_top = 96.0
-offset_right = 73.0
+offset_right = 225.0
 offset_bottom = 128.0
-text = "time: 0:00.00
-deaths: 79"
+text = "time: 0:00.00"
+label_settings = SubResource("LabelSettings_bmhjs")
+
+[node name="deaths" type="Label" parent="courseComplete"]
+visible = false
+offset_left = 13.0
+offset_top = 131.0
+offset_right = 266.0
+offset_bottom = 176.0
+text = "deaths: 79"
 label_settings = SubResource("LabelSettings_bmhjs")
 
 [node name="pb" type="Label" parent="courseComplete"]
@@ -276,6 +415,11 @@ bbcode_enabled = true
 text = "[wave amp=80.0 freq=-10.0 connected=1][font_size=32][right][rainbow freq=0.4 sat=1.0 val=1.0]NEW RECORD!!"
 scroll_active = false
 autowrap_mode = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="courseComplete"]
+libraries = {
+"": SubResource("AnimationLibrary_h5pbl")
+}
 
 [node name="select" type="Node2D" parent="courseComplete"]
 visible = false

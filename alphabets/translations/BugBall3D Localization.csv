@@ -22,17 +22,17 @@ OPTION_FULLSCREEN,fullscreen:,pantalla completa:,tela cheia:,plein écran:,フ�
 OPTION_ROLL_CONTROL,roll control mode:,controle de rodar:,controle de rolar:,contrôle du roulis,ロールコントロール:,rollkontrolle:
 OPTION_ROLL_HOLD,HOLD,SOSTENER,SEGURAR,TENIR,保つ,HALTEN
 OPTION_ROLL_TOGGLE,TOGGLE,PALANCA,ALTERNAR,INTERRUPTEUR,トグル,UMSCHALTEN
-OPTION_SHOW_CLOUDS,show clouds?:,¿mostrar nubes?:,¿mostrar nuvens?,montrer des nuages​​?:,雲を表示?:,wolken zeigen?:
-OPTION_SHOW_DECOR,show decor?:,¿mostrar decoración?:,¿mostrar decoração?,montrer la décoration?:,ショーの装飾?:,dekoration zeigen?
+OPTION_SHOW_CLOUDS,show clouds?:,¿mostrar nubes?:,mostrar nuvens?,montrer des nuages​​?:,雲を表示?:,wolken zeigen?:
+OPTION_SHOW_DECOR,show decor?:,¿mostrar decoración?:,mostrar decoração?,montrer la décoration?:,ショーの装飾?:,dekoration zeigen?
 YES,YES,SÍ,SIM,OUI,はい,JA
 NO,NO,NO,NÃO,NON,いいえ,NEIN
 DISABLED,DISABLED,SÍ,SIM,OUI,はい,JA
 ENABLED,ENABLED,NO,NÃO,NON,いいえ,NEIN
 OPTION_SFX,sound volume,volumen de los efectos de sonido,volume dos efeitos sonoros,volume des effets sonores,SE音量,soundeffektlautstärke
 OPTION_MUSIC,music volume,volumen de la música,volume da música,volume de la musique,BGM音量,musiklautstärke
-COURSE_SELECT,course select,nivel seleccionado,,,レベルの選択,
+COURSE_SELECT,course select,nivel seleccionado,seleção de nível,sélectionner le niveau,レベルの選択,stufe wählen
 C_FOREST,forest,bosque,floresta,forêt,森,wald
-C_COMINGSOON,coming soon,muy pronto,chegando en breve,à venir,近日公開,demnächst
+C_COMINGSOON,coming soon,muy pronto,chegando em breve,à venir,近日公開,demnächst
 SHADER_COMPILE,compiling shaders,compilando sombreadores,compilando shaders,compilation de shaders,シェーダのコンパイル,kompilieren von shader
 WINDOW_FOCUS,click to focus window,haga clic para enfocar la ventana,clique para dar foco à janela,cliquez pour donner le focus à la fenêtre,クリックしてウィンドウにフォーカスを移動します,"klicken sie, um den fokus auf das fenster zu richten"
 OPTION_LANG,language,idioma,idioma,langue,言語,sprache
@@ -52,3 +52,22 @@ MOD_DESC_FUSE,you will explode after a few seconds,explotarás después de unos 
 MOD_DESC_BOUNCE,gain velocity on bounce rather than lose it,ganar velocidad en el rebote en lugar de perderla,ganhar velocidade no salto da parede em vez de perdê-la,gagner de la vitesse lors d'un rebond plutôt que d'en perdre,バウンド時の速度を上げる,"gewinnen sie beim abprallen an geschwindigkeit, anstatt sie zu verlieren"
 MOD_WARN,note: having modifiers enabled will disqualify you from saving your scores or participating in leaderboards,nota: tener modificadores habilitados lo descalificará para guardar sus puntajes o participar en tablas de clasificación,"observação: se os modificadores estiverem ativados, você não poderá salvar suas pontuações nem participar das tabelas de classificação",remarque : l'activation des modificateurs vous empêchera de sauvegarder vos scores ou de participer aux classements.,注: 修飾子を有効にすると、スコアを保存したり、リーダーボードに参加したりできなくなります。,"hinweis: wenn modifikatoren aktiviert sind, können sie ihre ergebnisse nicht speichern oder an bestenlisten teilnehmen"
 TIME_TO_BEAT,time to beat,hora de vencer,tempo para vencer,le temps de battre,勝負時,zeit zu schlagen
+NEW_SKIN,new skin unlocked!,¡nuevo traje desbloqueado!,nova roupa desbloqueada!,nouveau costume débloqué!,新しいコスチュームがアンロックされた!,neues kostüm freigeschaltet!
+SKIN_DEFAULT,default,por defecto,predefinido,par défaut,デフォルト,standard
+SKIN_YELLOW,yellow,amarillo,amarelo,jaune,黄色,gelb
+SKIN_RED,red,rojo,vermelho,rouge,赤,rot
+SKIN_BEACH,beach,pelota de playa,bola de praia,ballon de plage,ビーチボール,wasserball
+SKIN_DODGEBALL,dodgeball,balón prisionero,dodgebol,ballon chasseur,ドッジボール,völkerball
+SKIN_POOL,8 ball,bola de billar,bola de bilhar,ballon de piscine,プールボール,pool-ball
+SKIN_GLASS,glass,cristal,vidro,verre,グラス,glas
+SKIN_TENNIS,tennis,tenis,tênis,tennis,テニス,tennis
+SKIN_LEBRON,da bron,da bron,da bron,da bron,da bron,da bron
+SKIN_DEFAULT_UNLOCK,open the game!,¡abre el juego!,abra o jogo!,ouvrez le jeu !,ゲームを開く,Öffne das Spiel!
+SKIN_YELLOW_UNLOCK,complete the forest course on easy!,completa el recorrido del bosque en fácil.,complete o percurso da floresta no modo fácil!,terminer le parcours forestier en facile !,森のコースをイージーでクリア,Schließe den Waldparcours auf leicht ab!
+SKIN_RED_UNLOCK,complete the forest course on medium!,completa el recorrido del bosque en nivel medio.,concluir o percurso na floresta no modo médio!,terminez le parcours forestier en mode moyen !,森のコースをミディアムでクリア,Schließe den Waldparcours auf mittel ab!
+SKIN_BEACH_UNLOCK,complete the forest course on hard!,completa el recorrido del bosque en difícil.,concluir o percurso da floresta no modo difícil!,terminez le parcours de la forêt en mode difficile !,森のコースをハードでクリア,Schließe den Wald-Parcours auf schwer ab!
+SKIN_DODGEBALL_UNLOCK,get an S rank on any course!,consigue un rango S en cualquier recorrido.,obter uma classificação S em qualquer percurso!,obtenir un rang S sur n'importe quel parcours !,どのコースでもSランクを獲得,Erreiche einen S-Rang auf einer beliebigen Strecke!
+SKIN_POOL_UNLOCK,achieve an S rank on all forest courses!,consigue un rango S en todos los recorridos del bosque.,obter a classificação S em todos os percursos na floresta!,obtenir un rang S sur tous les parcours en forêt !,すべての森林コースでSランクを獲得,Erreiche einen S-Rang auf allen Waldkursen!
+SKIN_GLASS_UNLOCK,complete any course with the 'mirror world' modifier enabled,"completa cualquier circuito con el modificador ""mundo espejo"" activado.",concluir qualquer percurso com o modificador “espelhar” ativado,"terminer n'importe quel parcours avec le modificateur ""monde des miroirs"" activé",ミラーワールド」モディファイアが有効なコースを完走せよ,"Schließe eine beliebige Strecke mit dem Modifikator ""spiegel"" ab."
+SKIN_TENNIS_UNLOCK,complete any course with the 'overdrive' modifier enabled,"completa cualquier recorrido con el modificador ""overdrive"" activado.",concluir qualquer percurso com o modificador “velocidade infernal” ativado,"terminer n'importe quel parcours avec le modificateur ""surmultipliée"" activé",オーバードライブ」モディファイアが有効なコースを完走せよ,Schließe eine beliebige Strecke mit aktiviertem 'enorme geschwindigkeit'-Modifikator ab
+SKIN_LEBRON_UNLOCK,read the credits,leer los créditos,leia os créditos,lire les crédits,クレジットを読む,Lies den Abspann

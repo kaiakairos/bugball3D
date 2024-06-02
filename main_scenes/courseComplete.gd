@@ -43,6 +43,7 @@ func postScores( deaths, time ):
 	string = string.left(5)
 
 	$score.text = tr("COURSE_TIME") + ": " + str( int(time/60.0) ) + ":" + string
+	$deaths.text = tr("COURSE_DEATHS")+ ": " + str(deaths)
 	
 	var record = false
 	if !disqualify:
@@ -78,29 +79,42 @@ func postScores( deaths, time ):
 			if e == null or m == null or h == null:
 				pass
 			else: ## BE SURE TO SET THESE CORRECTLY!!
-				if e <= 750.0 and m <= 1100.0 and h <= 1000.0:
+				if e <= 75.0 and m <= 110.0 and h <= 125.0:
 					SkinHandler.UNLOCKSKIN(5)
 	
+	Sound.playSound2D(Vector2(250,150),"res://audio/score_sound.ogg",0.0)
 	$Background.visible = true
 	$courseComplete.visible = true
-	await get_tree().create_timer(2.0).timeout
+	await get_tree().create_timer(1.5).timeout
+	print("fuick")
 	
 	var tween = get_tree().create_tween()
 	tween.set_parallel()
-	tween.tween_property($courseComplete,"size:x",320,0.5).set_trans(Tween.TRANS_BOUNCE).set_ease(Tween.EASE_OUT)
-	tween.tween_property($courseComplete,"position:y",12,0.5).set_trans(Tween.TRANS_BOUNCE).set_ease(Tween.EASE_OUT)
-	tween.tween_property($Wipe,"position:y",-500,0.5).set_trans(Tween.TRANS_BOUNCE).set_ease(Tween.EASE_OUT)
+	tween.tween_property($courseComplete,"size:x",320,0.75).set_trans(Tween.TRANS_CIRC).set_ease(Tween.EASE_OUT)
+	tween.tween_property($courseComplete,"position:y",12,0.75).set_trans(Tween.TRANS_CIRC).set_ease(Tween.EASE_OUT)
+	tween.tween_property($Wipe,"position:y",-500,0.75).set_trans(Tween.TRANS_CIRC).set_ease(Tween.EASE_OUT)
 	
-	await get_tree().create_timer(0.75).timeout
+	await get_tree().create_timer(1.5).timeout
 	
 	
 	## SHOW TIME
-	$score.visible = true 
-	await get_tree().create_timer(0.5).timeout
+	$score.visible = true
+	$score.position.x += 500
+	var timetweebn = get_tree().create_tween()
+	timetweebn.tween_property($score,"position:x",12,0.5).set_trans(Tween.TRANS_ELASTIC).set_ease(Tween.EASE_OUT)
+	await get_tree().create_timer(0.56).timeout
 	
 	## SHOW DEATHS
-	$score.text = tr("COURSE_TIME") + ": " + str( int(time/60.0) ) + ":" + string +"\n" +tr("COURSE_DEATHS")+ ": " + str(deaths)
-	await get_tree().create_timer(0.5).timeout
+	$deaths.visible = true
+	$deaths.position.x += 500
+	var dtweebn = get_tree().create_tween()
+	dtweebn.tween_property($deaths,"position:x",13,0.5).set_trans(Tween.TRANS_ELASTIC).set_ease(Tween.EASE_OUT)
+	
+	if !disqualify:
+		$Grades.visible = true
+		$AnimationPlayer.play("gradeDrop")
+	
+	await get_tree().create_timer(0.56).timeout
 	
 	
 	if !disqualify:
@@ -172,3 +186,4 @@ func beat():
 	$Grades.scale = Vector2(0.95,0.95)
 	$select/menu.position.y += 3
 	$select/retry.position.y += 2
+

@@ -10,75 +10,75 @@ func _ready():
 
 var skins :Array[Dictionary]= [
 	{
-		"name":"default",
+		"name":"SKIN_DEFAULT",
 		"ballTex":"res://object_scenes/entity/player/ballTexture.png",
 		"wormTex":"res://object_scenes/entity/player/gradient.png",
 		"mustHaveSaveKey":"default", # will always have it
-		"unlockInfo":"open the game!",
+		"unlockInfo":"SKIN_DEFAULT_UNLOCK",
 		"ngMedal":78897,
 	},
 	{
-		"name":"yellow",
+		"name":"SKIN_YELLOW",
 		"ballTex":"res://object_scenes/entity/player/skins/yellow.png",
 		"wormTex":"res://object_scenes/entity/player/skins/yellowWorm.png",
 		"mustHaveSaveKey":"yellowSkin", 
-		"unlockInfo":"complete the forest course on easy!",
+		"unlockInfo":"SKIN_YELLOW_UNLOCK",
 		"ngMedal":78898,
 	},
 	{
-		"name":"red",
+		"name":"SKIN_RED",
 		"ballTex":"res://object_scenes/entity/player/skins/red.png",
 		"wormTex":"res://object_scenes/entity/player/skins/redWorm.png",
 		"mustHaveSaveKey":"redSkin",
-		"unlockInfo":"complete the forest course on medium!",
+		"unlockInfo":"SKIN_RED_UNLOCK",
 		"ngMedal":78899,
 	},
 	{
-		"name":"beach",
+		"name":"SKIN_BEACH",
 		"ballTex":"res://object_scenes/entity/player/skins/beach.png",
 		"wormTex":"res://object_scenes/entity/player/skins/beachWorm.png",
 		"mustHaveSaveKey":"beachSkin",
-		"unlockInfo":"complete the forest course on hard!",
+		"unlockInfo":"SKIN_BEACH_UNLOCK",
 		"ngMedal":78900,
 	},
 	{
-		"name":"dodgeball",
+		"name":"SKIN_DODGEBALL",
 		"ballTex":"res://object_scenes/entity/player/skins/dodgeball.png",
 		"wormTex":"res://object_scenes/entity/player/skins/dodge.png",
 		"mustHaveSaveKey":"dodgeSkin",
-		"unlockInfo":"get an S rank on any course",
+		"unlockInfo":"SKIN_DODGEBALL_UNLOCK",
 		"ngMedal":78901,
 	},
 	{
-		"name":"8 ball",
+		"name":"SKIN_POOL",
 		"ballTex":"res://object_scenes/entity/player/skins/8Ball.png",
 		"wormTex":"res://object_scenes/entity/player/skins/8worm.png",
 		"mustHaveSaveKey":"poolSkin",
-		"unlockInfo":"achieve an S rank on all forest courses",
+		"unlockInfo":"SKIN_POOL_UNLOCK",
 		"ngMedal":78902,
 	},
 	{
-		"name":"glass",
+		"name":"SKIN_GLASS",
 		"ballTex":"res://object_scenes/entity/player/skins/chromeBall.png",
 		"wormTex":"res://object_scenes/entity/player/skins/chromeWorm.png",
 		"mustHaveSaveKey":"glassSkin",
-		"unlockInfo":"complete any course with the 'mirror world' modifier enabled",
+		"unlockInfo":"SKIN_GLASS_UNLOCK",
 		"ngMedal":78903,
 	},
 	{
-		"name":"tennis ball",
+		"name":"SKIN_TENNIS",
 		"ballTex":"res://object_scenes/entity/player/skins/tennis.png",
 		"wormTex":"res://object_scenes/entity/player/skins/tenWorm.png",
 		"mustHaveSaveKey":"tennisSkin",
-		"unlockInfo":"complete any course with the 'overdrive' modifier enabled",
+		"unlockInfo":"SKIN_TENNIS_UNLOCK",
 		"ngMedal":78904,
 	},
 	{
-		"name":"da bron",
+		"name":"SKIN_LEBRON",
 		"ballTex":"res://object_scenes/entity/player/skins/basketball.png",
 		"wormTex":"res://object_scenes/entity/player/skins/bron.png",
 		"mustHaveSaveKey":"basketSkin",
-		"unlockInfo":"read the credits",
+		"unlockInfo":"SKIN_LEBRON_UNLOCK",
 		"ngMedal":78905,
 	},
 	
@@ -95,10 +95,10 @@ func setSkin(id):
 	return false
 
 func getName(id):
-	return skins[id]["name"]
+	return tr(skins[id]["name"])
 
 func getInfo(id):
-	return skins[id]["unlockInfo"]
+	return tr(skins[id]["unlockInfo"])
 
 func UNLOCKSKIN(id):
 	
@@ -115,7 +115,7 @@ func UNLOCKSKIN(id):
 	var label = Label.new()
 	label.label_settings = load("res://ui_scenes/skinSelect/skinUnlockedlabel.tres")
 	label.position = Vector2(10,-200)
-	label.text = "new skin unlocked!: " + skins[id]["name"]
+	label.text =  tr("NEW_SKIN") + ": " + tr(skins[id]["name"])
 	label.z_index = 4096
 	add_child(label)
 	

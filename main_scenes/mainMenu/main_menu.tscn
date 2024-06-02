@@ -118,14 +118,15 @@ offset_left = 9.0
 offset_top = 267.0
 offset_right = 55.0
 offset_bottom = 299.0
-text = "v0.7 - demo"
+text = "v0.8 DEMO"
 label_settings = SubResource("LabelSettings_mt1ax")
 
 [node name="wishlist" type="Label" parent="versionLabel"]
-offset_left = 153.0
-offset_top = 13.0
-offset_right = 383.0
-offset_bottom = 45.0
+layout_mode = 0
+offset_left = 137.0
+offset_top = 15.0
+offset_right = 367.0
+offset_bottom = 47.0
 text = "wishlist on steam!"
 label_settings = SubResource("LabelSettings_aj7ky")
 
@@ -202,14 +203,14 @@ position = Vector2(250, 110)
 image = ExtResource("10_n6bi1")
 easyLevels = Array[String](["res://main_scenes/levels/forE/0.tscn", "res://main_scenes/levels/forE/1.tscn", "res://main_scenes/levels/forE/2.tscn", "res://main_scenes/levels/forE/3.tscn", "res://main_scenes/levels/forE/18.tscn", "res://main_scenes/levels/forE/4.tscn", "res://main_scenes/levels/forE/19.tscn", "res://main_scenes/levels/forE/16.tscn", "res://main_scenes/levels/forE/8.tscn", "res://main_scenes/levels/forE/5.tscn", "res://main_scenes/levels/forE/15.tscn", "res://main_scenes/levels/forE/9.tscn", "res://main_scenes/levels/forE/6.tscn", "res://main_scenes/levels/forE/10.tscn", "res://main_scenes/levels/forE/7.tscn", "res://main_scenes/levels/forE/11.tscn", "res://main_scenes/levels/forE/12.tscn", "res://main_scenes/levels/forE/13.tscn"])
 mediumLevels = Array[String](["res://main_scenes/levels/forM/m_10.tscn", "res://main_scenes/levels/forM/m_9.tscn", "res://main_scenes/levels/forM/m_0.tscn", "res://main_scenes/levels/forM/m_1.tscn", "res://main_scenes/levels/forM/m_7.tscn", "res://main_scenes/levels/forM/m_3.tscn", "res://main_scenes/levels/forM/m_5.tscn", "res://main_scenes/levels/forM/m_8.tscn", "res://main_scenes/levels/forM/m_13.tscn", "res://main_scenes/levels/forM/m_12.tscn", "res://main_scenes/levels/forM/m_6.tscn", "res://main_scenes/levels/forM/m_11.tscn", "res://main_scenes/levels/forM/m_4.tscn"])
-hardLevels = Array[String](["res://main_scenes/levels/forH/h_0.tscn", "res://main_scenes/levels/forH/h_1.tscn", "res://main_scenes/levels/forH/h_2.tscn"])
+hardLevels = Array[String](["res://main_scenes/levels/forH/h_7.tscn", "res://main_scenes/levels/forH/h_0.tscn", "res://main_scenes/levels/forH/h_1.tscn", "res://main_scenes/levels/forH/h_2.tscn", "res://main_scenes/levels/forH/h_3.tscn", "res://main_scenes/levels/forH/h_4.tscn", "res://main_scenes/levels/forH/h_5.tscn", "res://main_scenes/levels/forH/h_6.tscn", "res://main_scenes/levels/forH/h_8.tscn"])
 courseName = "C_FOREST"
 saveCodeE = "course1_EasyPB"
 saveCodeM = "course1_MeedPB"
 saveCodeH = "course1_HardPB"
 rankLimitE = Array[float]([75.0, 110.0, 180.0, 300.0, 600.0])
 rankLimitM = Array[float]([110.0, 180.0, 250.0, 400.0, 600.0])
-rankLimitH = Array[float]([2.5, 3.5, 5.0, 7.0, 10.0])
+rankLimitH = Array[float]([125.0, 280.0, 400.0, 600.0, 1000.0])
 
 [node name="CourseIcon2" parent="COURSESELECT/Courses" instance=ExtResource("10_oxygi")]
 position = Vector2(0, 95)

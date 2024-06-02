@@ -39,7 +39,7 @@ func _ready():
 		$UI.scale = Vector2(1,-1)
 		$transition.scale = Vector2(1,-1)
 	
-	await get_tree().create_timer(0.05).timeout
+	await get_tree().create_timer(0.25).timeout
 	$UI.visible = true
 
 func reloadLevel():
