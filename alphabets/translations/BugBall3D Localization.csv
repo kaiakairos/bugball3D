@@ -36,9 +36,9 @@ C_COMINGSOON,coming soon,muy pronto,chegando em breve,à venir,近日公開,demn
 SHADER_COMPILE,compiling shaders,compilando sombreadores,compilando shaders,compilation de shaders,シェーダのコンパイル,kompilieren von shader
 WINDOW_FOCUS,click to focus window,haga clic para enfocar la ventana,clique para dar foco à janela,cliquez pour donner le focus à la fenêtre,クリックしてウィンドウにフォーカスを移動します,"klicken sie, um den fokus auf das fenster zu richten"
 OPTION_LANG,language,idioma,idioma,langue,言語,sprache
-EASY,easy,fácil,fácil,facile,易しい,einfach
-MEDIUM,medium,intermedio,médio,moyen,普通,mittel
-HARD,hard,difícil,difícil,difficile,難しい,schwer
+EASY,easy course,nivel fácil,nível fácil,niveau facile,イージーレベル,einfaches niveau
+MEDIUM,medium course,nivel intermedio,nível médio,niveau moyen,中位,mittlere ebene
+HARD,hard course,nivel difícil,nível difícil,niveau élevé,ハードレベル,hartes niveau
 MOD_NAME_ROLL,overdrive,overdrive,velocidade infernal,surmultipliée,オーバードライブ,enorme geschwindigkeit
 MOD_NAME_MIRROR,mirror world,mundo espejo,espelhar,monde des miroirs,鏡,spiegel
 MOD_NAME_FUSE,fuse,mecha,fusível,fuse,信管,"
