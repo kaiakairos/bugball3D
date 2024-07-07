@@ -6,8 +6,10 @@ extends CharacterBody2D
 @onready var ball = $SubViewport/ball3d
 @onready var vpSprite = $BallCenter/viewportSprite
 
+@onready var ballEpic = $BallCenter
 
 @onready var camera = $Camera2D
+@onready var camOffset = $cameraOffset
 
 @onready var skid = preload("res://object_scenes/entity/skid/skid_mark.tscn")
 
@@ -48,6 +50,8 @@ var falling = false
 var rayLength = 1.0
 
 var canMove = false
+var inPipe = false
+
 
 ## dusts
 
@@ -111,7 +115,7 @@ func _process(delta):
 	else:
 		$CanvasGroup/DASH.emitting = false
 	
-	if Input.is_action_just_pressed("jump"):
+	if Input.is_action_just_pressed("jump") and canMove:
 		jumpBufferTicks = 10
 	if	jumpBufferTicks > 0 and air <= 0.0:
 		# Jump code
@@ -153,6 +157,9 @@ func _process(delta):
 		rolling = rollToggle
 	else:
 		rolling = Input.is_action_pressed("roll")
+	
+	if inPipe:
+		rolling = true
 	
 	if $boostCast.is_colliding():
 		rolling = true
@@ -429,6 +436,9 @@ func setZHeightFALL(delta):
 
 func offsetCamera():
 	
+	#if inPipe:
+	#	return
+	
 	var c = camera.global_position
 	
 	var balls =  velocity * 0.1
@@ -479,7 +489,7 @@ func checkIfHole():
 		
 		if !win:
 			holeCoyoteTick += 1
-			if holeCoyoteTick <= 5:
+			if holeCoyoteTick <= 3:
 				return
 		
 		
@@ -618,3 +628,25 @@ func changeSkin():
 			$BodyOutline.default_color = Color(1.0,1.0,1.0,0.2)
 		8:
 			bounceSoundFile = "res://audio/basketball.ogg"
+
+func teleportPlayerCameraRelative(ogPosition,newPosition):
+
+	camera.global_position = newPosition
+	
+	camera.global_position.x = clamp(camera.global_position.x, cameraLimitX.x, cameraLimitX.y)
+	camera.global_position.y = clamp(camera.global_position.y, cameraLimitY.x, cameraLimitY.y)
+	
+func offsetRollSprite(pos):
+	bodyOutline.position = pos
+	ballEpic.position = pos
+	bodyLine.position = pos
+
+func fakeRollSound(amount):
+	if tick % 8 == 0:
+		
+		var vol = ((amount / 1000.0) * 42.0) - 24.0
+		vol = clamp(vol,-24,-5.0)
+		var pitch = amount / 1000.0
+		pitch = clamp(pitch,0.01,2.0)
+		
+		Sound.playSound2D(global_position,"res://audio/speed.ogg",vol,pitch)

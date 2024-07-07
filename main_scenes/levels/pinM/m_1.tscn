@@ -1,0 +1,175 @@
+[gd_scene load_steps=5 format=3 uid="uid://bqull1uben37w"]
+
+[ext_resource type="PackedScene" uid="uid://bith1com1osw4" path="res://world_scenes/floor/cool_floor.tscn" id="1_rlppb"]
+[ext_resource type="PackedScene" uid="uid://8dac38b54nn2" path="res://object_scenes/entity/player/player.tscn" id="2_nctor"]
+[ext_resource type="PackedScene" uid="uid://c3kv871r8o7us" path="res://object_scenes/bumper/bumper.tscn" id="3_sy4pv"]
+[ext_resource type="PackedScene" uid="uid://d3fge1vcn4swp" path="res://object_scenes/flag/win.tscn" id="4_cafba"]
+
+[node name="m1" type="Node2D"]
+
+[node name="coolFloor" parent="." instance=ExtResource("1_rlppb")]
+position = Vector2(40, 192)
+polygon = PackedVector2Array(296, -16, 408, -16, 448, -56, 448, -112, 280, -128, 280, -1192, 696, -1192, 696, -128, 528, -112, 528, -16, 448, 64, 296, 64, 280, 48, 280, 0)
+
+[node name="Player" parent="." instance=ExtResource("2_nctor")]
+position = Vector2(352, 216)
+cameraLimitX = Vector2(527, 527)
+cameraLimitY = Vector2(-5000, 150)
+startingAngle = Vector2(1, 0)
+
+[node name="Bumper" parent="." instance=ExtResource("3_sy4pv")]
+position = Vector2(528, -24)
+
+[node name="Bumper2" parent="." instance=ExtResource("3_sy4pv")]
+position = Vector2(568, 16)
+
+[node name="Bumper3" parent="." instance=ExtResource("3_sy4pv")]
+position = Vector2(448, 24)
+
+[node name="Bumper4" parent="." instance=ExtResource("3_sy4pv")]
+position = Vector2(440, -32)
+
+[node name="Bumper5" parent="." instance=ExtResource("3_sy4pv")]
+position = Vector2(504, -96)
+
+[node name="Bumper6" parent="." instance=ExtResource("3_sy4pv")]
+position = Vector2(584, -88)
+
+[node name="Bumper7" parent="." instance=ExtResource("3_sy4pv")]
+position = Vector2(640, 0)
+
+[node name="Bumper8" parent="." instance=ExtResource("3_sy4pv")]
+position = Vector2(680, -80)
+
+[node name="Bumper9" parent="." instance=ExtResource("3_sy4pv")]
+position = Vector2(392, -96)
+
+[node name="Bumper10" parent="." instance=ExtResource("3_sy4pv")]
+position = Vector2(368, 8)
+
+[node name="Bumper11" parent="." instance=ExtResource("3_sy4pv")]
+position = Vector2(344, -176)
+
+[node name="Bumper12" parent="." instance=ExtResource("3_sy4pv")]
+position = Vector2(336, -240)
+
+[node name="Bumper13" parent="." instance=ExtResource("3_sy4pv")]
+position = Vector2(720, -160)
+
+[node name="Bumper14" parent="." instance=ExtResource("3_sy4pv")]
+position = Vector2(336, -808)
+
+[node name="Bumper15" parent="." instance=ExtResource("3_sy4pv")]
+position = Vector2(336, -808)
+
+[node name="Bumper16" parent="." instance=ExtResource("3_sy4pv")]
+position = Vector2(445, -142)
+
+[node name="Bumper17" parent="." instance=ExtResource("3_sy4pv")]
+position = Vector2(642, -176)
+
+[node name="Bumper18" parent="." instance=ExtResource("3_sy4pv")]
+position = Vector2(551, -173)
+
+[node name="Bumper19" parent="." instance=ExtResource("3_sy4pv")]
+position = Vector2(448, -230)
+
+[node name="Bumper20" parent="." instance=ExtResource("3_sy4pv")]
+position = Vector2(596, -245)
+
+[node name="Bumper21" parent="." instance=ExtResource("3_sy4pv")]
+position = Vector2(384, -299)
+
+[node name="Bumper22" parent="." instance=ExtResource("3_sy4pv")]
+position = Vector2(520, -262)
+
+[node name="Bumper23" parent="." instance=ExtResource("3_sy4pv")]
+position = Vector2(686, -284)
+
+[node name="Bumper24" parent="." instance=ExtResource("3_sy4pv")]
+position = Vector2(452, -341)
+
+[node name="Bumper25" parent="." instance=ExtResource("3_sy4pv")]
+position = Vector2(622, -329)
+
+[node name="Bumper26" parent="." instance=ExtResource("3_sy4pv")]
+position = Vector2(541, -359)
+
+[node name="Bumper27" parent="." instance=ExtResource("3_sy4pv")]
+position = Vector2(385, -389)
+
+[node name="Bumper28" parent="." instance=ExtResource("3_sy4pv")]
+position = Vector2(456, -414)
+
+[node name="Bumper29" parent="." instance=ExtResource("3_sy4pv")]
+position = Vector2(678, -414)
+
+[node name="Bumper30" parent="." instance=ExtResource("3_sy4pv")]
+position = Vector2(575, -464)
+
+[node name="Bumper31" parent="." instance=ExtResource("3_sy4pv")]
+position = Vector2(483, -503)
+
+[node name="Bumper32" parent="." instance=ExtResource("3_sy4pv")]
+position = Vector2(402, -468)
+
+[node name="Bumper33" parent="." instance=ExtResource("3_sy4pv")]
+position = Vector2(373, -539)
+
+[node name="Bumper34" parent="." instance=ExtResource("3_sy4pv")]
+position = Vector2(434, -600)
+
+[node name="Bumper35" parent="." instance=ExtResource("3_sy4pv")]
+position = Vector2(661, -501)
+
+[node name="Bumper36" parent="." instance=ExtResource("3_sy4pv")]
+position = Vector2(580, -548)
+
+[node name="Bumper37" parent="." instance=ExtResource("3_sy4pv")]
+position = Vector2(702, -560)
+
+[node name="Bumper38" parent="." instance=ExtResource("3_sy4pv")]
+position = Vector2(667, -639)
+
+[node name="Bumper39" parent="." instance=ExtResource("3_sy4pv")]
+position = Vector2(714, -718)
+
+[node name="Bumper40" parent="." instance=ExtResource("3_sy4pv")]
+position = Vector2(342, -639)
+
+[node name="Bumper41" parent="." instance=ExtResource("3_sy4pv")]
+position = Vector2(399, -700)
+
+[node name="Bumper42" parent="." instance=ExtResource("3_sy4pv")]
+position = Vector2(468, -767)
+
+[node name="Bumper43" parent="." instance=ExtResource("3_sy4pv")]
+position = Vector2(520, -604)
+
+[node name="Bumper44" parent="." instance=ExtResource("3_sy4pv")]
+position = Vector2(491, -693)
+
+[node name="Bumper45" parent="." instance=ExtResource("3_sy4pv")]
+position = Vector2(585, -668)
+
+[node name="Bumper46" parent="." instance=ExtResource("3_sy4pv")]
+position = Vector2(630, -730)
+
+[node name="Bumper47" parent="." instance=ExtResource("3_sy4pv")]
+position = Vector2(554, -767)
+
+[node name="Bumper48" parent="." instance=ExtResource("3_sy4pv")]
+position = Vector2(687, -796)
+
+[node name="Bumper49" parent="." instance=ExtResource("3_sy4pv")]
+position = Vector2(406, -788)
+
+[node name="WIN" parent="." instance=ExtResource("4_cafba")]
+position = Vector2(516, -928)
+
+[node name="ceil" parent="." instance=ExtResource("1_rlppb")]
+position = Vector2(136, -208)
+color = Color(0.537255, 0.721569, 0.847059, 1)
+polygon = PackedVector2Array(-152, -1184, 976, -1184, 600, -792, 184, -792, 184, 272, 352, 288, 352, 344, 312, 384, 200, 384, 184, 400, 184, 448, 200, 464, 352, 464, 432, 384, 432, 288, 600, 272, 600, -792, 976, -1184, 952, 632, -136, 624)
+renderWalls = false
+camOffset = 0.1

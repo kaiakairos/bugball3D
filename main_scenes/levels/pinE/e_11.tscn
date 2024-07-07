@@ -1,0 +1,70 @@
+[gd_scene load_steps=6 format=3 uid="uid://d21lhu5cbpnr5"]
+
+[ext_resource type="PackedScene" uid="uid://bith1com1osw4" path="res://world_scenes/floor/cool_floor.tscn" id="1_ft7kn"]
+[ext_resource type="PackedScene" uid="uid://b00oindmgrd6" path="res://world_scenes/hole/hole.tscn" id="2_cmq8f"]
+[ext_resource type="PackedScene" uid="uid://8dac38b54nn2" path="res://object_scenes/entity/player/player.tscn" id="3_kulib"]
+[ext_resource type="PackedScene" uid="uid://dbmoijcfipmxk" path="res://object_scenes/track/track.tscn" id="4_yart3"]
+[ext_resource type="PackedScene" uid="uid://d3fge1vcn4swp" path="res://object_scenes/flag/win.tscn" id="5_5llja"]
+
+[node name="e11" type="Node2D"]
+
+[node name="coolFloor" parent="." instance=ExtResource("1_ft7kn")]
+position = Vector2(16, 16)
+polygon = PackedVector2Array(-72, -48, 144, -48, 176, -80, 176, -304, 416, -304, 416, -384, 432, -400, 496, -400, 512, -384, 512, -304, 616, -304, 616, 176, 368, 176, 336, 208, 336, 352, -72, 352)
+
+[node name="HOLE" parent="." instance=ExtResource("2_cmq8f")]
+position = Vector2(0, 144)
+polygon = PackedVector2Array(-56, -176, 16, -176, 16, -104, 112, -104, 112, -176, 160, -176, 192, -208, 192, -432, 432, -432, 432, -368, 440, -360, 520, -360, 528, -368, 528, -432, 632, -432, 632, 48, 384, 48, 352, 80, 352, 224, -56, 224)
+
+[node name="island" parent="." instance=ExtResource("1_ft7kn")]
+z_index = -3
+position = Vector2(48, 88)
+polygon = PackedVector2Array(8, 0, 88, 0, 96, 8, 96, 48, 112, 64, 160, 64, 168, 72, 168, 112, 160, 120, 8, 120, 0, 112, 0, 8)
+swapWalls = true
+island = true
+
+[node name="island3" parent="." instance=ExtResource("1_ft7kn")]
+z_index = -3
+position = Vector2(432, -32)
+polygon = PackedVector2Array(8, 0, 88, 0, 96, 8, 96, 112, 88, 120, 8, 120, 0, 112, 0, 8)
+swapWalls = true
+island = true
+
+[node name="island2" parent="." instance=ExtResource("1_ft7kn")]
+z_index = -3
+position = Vector2(232, 224)
+polygon = PackedVector2Array(-64, 0, 120, 0, 120, 128, -80, 128, -80, 16)
+swapWalls = true
+island = true
+
+[node name="Player" parent="." instance=ExtResource("3_kulib")]
+position = Vector2(64, 0)
+cameraLimitX = Vector2(160, 512)
+cameraLimitY = Vector2(-256, 245)
+startingAngle = Vector2(0, 1)
+
+[node name="Track" parent="." instance=ExtResource("4_yart3")]
+position = Vector2(176, 336)
+points = PackedVector2Array(32, -8, -16, -8, -184, -8, -184, -216, 144, -216, 144, -424, -24, -424, -56, -424)
+
+[node name="WIN" parent="." instance=ExtResource("5_5llja")]
+position = Vector2(480, -336)
+
+[node name="coolFloor2" parent="." instance=ExtResource("1_ft7kn")]
+position = Vector2(-56, -120)
+polygon = PackedVector2Array(0, -168, 224, -168, 224, 48, 208, 64, 40, 64, 0, 24)
+
+[node name="HOLE2" parent="." instance=ExtResource("2_cmq8f")]
+position = Vector2(-56, -288)
+polygon = PackedVector2Array(224, 0, 224, 176, 72, 176, 48, 152, 0, 152, 0, 0)
+
+[node name="Track2" parent="." instance=ExtResource("4_yart3")]
+position = Vector2(-32, -264)
+points = PackedVector2Array(0, 24, 0, -16, 0, -40, 400, -40, 400, 416, 512, 416, 512, 344, 512, 312)
+
+[node name="ceil" parent="." instance=ExtResource("1_ft7kn")]
+position = Vector2(-160, -432)
+color = Color(0.435294, 0.643137, 0.917647, 1)
+polygon = PackedVector2Array(-128, -64, 976, -64, 1024, 624, 792, 624, 792, 144, 688, 144, 688, 64, 672, 48, 608, 48, 592, 64, 592, 144, 104, 144, 104, 336, 144, 376, 312, 376, 328, 360, 328, 144, 352, 144, 352, 368, 320, 400, 104, 400, 104, 800, 512, 800, 512, 656, 544, 624, 1024, 624, 936, 1048, -112, 1056)
+renderWalls = false
+camOffset = 0.1

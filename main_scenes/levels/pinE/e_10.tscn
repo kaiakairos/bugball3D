@@ -1,0 +1,52 @@
+[gd_scene load_steps=5 format=3 uid="uid://dodjjn6vobrpm"]
+
+[ext_resource type="PackedScene" uid="uid://bith1com1osw4" path="res://world_scenes/floor/cool_floor.tscn" id="1_0r7sd"]
+[ext_resource type="PackedScene" uid="uid://dbmoijcfipmxk" path="res://object_scenes/track/track.tscn" id="2_yw3ja"]
+[ext_resource type="PackedScene" uid="uid://8dac38b54nn2" path="res://object_scenes/entity/player/player.tscn" id="3_3qo07"]
+[ext_resource type="PackedScene" uid="uid://d3fge1vcn4swp" path="res://object_scenes/flag/win.tscn" id="4_3qank"]
+
+[node name="e10" type="Node2D"]
+
+[node name="coolFloor" parent="." instance=ExtResource("1_0r7sd")]
+position = Vector2(100, -28)
+polygon = PackedVector2Array(0, 88, 80, 88, 80, 184, 112, 216, 328, 216, 328, 296, 80, 296, 0, 216)
+
+[node name="coolFloor2" parent="." instance=ExtResource("1_0r7sd")]
+position = Vector2(212, 100)
+polygon = PackedVector2Array(0, 0, 216, 0, 216, 64, 16, 64, 0, 48)
+
+[node name="Track3" parent="." instance=ExtResource("2_yw3ja")]
+position = Vector2(412, 60)
+points = PackedVector2Array(-32, 0, 0, 0, 53, 0, 53, 168, 8, 168, -32, 168)
+
+[node name="Track" parent="." instance=ExtResource("2_yw3ja")]
+position = Vector2(396, 220)
+points = PackedVector2Array(-304, 32, -264, 32, -88, 32, -88, -136, 46, -136, 46, -88, 16, -88, -16, -88)
+
+[node name="Track2" parent="." instance=ExtResource("2_yw3ja")]
+position = Vector2(220, 132)
+points = PackedVector2Array(48, 0, -1.49377, 0, -176, 0, -176, -88, -80, -88, -80, -64, -80, -24)
+
+[node name="coolFloor3" parent="." instance=ExtResource("1_0r7sd")]
+position = Vector2(28, 172)
+polygon = PackedVector2Array(0, 24, 56, 24, 128, 96, 0, 96)
+
+[node name="Player" parent="." instance=ExtResource("3_3qo07")]
+position = Vector2(228, 60)
+cameraLimitX = Vector2(250, 250)
+cameraLimitY = Vector2(150, 150)
+startingAngle = Vector2(1, 0)
+
+[node name="WIN" parent="." instance=ExtResource("4_3qank")]
+position = Vector2(66, 231)
+
+[node name="coolFloor4" parent="." instance=ExtResource("1_0r7sd")]
+position = Vector2(196, 20)
+polygon = PackedVector2Array(0, 24, 224, 24, 224, 56, 0, 56)
+
+[node name="ceil" parent="." instance=ExtResource("1_0r7sd")]
+position = Vector2(-42, -53)
+color = Color(0.435294, 0.643137, 0.917647, 1)
+polygon = PackedVector2Array(-51, -56, 667, -45, 657, 494, 470, 321, 470, 153, 462, 153, 462, 97, 238, 97, 238, 129, 462, 129, 462, 153, 254, 153, 254, 201, 270, 217, 470, 217, 470, 241, 254, 241, 222, 209, 222, 113, 142, 113, 142, 241, 222, 321, 198, 321, 126, 249, 70, 249, 70, 321, 470, 321, 657, 494, -53, 499)
+renderWalls = false
+camOffset = 0.1

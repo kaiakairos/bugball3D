@@ -265,11 +265,6 @@ func playMenu(delta):
 	if Input.is_action_just_pressed("menuSelect"):
 		difficulty = -1
 		Sound.playSound2D(Vector2(250,150),"res://audio/menuSelect.ogg",menuVol)
-		if courseSelect > 0:
-			#Remove when there are more courses
-			#For coming soon courses
-			OS.shell_open("https://store.steampowered.com/app/2976450")
-			return
 		
 		#Sound.playSound2D(Vector2(250,150),"res://audio/menuSelection.ogg",menuVol)
 		
@@ -400,6 +395,14 @@ func courseMenu(delta):
 				Global.LVLHOLDER = course.hardLevels
 				Global.levelSaveCode = course.saveCodeH
 				Global.levelRANKHolder = course.rankLimitH
+				
+		MapTextures.wallTexture = course.wallTexture
+		MapTextures.floorTextures = course.floorTextures
+		MapTextures.ceilingTextures = course.ceilingTextures
+		MapTextures.ceilDye = course.ceilDye
+		MapTextures.holeTexture = course.holeTexture
+		MapTextures.ceilBorderColor = course.ceilBorderColor
+		MapTextures.wallBorderColor = course.wallBorderColor
 		
 		ballOut()
 

@@ -1,0 +1,81 @@
+[gd_scene load_steps=8 format=3 uid="uid://yfk5eugl0v45"]
+
+[ext_resource type="PackedScene" uid="uid://bith1com1osw4" path="res://world_scenes/floor/cool_floor.tscn" id="1_cfkes"]
+[ext_resource type="PackedScene" uid="uid://clbiw3v6v47xy" path="res://object_scenes/items/dropTarget/dropTarget.tscn" id="2_y3sh8"]
+[ext_resource type="PackedScene" uid="uid://8dac38b54nn2" path="res://object_scenes/entity/player/player.tscn" id="3_jo1pi"]
+[ext_resource type="PackedScene" uid="uid://dbmoijcfipmxk" path="res://object_scenes/track/track.tscn" id="4_3wyre"]
+[ext_resource type="PackedScene" uid="uid://b00oindmgrd6" path="res://world_scenes/hole/hole.tscn" id="5_n1psh"]
+[ext_resource type="PackedScene" uid="uid://s2xavy6ulj3q" path="res://world_scenes/boost/boost_pad.tscn" id="6_8r256"]
+[ext_resource type="PackedScene" uid="uid://d3fge1vcn4swp" path="res://object_scenes/flag/win.tscn" id="7_ra1j1"]
+
+[node name="h0" type="Node2D"]
+
+[node name="coolFloor" parent="." instance=ExtResource("1_cfkes")]
+position = Vector2(40, 48)
+polygon = PackedVector2Array(0, 0, 96, 0, 96, 336, 128, 368, 344, 368, 376, 336, 408, 216, 408, 136, 440, 136, 440, 216, 464, 368, 576, 368, 576, 456, 88, 456, 0, 368)
+
+[node name="coolFloor2" parent="." instance=ExtResource("1_cfkes")]
+position = Vector2(560, 216)
+polygon = PackedVector2Array(-680, -288, 96, -288, 96, -80, -264, -80, -376, -192, -680, -192)
+
+[node name="dropTarget" parent="." instance=ExtResource("2_y3sh8")]
+position = Vector2(416, 504)
+length = 125
+angle = -0.785
+
+[node name="Player" parent="." instance=ExtResource("3_jo1pi")]
+position = Vector2(80, 168)
+cameraLimitX = Vector2(0, 535)
+cameraLimitY = Vector2(-25, 375)
+startingAngle = Vector2(0, 1)
+
+[node name="Track" parent="." instance=ExtResource("4_3wyre")]
+position = Vector2(464, 192)
+points = PackedVector2Array(0, 64, 0, 16, 0, -304, 248, -304, 248, -200, 184, -200, 128, -200)
+
+[node name="HOLE" parent="." instance=ExtResource("5_n1psh")]
+position = Vector2(152, -72)
+polygon = PackedVector2Array(0, 0, 272, 0, 272, 208, 144, 208, 32, 96, 0, 96)
+
+[node name="boostPad" parent="." instance=ExtResource("6_8r256")]
+position = Vector2(424, -72)
+texture_rotation = 3.142
+polygon = PackedVector2Array(0, 0, 104, 0, 104, 208, 0, 208)
+angle = 3.142
+
+[node name="Track2" parent="." instance=ExtResource("4_3wyre")]
+position = Vector2(-168, -16)
+points = PackedVector2Array(216, 8, 152, 8, 8, 8, 8, 120, 128, 120, 128, -80, 248, -80, 248, 88, 248, 144)
+
+[node name="boostPad2" parent="." instance=ExtResource("6_8r256")]
+position = Vector2(168, 416)
+polygon = PackedVector2Array(0, 0, 0, 88, 216, 88, 216, 0)
+
+[node name="boostPad3" parent="." instance=ExtResource("6_8r256")]
+position = Vector2(-120, -72)
+texture_rotation = 3.142
+polygon = PackedVector2Array(0, 0, 0, 96, 272, 96, 272, 0)
+angle = 3.142
+
+[node name="Track3" parent="." instance=ExtResource("4_3wyre")]
+position = Vector2(584, 456)
+points = PackedVector2Array(-24, 0, 16, 0, 80, 0, 80, -80, -216, -80, -264, -80)
+
+[node name="coolFloor3" parent="." instance=ExtResource("1_cfkes")]
+position = Vector2(160, 192)
+polygon = PackedVector2Array(40, 0, 160, 0, 200, -40, 264, -40, 264, 16, 216, 64, 216, 208, 32, 208, 0, 176, 0, 40)
+
+[node name="Track4" parent="." instance=ExtResource("4_3wyre")]
+position = Vector2(376, 184)
+points = PackedVector2Array(16, 8, 16, -24, 16, -328, 368, -328, 368, 112, 264, 112, 216, 112)
+
+[node name="coolFloor4" parent="." instance=ExtResource("1_cfkes")]
+position = Vector2(512, 224)
+polygon = PackedVector2Array(48, -40, 144, -40, 144, 96, 48, 96, 8, 56, 8, 0)
+
+[node name="WIN" parent="." instance=ExtResource("7_ra1j1")]
+position = Vector2(608, 224)
+
+[node name="HOLE2" parent="." instance=ExtResource("5_n1psh")]
+position = Vector2(208, 248)
+polygon = PackedVector2Array(8, 8, 168, 8, 168, 104, 8, 104)

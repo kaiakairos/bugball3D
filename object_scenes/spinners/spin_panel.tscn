@@ -1,0 +1,33 @@
+[gd_scene load_steps=4 format=3 uid="uid://dacm0e14kmkni"]
+
+[ext_resource type="PackedScene" uid="uid://bf4sjfwvbg1x0" path="res://world_scenes/wall/wall.tscn" id="1_oq4fi"]
+[ext_resource type="Script" path="res://object_scenes/spinners/spin_panel.gd" id="1_rdqvx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iuw43"]
+size = Vector2(126, 8)
+
+[node name="SpinPanel" type="Node2D"]
+script = ExtResource("1_rdqvx")
+speed = 4
+
+[node name="Wall" parent="." instance=ExtResource("1_oq4fi")]
+shouldHaveCollision = false
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -4)
+shape = SubResource("RectangleShape2D_iuw43")
+
+[node name="Area2D2" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
+position = Vector2(0, 4)
+shape = SubResource("RectangleShape2D_iuw43")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="Area2D2" to="." method="_on_area_2d_2_body_entered"]

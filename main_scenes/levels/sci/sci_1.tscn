@@ -1,0 +1,30 @@
+[gd_scene load_steps=6 format=3 uid="uid://cdyugob3guo4k"]
+
+[ext_resource type="PackedScene" uid="uid://bith1com1osw4" path="res://world_scenes/floor/cool_floor.tscn" id="1_towum"]
+[ext_resource type="PackedScene" uid="uid://b00oindmgrd6" path="res://world_scenes/hole/hole.tscn" id="2_dmemv"]
+[ext_resource type="PackedScene" uid="uid://bphxap7kmp12v" path="res://object_scenes/portal/portal.tscn" id="3_x8avr"]
+[ext_resource type="PackedScene" uid="uid://8dac38b54nn2" path="res://object_scenes/entity/player/player.tscn" id="4_drf2k"]
+[ext_resource type="PackedScene" uid="uid://d3fge1vcn4swp" path="res://object_scenes/flag/win.tscn" id="5_137ll"]
+
+[node name="sci1" type="Node2D"]
+
+[node name="coolFloor" parent="." instance=ExtResource("1_towum")]
+position = Vector2(88, 80)
+polygon = PackedVector2Array(336, 0, 432, 64, 1304, 64, 1336, 96, 1336, 128, 1304, 160, 0, 160, 0, 64, -72, 64, -72, 0)
+
+[node name="HOLE" parent="." instance=ExtResource("2_dmemv")]
+position = Vector2(392, 144)
+polygon = PackedVector2Array(-304, 0, 512, 0, 512, 96, -304, 96)
+
+[node name="Portal" parent="." instance=ExtResource("3_x8avr")]
+position = Vector2(56, 112)
+secondPortal = Vector2(326.25, 0)
+
+[node name="Player" parent="." instance=ExtResource("4_drf2k")]
+position = Vector2(112, 112)
+cameraLimitX = Vector2(240, 1240)
+cameraLimitY = Vector2(150, 150)
+startingAngle = Vector2(1, 0)
+
+[node name="WIN" parent="." instance=ExtResource("5_137ll")]
+position = Vector2(1384, 192)

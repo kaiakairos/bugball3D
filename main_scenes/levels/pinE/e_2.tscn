@@ -1,0 +1,49 @@
+[gd_scene load_steps=6 format=3 uid="uid://bd1hvru6jba6d"]
+
+[ext_resource type="PackedScene" uid="uid://bith1com1osw4" path="res://world_scenes/floor/cool_floor.tscn" id="1_dlgtv"]
+[ext_resource type="PackedScene" uid="uid://8dac38b54nn2" path="res://object_scenes/entity/player/player.tscn" id="2_xcvqw"]
+[ext_resource type="PackedScene" uid="uid://b00oindmgrd6" path="res://world_scenes/hole/hole.tscn" id="3_d8gdh"]
+[ext_resource type="PackedScene" uid="uid://d3fge1vcn4swp" path="res://object_scenes/flag/win.tscn" id="4_um0x3"]
+[ext_resource type="PackedScene" uid="uid://c3kv871r8o7us" path="res://object_scenes/bumper/bumper.tscn" id="5_fw0um"]
+
+[node name="e2" type="Node2D"]
+
+[node name="coolFloor" parent="." instance=ExtResource("1_dlgtv")]
+position = Vector2(24, 128)
+polygon = PackedVector2Array(24, -32, 48, -56, 360, -56, 480, 64, 480, 328, 360, 448, 144, 448, 24, 328, 24, 144, 40, 136, 128, 136, 144, 144, 144, 168, 360, 168, 360, 96, 328, 64, 48, 64, 24, 40)
+
+[node name="Player" parent="." instance=ExtResource("2_xcvqw")]
+position = Vector2(82, 132)
+cameraLimitX = Vector2(270, 282)
+cameraLimitY = Vector2(180, 450)
+startingAngle = Vector2(1, 0)
+
+[node name="HOLE" parent="." instance=ExtResource("3_d8gdh")]
+position = Vector2(248, 72)
+polygon = PackedVector2Array(0, 0, 88, 0, 88, 120, 0, 120)
+
+[node name="WIN" parent="." instance=ExtResource("4_um0x3")]
+position = Vector2(108, 306)
+
+[node name="HOLE2" parent="." instance=ExtResource("3_d8gdh")]
+position = Vector2(200, 456)
+polygon = PackedVector2Array(0, 0, -32, -32, -32, -160, 184, -160, 184, -32, 152, 0, 152, 32, 0, 32)
+
+[node name="Bumper" parent="." instance=ExtResource("5_fw0um")]
+position = Vector2(204, 560)
+
+[node name="Bumper2" parent="." instance=ExtResource("5_fw0um")]
+position = Vector2(252, 560)
+
+[node name="Bumper3" parent="." instance=ExtResource("5_fw0um")]
+position = Vector2(300, 560)
+
+[node name="Bumper4" parent="." instance=ExtResource("5_fw0um")]
+position = Vector2(348, 560)
+
+[node name="ceil" parent="." instance=ExtResource("1_dlgtv")]
+position = Vector2(-8, -8)
+color = Color(0.435294, 0.643137, 0.917647, 1)
+polygon = PackedVector2Array(-16, -8, 656, -8, 656, 680, 176, 680, 176, 584, 392, 584, 512, 464, 512, 200, 392, 80, 80, 80, 56, 104, 56, 176, 80, 200, 360, 200, 392, 232, 392, 304, 176, 304, 176, 280, 160, 272, 72, 272, 56, 280, 56, 464, 176, 584, 176, 680, -16, 680)
+renderWalls = false
+camOffset = 0.1

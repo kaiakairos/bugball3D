@@ -68,7 +68,7 @@ position = Vector2(64, 288)
 z_index = -3
 position = Vector2(-64, 40)
 polygon = PackedVector2Array(32, 0, 88, 0, 96, 8, 96, 56, 88, 64, 32, 64)
-renderWalls = false
+swapWalls = true
 island = true
 
 [node name="boostPad" parent="." instance=ExtResource("5_ftyvb")]

@@ -20,6 +20,7 @@ config/icon="res://fatUgly.png"
 
 Ngio="*res://autoload/ngio.gd"
 Global="*res://autoload/global.gd"
+MapTextures="*res://autoload/maptextures.gd"
 Sound="*res://autoload/sound.gd"
 Saving="*res://autoload/saving.gd"
 SkinHandler="*res://autoload/skinHandler.gd"

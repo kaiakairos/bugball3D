@@ -1,0 +1,121 @@
+[gd_scene load_steps=8 format=3 uid="uid://bphxap7kmp12v"]
+
+[ext_resource type="Script" path="res://object_scenes/portal/portal.gd" id="1_3o4jg"]
+[ext_resource type="Material" uid="uid://bqcafj54nrc7g" path="res://ui_scenes/outlineCanvasMaterial.tres" id="2_cdcva"]
+[ext_resource type="Texture2D" uid="uid://bnwnfdpil6abm" path="res://object_scenes/entity/player/tail.png" id="3_vgpbn"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4pq5o"]
+radius = 16.0
+
+[sub_resource type="Curve" id="Curve_ea1w8"]
+max_value = 2.0
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.867347, 0.5), 0.524998, 0.524998, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Gradient" id="Gradient_ska5b"]
+colors = PackedColorArray(0.890196, 0, 0.454902, 1, 1, 1, 1, 1)
+
+[sub_resource type="Curve" id="Curve_ogtu3"]
+max_value = 8.0
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.517007, 6.21429), 0.524998, 0.524998, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[node name="Portal" type="Node2D"]
+script = ExtResource("1_3o4jg")
+
+[node name="poop" type="CanvasGroup" parent="."]
+material = ExtResource("2_cdcva")
+
+[node name="Portal1" type="Node2D" parent="poop"]
+
+[node name="portal1" type="Area2D" parent="poop/Portal1"]
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="poop/Portal1/portal1"]
+shape = SubResource("CircleShape2D_4pq5o")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="poop/Portal1"]
+amount = 48
+lifetime = 0.5
+texture = ExtResource("3_vgpbn")
+emission_shape = 1
+emission_sphere_radius = 32.0
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_max = 12.74
+angular_velocity_min = -265.52
+angular_velocity_max = 256.82
+orbit_velocity_max = 0.15
+radial_accel_min = -100.0
+radial_accel_max = -100.0
+angle_min = -720.0
+angle_max = 720.0
+scale_amount_curve = SubResource("Curve_ea1w8")
+color_ramp = SubResource("Gradient_ska5b")
+
+[node name="CPUParticles2D2" type="CPUParticles2D" parent="poop/Portal1"]
+amount = 16
+lifetime = 0.5
+emission_shape = 1
+emission_sphere_radius = 8.0
+spread = 0.0
+gravity = Vector2(0, 0)
+angular_velocity_min = -720.0
+angular_velocity_max = 720.0
+orbit_velocity_min = -1.0
+orbit_velocity_max = 1.0
+angle_min = -720.0
+angle_max = 720.0
+scale_amount_curve = SubResource("Curve_ogtu3")
+
+[node name="Portal2" type="Node2D" parent="poop"]
+position = Vector2(32, 0)
+
+[node name="portal2" type="Area2D" parent="poop/Portal2"]
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="poop/Portal2/portal2"]
+shape = SubResource("CircleShape2D_4pq5o")
+
+[node name="CPUParticles2D3" type="CPUParticles2D" parent="poop/Portal2"]
+amount = 48
+lifetime = 0.5
+texture = ExtResource("3_vgpbn")
+emission_shape = 1
+emission_sphere_radius = 32.0
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_max = 12.74
+angular_velocity_min = -265.52
+angular_velocity_max = 256.82
+orbit_velocity_max = 0.15
+radial_accel_min = -100.0
+radial_accel_max = -100.0
+angle_min = -720.0
+angle_max = 720.0
+scale_amount_curve = SubResource("Curve_ea1w8")
+color_ramp = SubResource("Gradient_ska5b")
+
+[node name="CPUParticles2D4" type="CPUParticles2D" parent="poop/Portal2"]
+amount = 16
+lifetime = 0.5
+emission_shape = 1
+emission_sphere_radius = 8.0
+spread = 0.0
+gravity = Vector2(0, 0)
+angular_velocity_min = -720.0
+angular_velocity_max = 720.0
+orbit_velocity_min = -1.0
+orbit_velocity_max = 1.0
+angle_min = -720.0
+angle_max = 720.0
+scale_amount_curve = SubResource("Curve_ogtu3")
+
+[connection signal="body_entered" from="poop/Portal1/portal1" to="." method="_on_portal_1_body_entered"]
+[connection signal="body_exited" from="poop/Portal1/portal1" to="." method="_on_portal_1_body_exited"]
+[connection signal="body_entered" from="poop/Portal2/portal2" to="." method="_on_portal_2_body_entered"]
+[connection signal="body_exited" from="poop/Portal2/portal2" to="." method="_on_portal_2_body_exited"]

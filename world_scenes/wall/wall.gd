@@ -46,16 +46,25 @@ func _ready():
 		
 		poly.texture = wallTexture
 		
-		texSize = wallTexture.get_size()
+		if wallTexture != null:
+			texSize = wallTexture.get_size()
 		
 		poly.vertex_colors = colorarray
 		
-		if shouldHaveCollision:
-			var newpolycoll = PackedVector2Array()
-			newpolycoll.append(Vector2.ZERO)
-			newpolycoll.append(secondPoint)
-			newpolycoll.append((secondPoint/2) + ( secondPoint.normalized().rotated(PI/2) * -8))
-			$StaticBody2D/CollisionPolygon2D.polygon = newpolycoll
+		topLine.default_color = MapTextures.ceilBorderColor
+		bottomLine.default_color = MapTextures.wallBorderColor
+		leftLine.default_color = MapTextures.wallBorderColor
+		rightLine.default_color = MapTextures.wallBorderColor
+		
+		setCollision()
+
+func setCollision():
+	if shouldHaveCollision:
+		var newpolycoll = PackedVector2Array()
+		newpolycoll.append(Vector2.ZERO)
+		newpolycoll.append(secondPoint)
+		newpolycoll.append((secondPoint/2) + ( secondPoint.normalized().rotated(PI/2) * -8))
+		$StaticBody2D/CollisionPolygon2D.polygon = newpolycoll
 
 func _process(delta):
 	if !Engine.is_editor_hint():

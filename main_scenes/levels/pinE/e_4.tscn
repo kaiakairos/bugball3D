@@ -1,0 +1,45 @@
+[gd_scene load_steps=7 format=3 uid="uid://dowybqglxvdh3"]
+
+[ext_resource type="PackedScene" uid="uid://bith1com1osw4" path="res://world_scenes/floor/cool_floor.tscn" id="1_7jsiy"]
+[ext_resource type="PackedScene" uid="uid://d3fge1vcn4swp" path="res://object_scenes/flag/win.tscn" id="2_4wgqb"]
+[ext_resource type="PackedScene" uid="uid://dbmoijcfipmxk" path="res://object_scenes/track/track.tscn" id="3_ifkw0"]
+[ext_resource type="PackedScene" uid="uid://8dac38b54nn2" path="res://object_scenes/entity/player/player.tscn" id="4_4pg41"]
+[ext_resource type="PackedScene" uid="uid://c3kv871r8o7us" path="res://object_scenes/bumper/bumper.tscn" id="5_qhysc"]
+[ext_resource type="PackedScene" uid="uid://b00oindmgrd6" path="res://world_scenes/hole/hole.tscn" id="6_qjs6h"]
+
+[node name="e4" type="Node2D"]
+
+[node name="coolFloor" parent="." instance=ExtResource("1_7jsiy")]
+position = Vector2(88, 44)
+polygon = PackedVector2Array(0, 0, 128, 0, 128, 208, 160, 240, 344, 240, 344, 308, 72, 308, 0, 236)
+
+[node name="coolFloor2" parent="." instance=ExtResource("1_7jsiy")]
+position = Vector2(280, 44)
+polygon = PackedVector2Array(-32, 0, 128, 0, 128, 216, 40, 216, -32, 144)
+
+[node name="WIN" parent="." instance=ExtResource("2_4wgqb")]
+position = Vector2(368, 220)
+
+[node name="Track" parent="." instance=ExtResource("3_ifkw0")]
+position = Vector2(128, 52)
+points = PackedVector2Array(0, 88, 0, 24, 0, -104, 64, -104, 64, 252, 144, 252, 144, -40, 176, -40, 176, 24, 176, 72)
+
+[node name="Player" parent="." instance=ExtResource("4_4pg41")]
+position = Vector2(360, 320)
+cameraLimitX = Vector2(250, 250)
+cameraLimitY = Vector2(60, 225)
+startingAngle = Vector2(-1, 0)
+
+[node name="Bumper" parent="." instance=ExtResource("5_qhysc")]
+position = Vector2(392, 320)
+
+[node name="HOLE" parent="." instance=ExtResource("6_qjs6h")]
+position = Vector2(160, 48)
+polygon = PackedVector2Array(8, -4, 56, -4, 56, 152, 8, 152)
+
+[node name="ceil" parent="." instance=ExtResource("1_7jsiy")]
+position = Vector2(56, -8)
+color = Color(0.435294, 0.643137, 0.917647, 1)
+polygon = PackedVector2Array(-128, -168, 536, -168, 536, -24, 536, 528, 376, 528, 376, 360, 376, 292, 192, 292, 160, 260, 160, 52, 192, 52, 192, 196, 264, 268, 352, 268, 352, 52, 32, 52, 32, 288, 104, 360, 376, 360, 376, 528, -128, 528)
+renderWalls = false
+camOffset = 0.1

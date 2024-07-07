@@ -1,0 +1,50 @@
+[gd_scene load_steps=7 format=3 uid="uid://c3jshnp8wjsur"]
+
+[ext_resource type="PackedScene" uid="uid://8dac38b54nn2" path="res://object_scenes/entity/player/player.tscn" id="1_w236o"]
+[ext_resource type="PackedScene" uid="uid://bith1com1osw4" path="res://world_scenes/floor/cool_floor.tscn" id="2_6b556"]
+[ext_resource type="PackedScene" uid="uid://bphxap7kmp12v" path="res://object_scenes/portal/portal.tscn" id="3_3eane"]
+[ext_resource type="PackedScene" uid="uid://dbmoijcfipmxk" path="res://object_scenes/track/track.tscn" id="4_5ncuf"]
+[ext_resource type="PackedScene" uid="uid://c3kv871r8o7us" path="res://object_scenes/bumper/bumper.tscn" id="4_tlluy"]
+[ext_resource type="PackedScene" uid="uid://clbiw3v6v47xy" path="res://object_scenes/items/dropTarget/dropTarget.tscn" id="6_h4vhl"]
+
+[node name="TestEnvironment" type="Node2D"]
+
+[node name="coolFloor" parent="." instance=ExtResource("2_6b556")]
+position = Vector2(-38, -20)
+polygon = PackedVector2Array(22, -76, 894, -76, 894, 476, 14, 476)
+
+[node name="Portal" parent="." instance=ExtResource("3_3eane")]
+position = Vector2(72, 336)
+secondPortal = Vector2(600, -300)
+
+[node name="Bumper" parent="." instance=ExtResource("4_tlluy")]
+position = Vector2(296, 184)
+
+[node name="Bumper2" parent="." instance=ExtResource("4_tlluy")]
+position = Vector2(480, 40)
+
+[node name="Bumper3" parent="." instance=ExtResource("4_tlluy")]
+position = Vector2(616, 336)
+
+[node name="Bumper4" parent="." instance=ExtResource("4_tlluy")]
+position = Vector2(832, 144)
+
+[node name="Bumper5" parent="." instance=ExtResource("4_tlluy")]
+position = Vector2(440, 320)
+
+[node name="Bumper6" parent="." instance=ExtResource("4_tlluy")]
+position = Vector2(72, 432)
+
+[node name="Player" parent="." instance=ExtResource("1_w236o")]
+position = Vector2(592, 144)
+cameraLimitX = Vector2(250, 5000)
+cameraLimitY = Vector2(-128, 300)
+
+[node name="Track" parent="." instance=ExtResource("4_5ncuf")]
+position = Vector2(72, 272)
+points = PackedVector2Array(0, -32, 0, -153.318, 0, -496, 344, -496, 344, -256, 240, -256, 240, -344, 40, -344, 40, -208, 184, -208, 184, -40, 264, -40, 264, -128, 384, -128, 488, -128)
+
+[node name="dropTarget" parent="." instance=ExtResource("6_h4vhl")]
+position = Vector2(432, 216)
+length = 209
+angle = 0.025

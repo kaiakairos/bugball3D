@@ -1,0 +1,53 @@
+[gd_scene load_steps=6 format=3 uid="uid://cd7stv7k3frpv"]
+
+[ext_resource type="PackedScene" uid="uid://bith1com1osw4" path="res://world_scenes/floor/cool_floor.tscn" id="1_xtxtq"]
+[ext_resource type="PackedScene" uid="uid://b00oindmgrd6" path="res://world_scenes/hole/hole.tscn" id="2_r1x4m"]
+[ext_resource type="PackedScene" uid="uid://8dac38b54nn2" path="res://object_scenes/entity/player/player.tscn" id="3_04w8k"]
+[ext_resource type="PackedScene" uid="uid://dbmoijcfipmxk" path="res://object_scenes/track/track.tscn" id="4_5hfym"]
+[ext_resource type="PackedScene" uid="uid://d3fge1vcn4swp" path="res://object_scenes/flag/win.tscn" id="5_ufymu"]
+
+[node name="e6" type="Node2D"]
+
+[node name="coolFloor" parent="." instance=ExtResource("1_xtxtq")]
+position = Vector2(88, 56)
+polygon = PackedVector2Array(344, 0, 416, 72, 416, 272, 344, 344, 96, 344, 24, 272, 24, 72, -216, 72, -288, 0, -288, -200, -216, -272, 48, -272, 48, -200, -192, -200, -216, -176, -216, -24, -192, 0, 24, 0, 24, -56, 40, -72, 80, -72, 96, -56, 96, 0)
+
+[node name="coolFloor2" parent="." instance=ExtResource("1_xtxtq")]
+position = Vector2(176, 128)
+color = Color(0.603922, 0.603922, 0.603922, 1)
+polygon = PackedVector2Array(8, 0, 232, 0, 256, 24, 256, 176, 232, 200, 32, 200, 8, 176)
+sepLayer = false
+swapWalls = true
+
+[node name="HOLE" parent="." instance=ExtResource("2_r1x4m")]
+position = Vector2(-8, 56)
+polygon = PackedVector2Array(0, 0, 304, 0, 304, 72, 0, 72)
+
+[node name="HOLE2" parent="." instance=ExtResource("2_r1x4m")]
+position = Vector2(272, 328)
+polygon = PackedVector2Array(16, 0, 64, 0, 64, 72, 16, 72)
+
+[node name="Player" parent="." instance=ExtResource("3_04w8k")]
+position = Vector2(148, 24)
+cameraLimitX = Vector2(0, 290)
+cameraLimitY = Vector2(-105, 275)
+startingAngle = Vector2(0, 1)
+
+[node name="Track" parent="." instance=ExtResource("4_5hfym")]
+position = Vector2(80, -180)
+points = PackedVector2Array(-8, 4, 48, 4, 256, 4, 256, 68, -64, 68, -64, 452, 296, 452, 296, 196, 256, 196, 224, 196)
+entranceOnly = true
+
+[node name="coolFloor3" parent="." instance=ExtResource("1_xtxtq")]
+position = Vector2(208, -72)
+polygon = PackedVector2Array(24, 0, 128, 0, 152, 24, 152, 104, 24, 104, 0, 80, 0, 24)
+
+[node name="WIN" parent="." instance=ExtResource("5_ufymu")]
+position = Vector2(248, -32)
+
+[node name="ceil" parent="." instance=ExtResource("1_xtxtq")]
+position = Vector2(-328, -360)
+color = Color(0.435294, 0.643137, 0.917647, 1)
+polygon = PackedVector2Array(0, 0, 888, 0, 888, 936, 512, 936, 512, 760, 760, 760, 832, 688, 832, 488, 760, 416, 688, 416, 688, 312, 664, 288, 560, 288, 536, 312, 536, 368, 560, 392, 688, 392, 688, 416, 512, 416, 512, 360, 496, 344, 456, 344, 440, 360, 440, 416, 224, 416, 200, 392, 200, 240, 224, 216, 464, 216, 464, 144, 200, 144, 128, 216, 128, 416, 200, 488, 440, 488, 440, 688, 512, 760, 512, 936, 0, 936)
+renderWalls = false
+camOffset = 0.1

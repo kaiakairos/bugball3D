@@ -1,11 +1,11 @@
 [gd_scene load_steps=5 format=3 uid="uid://rhwdfv6k086m"]
 
-[ext_resource type="Texture2D" uid="uid://b3bi37f1d642v" path="res://object_scenes/entity/player/skins/8Ball.png" id="1_qs5ec"]
+[ext_resource type="Texture2D" uid="uid://da3auiyisjun" path="res://object_scenes/entity/player/skins/locked.png" id="1_0tt3q"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sol61"]
 transparency = 4
 specular_mode = 2
-albedo_texture = ExtResource("1_qs5ec")
+albedo_texture = ExtResource("1_0tt3q")
 metallic_specular = 1.0
 roughness = 0.7
 subsurf_scatter_strength = 0.64
@@ -23,7 +23,7 @@ ambient_light_color = Color(0.356863, 0.356863, 0.356863, 1)
 [node name="test" type="Node3D"]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.91706, 0.398749, 0, 0.151308, -0.347984, -0.92521, -0.368927, 0.848473, -0.379456, 0, 0, 0)
+transform = Transform3D(0.717303, 0.663293, -0.213349, 0.246016, -0.527583, -0.813101, -0.651884, 0.530753, -0.541618, 0, 0, 0)
 mesh = SubResource("SphereMesh_k3m3f")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]

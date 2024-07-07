@@ -6,7 +6,7 @@
 [resource]
 shader = ExtResource("1_5fvjv")
 shader_parameter/ncolor = Color(0.913725, 0.941176, 0.94902, 1)
-shader_parameter/color = Color(0.00392157, 0.0509804, 0.0313726, 1)
+shader_parameter/color = Color(0, 0, 0, 1)
 shader_parameter/width = 2.0
 shader_parameter/pattern = 2
 shader_parameter/inside = false

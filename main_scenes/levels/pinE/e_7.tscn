@@ -1,0 +1,85 @@
+[gd_scene load_steps=5 format=3 uid="uid://cludlv0efh457"]
+
+[ext_resource type="PackedScene" uid="uid://bith1com1osw4" path="res://world_scenes/floor/cool_floor.tscn" id="1_i57cb"]
+[ext_resource type="PackedScene" uid="uid://8dac38b54nn2" path="res://object_scenes/entity/player/player.tscn" id="2_hulrp"]
+[ext_resource type="PackedScene" uid="uid://c3kv871r8o7us" path="res://object_scenes/bumper/bumper.tscn" id="3_47wg4"]
+[ext_resource type="PackedScene" uid="uid://d3fge1vcn4swp" path="res://object_scenes/flag/win.tscn" id="4_3q8y1"]
+
+[node name="e7" type="Node2D"]
+
+[node name="coolFloor" parent="." instance=ExtResource("1_i57cb")]
+position = Vector2(56, 64)
+polygon = PackedVector2Array(0, 0, 944, 0, 944, 168, 0, 168)
+
+[node name="Player" parent="." instance=ExtResource("2_hulrp")]
+position = Vector2(120, 104)
+cameraLimitX = Vector2(250, 820)
+cameraLimitY = Vector2(150, 150)
+startingAngle = Vector2(1, 0)
+
+[node name="Bumper" parent="." instance=ExtResource("3_47wg4")]
+position = Vector2(312, 104)
+
+[node name="Bumper2" parent="." instance=ExtResource("3_47wg4")]
+position = Vector2(384, 200)
+
+[node name="Bumper3" parent="." instance=ExtResource("3_47wg4")]
+position = Vector2(456, 144)
+
+[node name="Bumper4" parent="." instance=ExtResource("3_47wg4")]
+position = Vector2(528, 96)
+
+[node name="Bumper5" parent="." instance=ExtResource("3_47wg4")]
+position = Vector2(376, 80)
+
+[node name="Bumper6" parent="." instance=ExtResource("3_47wg4")]
+position = Vector2(475, 212)
+
+[node name="Bumper7" parent="." instance=ExtResource("3_47wg4")]
+position = Vector2(294, 211)
+
+[node name="Bumper8" parent="." instance=ExtResource("3_47wg4")]
+position = Vector2(249, 148)
+
+[node name="Bumper9" parent="." instance=ExtResource("3_47wg4")]
+position = Vector2(205, 85)
+
+[node name="Bumper10" parent="." instance=ExtResource("3_47wg4")]
+position = Vector2(182, 193)
+
+[node name="Bumper11" parent="." instance=ExtResource("3_47wg4")]
+position = Vector2(551, 200)
+
+[node name="Bumper12" parent="." instance=ExtResource("3_47wg4")]
+position = Vector2(604, 98)
+
+[node name="Bumper13" parent="." instance=ExtResource("3_47wg4")]
+position = Vector2(651, 157)
+
+[node name="Bumper14" parent="." instance=ExtResource("3_47wg4")]
+position = Vector2(704, 202)
+
+[node name="Bumper15" parent="." instance=ExtResource("3_47wg4")]
+position = Vector2(739, 110)
+
+[node name="Bumper16" parent="." instance=ExtResource("3_47wg4")]
+position = Vector2(785, 196)
+
+[node name="Bumper17" parent="." instance=ExtResource("3_47wg4")]
+position = Vector2(831, 83)
+
+[node name="Bumper18" parent="." instance=ExtResource("3_47wg4")]
+position = Vector2(836, 147)
+
+[node name="Bumper19" parent="." instance=ExtResource("3_47wg4")]
+position = Vector2(873, 200)
+
+[node name="WIN" parent="." instance=ExtResource("4_3q8y1")]
+position = Vector2(947, 116)
+
+[node name="ceil" parent="." instance=ExtResource("1_i57cb")]
+position = Vector2(-77, -50)
+color = Color(0.435294, 0.643137, 0.917647, 1)
+polygon = PackedVector2Array(0, 0, 1189, 2, 1189, 434, 1077, 434, 1077, 282, 1077, 114, 133, 114, 133, 282, 1077, 282, 1077, 434, -3, 434)
+renderWalls = false
+camOffset = 0.1

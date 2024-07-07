@@ -1,0 +1,59 @@
+[gd_scene load_steps=6 format=3 uid="uid://dqg7m14dn4p53"]
+
+[ext_resource type="PackedScene" uid="uid://bith1com1osw4" path="res://world_scenes/floor/cool_floor.tscn" id="1_heifu"]
+[ext_resource type="PackedScene" uid="uid://8dac38b54nn2" path="res://object_scenes/entity/player/player.tscn" id="2_lc5wv"]
+[ext_resource type="PackedScene" uid="uid://d3fge1vcn4swp" path="res://object_scenes/flag/win.tscn" id="3_ib6vi"]
+[ext_resource type="PackedScene" uid="uid://bphxap7kmp12v" path="res://object_scenes/portal/portal.tscn" id="4_3crrd"]
+[ext_resource type="PackedScene" uid="uid://c3kv871r8o7us" path="res://object_scenes/bumper/bumper.tscn" id="5_351uj"]
+
+[node name="sci0" type="Node2D"]
+
+[node name="coolFloor" parent="." instance=ExtResource("1_heifu")]
+position = Vector2(13, 7)
+polygon = PackedVector2Array(16, 16, 344, 16, 344, 152, 456, 152, 456, 216, 416, 256, 50, 256, 16, 222)
+
+[node name="coolFloor2" parent="." instance=ExtResource("1_heifu")]
+position = Vector2(13, 7)
+polygon = PackedVector2Array(365, 16, 365, 130, 456, 130, 456, 16)
+swapWalls = true
+
+[node name="coolFloor3" parent="." instance=ExtResource("1_heifu")]
+position = Vector2(-399, -115)
+color = Color(0.266667, 0.556863, 0.952941, 1)
+polygon = PackedVector2Array(365, 89, 376, 435, 868, 449, 868, 338, 828, 378, 462, 378, 428, 344, 428, 138, 756, 138, 756, 274, 868, 274, 868, 252, 777, 252, 777, 138, 868, 138, 868, 449, 963, 453, 948, 89)
+renderWalls = false
+camOffset = 0.1
+
+[node name="Player" parent="." instance=ExtResource("2_lc5wv")]
+position = Vector2(80, 70)
+cameraLimitX = Vector2(250, 250)
+cameraLimitY = Vector2(150, 150)
+startingAngle = Vector2(0, 1)
+
+[node name="WIN" parent="." instance=ExtResource("3_ib6vi")]
+position = Vector2(427, 63)
+
+[node name="Portal" parent="." instance=ExtResource("4_3crrd")]
+position = Vector2(442, 185)
+secondPortal = Vector2(-15.415, -71.215)
+
+[node name="Bumper" parent="." instance=ExtResource("5_351uj")]
+position = Vector2(162, 214)
+
+[node name="Bumper2" parent="." instance=ExtResource("5_351uj")]
+position = Vector2(382, 177)
+
+[node name="Bumper3" parent="." instance=ExtResource("5_351uj")]
+position = Vector2(383, 204)
+
+[node name="Bumper4" parent="." instance=ExtResource("5_351uj")]
+position = Vector2(384, 237)
+
+[node name="Bumper5" parent="." instance=ExtResource("5_351uj")]
+position = Vector2(291, 81)
+
+[node name="Bumper6" parent="." instance=ExtResource("5_351uj")]
+position = Vector2(130, 77)
+
+[node name="Bumper7" parent="." instance=ExtResource("5_351uj")]
+position = Vector2(289, 202)

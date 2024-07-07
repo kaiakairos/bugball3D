@@ -1,0 +1,34 @@
+[gd_scene load_steps=5 format=3 uid="uid://umcxywr8irup"]
+
+[ext_resource type="PackedScene" uid="uid://bith1com1osw4" path="res://world_scenes/floor/cool_floor.tscn" id="1_6nosg"]
+[ext_resource type="PackedScene" uid="uid://clbiw3v6v47xy" path="res://object_scenes/items/dropTarget/dropTarget.tscn" id="2_laq6j"]
+[ext_resource type="PackedScene" uid="uid://8dac38b54nn2" path="res://object_scenes/entity/player/player.tscn" id="3_y3aom"]
+[ext_resource type="PackedScene" uid="uid://d3fge1vcn4swp" path="res://object_scenes/flag/win.tscn" id="4_6xqgr"]
+
+[node name="e_3" type="Node2D"]
+
+[node name="coolFloor" parent="." instance=ExtResource("1_6nosg")]
+position = Vector2(232, 144)
+polygon = PackedVector2Array(-64, 128, -176, 128, -200, 104, -200, 24, -176, 0, -64, 0, -64, -112, 0, -112, 0, -24, 24, 0, 232, 0, 232, 64, 0, 64)
+
+[node name="dropTarget" parent="." instance=ExtResource("2_laq6j")]
+position = Vector2(168, 144)
+thick = 2
+length = 90
+angle = 0.785
+
+[node name="Player" parent="." instance=ExtResource("3_y3aom")]
+position = Vector2(424, 176)
+cameraLimitX = Vector2(250, 250)
+cameraLimitY = Vector2(150, 150)
+startingAngle = Vector2(-1, 0)
+
+[node name="WIN" parent="." instance=ExtResource("4_6xqgr")]
+position = Vector2(72, 232)
+
+[node name="ceil" parent="." instance=ExtResource("1_6nosg")]
+position = Vector2(-24, -40)
+color = Color(0.435294, 0.643137, 0.917647, 1)
+polygon = PackedVector2Array(0, 0, 544, 0, 544, 440, 80, 440, 80, 312, 192, 312, 256, 248, 488, 248, 488, 184, 280, 184, 256, 160, 256, 72, 192, 72, 192, 184, 80, 184, 56, 208, 56, 288, 80, 312, 80, 440, 0, 440)
+renderWalls = false
+camOffset = 0.1

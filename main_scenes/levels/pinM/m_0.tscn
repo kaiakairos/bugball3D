@@ -1,0 +1,70 @@
+[gd_scene load_steps=7 format=3 uid="uid://dgl4rw3guftu5"]
+
+[ext_resource type="PackedScene" uid="uid://bith1com1osw4" path="res://world_scenes/floor/cool_floor.tscn" id="1_s2gu1"]
+[ext_resource type="PackedScene" uid="uid://8dac38b54nn2" path="res://object_scenes/entity/player/player.tscn" id="2_1cseg"]
+[ext_resource type="PackedScene" uid="uid://dbmoijcfipmxk" path="res://object_scenes/track/track.tscn" id="3_hyebi"]
+[ext_resource type="PackedScene" uid="uid://clbiw3v6v47xy" path="res://object_scenes/items/dropTarget/dropTarget.tscn" id="4_maipu"]
+[ext_resource type="PackedScene" uid="uid://b00oindmgrd6" path="res://world_scenes/hole/hole.tscn" id="5_a2okn"]
+[ext_resource type="PackedScene" uid="uid://d3fge1vcn4swp" path="res://object_scenes/flag/win.tscn" id="6_nerxj"]
+
+[node name="m0" type="Node2D"]
+
+[node name="coolFloor" parent="." instance=ExtResource("1_s2gu1")]
+position = Vector2(88, 40)
+polygon = PackedVector2Array(-24, -552, 40, -616, 424, -616, 488, -552, 488, -320, 424, -320, 424, -488, 360, -552, 104, -552, 40, -488, 40, -296, 424, -296, 488, -232, 488, 344, 424, 344, 424, 152, 360, 88, 104, 88, 40, 152, 40, 344, -24, 344)
+
+[node name="Player" parent="." instance=ExtResource("2_1cseg")]
+position = Vector2(96, 312)
+cameraLimitX = Vector2(250, 386)
+cameraLimitY = Vector2(-512, 450)
+
+[node name="segment" parent="." instance=ExtResource("1_s2gu1")]
+position = Vector2(160, -128)
+color = Color(0.823529, 0.823529, 0.823529, 1)
+polygon = PackedVector2Array(32, -64, 288, -64, 352, 0, 352, 192, -32, 192, -32, 0)
+sepLayer = false
+swapWalls = true
+
+[node name="Track" parent="." instance=ExtResource("3_hyebi")]
+position = Vector2(536, 360)
+points = PackedVector2Array(8, -32, 8, 16, 8, 104, -440, 104, -440, 16, -440, -32)
+
+[node name="dropTarget" parent="." instance=ExtResource("4_maipu")]
+position = Vector2(64, 128)
+length = 90
+angle = -0.785
+
+[node name="dropTarget2" parent="." instance=ExtResource("4_maipu")]
+position = Vector2(64, -192)
+length = 90
+angle = -0.785
+
+[node name="dropTarget4" parent="." instance=ExtResource("4_maipu")]
+position = Vector2(512, 64)
+length = 90
+angle = 0.785
+
+[node name="HOLE" parent="." instance=ExtResource("5_a2okn")]
+position = Vector2(64, -128)
+polygon = PackedVector2Array(0, -280, 64, -280, 64, -128, 128, -64, 64, 0, 64, 192, 0, 256)
+
+[node name="HOLE3" parent="." instance=ExtResource("5_a2okn")]
+position = Vector2(512, -128)
+polygon = PackedVector2Array(0, 0, 64, 0, 64, 256, 0, 192)
+
+[node name="WIN" parent="." instance=ExtResource("6_nerxj")]
+position = Vector2(544, -320)
+
+[node name="ceil" parent="." instance=ExtResource("1_s2gu1")]
+position = Vector2(704, -104)
+color = Color(0.266667, 0.556863, 0.952941, 1)
+polygon = PackedVector2Array(-576, -344, -512, -408, -256, -408, -192, -344, -192, -176, -128, -176, -128, -408, 216, -408, 216, 640, -880, 640, -904, -632, 216, -632, 216, -408, -128, -408, -192, -472, -576, -472, -640, -408, -640, 488, -576, 488, -576, 296, -512, 232, -256, 232, -192, 296, -192, 488, -128, 488, -128, -88, -192, -152, -576, -152)
+renderWalls = false
+camOffset = 0.1
+
+[node name="ceil2" parent="." instance=ExtResource("1_s2gu1")]
+position = Vector2(704, 216)
+color = Color(0.266667, 0.556863, 0.952941, 1)
+polygon = PackedVector2Array(-576, -344, -512, -408, -256, -408, -192, -344, -192, -152, -576, -152)
+renderWalls = false
+camOffset = 0.1

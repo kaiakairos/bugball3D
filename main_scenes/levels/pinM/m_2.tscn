@@ -1,0 +1,84 @@
+[gd_scene load_steps=6 format=3 uid="uid://dhyepxgd38quu"]
+
+[ext_resource type="PackedScene" uid="uid://bith1com1osw4" path="res://world_scenes/floor/cool_floor.tscn" id="1_dlrb2"]
+[ext_resource type="PackedScene" uid="uid://dbmoijcfipmxk" path="res://object_scenes/track/track.tscn" id="2_rcc4r"]
+[ext_resource type="PackedScene" uid="uid://b00oindmgrd6" path="res://world_scenes/hole/hole.tscn" id="3_ke3gu"]
+[ext_resource type="PackedScene" uid="uid://8dac38b54nn2" path="res://object_scenes/entity/player/player.tscn" id="4_cov1x"]
+[ext_resource type="PackedScene" uid="uid://d3fge1vcn4swp" path="res://object_scenes/flag/win.tscn" id="5_vdn4c"]
+
+[node name="m2" type="Node2D"]
+
+[node name="coolFloor" parent="." instance=ExtResource("1_dlrb2")]
+position = Vector2(58, 68)
+polygon = PackedVector2Array(0, 0, 256, 0, 256, 64, 72, 64, 72, 328, 104, 360, 280, 360, 280, 432, 72, 432, 0, 360)
+
+[node name="coolFloor2" parent="." instance=ExtResource("1_dlrb2")]
+position = Vector2(370, 332)
+polygon = PackedVector2Array(-224, -184, -152, -184, -152, -24, -136, -8, 24, -8, 24, 80, -176, 80, -224, 32)
+
+[node name="Track" parent="." instance=ExtResource("2_rcc4r")]
+position = Vector2(346, 460)
+points = PackedVector2Array(-80, 8, -32, 8, 112, 8, 112, -72, 40, -72, -8, -72)
+
+[node name="Track2" parent="." instance=ExtResource("2_rcc4r")]
+position = Vector2(178, 220)
+points = PackedVector2Array(0, 0, 0, -32, 0, -64, -144, -64, -144, 64, 64, 64, 104, 64)
+
+[node name="coolFloor3" parent="." instance=ExtResource("1_dlrb2")]
+position = Vector2(234, 244)
+polygon = PackedVector2Array(0, 0, 72, 0, 96, -24, 96, -224, 160, -224, 160, 0, 96, 64, 16, 64, 0, 48)
+
+[node name="Track3" parent="." instance=ExtResource("2_rcc4r")]
+position = Vector2(362, 20)
+points = PackedVector2Array(0, 48, 0, 0, 0, -24, 80, -24, 80, 80, -56, 80, -96, 80)
+entranceOnly = true
+
+[node name="Track4" parent="." instance=ExtResource("2_rcc4r")]
+position = Vector2(82, 108)
+points = PackedVector2Array(32, -8, -8, -8, -40, -8, -40, -136, 5, -136, 15, -136)
+entranceOnly = true
+
+[node name="HOLE" parent="." instance=ExtResource("3_ke3gu")]
+position = Vector2(130, 68)
+polygon = PackedVector2Array(-72, 0, 64, 0, 64, 64, 0, 64, 0, 112, -72, 112)
+
+[node name="Player" parent="." instance=ExtResource("4_cov1x")]
+position = Vector2(94, 204)
+cameraLimitX = Vector2(250, 250)
+cameraLimitY = Vector2(80, 400)
+startingAngle = Vector2(0, 1)
+
+[node name="HOLE2" parent="." instance=ExtResource("3_ke3gu")]
+position = Vector2(338, 124)
+polygon = PackedVector2Array(-8, 0, 56, 0, 56, 80, -8, 80)
+
+[node name="HOLE3" parent="." instance=ExtResource("3_ke3gu")]
+position = Vector2(146, 268)
+polygon = PackedVector2Array(0, 0, 72, 0, 72, 40, 88, 56, 88, 144, 48, 144, 0, 96)
+
+[node name="coolFloor4" parent="." instance=ExtResource("1_dlrb2")]
+position = Vector2(226, 156)
+polygon = PackedVector2Array(8, -8, 96, -8, 96, 48, 64, 80, 8, 80)
+
+[node name="WIN" parent="." instance=ExtResource("5_vdn4c")]
+position = Vector2(266, 188)
+
+[node name="coolFloor5" parent="." instance=ExtResource("1_dlrb2")]
+position = Vector2(80, -40)
+polygon = PackedVector2Array(0, 0, 232, 0, 232, 88, 0, 88)
+
+[node name="HOLE4" parent="." instance=ExtResource("3_ke3gu")]
+position = Vector2(139, -38)
+polygon = PackedVector2Array(0, -2, 173, -2, 173, 86, 0, 86)
+
+[node name="Track5" parent="." instance=ExtResource("2_rcc4r")]
+position = Vector2(304, -16)
+points = PackedVector2Array(-34, -10, 0, -10, 160, -10, 160, 200, 10, 200, -2, 200)
+entranceOnly = true
+
+[node name="coolFloor6" parent="." instance=ExtResource("1_dlrb2")]
+position = Vector2(-77, 268)
+color = Color(0.266667, 0.556863, 0.952941, 1)
+polygon = PackedVector2Array(-65, -456, 790, -465, 783, 351, 437, 360, 415, 232, 415, 160, 239, 160, 207, 128, 207, -136, 391, -136, 399, -120, 223, -120, 223, 96, 271, 144, 471, 144, 471, 56, 311, 56, 295, 40, 295, -120, 311, -120, 311, -32, 367, -32, 399, -64, 407, -48, 383, -24, 311, -24, 311, 24, 327, 40, 407, 40, 471, -24, 471, -248, 407, -248, 407, -48, 399, -64, 399, -120, 391, -135, 391, -200, 389, -220, 389, -308, 157, -308, 157, -220, 389, -220, 391, -200, 135, -200, 135, 160, 207, 232, 415, 232, 437, 360, -92, 364)
+renderWalls = false
+camOffset = 0.1

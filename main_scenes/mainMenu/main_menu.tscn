@@ -1,19 +1,27 @@
-[gd_scene load_steps=43 format=3 uid="uid://bujmrsxh8k58x"]
+[gd_scene load_steps=50 format=3 uid="uid://bujmrsxh8k58x"]
 
 [ext_resource type="Script" path="res://main_scenes/mainMenu/main_menu.gd" id="1_hw8g4"]
 [ext_resource type="PackedScene" uid="uid://bno8isqo481fp" path="res://main_scenes/mainMenu/menu_graphic.tscn" id="1_p8yr1"]
 [ext_resource type="Texture2D" uid="uid://bl80ak0n20tef" path="res://main_scenes/mainMenu/logo.png" id="2_pl7be"]
 [ext_resource type="FontFile" uid="uid://c0esfecfk2hon" path="res://alphabets/GrapeSoda.ttf" id="2_x70bn"]
+[ext_resource type="Texture2D" uid="uid://tbyc7pt578v3" path="res://world_scenes/world_textures/testDirt.png" id="7_q5g2r"]
+[ext_resource type="Texture2D" uid="uid://cn3lpker7qjq4" path="res://world_scenes/world_textures/grid.png" id="8_abxod"]
 [ext_resource type="Texture2D" uid="uid://c1mhhukhdd4q8" path="res://ui_scenes/courseIcons/menuArrows.png" id="9_liuk6"]
+[ext_resource type="Texture2D" uid="uid://dxet4mqv86vdo" path="res://world_scenes/world_textures/layer2.png" id="9_twa3d"]
+[ext_resource type="Texture2D" uid="uid://lyuoqex6hkws" path="res://world_scenes/world_textures/layer1.png" id="10_7jakk"]
 [ext_resource type="Texture2D" uid="uid://d8ffmgomnn23" path="res://ui_scenes/courseIcons/forest.png" id="10_n6bi1"]
 [ext_resource type="PackedScene" uid="uid://cxnhvxlqgrs73" path="res://ui_scenes/courseIcons/course_icon.tscn" id="10_oxygi"]
+[ext_resource type="Texture2D" uid="uid://c6exorsfk543i" path="res://world_scenes/world_textures/pinWall.png" id="12_0vucy"]
 [ext_resource type="Texture2D" uid="uid://crav5a05mrmxc" path="res://ui_scenes/courseIcons/comingSoon.png" id="12_afjsb"]
+[ext_resource type="Texture2D" uid="uid://dfq85giy2vng3" path="res://world_scenes/world_textures/pinCeil0.png" id="13_m02ba"]
 [ext_resource type="Texture2D" uid="uid://bwclpqq2lbsd7" path="res://ui_scenes/courseComplete/rankSmall.png" id="13_wiepu"]
 [ext_resource type="Texture2D" uid="uid://bk55xt00g5h85" path="res://ui_scenes/courseIcons/difBorder.png" id="14_7e6oy"]
+[ext_resource type="Texture2D" uid="uid://cj0rokw6tex5d" path="res://world_scenes/world_textures/pinCeil1.png" id="14_s1uqi"]
 [ext_resource type="Texture2D" uid="uid://71dt2g1n0grh" path="res://ui_scenes/credits/kaiaIcon.png" id="14_s6l66"]
 [ext_resource type="LabelSettings" uid="uid://f5ridjytud7u" path="res://ui_scenes/skinSelect/skinUnlockedlabel.tres" id="14_s21aa"]
 [ext_resource type="Texture2D" uid="uid://bkvvtu3m0rsjm" path="res://ui_scenes/courseIcons/difSelect.png" id="15_2xe7m"]
 [ext_resource type="Texture2D" uid="uid://c7rr4gjqtj7nr" path="res://object_scenes/entity/player/dust/shape.png" id="15_4u8oe"]
+[ext_resource type="Texture2D" uid="uid://cpfkykieypdo" path="res://world_scenes/world_textures/pinCeil2.png" id="15_hwxsp"]
 [ext_resource type="Texture2D" uid="uid://dfh2te5s74adx" path="res://ui_scenes/credits/sageIcon.png" id="15_n8tp4"]
 [ext_resource type="PackedScene" uid="uid://bxdyrs6mbjpx6" path="res://ui_scenes/options/options.tscn" id="15_oevmx"]
 [ext_resource type="Texture2D" uid="uid://cycc02w5p35aa" path="res://ui_scenes/credits/lemmy.png" id="16_rw80l"]
@@ -36,10 +44,6 @@ font = ExtResource("2_x70bn")
 font_size = 32
 outline_size = 15
 outline_color = Color(0, 0, 0, 1)
-
-[sub_resource type="LabelSettings" id="LabelSettings_aj7ky"]
-font = ExtResource("2_x70bn")
-font_color = Color(0, 0, 0, 0.435294)
 
 [sub_resource type="LabelSettings" id="LabelSettings_gmjxa"]
 font_size = 32
@@ -118,17 +122,8 @@ offset_left = 9.0
 offset_top = 267.0
 offset_right = 55.0
 offset_bottom = 299.0
-text = "v0.8.2 DEMO"
+text = "v1.0"
 label_settings = SubResource("LabelSettings_mt1ax")
-
-[node name="wishlist" type="Label" parent="versionLabel"]
-layout_mode = 0
-offset_left = 155.0
-offset_top = 16.0
-offset_right = 385.0
-offset_bottom = 48.0
-text = "wishlist on steam!"
-label_settings = SubResource("LabelSettings_aj7ky")
 
 [node name="MenuGraphic" parent="." instance=ExtResource("1_p8yr1")]
 
@@ -211,11 +206,23 @@ saveCodeH = "course1_HardPB"
 rankLimitE = Array[float]([75.0, 110.0, 180.0, 300.0, 600.0])
 rankLimitM = Array[float]([110.0, 180.0, 250.0, 400.0, 600.0])
 rankLimitH = Array[float]([150.0, 280.0, 400.0, 600.0, 1000.0])
+wallTexture = ExtResource("7_q5g2r")
+floorTextures = Array[Texture2D]([ExtResource("8_abxod"), ExtResource("9_twa3d"), ExtResource("10_7jakk")])
+ceilingTextures = Array[Texture2D]([ExtResource("8_abxod"), ExtResource("9_twa3d"), ExtResource("10_7jakk")])
+ceilDye = Color(0.266667, 0.556863, 0.952941, 1)
+ceilBorderColor = Color(0.00392157, 0.0509804, 0.0313726, 1)
+wallBorderColor = Color(0.203922, 0.109804, 0.152941, 1)
 
 [node name="CourseIcon2" parent="COURSESELECT/Courses" instance=ExtResource("10_oxygi")]
 position = Vector2(0, 95)
 image = ExtResource("12_afjsb")
-courseName = "C_COMINGSOON"
+easyLevels = Array[String](["res://main_scenes/levels/pinE/e_0.tscn", "res://main_scenes/levels/pinE/e_1.tscn", "res://main_scenes/levels/pinE/e_2.tscn", "res://main_scenes/levels/pinE/e_4.tscn", "res://main_scenes/levels/pinE/e_10.tscn", "res://main_scenes/levels/pinE/e_3.tscn", "res://main_scenes/levels/pinE/e_5.tscn", "res://main_scenes/levels/pinE/e_6.tscn", "res://main_scenes/levels/pinE/e_7.tscn", "res://main_scenes/levels/pinE/e_8.tscn", "res://main_scenes/levels/pinE/e_13.tscn", "res://main_scenes/levels/pinE/e_9.tscn", "res://main_scenes/levels/pinE/e_12.tscn", "res://main_scenes/levels/pinE/e_14.tscn", "res://main_scenes/levels/pinE/e_11.tscn"])
+courseName = "pinball"
+saveCodeE = "pinballEasy"
+saveCodeM = "pinballMedium"
+saveCodeH = "pinballHard"
+wallTexture = ExtResource("12_0vucy")
+ceilingTextures = Array[Texture2D]([ExtResource("13_m02ba"), ExtResource("14_s1uqi"), ExtResource("15_hwxsp")])
 
 [node name="CourseIcon3" parent="COURSESELECT/Courses" instance=ExtResource("10_oxygi")]
 position = Vector2(0, 190)

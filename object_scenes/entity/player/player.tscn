@@ -162,8 +162,9 @@ animations = [{
 
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 2
-wall_min_slide_angle = 0.0
+wall_min_slide_angle = 0.785398
 floor_stop_on_slope = false
+platform_wall_layers = 1
 script = ExtResource("1_2aq3y")
 cameraLimitX = Vector2(0, 500)
 cameraLimitY = Vector2(0, 300)
@@ -303,6 +304,7 @@ round_precision = 11
 top_level = true
 
 [node name="cover" type="ColorRect" parent="Camera2D"]
+visible = false
 z_index = 398
 offset_left = -962.0
 offset_top = -679.0

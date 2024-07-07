@@ -1,0 +1,70 @@
+[gd_scene load_steps=7 format=3 uid="uid://dbmoijcfipmxk"]
+
+[ext_resource type="Texture2D" uid="uid://rxjoq38rkkwn" path="res://object_scenes/track/track.png" id="1_p46f5"]
+[ext_resource type="Script" path="res://object_scenes/track/track.gd" id="2_dg7gh"]
+[ext_resource type="Material" uid="uid://dl3mogo36dheg" path="res://object_scenes/decor/decor3D/decoration_3d_material.tres" id="3_3xxvw"]
+[ext_resource type="Texture2D" uid="uid://bcxxbmn1gf335" path="res://object_scenes/track/part.png" id="4_3p27a"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_x3o7l"]
+radius = 16.0
+
+[sub_resource type="Curve" id="Curve_samh4"]
+_data = [Vector2(0.0347826, 0), 0.0, 0.0, 0, 0, Vector2(0.447826, 0.692308), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[node name="Track" type="Line2D"]
+z_index = -2
+points = PackedVector2Array(0, 30, 0, -31)
+width = 20.0
+default_color = Color(0, 0, 0, 0.219608)
+texture = ExtResource("1_p46f5")
+texture_mode = 2
+joint_mode = 2
+begin_cap_mode = 1
+end_cap_mode = 1
+script = ExtResource("2_dg7gh")
+
+[node name="Entrance" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Entrance"]
+shape = SubResource("CircleShape2D_x3o7l")
+
+[node name="Exit" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Exit"]
+shape = SubResource("CircleShape2D_x3o7l")
+
+[node name="CanvasGroup" type="CanvasGroup" parent="."]
+z_index = 30
+material = ExtResource("3_3xxvw")
+
+[node name="rail" type="Line2D" parent="CanvasGroup"]
+width = 20.0
+texture = ExtResource("1_p46f5")
+texture_mode = 2
+joint_mode = 2
+begin_cap_mode = 1
+end_cap_mode = 1
+
+[node name="grind" type="CPUParticles2D" parent="CanvasGroup"]
+emitting = false
+amount = 16
+lifetime = 0.3
+texture = ExtResource("4_3p27a")
+emission_shape = 5
+emission_points = PackedVector2Array(10, -15, -10, -15, 6, -20, 6, -10, -6, -10, -6, -20)
+emission_normals = PackedVector2Array(1, 0, -1, 0, 1, -0.5, 1, 0.5, -1, 0.5, -1, -0.5)
+emission_colors = PackedColorArray()
+particle_flag_align_y = true
+spread = 14.76
+gravity = Vector2(0, 0)
+initial_velocity_min = 5.0
+initial_velocity_max = 36.9
+scale_amount_curve = SubResource("Curve_samh4")
+
+[connection signal="body_entered" from="Entrance" to="." method="_on_entrance_body_entered"]
+[connection signal="body_entered" from="Exit" to="." method="_on_exit_body_entered"]

@@ -1,0 +1,67 @@
+[gd_scene load_steps=9 format=3 uid="uid://c3kv871r8o7us"]
+
+[ext_resource type="Script" path="res://object_scenes/bumper/bumper.gd" id="1_meih7"]
+[ext_resource type="Material" uid="uid://dl3mogo36dheg" path="res://object_scenes/decor/decor3D/decoration_3d_material.tres" id="2_c01km"]
+[ext_resource type="Texture2D" uid="uid://codq7um2rpywe" path="res://object_scenes/bumper/sprites1.png" id="2_i50p1"]
+[ext_resource type="Texture2D" uid="uid://bn03svq7gv0ln" path="res://object_scenes/bumper/sprites2.png" id="3_6l8t8"]
+[ext_resource type="Texture2D" uid="uid://b40bumth54360" path="res://object_scenes/bumper/sprites3.png" id="4_yih3s"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_np6oj"]
+radius = 12.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_cfw6y"]
+
+[sub_resource type="Curve" id="Curve_c6tfm"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.506887, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[node name="Bumper" type="Node2D"]
+z_index = -1
+script = ExtResource("1_meih7")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_np6oj")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("CircleShape2D_cfw6y")
+
+[node name="CanvasGroup" type="CanvasGroup" parent="."]
+material = ExtResource("2_c01km")
+
+[node name="Sprites1" type="Sprite2D" parent="CanvasGroup"]
+texture = ExtResource("2_i50p1")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="CanvasGroup"]
+amount = 12
+lifetime = 0.5
+emission_shape = 1
+emission_sphere_radius = 14.0
+gravity = Vector2(0, 0)
+angular_velocity_min = -79.55
+angular_velocity_max = 139.9
+angle_min = -720.0
+angle_max = 720.0
+scale_amount_min = 7.85
+scale_amount_max = 8.5
+scale_amount_curve = SubResource("Curve_c6tfm")
+color = Color(0.870588, 0.619608, 0.254902, 1)
+
+[node name="Sprites2" type="Sprite2D" parent="CanvasGroup"]
+texture = ExtResource("3_6l8t8")
+
+[node name="Sprites3" type="Sprite2D" parent="CanvasGroup"]
+texture = ExtResource("4_yih3s")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(3.27826e-06, 2.92063e-06)
+scale = Vector2(2.4, 2.4)
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="screen_entered" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

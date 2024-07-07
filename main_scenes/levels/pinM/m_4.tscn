@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=3 uid="uid://bxowkybxl42dv"]
+
+[ext_resource type="PackedScene" uid="uid://bith1com1osw4" path="res://world_scenes/floor/cool_floor.tscn" id="1_mgkrd"]
+[ext_resource type="PackedScene" uid="uid://8dac38b54nn2" path="res://object_scenes/entity/player/player.tscn" id="2_gkaru"]
+[ext_resource type="PackedScene" uid="uid://d3fge1vcn4swp" path="res://object_scenes/flag/win.tscn" id="4_mwacv"]
+[ext_resource type="PackedScene" uid="uid://b00oindmgrd6" path="res://world_scenes/hole/hole.tscn" id="5_j28l7"]
+[ext_resource type="PackedScene" uid="uid://c3kv871r8o7us" path="res://object_scenes/bumper/bumper.tscn" id="5_o272s"]
+
+[node name="m4" type="Node2D"]
+
+[node name="coolFloor" parent="." instance=ExtResource("1_mgkrd")]
+position = Vector2(32, 184)
+polygon = PackedVector2Array(0, -136, 608, -136, 608, 72, 0, 72, 0, -16, 480, -16, 552, -24, 552, -40, 480, -48, 0, -48)
+
+[node name="Player" parent="." instance=ExtResource("2_gkaru")]
+position = Vector2(64, 216)
+cameraLimitX = Vector2(250, 500)
+cameraLimitY = Vector2(150, 150)
+startingAngle = Vector2(1, 0)
+
+[node name="WIN" parent="." instance=ExtResource("4_mwacv")]
+position = Vector2(88, 88)
+
+[node name="HOLE" parent="." instance=ExtResource("5_j28l7")]
+position = Vector2(576, 48)
+polygon = PackedVector2Array(8, 0, 64, 0, 64, 208, 8, 208)
+
+[node name="Bumper" parent="." instance=ExtResource("5_o272s")]
+position = Vector2(208, 72)
+
+[node name="Bumper2" parent="." instance=ExtResource("5_o272s")]
+position = Vector2(248, 72)
+
+[node name="Bumper3" parent="." instance=ExtResource("5_o272s")]
+position = Vector2(360, 120)
+
+[node name="Bumper4" parent="." instance=ExtResource("5_o272s")]
+position = Vector2(400, 120)

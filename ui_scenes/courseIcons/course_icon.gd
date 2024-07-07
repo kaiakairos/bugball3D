@@ -21,6 +21,16 @@ extends Node2D
 ## needs 5 minimums : S,A,B,C,D
 @export var rankLimitH :Array[float] = []
 
+#### EXPORTS FOR MAP TEXTURES ####
+@export var wallTexture :Texture2D = null
+@export var floorTextures :Array[Texture2D] = []
+@export var ceilingTextures :Array[Texture2D] = []
+@export var ceilDye :Color = Color.WHITE
+@export var holeTexture :Texture2D = null
+@export var ceilBorderColor :Color = Color.BLACK
+@export var wallBorderColor :Color = Color.BLACK
+
+
 var boingtween :Tween = null
 var shinetween :Tween = null
 var hovering = false

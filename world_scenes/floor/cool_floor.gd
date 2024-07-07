@@ -30,10 +30,25 @@ func _ready():
 		$Area2D/CollisionPolygon2D.polygon =polygon
 	
 	if sepLayer:
+		
+		if renderWalls:
+			if MapTextures.floorTextures.size() == 3:
+				$layer2.texture = MapTextures.floorTextures[1]
+				$layer1.texture = MapTextures.floorTextures[2]
+				texture = MapTextures.floorTextures[0]
+		else:
+			# if is ceiling
+			if MapTextures.ceilingTextures.size() == 3:
+				$layer2.texture = MapTextures.ceilingTextures[1]
+				$layer1.texture = MapTextures.ceilingTextures[2]
+				texture = MapTextures.ceilingTextures[0]
+			color = MapTextures.ceilDye
+		
 		$layer1.polygon = polygon
 		$layer2.polygon = polygon
 		$layer1.color = color
 		$layer2.color = color
+		
 		set_process(true)
 	
 func generateHole():
@@ -43,6 +58,7 @@ func generateHole():
 		
 		newWall.displayBottomOutline = true
 		newWall.heightMultiplier = 0.1
+		newWall.wallTexture = MapTextures.wallTexture
 		
 		newWall.position = polygon[i]
 		if i == polygon.size()-1:
@@ -68,6 +84,7 @@ func generateBackwardsHole():
 		
 		newWall.displayBottomOutline = true
 		newWall.heightMultiplier = 0.1
+		newWall.wallTexture = MapTextures.wallTexture
 		
 		if island:
 			newWall.groundOffset = -0.05
