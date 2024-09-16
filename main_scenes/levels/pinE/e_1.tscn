@@ -1,9 +1,14 @@
-[gd_scene load_steps=5 format=3 uid="uid://dbq5q8tfae4sl"]
+[gd_scene load_steps=10 format=3 uid="uid://dbq5q8tfae4sl"]
 
 [ext_resource type="PackedScene" uid="uid://bith1com1osw4" path="res://world_scenes/floor/cool_floor.tscn" id="1_srdrp"]
 [ext_resource type="PackedScene" uid="uid://8dac38b54nn2" path="res://object_scenes/entity/player/player.tscn" id="2_y54i4"]
 [ext_resource type="PackedScene" uid="uid://c3kv871r8o7us" path="res://object_scenes/bumper/bumper.tscn" id="3_illyb"]
 [ext_resource type="PackedScene" uid="uid://d3fge1vcn4swp" path="res://object_scenes/flag/win.tscn" id="4_0qg47"]
+[ext_resource type="PackedScene" uid="uid://cpagp2isol5d8" path="res://object_scenes/decor/clouds/clouds.tscn" id="5_3om72"]
+[ext_resource type="PackedScene" uid="uid://djhlxyklc7ji2" path="res://object_scenes/decor/foiliage/flower.tscn" id="6_6v5mf"]
+[ext_resource type="PackedScene" uid="uid://chcfj4d2hjoup" path="res://object_scenes/decor/foiliage/mushroom_big.tscn" id="7_iu18f"]
+[ext_resource type="PackedScene" uid="uid://ddw7ejrb8d5ff" path="res://object_scenes/decor/foiliage/mushroom_small.tscn" id="8_211uc"]
+[ext_resource type="PackedScene" uid="uid://db0u0xfur78jy" path="res://object_scenes/decor/foiliage/tree.tscn" id="9_nccqm"]
 
 [node name="e1" type="Node2D"]
 
@@ -59,3 +64,36 @@ color = Color(0.435294, 0.643137, 0.917647, 1)
 polygon = PackedVector2Array(-27, -8, 585, -5, 592, 469, 488, 479, 466, 340, 514, 292, 514, 84, 473, 70, 434, 84, 434, 108, 410, 132, 258, 132, 234, 108, 90, 108, 66, 132, 66, 300, 106, 340, 466, 340, 488, 479, -3, 459)
 renderWalls = false
 camOffset = 0.1
+
+[node name="clouds" parent="." instance=ExtResource("5_3om72")]
+position = Vector2(-160, -208)
+
+[node name="flower" parent="." instance=ExtResource("6_6v5mf")]
+position = Vector2(14, 277)
+
+[node name="flower2" parent="." instance=ExtResource("6_6v5mf")]
+position = Vector2(39, 38)
+
+[node name="flower3" parent="." instance=ExtResource("6_6v5mf")]
+position = Vector2(120, 8)
+
+[node name="flower4" parent="." instance=ExtResource("6_6v5mf")]
+position = Vector2(401, 312)
+
+[node name="mushroomBig" parent="." instance=ExtResource("7_iu18f")]
+position = Vector2(259, 29)
+
+[node name="mushroomSmall" parent="." instance=ExtResource("8_211uc")]
+position = Vector2(339, 41)
+
+[node name="mushroomSmall2" parent="." instance=ExtResource("8_211uc")]
+position = Vector2(495, 155)
+
+[node name="mushroomSmall3" parent="." instance=ExtResource("8_211uc")]
+position = Vector2(140, 311)
+
+[node name="tree" parent="." instance=ExtResource("9_nccqm")]
+position = Vector2(380, -8)
+
+[node name="tree2" parent="." instance=ExtResource("9_nccqm")]
+position = Vector2(-12, 153)

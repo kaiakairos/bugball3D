@@ -34,6 +34,13 @@ var mirrored = false
 var fuse = false
 var doubleBounce = false
 
+
+func _ready():
+	pass
+
+
+
+
 func isPlayerDisqualified():
 	
 	if tenRollSpeed:

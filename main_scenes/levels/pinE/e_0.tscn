@@ -1,8 +1,12 @@
-[gd_scene load_steps=4 format=3 uid="uid://bmbtkrk3ydmje"]
+[gd_scene load_steps=8 format=3 uid="uid://bmbtkrk3ydmje"]
 
 [ext_resource type="PackedScene" uid="uid://bith1com1osw4" path="res://world_scenes/floor/cool_floor.tscn" id="1_ixac4"]
 [ext_resource type="PackedScene" uid="uid://d3fge1vcn4swp" path="res://object_scenes/flag/win.tscn" id="2_cxy67"]
 [ext_resource type="PackedScene" uid="uid://8dac38b54nn2" path="res://object_scenes/entity/player/player.tscn" id="3_uwass"]
+[ext_resource type="PackedScene" uid="uid://c3kv871r8o7us" path="res://object_scenes/bumper/bumper.tscn" id="4_k21qi"]
+[ext_resource type="PackedScene" uid="uid://cpagp2isol5d8" path="res://object_scenes/decor/clouds/clouds.tscn" id="5_f8582"]
+[ext_resource type="PackedScene" uid="uid://db0u0xfur78jy" path="res://object_scenes/decor/foiliage/tree.tscn" id="6_o8v1v"]
+[ext_resource type="PackedScene" uid="uid://djhlxyklc7ji2" path="res://object_scenes/decor/foiliage/flower.tscn" id="7_7shqv"]
 
 [node name="e0" type="Node2D"]
 
@@ -24,3 +28,30 @@ color = Color(0.435294, 0.643137, 0.917647, 1)
 polygon = PackedVector2Array(-120, -40, 480, -40, 480, 368, 400, 280, 400, 32, 312, 32, 216, 80, -16, 80, -16, 280, 400, 280, 480, 368, -120, 368)
 renderWalls = false
 camOffset = 0.1
+
+[node name="Bumper" parent="." instance=ExtResource("4_k21qi")]
+position = Vector2(248, 128)
+
+[node name="Bumper2" parent="." instance=ExtResource("4_k21qi")]
+position = Vector2(248, 168)
+
+[node name="Bumper3" parent="." instance=ExtResource("4_k21qi")]
+position = Vector2(248, 208)
+
+[node name="clouds" parent="." instance=ExtResource("5_f8582")]
+position = Vector2(-200, -304)
+
+[node name="tree" parent="." instance=ExtResource("6_o8v1v")]
+position = Vector2(80, 32)
+
+[node name="flower" parent="." instance=ExtResource("7_7shqv")]
+position = Vector2(200, 56)
+
+[node name="flower2" parent="." instance=ExtResource("7_7shqv")]
+position = Vector2(304, 24)
+
+[node name="flower3" parent="." instance=ExtResource("7_7shqv")]
+position = Vector2(480, 232)
+
+[node name="flower4" parent="." instance=ExtResource("7_7shqv")]
+position = Vector2(16, 144)

@@ -1,0 +1,181 @@
+[gd_scene load_steps=14 format=3 uid="uid://drmfk7kmiey5j"]
+
+[ext_resource type="PackedScene" uid="uid://bith1com1osw4" path="res://world_scenes/floor/cool_floor.tscn" id="1_n3gw3"]
+[ext_resource type="PackedScene" uid="uid://8dac38b54nn2" path="res://object_scenes/entity/player/player.tscn" id="2_xrtg3"]
+[ext_resource type="PackedScene" uid="uid://c3kv871r8o7us" path="res://object_scenes/bumper/bumper.tscn" id="3_blje1"]
+[ext_resource type="PackedScene" uid="uid://b00oindmgrd6" path="res://world_scenes/hole/hole.tscn" id="4_pxrgb"]
+[ext_resource type="PackedScene" uid="uid://dbmoijcfipmxk" path="res://object_scenes/track/track.tscn" id="5_60uhh"]
+[ext_resource type="PackedScene" uid="uid://d3fge1vcn4swp" path="res://object_scenes/flag/win.tscn" id="6_1vdaf"]
+[ext_resource type="PackedScene" uid="uid://cpagp2isol5d8" path="res://object_scenes/decor/clouds/clouds.tscn" id="7_ymquy"]
+[ext_resource type="PackedScene" uid="uid://djhlxyklc7ji2" path="res://object_scenes/decor/foiliage/flower.tscn" id="8_mko82"]
+[ext_resource type="PackedScene" uid="uid://oys8ghap4lj5" path="res://object_scenes/decor/foiliage/log.tscn" id="9_gihsu"]
+[ext_resource type="PackedScene" uid="uid://cga7ecey3m637" path="res://object_scenes/decor/foiliage/bush.tscn" id="10_3qlng"]
+[ext_resource type="PackedScene" uid="uid://db0u0xfur78jy" path="res://object_scenes/decor/foiliage/tree.tscn" id="11_wxmvy"]
+[ext_resource type="PackedScene" uid="uid://chcfj4d2hjoup" path="res://object_scenes/decor/foiliage/mushroom_big.tscn" id="12_q08gs"]
+[ext_resource type="PackedScene" uid="uid://ddw7ejrb8d5ff" path="res://object_scenes/decor/foiliage/mushroom_small.tscn" id="13_bmehp"]
+
+[node name="m7" type="Node2D"]
+
+[node name="coolFloor" parent="." instance=ExtResource("1_n3gw3")]
+position = Vector2(112, 168)
+polygon = PackedVector2Array(-168, -16, -168, -560, -80, -648, 136, -648, 152, -672, 216, -672, 232, -648, 232, -584, 376, -584, 376, -432, 464, -344, 504, -344, 504, -80, 456, -32, 456, -16, 424, -16, 424, -32, 376, -80, 376, -264, 336, -304, 184, -304, 96, -288, 57.3515, -247.389, 48, -104, 72, -80, 320, -80, 320, -16, 32, -16, -40, -88, -40, -16)
+
+[node name="Player" parent="." instance=ExtResource("2_xrtg3")]
+position = Vector2(392, 120)
+cameraLimitY = Vector2(-500, 300)
+startingAngle = Vector2(-1, 0)
+
+[node name="Bumper" parent="." instance=ExtResource("3_blje1")]
+position = Vector2(88, 24)
+
+[node name="Bumper12" parent="." instance=ExtResource("3_blje1")]
+position = Vector2(88, 64)
+
+[node name="Bumper2" parent="." instance=ExtResource("3_blje1")]
+position = Vector2(96, -16)
+
+[node name="Bumper3" parent="." instance=ExtResource("3_blje1")]
+position = Vector2(96, -56)
+
+[node name="Bumper4" parent="." instance=ExtResource("3_blje1")]
+position = Vector2(104, -96)
+
+[node name="Bumper5" parent="." instance=ExtResource("3_blje1")]
+position = Vector2(112, -136)
+
+[node name="Bumper6" parent="." instance=ExtResource("3_blje1")]
+position = Vector2(120, -176)
+
+[node name="Bumper7" parent="." instance=ExtResource("3_blje1")]
+position = Vector2(152, -216)
+
+[node name="Bumper8" parent="." instance=ExtResource("3_blje1")]
+position = Vector2(192, -240)
+
+[node name="Bumper9" parent="." instance=ExtResource("3_blje1")]
+position = Vector2(232, -248)
+
+[node name="Bumper10" parent="." instance=ExtResource("3_blje1")]
+position = Vector2(272, -248)
+
+[node name="Bumper11" parent="." instance=ExtResource("3_blje1")]
+position = Vector2(312, -248)
+
+[node name="Bumper13" parent="." instance=ExtResource("3_blje1")]
+position = Vector2(352, -248)
+
+[node name="Bumper14" parent="." instance=ExtResource("3_blje1")]
+position = Vector2(432, -248)
+
+[node name="Bumper15" parent="." instance=ExtResource("3_blje1")]
+position = Vector2(392, -248)
+
+[node name="Bumper16" parent="." instance=ExtResource("3_blje1")]
+position = Vector2(472, -248)
+
+[node name="HOLE" parent="." instance=ExtResource("4_pxrgb")]
+position = Vector2(8, -336)
+polygon = PackedVector2Array(24, -144, 240, -144, 240, -80, 264, -56, 312, -56, 336, -80, 480, -80, 480, 72, 168, 72, 80, 152, 64, 416, 64, 488, -64, 488, -64, -56, -48, -72, -48, 56, 0, 56, 0, -120)
+
+[node name="HOLE2" parent="." instance=ExtResource("4_pxrgb")]
+position = Vector2(488, -64)
+polygon = PackedVector2Array(0, -32, 32, -32, 48, -8, 80, -8, 96, -32, 128, -32, 128, 152, 80, 200, 80, 152, 48, 152, 48, 200, 0, 152)
+
+[node name="Track" parent="." instance=ExtResource("5_60uhh")]
+position = Vector2(584, 136)
+points = PackedVector2Array(-32, -32, -32, 8, -32, 56, -600, 56, -600, -56, -600, -112)
+
+[node name="WIN" parent="." instance=ExtResource("6_1vdaf")]
+position = Vector2(296, -440)
+
+[node name="island" parent="." instance=ExtResource("1_n3gw3")]
+z_index = -3
+position = Vector2(-40, -24)
+polygon = PackedVector2Array(0, -104, 48, -104, 48, 64, 0, 64)
+swapWalls = true
+island = true
+
+[node name="ciel2" parent="." instance=ExtResource("1_n3gw3")]
+position = Vector2(-192, -616)
+color = Color(0.266667, 0.556863, 0.952941, 1)
+polygon = PackedVector2Array(-288, -160, 1216, -128, 1208, 768, 760, 768, 760, 752, 808, 704, 808, 440, 768, 440, 680, 352, 680, 200, 536, 200, 536, 136, 520, 112, 456, 112, 440, 136, 224, 136, 136, 224, 136, 768, 264, 768, 264, 696, 336, 768, 624, 768, 624, 704, 376, 704, 352, 680, 360, 536, 400, 496, 488, 480, 640, 480, 680, 520, 680, 704, 728, 752, 728, 768, 1208, 768, 1176, 984, -240, 984)
+renderWalls = false
+camOffset = 0.1
+
+[node name="clouds" parent="." instance=ExtResource("7_ymquy")]
+position = Vector2(-224, -711)
+
+[node name="flower" parent="." instance=ExtResource("8_mko82")]
+position = Vector2(192, 32)
+
+[node name="flower2" parent="." instance=ExtResource("8_mko82")]
+position = Vector2(400, -104)
+
+[node name="log" parent="." instance=ExtResource("9_gihsu")]
+position = Vector2(264, -88)
+
+[node name="bush" parent="." instance=ExtResource("10_3qlng")]
+position = Vector2(-80, -80)
+
+[node name="bush2" parent="." instance=ExtResource("10_3qlng")]
+position = Vector2(528, -288)
+
+[node name="tree" parent="." instance=ExtResource("11_wxmvy")]
+position = Vector2(312, 32)
+
+[node name="tree2" parent="." instance=ExtResource("11_wxmvy")]
+position = Vector2(608, -248)
+
+[node name="tree3" parent="." instance=ExtResource("11_wxmvy")]
+position = Vector2(400, -472)
+
+[node name="flower3" parent="." instance=ExtResource("8_mko82")]
+position = Vector2(496, -448)
+
+[node name="flower4" parent="." instance=ExtResource("8_mko82")]
+position = Vector2(208, -512)
+
+[node name="flower5" parent="." instance=ExtResource("8_mko82")]
+position = Vector2(32, 248)
+
+[node name="flower6" parent="." instance=ExtResource("8_mko82")]
+position = Vector2(-40, 224)
+
+[node name="flower7" parent="." instance=ExtResource("8_mko82")]
+position = Vector2(312, 224)
+
+[node name="flower8" parent="." instance=ExtResource("8_mko82")]
+position = Vector2(488, 240)
+
+[node name="mushroomBig" parent="." instance=ExtResource("12_q08gs")]
+position = Vector2(-40, -480)
+
+[node name="mushroomSmall" parent="." instance=ExtResource("13_bmehp")]
+position = Vector2(-88, -384)
+
+[node name="bush3" parent="." instance=ExtResource("10_3qlng")]
+position = Vector2(168, 240)
+
+[node name="log2" parent="." instance=ExtResource("9_gihsu")]
+position = Vector2(416, 64)
+
+[node name="tree4" parent="." instance=ExtResource("11_wxmvy")]
+position = Vector2(400, 232)
+
+[node name="tree5" parent="." instance=ExtResource("11_wxmvy")]
+position = Vector2(608, 168)
+
+[node name="tree6" parent="." instance=ExtResource("11_wxmvy")]
+position = Vector2(-288, -56)
+
+[node name="tree7" parent="." instance=ExtResource("11_wxmvy")]
+position = Vector2(400, -24)
+
+[node name="tree8" parent="." instance=ExtResource("11_wxmvy")]
+position = Vector2(680, -24)
+
+[node name="mushroomSmall2" parent="." instance=ExtResource("13_bmehp")]
+position = Vector2(648, -104)
+
+[node name="mushroomSmall3" parent="." instance=ExtResource("13_bmehp")]
+position = Vector2(680, -176)

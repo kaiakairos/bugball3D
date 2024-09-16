@@ -41,6 +41,13 @@ var worldHeight = 0.0
 
 var rollToggle = false
 
+# bounce relief time
+var prevRollInputDir = Vector2.ZERO
+var inputDir = Vector2.ZERO
+var inputDirRotate = 0.0
+var dirChangeTick = 0
+var justChangedInputTicks = 0
+
 @export var cameraLimitX = Vector2(250,250)
 @export var cameraLimitY = Vector2(150,150)
 @export var startingAngle = Vector2(0,-1)
@@ -175,7 +182,9 @@ func _process(delta):
 			i.global_position = global_position
 			i.z_index = z_index - 1
 			get_parent().add_child(i)
-			
+	
+	
+	# get input #
 	var newDir = Vector2.ZERO
 	if Global.usingController:
 		newDir.x = Input.get_action_raw_strength("move_right_joy") - Input.get_action_raw_strength("move_left_joy")
@@ -185,25 +194,37 @@ func _process(delta):
 			newDir = Vector2.ZERO
 		else:
 			newDir = newDir.normalized()
-			
-		
-		
 	else:
 		newDir.x = int(Input.is_action_pressed("move_right")) - int(Input.is_action_pressed("move_left"))
 		newDir.y = int(Input.is_action_pressed("move_down")) - int(Input.is_action_pressed("move_up"))
 	
+	
+	if prevRollInputDir != newDir:
+		dirChangeTick = 0
+		justChangedInputTicks = 8 # how many ticks
+		
+	inputDir = newDir
+	if justChangedInputTicks > 0:
+		justChangedInputTicks -= 1
+	
+	var useDir = newDir
+	if dirChangeTick > 0:
+		useDir = newDir.rotated(inputDirRotate)
+		dirChangeTick -= 1
+	
 	if Global.mirrored:
-		newDir *= Vector2(1,-1)
+		useDir *= Vector2(1,-1)
 	
 	if !canMove:
-		newDir = Vector2.ZERO
-	
+		useDir = Vector2.ZERO
+
 	if rolling:
-		rollingMovement(newDir,delta)
+		rollingMovement(useDir,delta)
 	else:
-		staticMovement(newDir,delta)
+		staticMovement(useDir,delta)
 	
-	
+	prevRollInputDir = newDir
+	# # # # # # # # # # # # # # # # #
 	
 	$CanvasGroup/dust.emitting = rolling and velocity.length() > 100
 	$CanvasGroup/dust.scale_amount_max = min(velocity.length() / 300.0,1.5)
@@ -489,7 +510,7 @@ func checkIfHole():
 		
 		if !win:
 			holeCoyoteTick += 1
-			if holeCoyoteTick <= 3:
+			if holeCoyoteTick <= 5:
 				return
 		
 		
@@ -579,7 +600,14 @@ func bounced(normal):
 	
 	if velocity.length() > 25:
 		Sound.playSound2D(global_position,"res://audio/brush.ogg",-6.0)
-		
+	
+	if velocity.length() > 300 and inputDir != Vector2.ZERO and justChangedInputTicks <= 0:
+		inputDirRotate = Vector2(1,0).bounce(normal).angle()
+		dirChangeTick = 10 # amount of ticks to delay bounce
+	else:
+		dirChangeTick = 0
+	
+	
 	Global.shakeCamera(velocity.length() / 300.0)
 	
 func bounceSound():

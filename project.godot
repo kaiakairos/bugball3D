@@ -18,12 +18,17 @@ config/icon="res://fatUgly.png"
 
 [autoload]
 
+Steamstuff="*res://autoload/steamstuff.gd"
 Ngio="*res://autoload/ngio.gd"
 Global="*res://autoload/global.gd"
 MapTextures="*res://autoload/maptextures.gd"
 Sound="*res://autoload/sound.gd"
 Saving="*res://autoload/saving.gd"
 SkinHandler="*res://autoload/skinHandler.gd"
+
+[debug]
+
+file_logging/enable_file_logging=true
 
 [display]
 

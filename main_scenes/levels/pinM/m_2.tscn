@@ -1,10 +1,15 @@
-[gd_scene load_steps=6 format=3 uid="uid://dhyepxgd38quu"]
+[gd_scene load_steps=11 format=3 uid="uid://dhyepxgd38quu"]
 
 [ext_resource type="PackedScene" uid="uid://bith1com1osw4" path="res://world_scenes/floor/cool_floor.tscn" id="1_dlrb2"]
 [ext_resource type="PackedScene" uid="uid://dbmoijcfipmxk" path="res://object_scenes/track/track.tscn" id="2_rcc4r"]
 [ext_resource type="PackedScene" uid="uid://b00oindmgrd6" path="res://world_scenes/hole/hole.tscn" id="3_ke3gu"]
 [ext_resource type="PackedScene" uid="uid://8dac38b54nn2" path="res://object_scenes/entity/player/player.tscn" id="4_cov1x"]
 [ext_resource type="PackedScene" uid="uid://d3fge1vcn4swp" path="res://object_scenes/flag/win.tscn" id="5_vdn4c"]
+[ext_resource type="PackedScene" uid="uid://cpagp2isol5d8" path="res://object_scenes/decor/clouds/clouds.tscn" id="6_dxtio"]
+[ext_resource type="PackedScene" uid="uid://djhlxyklc7ji2" path="res://object_scenes/decor/foiliage/flower.tscn" id="7_fxxqv"]
+[ext_resource type="PackedScene" uid="uid://db0u0xfur78jy" path="res://object_scenes/decor/foiliage/tree.tscn" id="8_ybkca"]
+[ext_resource type="PackedScene" uid="uid://ddw7ejrb8d5ff" path="res://object_scenes/decor/foiliage/mushroom_small.tscn" id="9_xp3a2"]
+[ext_resource type="PackedScene" uid="uid://chcfj4d2hjoup" path="res://object_scenes/decor/foiliage/mushroom_big.tscn" id="10_g0axu"]
 
 [node name="m2" type="Node2D"]
 
@@ -82,3 +87,30 @@ color = Color(0.266667, 0.556863, 0.952941, 1)
 polygon = PackedVector2Array(-65, -456, 790, -465, 783, 351, 437, 360, 415, 232, 415, 160, 239, 160, 207, 128, 207, -136, 391, -136, 399, -120, 223, -120, 223, 96, 271, 144, 471, 144, 471, 56, 311, 56, 295, 40, 295, -120, 311, -120, 311, -32, 367, -32, 399, -64, 407, -48, 383, -24, 311, -24, 311, 24, 327, 40, 407, 40, 471, -24, 471, -248, 407, -248, 407, -48, 399, -64, 399, -120, 391, -135, 391, -200, 389, -220, 389, -308, 157, -308, 157, -220, 389, -220, 391, -200, 135, -200, 135, 160, 207, 232, 415, 232, 437, 360, -92, 364)
 renderWalls = false
 camOffset = 0.1
+
+[node name="clouds" parent="." instance=ExtResource("6_dxtio")]
+position = Vector2(-223, -348)
+
+[node name="flower" parent="." instance=ExtResource("7_fxxqv")]
+position = Vector2(155, 396)
+
+[node name="flower2" parent="." instance=ExtResource("7_fxxqv")]
+position = Vector2(63, 47)
+
+[node name="flower3" parent="." instance=ExtResource("7_fxxqv")]
+position = Vector2(430, 147)
+
+[node name="flower4" parent="." instance=ExtResource("7_fxxqv")]
+position = Vector2(413, 439)
+
+[node name="tree" parent="." instance=ExtResource("8_ybkca")]
+position = Vector2(426, 268)
+
+[node name="mushroomSmall" parent="." instance=ExtResource("9_xp3a2")]
+position = Vector2(33, 354)
+
+[node name="mushroomSmall2" parent="." instance=ExtResource("9_xp3a2")]
+position = Vector2(412, 23)
+
+[node name="mushroomBig" parent="." instance=ExtResource("10_g0axu")]
+position = Vector2(471, 342)

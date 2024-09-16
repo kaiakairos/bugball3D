@@ -22,7 +22,7 @@ var pauseSelected = 0 # Unpause, Restart, Options, Exit
 var deaths :int= 0
 
 var timeBeforeLevelLoad = 0.0
-var cheatMode = false
+var cheatMode = true
 # setting this to TRUE will subtract time from the timer if you die
 # it is intended to test S rank perfect time stuff without going through the hassle
 # of actually attempting perfect runs over and over

@@ -43,9 +43,10 @@ z_index = 30
 material = ExtResource("3_3xxvw")
 
 [node name="rail" type="Line2D" parent="CanvasGroup"]
+texture_repeat = 2
 width = 20.0
 texture = ExtResource("1_p46f5")
-texture_mode = 2
+texture_mode = 1
 joint_mode = 2
 begin_cap_mode = 1
 end_cap_mode = 1

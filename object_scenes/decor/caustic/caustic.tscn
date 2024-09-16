@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=3 uid="uid://bqdsvem2n6p6y"]
+
+[ext_resource type="Shader" path="res://object_scenes/decor/caustic/caustic.gdshader" id="1_3682a"]
+[ext_resource type="Script" path="res://object_scenes/decor/clouds/clouds.gd" id="3_nd8dy"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lw23a"]
+shader = ExtResource("1_3682a")
+shader_parameter/color = Color(0, 0.901961, 0.501961, 0.792157)
+shader_parameter/outline = Color(1, 1, 1, 0.192157)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_iwe4a"]
+frequency = 0.0376
+fractal_octaves = 2
+fractal_lacunarity = 0.0
+fractal_gain = 0.415
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_p5k0p"]
+width = 1024
+height = 1024
+generate_mipmaps = false
+seamless = true
+noise = SubResource("FastNoiseLite_iwe4a")
+
+[node name="caustic" type="Sprite2D"]
+z_index = 215
+texture_filter = 2
+texture_repeat = 2
+material = SubResource("ShaderMaterial_lw23a")
+position = Vector2(-56, -71)
+texture = SubResource("NoiseTexture2D_p5k0p")
+centered = false
+script = ExtResource("3_nd8dy")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+show_behind_parent = true
+offset_right = 1024.0
+offset_bottom = 1024.0
+color = Color(0, 1, 0.827451, 0.14902)
