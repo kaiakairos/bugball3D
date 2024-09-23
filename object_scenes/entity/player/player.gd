@@ -59,7 +59,6 @@ var rayLength = 1.0
 var canMove = false
 var inPipe = false
 
-
 ## dusts
 
 var soundSubtract = 1.0

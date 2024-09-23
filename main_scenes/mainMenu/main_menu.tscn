@@ -232,6 +232,7 @@ wallBorderColor = Color(0.203922, 0.109804, 0.152941, 1)
 [node name="CourseIcon3" parent="COURSESELECT/Courses" instance=ExtResource("10_oxygi")]
 position = Vector2(0, 190)
 image = ExtResource("12_afjsb")
+easyLevels = Array[String](["res://main_scenes/levels/bowlE/e0.tscn", "res://main_scenes/levels/bowlE/e0.tscn", "res://main_scenes/levels/bowlE/e0.tscn"])
 courseName = "C_COMINGSOON"
 
 [node name="Difficulty" type="Node2D" parent="COURSESELECT"]

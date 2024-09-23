@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://cpvhkgu7po3qd"]
+
+[ext_resource type="PackedScene" uid="uid://8dac38b54nn2" path="res://object_scenes/entity/player/player.tscn" id="1_7rbsq"]
+[ext_resource type="PackedScene" uid="uid://bith1com1osw4" path="res://world_scenes/floor/cool_floor.tscn" id="2_capr0"]
+[ext_resource type="PackedScene" uid="uid://cg3j6bkabibj5" path="res://object_scenes/bowling/pin_holder.tscn" id="3_wf7q5"]
+[ext_resource type="PackedScene" uid="uid://8pi7rw7ig14k" path="res://object_scenes/bowling/bowling_pin.tscn" id="4_4kdxi"]
+[ext_resource type="PackedScene" uid="uid://b00oindmgrd6" path="res://world_scenes/hole/hole.tscn" id="5_6u6de"]
+
+[node name="e0" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_7rbsq")]
+position = Vector2(133, 194)
+
+[node name="coolFloor" parent="." instance=ExtResource("2_capr0")]
+position = Vector2(-56, -64)
+polygon = PackedVector2Array(-112, -32, 744, -16, 744, 464, -80, 448)
+
+[node name="pinHolder" parent="." instance=ExtResource("3_wf7q5")]
+position = Vector2(104, 120)
+
+[node name="bowlingPin" parent="pinHolder" instance=ExtResource("4_4kdxi")]
+position = Vector2(72, -40)
+
+[node name="bowlingPin2" parent="pinHolder" instance=ExtResource("4_4kdxi")]
+position = Vector2(120, -8)
+
+[node name="bowlingPin3" parent="pinHolder" instance=ExtResource("4_4kdxi")]
+position = Vector2(120, 40)
+
+[node name="bowlingPin4" parent="pinHolder" instance=ExtResource("4_4kdxi")]
+position = Vector2(48, 0)
+
+[node name="HOLE" parent="." instance=ExtResource("5_6u6de")]
+position = Vector2(208, -24)
+polygon = PackedVector2Array(48, -32, 216, 56, 136, 160, 0, 56)

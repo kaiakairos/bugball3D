@@ -1,0 +1,76 @@
+[gd_scene load_steps=12 format=3 uid="uid://8pi7rw7ig14k"]
+
+[ext_resource type="Script" path="res://object_scenes/bowling/bowling_pin.gd" id="1_ig832"]
+[ext_resource type="Texture2D" uid="uid://c1ui0mq0iixus" path="res://object_scenes/bowling/pins/pin2.png" id="2_fvy6i"]
+[ext_resource type="Material" uid="uid://dl3mogo36dheg" path="res://object_scenes/decor/decor3D/decoration_3d_material.tres" id="2_vv5db"]
+[ext_resource type="Texture2D" uid="uid://bxnhfenterook" path="res://object_scenes/bowling/pins/pin3.png" id="3_vjium"]
+[ext_resource type="Texture2D" uid="uid://34w3kaablk3c" path="res://object_scenes/bowling/pins/pin5.png" id="4_yfqvm"]
+[ext_resource type="Texture2D" uid="uid://byovk6xm01b8d" path="res://object_scenes/bowling/pins/pin4.png" id="5_pglt8"]
+[ext_resource type="Texture2D" uid="uid://bbm3ior8na8np" path="res://object_scenes/bowling/pins/pin6.png" id="6_me5j0"]
+[ext_resource type="Texture2D" uid="uid://vbfcymykp8no" path="res://object_scenes/bowling/pinShadow.png" id="8_j332u"]
+[ext_resource type="Texture2D" uid="uid://dl02no6ao152b" path="res://object_scenes/bowling/bowlingPin.png" id="8_vec0d"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4uckh"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6pp8c"]
+radius = 16.0
+
+[node name="bowlingPin" type="CharacterBody2D"]
+collision_layer = 0
+script = ExtResource("1_ig832")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_4uckh")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_6pp8c")
+
+[node name="layers" type="CanvasGroup" parent="."]
+material = ExtResource("2_vv5db")
+
+[node name="Pin1" type="Sprite2D" parent="layers"]
+texture = ExtResource("2_fvy6i")
+
+[node name="Pin2" type="Sprite2D" parent="layers"]
+texture = ExtResource("2_fvy6i")
+
+[node name="Pin4" type="Sprite2D" parent="layers"]
+texture = ExtResource("3_vjium")
+
+[node name="Pin5" type="Sprite2D" parent="layers"]
+texture = ExtResource("4_yfqvm")
+
+[node name="Pin6" type="Sprite2D" parent="layers"]
+texture = ExtResource("5_pglt8")
+
+[node name="Pin7" type="Sprite2D" parent="layers"]
+texture = ExtResource("4_yfqvm")
+
+[node name="Pin8" type="Sprite2D" parent="layers"]
+texture = ExtResource("6_me5j0")
+
+[node name="PinShadow" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("8_j332u")
+offset = Vector2(0, -6)
+
+[node name="killedSprite" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("8_vec0d")
+offset = Vector2(0, -9)
+
+[node name="holecast" type="RayCast2D" parent="."]
+target_position = Vector2(0, 1)
+collision_mask = 8
+hit_from_inside = true
+collide_with_areas = true
+collide_with_bodies = false
+
+[node name="surprise" type="CanvasGroup" parent="."]
+material = ExtResource("2_vv5db")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
