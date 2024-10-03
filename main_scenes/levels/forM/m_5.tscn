@@ -25,7 +25,7 @@ polygon = PackedVector2Array(-24, -32, -24, 88, 360, 88, 360, -32)
 
 [node name="sand" parent="." instance=ExtResource("3_8b0mq")]
 position = Vector2(704, 88)
-polygon = PackedVector2Array(-16, -8, -16, 128, 320, 128, 320, -8)
+polygon = PackedVector2Array(0, -8, 0, 128, 320, 128, 320, -8)
 
 [node name="HOLE" parent="." instance=ExtResource("4_7l61d")]
 position = Vector2(744, 80)

@@ -60,6 +60,9 @@ func offsetCamera(p,vel):
 
 func _on_entrance_body_entered(body):
 	
+	if !Global.player.canMove:
+		return
+		
 	runTrack(body,false)
 
 
@@ -113,6 +116,9 @@ func runTrack(body,exit:bool):
 		
 		playaVel = (point - BOOBS[i-1]).normalized() * velocityAMOUNT
 		part.rotation = playaVel.angle() + (PI/2)
+		
+		if !is_instance_valid(Global.player):
+			return
 		
 		var tween = get_tree().create_tween().set_parallel(true)
 		tween.tween_property(body,"global_position",to_global(point),speed)

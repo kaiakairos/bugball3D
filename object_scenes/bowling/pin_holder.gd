@@ -7,13 +7,12 @@ func _ready():
 	pins = get_children().size() - 1 # minus 1 to account for particles
 
 
-
 func knockPin(pin):
 	pins -= 1
 	
 	var sound :String=  "res://audio/bowlingPinKnock" + str((randi() % 3) + 1) + ".ogg"
 	
-	Sound.playSound2D(pin.global_position,sound,-2.0)
+	Sound.playSound2D(pin.global_position,sound,-6.0,randf_range(0.9,1.1))
 	
 	if pins <= 0:
 		Sound.playSound2D(pin.global_position,"res://audio/bowlingStrike.ogg",0.0)

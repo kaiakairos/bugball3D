@@ -21,6 +21,7 @@ polygon = PackedVector2Array(-120, 0, 968, 0, 984, 16, 984, 96, 968, 112, -120, 
 position = Vector2(112, 152)
 cameraLimitX = Vector2(250, 1024)
 cameraLimitY = Vector2(150, 150)
+startingAngle = Vector2(1, 0)
 
 [node name="boostPad" parent="." instance=ExtResource("3_ghqdw")]
 position = Vector2(216, 104)

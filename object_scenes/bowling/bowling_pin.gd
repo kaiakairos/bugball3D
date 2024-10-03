@@ -91,7 +91,7 @@ func _on_area_2d_body_entered(body):
 	$PinShadow.visible = true
 	
 func directPin():
-	Sound.playSound2D(global_position,"res://audio/jump.ogg",-2.0)
+	Sound.playSound2D(global_position,"res://audio/jump.ogg",-7.0)
 	sprite.rotation = knockVelocity.rotated( (PI/2) ).angle()
 	sprite.rotation += deg_to_rad( randi_range( -25,25 ) )
 	

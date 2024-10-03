@@ -193,7 +193,7 @@ position = Vector2(250, 110)
 [node name="CourseIcon" parent="COURSESELECT/Courses" instance=ExtResource("10_oxygi")]
 image = ExtResource("10_n6bi1")
 easyLevels = Array[String](["res://main_scenes/levels/forE/0.tscn", "res://main_scenes/levels/forE/1.tscn", "res://main_scenes/levels/forE/2.tscn", "res://main_scenes/levels/forE/3.tscn", "res://main_scenes/levels/forE/18.tscn", "res://main_scenes/levels/forE/4.tscn", "res://main_scenes/levels/forE/19.tscn", "res://main_scenes/levels/forE/16.tscn", "res://main_scenes/levels/forE/8.tscn", "res://main_scenes/levels/forE/5.tscn", "res://main_scenes/levels/forE/15.tscn", "res://main_scenes/levels/forE/9.tscn", "res://main_scenes/levels/forE/6.tscn", "res://main_scenes/levels/forE/10.tscn", "res://main_scenes/levels/forE/7.tscn", "res://main_scenes/levels/forE/11.tscn", "res://main_scenes/levels/forE/12.tscn", "res://main_scenes/levels/forE/13.tscn"])
-mediumLevels = Array[String](["res://main_scenes/levels/forM/m_10.tscn", "res://main_scenes/levels/forM/m_9.tscn", "res://main_scenes/levels/forM/m_0.tscn", "res://main_scenes/levels/forM/m_1.tscn", "res://main_scenes/levels/forM/m_7.tscn", "res://main_scenes/levels/forM/m_3.tscn", "res://main_scenes/levels/forM/m_5.tscn", "res://main_scenes/levels/forM/m_8.tscn", "res://main_scenes/levels/forM/m_13.tscn", "res://main_scenes/levels/forM/m_12.tscn", "res://main_scenes/levels/forM/m_6.tscn", "res://main_scenes/levels/forM/m_11.tscn", "res://main_scenes/levels/forM/m_4.tscn"])
+mediumLevels = Array[String](["res://main_scenes/levels/forM/m_10.tscn", "res://main_scenes/levels/forM/m_9.tscn", "res://main_scenes/levels/forM/m_0.tscn", "res://main_scenes/levels/forM/m_1.tscn", "res://main_scenes/levels/forM/m_7.tscn", "res://main_scenes/levels/forM/m_3.tscn", "res://main_scenes/levels/forM/m_5.tscn", "res://main_scenes/levels/forM/m_8.tscn", "res://main_scenes/levels/forM/m_14.tscn", "res://main_scenes/levels/forM/m_12.tscn", "res://main_scenes/levels/forM/m_6.tscn", "res://main_scenes/levels/forM/m_11.tscn", "res://main_scenes/levels/forM/m_4.tscn"])
 hardLevels = Array[String](["res://main_scenes/levels/forH/h_7.tscn", "res://main_scenes/levels/forH/h_0.tscn", "res://main_scenes/levels/forH/h_1.tscn", "res://main_scenes/levels/forH/h_2.tscn", "res://main_scenes/levels/forH/h_3.tscn", "res://main_scenes/levels/forH/h_4.tscn", "res://main_scenes/levels/forH/h_5.tscn", "res://main_scenes/levels/forH/h_6.tscn", "res://main_scenes/levels/forH/h_8.tscn"])
 courseName = "C_FOREST"
 saveCodeE = "course1_EasyPB"
@@ -232,8 +232,18 @@ wallBorderColor = Color(0.203922, 0.109804, 0.152941, 1)
 [node name="CourseIcon3" parent="COURSESELECT/Courses" instance=ExtResource("10_oxygi")]
 position = Vector2(0, 190)
 image = ExtResource("12_afjsb")
-easyLevels = Array[String](["res://main_scenes/levels/bowlE/e0.tscn", "res://main_scenes/levels/bowlE/e0.tscn", "res://main_scenes/levels/bowlE/e0.tscn"])
-courseName = "C_COMINGSOON"
+easyLevels = Array[String](["res://main_scenes/levels/bowlE/e0.tscn", "res://main_scenes/levels/bowlE/e_1.tscn", "res://main_scenes/levels/bowlE/e_2.tscn", "res://main_scenes/levels/bowlE/e_3.tscn", "res://main_scenes/levels/bowlE/e_4.tscn", "res://main_scenes/levels/bowlE/e_5.tscn", "res://main_scenes/levels/bowlE/e_6.tscn", "res://main_scenes/levels/bowlE/e_7.tscn", "res://main_scenes/levels/bowlE/e_8.tscn", "res://main_scenes/levels/bowlE/e_9.tscn"])
+courseName = "C_BOWLING"
+saveCodeE = "bowlingE"
+saveCodeM = "bowlingM"
+saveCodeH = "bowlingH"
+rankLimitE = Array[float]([55.0, 80.0, 120.0, 200.0, 400.0])
+wallTexture = ExtResource("7_q5g2r")
+floorTextures = Array[Texture2D]([ExtResource("8_abxod"), ExtResource("9_twa3d"), ExtResource("10_7jakk")])
+ceilingTextures = Array[Texture2D]([ExtResource("8_abxod"), ExtResource("9_twa3d"), ExtResource("10_7jakk")])
+ceilDye = Color(0.266667, 0.556863, 0.952941, 1)
+ceilBorderColor = Color(0.00392157, 0.0509804, 0.0313726, 1)
+wallBorderColor = Color(0.203922, 0.109804, 0.152941, 1)
 
 [node name="Difficulty" type="Node2D" parent="COURSESELECT"]
 position = Vector2(500, 0)

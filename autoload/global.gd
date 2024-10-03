@@ -38,8 +38,8 @@ var doubleBounce = false
 func _ready():
 	pass
 
-
-
+func isTimerPaused():
+	return !gameController.timing
 
 func isPlayerDisqualified():
 	

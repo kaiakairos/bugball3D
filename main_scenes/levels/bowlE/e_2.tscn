@@ -1,0 +1,92 @@
+[gd_scene load_steps=11 format=3 uid="uid://c2mnkpvasodq4"]
+
+[ext_resource type="PackedScene" uid="uid://8dac38b54nn2" path="res://object_scenes/entity/player/player.tscn" id="1_028as"]
+[ext_resource type="PackedScene" uid="uid://bith1com1osw4" path="res://world_scenes/floor/cool_floor.tscn" id="2_mi171"]
+[ext_resource type="PackedScene" uid="uid://b00oindmgrd6" path="res://world_scenes/hole/hole.tscn" id="3_78rwv"]
+[ext_resource type="PackedScene" uid="uid://cg3j6bkabibj5" path="res://object_scenes/bowling/pin_holder.tscn" id="4_s1cn5"]
+[ext_resource type="PackedScene" uid="uid://8pi7rw7ig14k" path="res://object_scenes/bowling/bowling_pin.tscn" id="5_akrp8"]
+[ext_resource type="PackedScene" uid="uid://cpagp2isol5d8" path="res://object_scenes/decor/clouds/clouds.tscn" id="6_jnk02"]
+[ext_resource type="PackedScene" uid="uid://db0u0xfur78jy" path="res://object_scenes/decor/foiliage/tree.tscn" id="7_conkd"]
+[ext_resource type="PackedScene" uid="uid://oys8ghap4lj5" path="res://object_scenes/decor/foiliage/log.tscn" id="8_uviym"]
+[ext_resource type="PackedScene" uid="uid://djhlxyklc7ji2" path="res://object_scenes/decor/foiliage/flower.tscn" id="9_cxl7q"]
+[ext_resource type="PackedScene" uid="uid://cga7ecey3m637" path="res://object_scenes/decor/foiliage/bush.tscn" id="10_mkm2p"]
+
+[node name="E2" type="Node2D"]
+
+[node name="ceiling" parent="." instance=ExtResource("2_mi171")]
+position = Vector2(-128, -104)
+color = Color(0.266667, 0.556863, 0.952941, 1)
+polygon = PackedVector2Array(0, 0, 824, -8, 832, 592, 632, 336, 632, 224, 536, 128, 200, 128, 176, 152, 176, 304, 288, 304, 312, 328, 312, 392, 328, 408, 560, 408, 632, 336, 832, 592, 8, 600)
+renderWalls = false
+camOffset = 0.1
+
+[node name="Player" parent="." instance=ExtResource("1_028as")]
+position = Vector2(104, 72)
+cameraLimitX = Vector2(264, 285)
+cameraLimitY = Vector2(150, 178)
+startingAngle = Vector2(1, 0)
+
+[node name="coolFloor" parent="." instance=ExtResource("2_mi171")]
+position = Vector2(48, 24)
+polygon = PackedVector2Array(24, 0, 360, 0, 456, 96, 456, 208, 384, 280, 152, 280, 136, 264, 136, 200, 112, 176, 0, 176, 0, 24)
+
+[node name="HOLE" parent="." instance=ExtResource("3_78rwv")]
+position = Vector2(48, 128)
+polygon = PackedVector2Array(0, 0, 136, 0, 136, -104, 192, -104, 192, 0, 336, 0, 336, 96, 304, 96, 304, 176, 240, 176, 240, 96, 136, 96, 112, 72, 0, 72)
+
+[node name="pinHolder" parent="." instance=ExtResource("4_s1cn5")]
+position = Vector2(176, 144)
+
+[node name="bowlingPin" parent="pinHolder" instance=ExtResource("5_akrp8")]
+position = Vector2(112, -72)
+
+[node name="bowlingPin2" parent="pinHolder" instance=ExtResource("5_akrp8")]
+position = Vector2(216, -72)
+
+[node name="bowlingPin3" parent="pinHolder" instance=ExtResource("5_akrp8")]
+position = Vector2(272, 24)
+
+[node name="bowlingPin4" parent="pinHolder" instance=ExtResource("5_akrp8")]
+position = Vector2(48, 136)
+
+[node name="bowlingPin5" parent="pinHolder" instance=ExtResource("5_akrp8")]
+position = Vector2(200, 136)
+
+[node name="clouds" parent="." instance=ExtResource("6_jnk02")]
+position = Vector2(-232, -304)
+
+[node name="tree" parent="." instance=ExtResource("7_conkd")]
+position = Vector2(80, 280)
+
+[node name="tree2" parent="." instance=ExtResource("7_conkd")]
+position = Vector2(504, 40)
+
+[node name="tree3" parent="." instance=ExtResource("7_conkd")]
+position = Vector2(352, 328)
+
+[node name="log" parent="." instance=ExtResource("8_uviym")]
+position = Vector2(504, 296)
+
+[node name="flower" parent="." instance=ExtResource("9_cxl7q")]
+position = Vector2(496, 264)
+
+[node name="bush" parent="." instance=ExtResource("10_mkm2p")]
+position = Vector2(128, 232)
+
+[node name="flower2" parent="." instance=ExtResource("9_cxl7q")]
+position = Vector2(144, 296)
+
+[node name="flower3" parent="." instance=ExtResource("9_cxl7q")]
+position = Vector2(160, 256)
+
+[node name="flower4" parent="." instance=ExtResource("9_cxl7q")]
+position = Vector2(48, 216)
+
+[node name="flower5" parent="." instance=ExtResource("9_cxl7q")]
+position = Vector2(448, 40)
+
+[node name="flower6" parent="." instance=ExtResource("9_cxl7q")]
+position = Vector2(104, 16)
+
+[node name="bush2" parent="." instance=ExtResource("10_mkm2p")]
+position = Vector2(40, 24)

@@ -13,7 +13,7 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_4uckh"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_6pp8c"]
-radius = 16.0
+radius = 22.0
 
 [node name="bowlingPin" type="CharacterBody2D"]
 collision_layer = 0

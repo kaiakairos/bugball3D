@@ -22,6 +22,7 @@ polygon = PackedVector2Array(80, 656, 624, 656, 624, -104, 2408, -104, 2408, 120
 position = Vector2(448, 832)
 cameraLimitX = Vector2(-4564, 45654)
 cameraLimitY = Vector2(-45645, 6365)
+startingAngle = Vector2(1, 0)
 
 [node name="HOLE" parent="." instance=ExtResource("3_17ovo")]
 position = Vector2(768, 1728)
