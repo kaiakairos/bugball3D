@@ -1,0 +1,133 @@
+[gd_scene load_steps=8 format=3 uid="uid://drqlht4udap7j"]
+
+[ext_resource type="PackedScene" uid="uid://b00oindmgrd6" path="res://world_scenes/hole/hole.tscn" id="1_2v73e"]
+[ext_resource type="PackedScene" uid="uid://bith1com1osw4" path="res://world_scenes/floor/cool_floor.tscn" id="2_mtt52"]
+[ext_resource type="PackedScene" uid="uid://8dac38b54nn2" path="res://object_scenes/entity/player/player.tscn" id="3_u6xrr"]
+[ext_resource type="PackedScene" uid="uid://cg3j6bkabibj5" path="res://object_scenes/bowling/pin_holder.tscn" id="4_402m3"]
+[ext_resource type="PackedScene" uid="uid://8pi7rw7ig14k" path="res://object_scenes/bowling/bowling_pin.tscn" id="5_iwaws"]
+[ext_resource type="PackedScene" uid="uid://cpagp2isol5d8" path="res://object_scenes/decor/clouds/clouds.tscn" id="6_vu4yl"]
+[ext_resource type="PackedScene" uid="uid://djhlxyklc7ji2" path="res://object_scenes/decor/foiliage/flower.tscn" id="7_20ebv"]
+
+[node name="M2" type="Node2D"]
+
+[node name="HOLE" parent="." instance=ExtResource("1_2v73e")]
+position = Vector2(-536, -360)
+polygon = PackedVector2Array(272, -88, 1376, -120, 1424, 1200, 240, 1160)
+
+[node name="island" parent="." instance=ExtResource("2_mtt52")]
+z_index = -3
+position = Vector2(104, 56)
+polygon = PackedVector2Array(0, 0, 96, 0, 96, 96, 0, 96)
+swapWalls = true
+island = true
+
+[node name="island2" parent="." instance=ExtResource("2_mtt52")]
+z_index = -3
+position = Vector2(256, 56)
+polygon = PackedVector2Array(0, 0, 152, 0, 152, 96, 0, 96)
+swapWalls = true
+island = true
+
+[node name="island3" parent="." instance=ExtResource("2_mtt52")]
+z_index = -3
+position = Vector2(104, 272)
+polygon = PackedVector2Array(-16, 0, 96, 0, 96, 96, -32, 96)
+swapWalls = true
+island = true
+
+[node name="island4" parent="." instance=ExtResource("2_mtt52")]
+z_index = -3
+position = Vector2(240, 208)
+polygon = PackedVector2Array(-32, -16, 112, -16, 112, 96, 0, 96, 0, 48, -32, 16)
+swapWalls = true
+island = true
+
+[node name="island5" parent="." instance=ExtResource("2_mtt52")]
+z_index = -3
+position = Vector2(104, 400)
+polygon = PackedVector2Array(-32, 0, 96, 0, 96, 96, -16, 96)
+swapWalls = true
+island = true
+
+[node name="island6" parent="." instance=ExtResource("2_mtt52")]
+z_index = -3
+position = Vector2(240, 344)
+polygon = PackedVector2Array(0, 0, 96, 0, 96, 96, 0, 96)
+swapWalls = true
+island = true
+
+[node name="island7" parent="." instance=ExtResource("2_mtt52")]
+z_index = -3
+position = Vector2(368, 296)
+polygon = PackedVector2Array(0, 0, 152, 0, 152, 48, 96, 96, 0, 96)
+swapWalls = true
+island = true
+
+[node name="island9" parent="." instance=ExtResource("2_mtt52")]
+z_index = -3
+position = Vector2(432, -160)
+polygon = PackedVector2Array(0, 0, 96, 0, 96, 96, 0, 96)
+swapWalls = true
+island = true
+
+[node name="island8" parent="." instance=ExtResource("2_mtt52")]
+z_index = -3
+position = Vector2(440, 168)
+polygon = PackedVector2Array(0, -136, 80, -136, 80, 96, 0, 96)
+swapWalls = true
+island = true
+
+[node name="Player" parent="." instance=ExtResource("3_u6xrr")]
+position = Vector2(152, 104)
+cameraLimitX = Vector2(299, 320)
+cameraLimitY = Vector2(-50, 380)
+startingAngle = Vector2(1, 0)
+
+[node name="pinHolder" parent="." instance=ExtResource("4_402m3")]
+position = Vector2(8, 488)
+
+[node name="bowlingPin" parent="pinHolder" instance=ExtResource("5_iwaws")]
+position = Vector2(144, -168)
+
+[node name="bowlingPin5" parent="pinHolder" instance=ExtResource("5_iwaws")]
+position = Vector2(408, -144)
+
+[node name="bowlingPin2" parent="pinHolder" instance=ExtResource("5_iwaws")]
+position = Vector2(280, -96)
+
+[node name="bowlingPin3" parent="pinHolder" instance=ExtResource("5_iwaws")]
+position = Vector2(144, -40)
+
+[node name="bowlingPin4" parent="pinHolder" instance=ExtResource("5_iwaws")]
+position = Vector2(280, -232)
+
+[node name="bowlingPin6" parent="pinHolder" instance=ExtResource("5_iwaws")]
+position = Vector2(472, -600)
+
+[node name="bowlingPin7" parent="pinHolder" instance=ExtResource("5_iwaws")]
+position = Vector2(472, -392)
+
+[node name="coolFloor" parent="." instance=ExtResource("2_mtt52")]
+z_index = -3
+position = Vector2(304, 64)
+color = Color(0.721569, 0.721569, 0.721569, 1)
+polygon = PackedVector2Array(40, 0, 96, 0, 96, 80, 72, 80, 72, 32)
+sepLayer = false
+swapWalls = true
+
+[node name="ceil" parent="." instance=ExtResource("2_mtt52")]
+z_index = -3
+position = Vector2(304, 64)
+color = Color(0.266667, 0.556863, 0.952941, 1)
+polygon = PackedVector2Array(40, 0, 96, 0, 96, 80, 72, 80, 72, 32)
+renderWalls = false
+camOffset = 0.1
+
+[node name="clouds" parent="." instance=ExtResource("6_vu4yl")]
+position = Vector2(-176, -336)
+
+[node name="flower" parent="." instance=ExtResource("7_20ebv")]
+position = Vector2(376, 80)
+
+[node name="flower2" parent="." instance=ExtResource("7_20ebv")]
+position = Vector2(392, 128)

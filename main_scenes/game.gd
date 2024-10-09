@@ -28,6 +28,9 @@ var cheatMode = true
 # of actually attempting perfect runs over and over
 
 func _ready():
+	
+	print(Steam.connect("overlay_toggled",shouldPause))
+	
 	Global.gameController = self
 	Global.isFinalLevel = false
 	
@@ -238,3 +241,9 @@ func resetPauseIconPositions():
 
 func endMusic():
 	$music.stop()
+
+func shouldPause(shoud,balls,cock):
+	print("hello??")
+	print(shoud)
+	if shoud:
+		pauseGame()

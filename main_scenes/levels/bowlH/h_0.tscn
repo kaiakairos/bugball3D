@@ -1,0 +1,74 @@
+[gd_scene load_steps=6 format=3 uid="uid://bl7uw8kldoyc2"]
+
+[ext_resource type="PackedScene" uid="uid://bith1com1osw4" path="res://world_scenes/floor/cool_floor.tscn" id="1_bl38r"]
+[ext_resource type="PackedScene" uid="uid://8dac38b54nn2" path="res://object_scenes/entity/player/player.tscn" id="2_ost7l"]
+[ext_resource type="PackedScene" uid="uid://b00oindmgrd6" path="res://world_scenes/hole/hole.tscn" id="3_j7vq2"]
+[ext_resource type="PackedScene" uid="uid://cg3j6bkabibj5" path="res://object_scenes/bowling/pin_holder.tscn" id="4_nqtl6"]
+[ext_resource type="PackedScene" uid="uid://8pi7rw7ig14k" path="res://object_scenes/bowling/bowling_pin.tscn" id="5_rr5rl"]
+
+[node name="H0" type="Node2D"]
+
+[node name="coolFloor" parent="." instance=ExtResource("1_bl38r")]
+polygon = PackedVector2Array(0, 0, 96, 0, 96, -32, 320, -32, 320, 0, 384, 64, 384, 96, 320, 160, 320, 192, 384, 256, 384, 288, 320, 352, 320, 384, 96, 384, 96, 256, 32, 192, 32, 160, 96, 96, 96, 64, 0, 64)
+
+[node name="HOLE" parent="." instance=ExtResource("3_j7vq2")]
+position = Vector2(104, -32)
+polygon = PackedVector2Array(-8, 0, 216, 0, 216, 416, -8, 416)
+
+[node name="island" parent="." instance=ExtResource("1_bl38r")]
+z_index = -2
+position = Vector2(176, 0)
+polygon = PackedVector2Array(0, 0, 64, 0, 64, 64, 0, 64)
+swapWalls = true
+island = true
+
+[node name="island2" parent="." instance=ExtResource("1_bl38r")]
+z_index = -2
+position = Vector2(176, 96)
+polygon = PackedVector2Array(0, 0, 64, 0, 64, 64, 0, 64)
+swapWalls = true
+island = true
+
+[node name="island5" parent="." instance=ExtResource("1_bl38r")]
+z_index = -2
+position = Vector2(176, 192)
+polygon = PackedVector2Array(0, 0, 64, 0, 64, 64, 0, 64)
+swapWalls = true
+island = true
+
+[node name="island7" parent="." instance=ExtResource("1_bl38r")]
+z_index = -2
+position = Vector2(176, 288)
+polygon = PackedVector2Array(0, 0, 64, 0, 64, 64, 0, 64)
+swapWalls = true
+island = true
+
+[node name="Player" parent="." instance=ExtResource("2_ost7l")]
+position = Vector2(40, 32)
+cameraLimitX = Vector2(202, 250)
+cameraLimitY = Vector2(85, 280)
+startingAngle = Vector2(1, 0)
+
+[node name="pinHolder" parent="." instance=ExtResource("4_nqtl6")]
+position = Vector2(-160, 248)
+
+[node name="bowlingPin" parent="pinHolder" instance=ExtResource("5_rr5rl")]
+position = Vector2(368, -216)
+
+[node name="bowlingPin2" parent="pinHolder" instance=ExtResource("5_rr5rl")]
+position = Vector2(368, -120)
+
+[node name="bowlingPin3" parent="pinHolder" instance=ExtResource("5_rr5rl")]
+position = Vector2(368, -24)
+
+[node name="bowlingPin4" parent="pinHolder" instance=ExtResource("5_rr5rl")]
+position = Vector2(368, 72)
+
+[node name="bowlingPin5" parent="pinHolder" instance=ExtResource("5_rr5rl")]
+position = Vector2(224, -72)
+
+[node name="bowlingPin6" parent="pinHolder" instance=ExtResource("5_rr5rl")]
+position = Vector2(512, -168)
+
+[node name="bowlingPin7" parent="pinHolder" instance=ExtResource("5_rr5rl")]
+position = Vector2(512, 24)

@@ -92,31 +92,61 @@ var skins :Array[Dictionary]= [
 	},
 	
 	{
-		"name":"SKIN_SKY",
+		"name":"SKIN_SKY", # 9
 		"ballTex":"res://object_scenes/entity/player/skins/skyball.png",
 		"wormTex":"res://object_scenes/entity/player/skins/sky.png",
-		"mustHaveSaveKey":"default",
+		"mustHaveSaveKey":"skinSky",
 		"unlockInfo":"SKIN_SKY_UNLOCK",
 		"ngMedal":78905,
 		"steamach":null,
 	},
 	
-	{
-		"name":"SKIN_UN",
+	{ 
+		"name":"SKIN_UN", # 10
 		"ballTex":"res://object_scenes/entity/player/skins/unball.png",
 		"wormTex":"res://object_scenes/entity/player/skins/un.png",
-		"mustHaveSaveKey":"default",
+		"mustHaveSaveKey":"skinUN",
 		"unlockInfo":"SKIN_UN_UNLOCK",
 		"ngMedal":78905,
 		"steamach":null,
 	},
 	
 	{
-		"name":"SKIN_RAINBOW",
+		"name":"SKIN_RAINBOW", # 11
 		"ballTex":"res://object_scenes/entity/player/skins/rainbowball.png",
 		"wormTex":"res://object_scenes/entity/player/skins/rainbow.png",
-		"mustHaveSaveKey":"default",
+		"mustHaveSaveKey":"skinRainbow",
 		"unlockInfo":"SKIN_RAINBOW_UNLOCK",
+		"ngMedal":78905,
+		"steamach":null,
+	},
+	
+	{
+		"name":"SKIN_SPACE", # 12
+		"ballTex":"res://object_scenes/entity/player/skins/spaceBall.png",
+		"wormTex":"res://object_scenes/entity/player/skins/space.png",
+		"mustHaveSaveKey":"skinSpace",
+		"unlockInfo":"SKIN_SPACE_UNLOCK",
+		"ngMedal":78905,
+		"steamach":null,
+	},
+	
+	{
+		"name":"SKIN_FLAME", # 13
+		"ballTex":"res://object_scenes/entity/player/skins/flameBall.png",
+		"wormTex":"res://object_scenes/entity/player/skins/flame.png",
+		"mustHaveSaveKey":"skinFlame",
+		"unlockInfo":"SKIN_FLAME_UNLOCK",
+		"ngMedal":78905,
+		"steamach":null,
+	},
+	
+	{
+		"name":"SKIN_GUM", # 14
+		"ballTex":"res://object_scenes/entity/player/skins/gumBall.png",
+		"wormTex":"res://object_scenes/entity/player/skins/gum.png",
+		"mustHaveSaveKey":"skinGum",
+		"unlockInfo":"SKIN_GUM_UNLOCK",
 		"ngMedal":78905,
 		"steamach":null,
 	},

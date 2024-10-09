@@ -655,6 +655,8 @@ func changeSkin():
 			$BodyOutline.default_color = Color(1.0,1.0,1.0,0.2)
 		8:
 			bounceSoundFile = "res://audio/basketball.ogg"
+		10:
+			bounceSoundFile = "res://audio/fart.ogg"
 
 func teleportPlayerCameraRelative(ogPosition,newPosition):
 

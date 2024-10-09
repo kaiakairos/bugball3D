@@ -21,14 +21,26 @@ func postScores( deaths, time ):
 	if !disqualify:
 		match Global.levelSaveCode:
 			"course1_EasyPB":
-				Ngio.request("ScoreBoard.postScore", {"id": 13739, "value": time*1000})
+				#Ngio.request("ScoreBoard.postScore", {"id": 13739, "value": time*1000})
 				SkinHandler.UNLOCKSKIN(1)
 			"course1_MeedPB":
-				Ngio.request("ScoreBoard.postScore", {"id": 13740, "value": time*1000})
+				#Ngio.request("ScoreBoard.postScore", {"id": 13740, "value": time*1000})
 				SkinHandler.UNLOCKSKIN(2)
 			"course1_HardPB":
-				Ngio.request("ScoreBoard.postScore", {"id": 13741, "value": time*1000})
+				#Ngio.request("ScoreBoard.postScore", {"id": 13741, "value": time*1000})
 				SkinHandler.UNLOCKSKIN(3)
+			"pinballEasy":
+				SkinHandler.UNLOCKSKIN(9)
+			"pinballMedium":
+				SkinHandler.UNLOCKSKIN(10)
+			"pinballHard":
+				SkinHandler.UNLOCKSKIN(11)
+			"bowlingE":
+				SkinHandler.UNLOCKSKIN(12)
+			"bowlingM":
+				SkinHandler.UNLOCKSKIN(13)
+			"bowlingH":
+				SkinHandler.UNLOCKSKIN(14)
 	
 	if Global.mirrored:
 		SkinHandler.UNLOCKSKIN(6)

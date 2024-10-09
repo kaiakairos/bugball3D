@@ -71,3 +71,17 @@ SKIN_POOL_UNLOCK,achieve an S rank on all forest courses!,consigue un rango S en
 SKIN_GLASS_UNLOCK,complete any course with the 'mirror world' modifier enabled,"completa cualquier circuito con el modificador ""mundo espejo"" activado.",concluir qualquer percurso com o modificador “espelhar” ativado,"terminer n'importe quel parcours avec le modificateur ""monde des miroirs"" activé",ミラーワールド」モディファイアが有効なコースを完走せよ,"Schließe eine beliebige Strecke mit dem Modifikator ""spiegel"" ab."
 SKIN_TENNIS_UNLOCK,complete any course with the 'overdrive' modifier enabled,"completa cualquier recorrido con el modificador ""overdrive"" activado.",concluir qualquer percurso com o modificador “velocidade infernal” ativado,"terminer n'importe quel parcours avec le modificateur ""surmultipliée"" activé",オーバードライブ」モディファイアが有効なコースを完走せよ,Schließe eine beliebige Strecke mit aktiviertem 'enorme geschwindigkeit'-Modifikator ab
 SKIN_LEBRON_UNLOCK,read the credits,leer los créditos,leia os créditos,lire les crédits,クレジットを読む,Lies den Abspann
+C_PINBALL,pinball,pinball,pinball,flipper,ピンボール,flipper
+C_BOWLING,bowling,bolos,boliche,bowling,ボーリング,bowling
+SKIN_SKY,sky,cielo,céu,ciel,空,himmel
+SKIN_SKY_UNLOCK,complete the pinball easy course,completa el curso fácil de pinball,completar o curso fácil de pinball,compléter le cours de flipper facile,ピンボール簡単コースを完了する,den Flipper-Leichtkurs absolvieren
+SKIN_UN,unpleasant gradient,gradiente desagradable,gradiente desagradável,pente désagréable,不快なグラデーション,unangenehmes Gefälle
+SKIN_UN_UNLOCK,complete the pinball medium course,completa el curso medio de pinball,concluir o curso médio de pinball,compléter le cours moyen de flipper,ピンボールのミディアムコースを完成させる,den mittleren Flipper-Parcours absolvieren
+SKIN_RAINBOW,rainbow,arco iris,arco-íris,arc-en-ciel,虹,Regenbogen
+SKIN_RAINBOW_UNLOCK,complete the pinball hard course,completa el curso de pinball duro,concluir o curso difícil de pinball,compléter le parcours de flipper difficile,ハードピンボールコースを完了する,den Flipper-Parcours absolvieren
+SKIN_SPACE,space,cosmos,cosmos,cosmos,宇宙,weltall
+SKIN_SPACE_UNLOCK,complete the bowling easy course,completar el curso de bolos fácil,concluir o curso fácil de boliche,compléter le cours de bowling facile,ボウリング・イージーコースを完了する,den Bowling-Leichtkurs absolvieren
+SKIN_FLAME,flame,fuego,incêndio,flamme,火災,feuer
+SKIN_FLAME_UNLOCK,complete the bowling medium course,completar el curso medio de bolos,concluir o curso médio de boliche,compléter le cours sur le jeu de quilles,ボウリングのミディアムコースを完了する,den Kurs Bowling Medium absolvieren
+SKIN_GUM,gum,goma,borracha,caoutchouc,ゴム,gummi
+SKIN_GUM_UNLOCK,complete the bowling hard course,completar el curso de bolos duros,concluir o curso difícil de boliche,compléter le parcours de bowling dur,ボウリングハードコースを完了する,den Bowling-Hartplatz absolvieren

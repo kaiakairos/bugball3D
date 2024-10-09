@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=3 uid="uid://bujmrsxh8k58x"]
+[gd_scene load_steps=47 format=3 uid="uid://bujmrsxh8k58x"]
 
 [ext_resource type="Script" path="res://main_scenes/mainMenu/main_menu.gd" id="1_hw8g4"]
 [ext_resource type="PackedScene" uid="uid://bno8isqo481fp" path="res://main_scenes/mainMenu/menu_graphic.tscn" id="1_p8yr1"]
@@ -11,7 +11,8 @@
 [ext_resource type="Texture2D" uid="uid://lyuoqex6hkws" path="res://world_scenes/world_textures/layer1.png" id="10_7jakk"]
 [ext_resource type="Texture2D" uid="uid://d8ffmgomnn23" path="res://ui_scenes/courseIcons/forest.png" id="10_n6bi1"]
 [ext_resource type="PackedScene" uid="uid://cxnhvxlqgrs73" path="res://ui_scenes/courseIcons/course_icon.tscn" id="10_oxygi"]
-[ext_resource type="Texture2D" uid="uid://crav5a05mrmxc" path="res://ui_scenes/courseIcons/comingSoon.png" id="12_afjsb"]
+[ext_resource type="Texture2D" uid="uid://iqwuvr6qagoo" path="res://ui_scenes/courseIcons/pinball.png" id="11_nt5d5"]
+[ext_resource type="Texture2D" uid="uid://dqmd8d1ylhfen" path="res://ui_scenes/courseIcons/bowling.png" id="12_spdj5"]
 [ext_resource type="Texture2D" uid="uid://bwclpqq2lbsd7" path="res://ui_scenes/courseComplete/rankSmall.png" id="13_wiepu"]
 [ext_resource type="Texture2D" uid="uid://bk55xt00g5h85" path="res://ui_scenes/courseIcons/difBorder.png" id="14_7e6oy"]
 [ext_resource type="Texture2D" uid="uid://71dt2g1n0grh" path="res://ui_scenes/credits/kaiaIcon.png" id="14_s6l66"]
@@ -211,7 +212,7 @@ wallBorderColor = Color(0.203922, 0.109804, 0.152941, 1)
 
 [node name="CourseIcon2" parent="COURSESELECT/Courses" instance=ExtResource("10_oxygi")]
 position = Vector2(0, 95)
-image = ExtResource("12_afjsb")
+image = ExtResource("11_nt5d5")
 easyLevels = Array[String](["res://main_scenes/levels/pinE/e_0.tscn", "res://main_scenes/levels/pinE/e_1.tscn", "res://main_scenes/levels/pinE/e_2.tscn", "res://main_scenes/levels/pinE/e_4.tscn", "res://main_scenes/levels/pinE/e_10.tscn", "res://main_scenes/levels/pinE/e_3.tscn", "res://main_scenes/levels/pinE/e_5.tscn", "res://main_scenes/levels/pinE/e_6.tscn", "res://main_scenes/levels/pinE/e_7.tscn", "res://main_scenes/levels/pinE/e_8.tscn", "res://main_scenes/levels/pinE/e_13.tscn", "res://main_scenes/levels/pinE/e_9.tscn", "res://main_scenes/levels/pinE/e_12.tscn", "res://main_scenes/levels/pinE/e_14.tscn", "res://main_scenes/levels/pinE/e_11.tscn"])
 mediumLevels = Array[String](["res://main_scenes/levels/pinM/m_0.tscn", "res://main_scenes/levels/pinM/m_1.tscn", "res://main_scenes/levels/pinM/m_2.tscn", "res://main_scenes/levels/pinM/m_3.tscn", "res://main_scenes/levels/pinM/m_4.tscn", "res://main_scenes/levels/pinM/m_5.tscn", "res://main_scenes/levels/pinM/m_6.tscn", "res://main_scenes/levels/pinM/m_7.tscn"])
 hardLevels = Array[String](["res://main_scenes/levels/pinH/h_0.tscn", "res://main_scenes/levels/pinH/h_1.tscn", "res://main_scenes/levels/pinH/h_2.tscn", "res://main_scenes/levels/pinH/h_3.tscn", "res://main_scenes/levels/pinH/h_4.tscn", "res://main_scenes/levels/pinH/h_5.tscn"])
@@ -231,13 +232,15 @@ wallBorderColor = Color(0.203922, 0.109804, 0.152941, 1)
 
 [node name="CourseIcon3" parent="COURSESELECT/Courses" instance=ExtResource("10_oxygi")]
 position = Vector2(0, 190)
-image = ExtResource("12_afjsb")
+image = ExtResource("12_spdj5")
 easyLevels = Array[String](["res://main_scenes/levels/bowlE/e0.tscn", "res://main_scenes/levels/bowlE/e_1.tscn", "res://main_scenes/levels/bowlE/e_2.tscn", "res://main_scenes/levels/bowlE/e_3.tscn", "res://main_scenes/levels/bowlE/e_4.tscn", "res://main_scenes/levels/bowlE/e_5.tscn", "res://main_scenes/levels/bowlE/e_6.tscn", "res://main_scenes/levels/bowlE/e_7.tscn", "res://main_scenes/levels/bowlE/e_8.tscn", "res://main_scenes/levels/bowlE/e_9.tscn"])
+mediumLevels = Array[String](["res://main_scenes/levels/bowlM/m_9.tscn", "res://main_scenes/levels/bowlM/m_3.tscn", "res://main_scenes/levels/bowlM/m_1.tscn", "res://main_scenes/levels/bowlM/m_2.tscn", "res://main_scenes/levels/bowlM/m_8.tscn", "res://main_scenes/levels/bowlM/m_4.tscn", "res://main_scenes/levels/bowlM/m_6.tscn", "res://main_scenes/levels/bowlM/m_7.tscn", "res://main_scenes/levels/bowlM/m_0.tscn", "res://main_scenes/levels/bowlM/m_5.tscn"])
 courseName = "C_BOWLING"
 saveCodeE = "bowlingE"
 saveCodeM = "bowlingM"
 saveCodeH = "bowlingH"
 rankLimitE = Array[float]([55.0, 80.0, 120.0, 200.0, 400.0])
+rankLimitM = Array[float]([80.0, 120.0, 200.0, 300.0, 500.0])
 wallTexture = ExtResource("7_q5g2r")
 floorTextures = Array[Texture2D]([ExtResource("8_abxod"), ExtResource("9_twa3d"), ExtResource("10_7jakk")])
 ceilingTextures = Array[Texture2D]([ExtResource("8_abxod"), ExtResource("9_twa3d"), ExtResource("10_7jakk")])
