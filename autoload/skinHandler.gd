@@ -98,7 +98,7 @@ var skins :Array[Dictionary]= [
 		"mustHaveSaveKey":"skinSky",
 		"unlockInfo":"SKIN_SKY_UNLOCK",
 		"ngMedal":78905,
-		"steamach":null,
+		"steamach":"SKIN_SKY",
 	},
 	
 	{ 
@@ -108,7 +108,7 @@ var skins :Array[Dictionary]= [
 		"mustHaveSaveKey":"skinUN",
 		"unlockInfo":"SKIN_UN_UNLOCK",
 		"ngMedal":78905,
-		"steamach":null,
+		"steamach":"SKIN_UN",
 	},
 	
 	{
@@ -118,7 +118,7 @@ var skins :Array[Dictionary]= [
 		"mustHaveSaveKey":"skinRainbow",
 		"unlockInfo":"SKIN_RAINBOW_UNLOCK",
 		"ngMedal":78905,
-		"steamach":null,
+		"steamach":"SKIN_RAINBOW",
 	},
 	
 	{
@@ -128,7 +128,7 @@ var skins :Array[Dictionary]= [
 		"mustHaveSaveKey":"skinSpace",
 		"unlockInfo":"SKIN_SPACE_UNLOCK",
 		"ngMedal":78905,
-		"steamach":null,
+		"steamach":"SKIN_SPACE",
 	},
 	
 	{
@@ -138,7 +138,7 @@ var skins :Array[Dictionary]= [
 		"mustHaveSaveKey":"skinFlame",
 		"unlockInfo":"SKIN_FLAME_UNLOCK",
 		"ngMedal":78905,
-		"steamach":null,
+		"steamach":"SKIN_FLAME",
 	},
 	
 	{
@@ -148,7 +148,7 @@ var skins :Array[Dictionary]= [
 		"mustHaveSaveKey":"skinGum",
 		"unlockInfo":"SKIN_GUM_UNLOCK",
 		"ngMedal":78905,
-		"steamach":null,
+		"steamach":"SKIN_GUM",
 	},
 	
 ]
@@ -173,14 +173,16 @@ func UNLOCKSKIN(id):
 	
 	#Ngio.request("Medal.unlock", {"id": skins[id]["ngMedal"] })
 	medalUnlockId = skins[id]["ngMedal"]
-	if Saving.setValue(skins[id]["mustHaveSaveKey"],true):
-		return
-	Saving.write_save()
 	
 	var steamID = skins[id]["steamach"]
 	if steamID != null:
 		Steam.setAchievement(steamID)
 		Steam.storeStats()
+	
+	if Saving.setValue(skins[id]["mustHaveSaveKey"],true):
+		return
+	Saving.write_save()
+	
 	
 	#insert cool sound here
 	

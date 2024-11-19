@@ -8,7 +8,7 @@ var steam_username: String = "poop pee"
 
 func _ready():
 	
-	return # remove later to add steam api
+	#return # remove later to add steam api
 	
 	OS.set_environment("SteamAppId", str(steam_id))
 	OS.set_environment("SteamGameId", str(steam_id))

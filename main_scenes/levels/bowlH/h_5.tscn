@@ -1,0 +1,99 @@
+[gd_scene load_steps=8 format=3 uid="uid://eani47wsy8f6"]
+
+[ext_resource type="PackedScene" uid="uid://bith1com1osw4" path="res://world_scenes/floor/cool_floor.tscn" id="1_3djab"]
+[ext_resource type="PackedScene" uid="uid://8dac38b54nn2" path="res://object_scenes/entity/player/player.tscn" id="2_agogt"]
+[ext_resource type="PackedScene" uid="uid://cg3j6bkabibj5" path="res://object_scenes/bowling/pin_holder.tscn" id="3_4bsfw"]
+[ext_resource type="PackedScene" uid="uid://8pi7rw7ig14k" path="res://object_scenes/bowling/bowling_pin.tscn" id="4_wej55"]
+[ext_resource type="PackedScene" uid="uid://b00oindmgrd6" path="res://world_scenes/hole/hole.tscn" id="5_inmk2"]
+[ext_resource type="PackedScene" uid="uid://s2xavy6ulj3q" path="res://world_scenes/boost/boost_pad.tscn" id="6_13ddm"]
+[ext_resource type="PackedScene" uid="uid://cpagp2isol5d8" path="res://object_scenes/decor/clouds/clouds.tscn" id="7_w4ayu"]
+
+[node name="H5" type="Node2D"]
+
+[node name="coolFloor" parent="." instance=ExtResource("1_3djab")]
+position = Vector2(32, 32)
+polygon = PackedVector2Array(0, 0, 624, 0, 624, 440, 0, 440)
+
+[node name="Player" parent="." instance=ExtResource("2_agogt")]
+position = Vector2(344, 256)
+cameraLimitX = Vector2(250, 437)
+cameraLimitY = Vector2(157, 344)
+
+[node name="pinHolder" parent="." instance=ExtResource("3_4bsfw")]
+position = Vector2(8, 320)
+
+[node name="bowlingPin" parent="pinHolder" instance=ExtResource("4_wej55")]
+position = Vector2(336, -128)
+
+[node name="bowlingPin2" parent="pinHolder" instance=ExtResource("4_wej55")]
+position = Vector2(280, -104)
+
+[node name="bowlingPin3" parent="pinHolder" instance=ExtResource("4_wej55")]
+position = Vector2(392, -104)
+
+[node name="bowlingPin4" parent="pinHolder" instance=ExtResource("4_wej55")]
+position = Vector2(272, -48)
+
+[node name="bowlingPin5" parent="pinHolder" instance=ExtResource("4_wej55")]
+position = Vector2(400, -48)
+
+[node name="bowlingPin6" parent="pinHolder" instance=ExtResource("4_wej55")]
+position = Vector2(304, 0)
+
+[node name="bowlingPin7" parent="pinHolder" instance=ExtResource("4_wej55")]
+position = Vector2(368, 0)
+
+[node name="bowlingPin8" parent="pinHolder" instance=ExtResource("4_wej55")]
+position = Vector2(336, -208)
+
+[node name="bowlingPin9" parent="pinHolder" instance=ExtResource("4_wej55")]
+position = Vector2(224, -176)
+
+[node name="bowlingPin10" parent="pinHolder" instance=ExtResource("4_wej55")]
+position = Vector2(440, -176)
+
+[node name="bowlingPin11" parent="pinHolder" instance=ExtResource("4_wej55")]
+position = Vector2(184, -88)
+
+[node name="bowlingPin12" parent="pinHolder" instance=ExtResource("4_wej55")]
+position = Vector2(480, -96)
+
+[node name="bowlingPin13" parent="pinHolder" instance=ExtResource("4_wej55")]
+position = Vector2(208, 16)
+
+[node name="bowlingPin14" parent="pinHolder" instance=ExtResource("4_wej55")]
+position = Vector2(456, 16)
+
+[node name="bowlingPin15" parent="pinHolder" instance=ExtResource("4_wej55")]
+position = Vector2(336, 80)
+
+[node name="HOLE" parent="." instance=ExtResource("5_inmk2")]
+position = Vector2(32, 32)
+polygon = PackedVector2Array(0, 0, 624, 0, 624, 440, 0, 440)
+
+[node name="island" parent="." instance=ExtResource("1_3djab")]
+z_index = -3
+position = Vector2(144, 376)
+polygon = PackedVector2Array(-48, -312, 448, -312, 448, 64, -48, 64)
+swapWalls = true
+island = true
+
+[node name="boostPad" parent="." instance=ExtResource("6_13ddm")]
+position = Vector2(208, 128)
+texture_rotation = 3.142
+polygon = PackedVector2Array(-32, -56, -32, 304, 56, 304, 56, -56)
+angle = 3.142
+
+[node name="boostPad2" parent="." instance=ExtResource("6_13ddm")]
+position = Vector2(448, 128)
+polygon = PackedVector2Array(-32, -56, -32, 304, 56, 304, 56, -56)
+
+[node name="ceiling" parent="." instance=ExtResource("1_3djab")]
+position = Vector2(-168, -120)
+color = Color(0.266667, 0.556863, 0.952941, 1)
+polygon = PackedVector2Array(40, -8, 1048, 32, 992, 672, 824, 800, 824, 152, 200, 152, 200, 592, 824, 592, 824, 800, 64, 688)
+renderWalls = false
+camOffset = 0.1
+
+[node name="clouds" parent="." instance=ExtResource("7_w4ayu")]
+position = Vector2(-152, -215)

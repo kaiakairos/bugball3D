@@ -10,10 +10,13 @@ config_version=5
 
 [application]
 
-config/name="bugShaker"
+config/name="Bug Ball 3D"
+config/version="1.0"
 run/main_scene="res://main_scenes/compiler/loadin.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
 run/max_fps=60
+boot_splash/bg_color=Color(0, 0, 0, 1)
+boot_splash/show_image=false
 config/icon="res://fatUgly.png"
 
 [autoload]
@@ -34,6 +37,8 @@ file_logging/enable_file_logging=true
 
 window/size/viewport_width=500
 window/size/viewport_height=300
+window/size/window_width_override=1000
+window/size/window_height_override=600
 window/stretch/mode="viewport"
 
 [editor]

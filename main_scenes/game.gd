@@ -22,14 +22,14 @@ var pauseSelected = 0 # Unpause, Restart, Options, Exit
 var deaths :int= 0
 
 var timeBeforeLevelLoad = 0.0
-var cheatMode = true
+var cheatMode = false
 # setting this to TRUE will subtract time from the timer if you die
 # it is intended to test S rank perfect time stuff without going through the hassle
 # of actually attempting perfect runs over and over
 
 func _ready():
 	
-	print(Steam.connect("overlay_toggled",shouldPause))
+	#print(Steam.connect("overlay_toggled",shouldPause))
 	
 	Global.gameController = self
 	Global.isFinalLevel = false
@@ -243,7 +243,5 @@ func endMusic():
 	$music.stop()
 
 func shouldPause(shoud,balls,cock):
-	print("hello??")
-	print(shoud)
 	if shoud:
 		pauseGame()

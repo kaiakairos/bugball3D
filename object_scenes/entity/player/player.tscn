@@ -304,7 +304,6 @@ round_precision = 11
 top_level = true
 
 [node name="cover" type="ColorRect" parent="Camera2D"]
-visible = false
 z_index = 398
 offset_left = -962.0
 offset_top = -679.0

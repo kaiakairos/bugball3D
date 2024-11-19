@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://chpmdknekqvup"]
+[gd_scene load_steps=11 format=3 uid="uid://cx3t0adsvyjru"]
 
 [ext_resource type="PackedScene" uid="uid://bith1com1osw4" path="res://world_scenes/floor/cool_floor.tscn" id="1_78fwc"]
 [ext_resource type="PackedScene" uid="uid://8dac38b54nn2" path="res://object_scenes/entity/player/player.tscn" id="2_sw58q"]
@@ -125,6 +125,7 @@ position = Vector2(-256, -400)
 
 [node name="clouds2" parent="." instance=ExtResource("5_8jqwt")]
 position = Vector2(768, -400)
+active = false
 
 [node name="tree" parent="." instance=ExtResource("6_2hdko")]
 position = Vector2(1424, 256)
